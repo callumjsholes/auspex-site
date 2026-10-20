@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T22:10:29+00:00",
+ "generated_at": "2026-10-20T22:50:29+00:00",
  "today": "2026-10-20",
  "games": [
   {
@@ -71,7 +71,15 @@
    "n_books": 2,
    "locked_at": "2026-10-20T22:10:29+00:00",
    "result": "Pending",
-   "units": null
+   "units": null,
+   "closed": true,
+   "close_at": "2026-10-20T22:50:29+00:00",
+   "close_novig_p": 0.5633187772925765,
+   "close_market_pct": 56.3,
+   "clv_pts": 2.7,
+   "close_price": null,
+   "close_line": 26.5,
+   "clv_novig": 0.027224
   },
   {
    "id": "401909089-1966-ast",
@@ -100,7 +108,17 @@
    "n_books": 8,
    "locked_at": "2026-10-20T22:10:29+00:00",
    "result": "Pending",
-   "units": null
+   "units": null,
+   "closed": true,
+   "close_at": "2026-10-20T22:50:29+00:00",
+   "close_median": -121,
+   "close_novig_p": 0.5122955345448756,
+   "close_market_pct": 51.2,
+   "clv_pts": 2.7,
+   "close_price": -109,
+   "close_line": 7.5,
+   "clv_price": 0.095023,
+   "clv_novig": 0.027709
   },
   {
    "id": "401909089-5124612-ast",
@@ -129,7 +147,17 @@
    "n_books": 6,
    "locked_at": "2026-10-20T22:10:29+00:00",
    "result": "Pending",
-   "units": null
+   "units": null,
+   "closed": true,
+   "close_at": "2026-10-20T22:50:29+00:00",
+   "close_median": -120,
+   "close_novig_p": 0.505263391982866,
+   "close_market_pct": 50.5,
+   "clv_pts": 0.2,
+   "close_price": -113,
+   "close_line": 2.5,
+   "clv_price": 0.060034,
+   "clv_novig": 0.002288
   },
   {
    "id": "401909089-3136195-ast",
@@ -158,7 +186,17 @@
    "n_books": 7,
    "locked_at": "2026-10-20T22:10:29+00:00",
    "result": "Pending",
-   "units": null
+   "units": null,
+   "closed": true,
+   "close_at": "2026-10-20T22:50:29+00:00",
+   "close_median": -105,
+   "close_novig_p": 0.48175249218014893,
+   "close_market_pct": 48.2,
+   "clv_pts": 0.3,
+   "close_price": -104,
+   "close_line": 4.5,
+   "clv_price": 0.02439,
+   "clv_novig": 0.002903
   },
   {
    "id": "401909088-4066354-pts",
@@ -412,9 +450,9 @@
   "units": 0.59,
   "roi": 8.5,
   "pending": 4,
-  "avg_clv_pts": 1.82,
-  "beat_close_pct": 50.0,
-  "clv_n": 6
+  "avg_clv_pts": 1.68,
+  "beat_close_pct": 70.0,
+  "clv_n": 10
  },
  "by_tier": {
   "Pick": {
@@ -426,9 +464,9 @@
    "units": 0.59,
    "roi": 8.5,
    "pending": 4,
-   "avg_clv_pts": 1.82,
-   "beat_close_pct": 50.0,
-   "clv_n": 6
+   "avg_clv_pts": 1.68,
+   "beat_close_pct": 70.0,
+   "clv_n": 10
   }
  },
  "series": [
@@ -437,7 +475,9 @@
    "units": 0.59
   }
  ],
- "errors": [],
+ "errors": [
+  "close: no median for PHI@NYK: Jalen Brunson"
+ ],
  "rules": {
   "tiers": [
    {
