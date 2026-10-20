@@ -4,6 +4,7 @@
  ".github/workflows/timer.yml",
  ".nojekyll",
  "404.html",
+ "CNAME",
  "apple-touch-icon.png",
  "brand/mark.png",
  "content.js",
