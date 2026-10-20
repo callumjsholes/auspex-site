@@ -1,0 +1,117 @@
+{
+ "rows": [
+  {
+   "season": "2022-23",
+   "games": 1310,
+   "ll_model": 0.6543,
+   "ll_market": 0.653,
+   "bets_5_7": 203,
+   "roi_5_7": 4.0,
+   "bets_7": 264,
+   "roi_7": 6.1,
+   "staked": 731,
+   "units": 40.1,
+   "roi": 5.5
+  },
+  {
+   "season": "2023-24",
+   "games": 1309,
+   "ll_model": 0.6589,
+   "ll_market": 0.6558,
+   "bets_5_7": 184,
+   "roi_5_7": -1.2,
+   "bets_7": 222,
+   "roi_7": 2.8,
+   "staked": 628,
+   "units": 10.3,
+   "roi": 1.6
+  },
+  {
+   "season": "2024-25",
+   "games": 1306,
+   "ll_model": 0.6602,
+   "ll_market": 0.6579,
+   "bets_5_7": 187,
+   "roi_5_7": 4.3,
+   "bets_7": 228,
+   "roi_7": 2.1,
+   "staked": 643,
+   "units": 17.6,
+   "roi": 2.7
+  },
+  {
+   "season": "2025-26",
+   "games": 1308,
+   "ll_model": 0.6798,
+   "ll_market": 0.6821,
+   "bets_5_7": 185,
+   "roi_5_7": 0.9,
+   "bets_7": 187,
+   "roi_7": 15.7,
+   "staked": 559,
+   "units": 60.3,
+   "roi": 10.8
+  }
+ ],
+ "total": {
+  "games": 5233,
+  "bets": 1660,
+  "staked": 2561,
+  "units": 128.2,
+  "roi": 5.0,
+  "ci": [
+   -0.6,
+   10.6
+  ],
+  "max_drawdown": -40.1
+ },
+ "buckets": [
+  [
+   "3-4",
+   670,
+   -2.2
+  ],
+  [
+   "4-5",
+   544,
+   -2.1
+  ],
+  [
+   "5-6",
+   425,
+   8.2
+  ],
+  [
+   "6-7",
+   334,
+   -5.7
+  ],
+  [
+   "7-9",
+   449,
+   8.8
+  ],
+  [
+   "9-12",
+   310,
+   0.1
+  ],
+  [
+   "12+",
+   142,
+   11.4
+  ]
+ ],
+ "notes": [
+  "Walk-forward: every game predicted only from games before it; each season's settings fit only on earlier seasons.",
+  "Bets graded at the real closing price (vig included); edge measured against the no-vig closing line.",
+  "Backtests use the goalies who actually started, so live picks lock close to puck drop."
+ ],
+ "blind": {
+  "seasons": "2023-24 to 2025-26",
+  "picks": 1259,
+  "units": 77.4,
+  "staked": 1921,
+  "roi": 4.0
+ }
+}

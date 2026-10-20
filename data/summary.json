@@ -1,0 +1,60 @@
+{
+ "generated_at": "2026-10-19T22:52:03+00:00",
+ "today": "2026-10-19",
+ "live": {
+  "bets": 0,
+  "wins": 0,
+  "losses": 0,
+  "staked": 0,
+  "units": 0,
+  "roi": null,
+  "avg_clv_pts": null,
+  "beat_close_pct": null,
+  "pending": 0,
+  "close_ev_units": null,
+  "close_ev_roi": null,
+  "close_picks": 0
+ },
+ "live_by_tier": {},
+ "live_series": [],
+ "backtest_this_season": {
+  "bets": 0,
+  "wins": 0,
+  "losses": 0,
+  "staked": 0,
+  "units": 0,
+  "roi": null,
+  "avg_clv_pts": null,
+  "beat_close_pct": null,
+  "pending": 0,
+  "close_ev_units": null,
+  "close_ev_roi": null,
+  "close_picks": 0
+ },
+ "backtest_series": [],
+ "accuracy": {
+  "games": 0,
+  "model_logloss": null,
+  "market_logloss": null,
+  "lines_games": 0,
+  "lines_logloss": null,
+  "main_logloss_same_games": null
+ },
+ "errors": [],
+ "config": {
+  "staking": [
+   {
+    "min_edge": 7,
+    "units": 2,
+    "label": "Best bet"
+   },
+   {
+    "min_edge": 5,
+    "units": 1,
+    "label": "Bet"
+   }
+  ],
+  "pregame_minutes": 120,
+  "price_rule": "median"
+ }
+}

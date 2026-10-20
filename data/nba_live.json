@@ -1,0 +1,97 @@
+{
+ "generated_at": "2026-10-20T04:09:58+00:00",
+ "today": "2026-10-20",
+ "games": [
+  {
+   "game_id": "401909088",
+   "game": "BOS@DET",
+   "home": "DET",
+   "away": "BOS",
+   "start_utc": "2026-10-20T19:00Z",
+   "state": "pre",
+   "completed": false,
+   "hs": 0,
+   "as_": 0,
+   "locked": false,
+   "picks": 0
+  },
+  {
+   "game_id": "401909089",
+   "game": "PHI@NYK",
+   "home": "NYK",
+   "away": "PHI",
+   "start_utc": "2026-10-20T23:00Z",
+   "state": "pre",
+   "completed": false,
+   "hs": 0,
+   "as_": 0,
+   "locked": false,
+   "picks": 0
+  },
+  {
+   "game_id": "401909090",
+   "game": "OKC@SAS",
+   "home": "SAS",
+   "away": "OKC",
+   "start_utc": "2026-10-21T01:30Z",
+   "state": "pre",
+   "completed": false,
+   "hs": 0,
+   "as_": 0,
+   "locked": false,
+   "picks": 0
+  }
+ ],
+ "next_date": "2026-10-21",
+ "picks": [],
+ "summary": {
+  "bets": 0,
+  "wins": 0,
+  "losses": 0,
+  "pushes": 0,
+  "staked": 0,
+  "units": 0,
+  "roi": null,
+  "pending": 0,
+  "avg_clv_pts": null,
+  "beat_close_pct": null,
+  "clv_n": 0
+ },
+ "by_tier": {
+  "Pick": {
+   "bets": 0,
+   "wins": 0,
+   "losses": 0,
+   "pushes": 0,
+   "staked": 0,
+   "units": 0,
+   "roi": null,
+   "pending": 0,
+   "avg_clv_pts": null,
+   "beat_close_pct": null,
+   "clv_n": 0
+  }
+ },
+ "series": [],
+ "errors": [],
+ "rules": {
+  "tiers": [
+   {
+    "label": "Pick",
+    "units": 1.0,
+    "min_ev": 0.04,
+    "min_edge": 2.0
+   }
+  ],
+  "lock_minutes": 50,
+  "books": [
+   "draftkings",
+   "fanduel",
+   "betmgm",
+   "williamhill_us",
+   "betrivers",
+   "fanatics",
+   "espnbet"
+  ]
+ }
+}

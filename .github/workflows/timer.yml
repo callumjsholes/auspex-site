@@ -1,0 +1,30 @@
+name: Site timer
+
+# Waits on data/wake.json and starts "Update picks" on the private model repo at
+# lock and close times. Public-repo minutes do not count against the free plan.
+# Started by timer-arm.yml. Exits immediately if NHL_MODEL_DISPATCH_TOKEN is unset.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: auspex-timer
+  cancel-in-progress: false
+
+jobs:
+  timer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait and trigger runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NHL_MODEL_DISPATCH_TOKEN: ${{ secrets.NHL_MODEL_DISPATCH_TOKEN }}
+          NHL_MODEL_REPO: callumjsholes/NHL-MODEL
+          TIMER_CMD: wait
+        run: python3 .github/timer.py wait

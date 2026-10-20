@@ -1,0 +1,269 @@
+{
+ "note": "Historical series for the charts. The daily pipeline does not write this file. Live charts are drawn in the browser from picks.json and nba_live.json.",
+ "nba_test": {
+  "label": "Unseen games, 16 Dec 2025 to 24 Jan 2026",
+  "range": [
+   "2025-12-16",
+   "2026-01-24"
+  ],
+  "bets": 617,
+  "wins": 342,
+  "losses": 275,
+  "units": 45.8,
+  "roi": 7.4,
+  "ci": [
+   -0.3,
+   15.1
+  ],
+  "win_pct": 55.4,
+  "max_drawdown": -12.1,
+  "trough_date": "2025-12-28",
+  "trough_units": -0.01,
+  "curve_end": 45.79
+ },
+ "nba_equity": [
+  {
+   "date": "2025-12-16",
+   "units": 4.16
+  },
+  {
+   "date": "2025-12-17",
+   "units": 3.16
+  },
+  {
+   "date": "2025-12-18",
+   "units": 2.95
+  },
+  {
+   "date": "2025-12-19",
+   "units": 7.43
+  },
+  {
+   "date": "2025-12-20",
+   "units": 8.83
+  },
+  {
+   "date": "2025-12-21",
+   "units": 12.12
+  },
+  {
+   "date": "2025-12-22",
+   "units": 12.09
+  },
+  {
+   "date": "2025-12-23",
+   "units": 8.05
+  },
+  {
+   "date": "2025-12-24",
+   "units": 1.68
+  },
+  {
+   "date": "2025-12-25",
+   "units": 5.17
+  },
+  {
+   "date": "2025-12-26",
+   "units": 4.93
+  },
+  {
+   "date": "2025-12-27",
+   "units": 5.78
+  },
+  {
+   "date": "2025-12-28",
+   "units": -0.01
+  },
+  {
+   "date": "2025-12-29",
+   "units": 1.61
+  },
+  {
+   "date": "2025-12-30",
+   "units": 6.26
+  },
+  {
+   "date": "2025-12-31",
+   "units": 8.77
+  },
+  {
+   "date": "2026-01-01",
+   "units": 6.39
+  },
+  {
+   "date": "2026-01-02",
+   "units": 4.65
+  },
+  {
+   "date": "2026-01-03",
+   "units": 10.92
+  },
+  {
+   "date": "2026-01-04",
+   "units": 17.23
+  },
+  {
+   "date": "2026-01-05",
+   "units": 18.33
+  },
+  {
+   "date": "2026-01-06",
+   "units": 19.85
+  },
+  {
+   "date": "2026-01-07",
+   "units": 17.8
+  },
+  {
+   "date": "2026-01-08",
+   "units": 18.64
+  },
+  {
+   "date": "2026-01-09",
+   "units": 26.93
+  },
+  {
+   "date": "2026-01-10",
+   "units": 28.09
+  },
+  {
+   "date": "2026-01-11",
+   "units": 28.5
+  },
+  {
+   "date": "2026-01-12",
+   "units": 31.38
+  },
+  {
+   "date": "2026-01-13",
+   "units": 36.08
+  },
+  {
+   "date": "2026-01-14",
+   "units": 37.06
+  },
+  {
+   "date": "2026-01-15",
+   "units": 41.33
+  },
+  {
+   "date": "2026-01-16",
+   "units": 43.34
+  },
+  {
+   "date": "2026-01-17",
+   "units": 38.58
+  },
+  {
+   "date": "2026-01-18",
+   "units": 38.84
+  },
+  {
+   "date": "2026-01-19",
+   "units": 44.55
+  },
+  {
+   "date": "2026-01-20",
+   "units": 46.96
+  },
+  {
+   "date": "2026-01-21",
+   "units": 40.49
+  },
+  {
+   "date": "2026-01-22",
+   "units": 44.31
+  },
+  {
+   "date": "2026-01-23",
+   "units": 44.47
+  },
+  {
+   "date": "2026-01-24",
+   "units": 45.79
+  }
+ ],
+ "nba_monthly": [
+  {
+   "month": "2025-12",
+   "bets": 256,
+   "wins": 137,
+   "losses": 119,
+   "units": 8.8,
+   "roi": 3.4
+  },
+  {
+   "month": "2026-01",
+   "bets": 361,
+   "wins": 205,
+   "losses": 156,
+   "units": 37.0,
+   "roi": 10.3
+  }
+ ],
+ "nba_by_stat": [
+  {
+   "stat": "Points",
+   "bets": 86,
+   "units": 18.6,
+   "roi": 21.6,
+   "ci": [
+    1.6,
+    41.6
+   ],
+   "win_pct": 62.8
+  },
+  {
+   "stat": "Rebounds",
+   "bets": 192,
+   "units": 31.8,
+   "roi": 16.6,
+   "ci": [
+    3.2,
+    29.9
+   ],
+   "win_pct": 60.9
+  },
+  {
+   "stat": "Assists",
+   "bets": 339,
+   "units": -4.6,
+   "roi": -1.4,
+   "ci": [
+    -11.9,
+    9.2
+   ],
+   "win_pct": 50.4
+  }
+ ],
+ "nba_resample": {
+  "note": "1,000 reshuffles of those same unseen bets, each path 1,000 bets long. Not the historical path.",
+  "paths": 1000,
+  "bets": 1000,
+  "p_profit": 99,
+  "median_end": 74.9,
+  "p5_end": 23.1,
+  "median_drawdown": 18.5
+ },
+ "nhl_clv_move": [
+  {
+   "season": "2022-23",
+   "games_with_open": 968,
+   "edges": 345,
+   "moved_pct": 58.6
+  },
+  {
+   "season": "2023-24",
+   "games_with_open": 1281,
+   "edges": 454,
+   "moved_pct": 60.6
+  },
+  {
+   "season": "2024-25",
+   "games_with_open": 1299,
+   "edges": 428,
+   "moved_pct": 60.7
+  }
+ ],
+ "nhl_clv_missing": "2025-26 has no closing-line movement figure in data/seed/strict.json."
+}

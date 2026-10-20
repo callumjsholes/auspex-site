@@ -1,0 +1,30 @@
+{
+ "generated_at": "2026-10-20T17:10:18+00:00",
+ "keep_watching_until": "2026-10-21T02:30:00+00:00",
+ "events": [
+  {
+   "at": "2026-10-20T18:10:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
+   "at": "2026-10-20T21:00:00+00:00",
+   "key": "pregame",
+   "mode": "pregame",
+   "nba_mode": "skip"
+  },
+  {
+   "at": "2026-10-20T22:10:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
+   "at": "2026-10-21T00:40:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  }
+ ]
+}
