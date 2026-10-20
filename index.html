@@ -322,7 +322,15 @@
       <p data-c="email.body"></p>
       <p data-c="email.cost"></p>
       <div id="access-waitlist"></div>
-      <noscript><p class="form-note">Or subscribe at <a href="https://auspexsports.beehiiv.com">auspexsports.beehiiv.com</a>.</p></noscript>
+      <noscript>
+        <form class="waitlist" method="get" action="https://auspexsports.beehiiv.com/subscribe">
+          <label class="sr" for="waitlist-email-noscript">Email address</label>
+          <input id="waitlist-email-noscript" type="email" name="email" required placeholder="you@example.com" autocomplete="email" autocapitalize="none" autocorrect="off" spellcheck="false" inputmode="email">
+          <input type="hidden" name="utm_source" value="auspexsports.com">
+          <button class="btn fill" type="submit">Join the list</button>
+          <p class="form-note">This opens the signup page. Type the same address there. That step sends the welcome note.</p>
+        </form>
+      </noscript>
     </div>
     <ul data-list="perks"></ul>
   </section>

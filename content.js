@@ -33,25 +33,32 @@ window.AUSPEX = {
     withNumbers: "I post NHL moneylines and NBA player props before the line moves and grade each one at the price I posted. Tests, not the live record: NHL {nhlRoi} ROI, {nhlUnits} units, on {nhlBets} bets. NBA props {nbaRoi} ROI, {nbaUnits} units, on {nbaBets} unseen bets."
   },
 
-  /* Beehiiv is connected. To point this at a different form, paste the new form id.
-     Beehiiv → Subscribe forms → your form → Get embed code. The id is the
-     data-beehiiv-form value in that script tag.
-     The loader renders the form where that script sits. One form per page:
-     a second copy is the same list, and the loader can hide extras after a signup.
-     Other buttons on the page scroll to #waitlist.
-     subscribeUrl is the public newsletter. It is the link when the embed does not
-     load, and the link in the page's <noscript> block (that one is written in
-     index.html because it has to work with JavaScript off).
+  /* Beehiiv is connected. The email box is on this site. Submitting it opens
+     subscribePage in this same tab, with the address in the ?email= parameter.
+     Beehiiv's page does not copy that parameter into its box (checked on the
+     live page). The person finishes there. That page is what adds them to the
+     list and sends the welcome note.
+     The embed iframe is not used. On iPhone Safari it never appears: the loader
+     (https://subscribe-forms.beehiiv.com/v3/loader.js, form id below) has to
+     fetch its config and then frame subscribe-forms.beehiiv.com, and that frame
+     runs a PerimeterX bot script. Safari's tracking prevention stops that path.
+     formId is kept so the embed can be found again. The page does not load it.
+     workerUrl is optional. Leave it blank. If you deploy site/worker with a
+     Beehiiv API key, put the worker's URL here. The box then posts the address
+     to the worker and stays on this page. If the worker is down, the box still
+     opens subscribePage. No key lives in this file.
+     subscribeUrl is the public newsletter home. Other Beehiiv links use it.
+     The no-JavaScript form is in index.html. It posts to the same subscribe page.
      Kit or Buttondown: set provider to "kit" or "buttondown" and fill that action.
      Leave them blank while Beehiiv is in use. */
   waitlist: {
     provider: "beehiiv",
     formId: "2c08e9f0-814d-4936-8543-36d17a958249",
     publicationId: "pub_204c4896-f2e4-456c-bc85-1d74bd014583",
-    loaderUrl: "https://subscribe-forms.beehiiv.com/v3/loader.js",
-    attributionUrl: "https://subscribe-forms.beehiiv.com/attribution.js",
+    subscribePage: "https://auspexsports.beehiiv.com/subscribe",
     subscribeUrl: "https://auspexsports.beehiiv.com",
     subscribeHost: "auspexsports.beehiiv.com",
+    workerUrl: "",
     kitAction: "",
     kitEmailField: "email_address",
     buttondownAction: "",
@@ -223,14 +230,16 @@ window.AUSPEX = {
     heading: "Email list",
     body: "Picks on this page are free while the live record is new. Join if you want a note when a paid tier opens. Nothing is charged now.",
     cost: "The data behind this costs me hundreds of dollars a month. The more people who follow along, the more time I can put into the models.",
+    button: "Join the list",
+    next: "This opens the signup page. Type the same address there. That step sends the welcome note.",
+    joined: "You're on the list. Watch for the welcome note.",
     or: "Or subscribe at",
     items: [
       "NHL moneylines on game days",
       "NBA points, rebounds, and assists",
       "The book and the price",
       "The full record, wins and losses"
-    ],
-    failed: "The form did not load."
+    ]
   },
 
   legal: {

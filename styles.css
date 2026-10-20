@@ -96,7 +96,7 @@ h1 { font-weight: 680; font-size: clamp(36px, 5vw, 52px); line-height: 1.05; let
 .btn.fill:hover { filter: brightness(1.05); }
 .btn:hover { background: var(--soft); }
 .btn.fill:hover { color: #fff; }
-button.btn { font-family: inherit; }
+button.btn { font-family: inherit; appearance: none; -webkit-appearance: none; }
 .text-link { font-weight: 650; color: var(--ink); }
 
 .slip { background: var(--slip); border: 1px solid var(--line); border-top: 3px solid var(--bronze); padding: 20px 20px 14px; }
@@ -114,11 +114,13 @@ button.btn { font-family: inherit; }
 .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 7px; vertical-align: 1px; }
 .dot.h { background: var(--ink); } .dot.b { background: var(--bronze); }
 
-.waitlist { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px; }
+.waitlist { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 16px; }
 .waitlist input[type="email"] {
-  min-height: 44px; flex: 1 1 220px; border: 1px solid var(--line);
-  padding: 0 12px; font: inherit; background: var(--slip); color: var(--ink);
+  min-height: 44px; min-width: 0; flex: 1 1 220px; border: 1px solid var(--line);
+  padding: 0 12px; font: inherit; font-size: 16px; background: var(--slip); color: var(--ink);
+  border-radius: 0; appearance: none; -webkit-appearance: none;
 }
+.waitlist .form-note { flex-basis: 100%; }
 .form-note { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
 .form-fallback { color: var(--ink); }
 .waitlist-slot { max-width: 560px; }
