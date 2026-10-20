@@ -67,10 +67,32 @@
     const n = Number(v);
     return Math.abs(n) <= 2 ? n * 100 : n;
   }
-  function reasonText(model, market, ev) {
+  function marketAmerican(percent) {
+    // No-vig consensus already stored as a percent (market_pct, or the NHL side percent).
+    // p >= 0.5 -> -100*p/(1-p); otherwise +100*(1-p)/p. 50% is +100, not -100.
+    const pct = Number(percent);
+    if (percent == null || percent === "" || !Number.isFinite(pct)) return null;
+    if (!(pct > 0 && pct < 100)) return null;
+    const p = pct / 100;
+    if (p === 0.5) return 100;
+    const raw = p >= 0.5 ? (-100 * p) / (1 - p) : (100 * (1 - p)) / p;
+    if (!Number.isFinite(raw)) return null;
+    const odds = Math.round(raw);
+    return odds === 0 ? null : odds;
+  }
+  function booksNote(n) {
+    const count = Number(n);
+    if (n == null || n === "" || !Number.isFinite(count) || count < 1) return "no vig";
+    const books = Math.round(count);
+    return (books === 1 ? "1 book" : books + " books") + ", no vig";
+  }
+  function reasonText(model, market, ev, nBooks) {
     const bits = [];
-    if (finite(model) && finite(market)) {
-      bits.push(copy("templates.reasonChance", { model: plainNum(model), market: plainNum(market) }));
+    const price = marketAmerican(market);
+    if (finite(model) && price != null) {
+      bits.push(copy("templates.reasonChance", { model: plainNum(model), price: am(price), books: booksNote(nBooks) }));
+    } else if (finite(model) && finite(market)) {
+      bits.push(copy("templates.reasonChancePct", { model: plainNum(model), market: plainNum(market) }));
     }
     if (finite(ev)) bits.push(copy("templates.reasonEv", { ev: plainNum(ev) }));
     return bits.filter(Boolean).join(" ");
@@ -84,10 +106,10 @@
   }
   function nhlReason(g) {
     if (!(Number(g.stake) > 0)) return "";
-    return reasonText(sidePct(g, g.edge_side, "model"), sidePct(g, g.edge_side, "market"), evPercent(g.price_ev));
+    return reasonText(sidePct(g, g.edge_side, "model"), sidePct(g, g.edge_side, "market"), evPercent(g.price_ev), g.n_books);
   }
   function nbaReason(p) {
-    return reasonText(p.model_pct, p.market_pct, p.ev_pct);
+    return reasonText(p.model_pct, p.market_pct, p.ev_pct, p.n_books);
   }
 
   function nbaRuleText() {
