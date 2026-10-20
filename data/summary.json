@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T21:00:15+00:00",
+ "generated_at": "2026-10-20T22:45:12+00:00",
  "today": "2026-10-20",
  "live": {
   "bets": 0,
@@ -11,9 +11,9 @@
   "avg_clv_pts": null,
   "beat_close_pct": null,
   "pending": 2,
-  "close_ev_units": null,
-  "close_ev_roi": null,
-  "close_picks": 0
+  "close_ev_units": -0.13,
+  "close_ev_roi": -4.3,
+  "close_picks": 2
  },
  "live_by_tier": {
   "Bet": {
@@ -26,9 +26,9 @@
    "avg_clv_pts": null,
    "beat_close_pct": null,
    "pending": 1,
-   "close_ev_units": null,
-   "close_ev_roi": null,
-   "close_picks": 0
+   "close_ev_units": -0.05,
+   "close_ev_roi": -5.2,
+   "close_picks": 1
   },
   "Best bet": {
    "bets": 0,
@@ -40,9 +40,9 @@
    "avg_clv_pts": null,
    "beat_close_pct": null,
    "pending": 1,
-   "close_ev_units": null,
-   "close_ev_roi": null,
-   "close_picks": 0
+   "close_ev_units": -0.08,
+   "close_ev_roi": -3.9,
+   "close_picks": 1
   }
  },
  "live_series": [],

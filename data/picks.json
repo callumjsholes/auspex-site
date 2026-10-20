@@ -17,12 +17,19 @@
   "lock_novig_p": 0.5175132104486625,
   "goalies": "Scott Wedgewood (Confirmed) v Jake Allen (Confirmed)",
   "locked_at": "2026-10-20T21:00:15+00:00",
-  "close_price": -117,
-  "close_market_pct": 51.8,
+  "close_price": -115,
+  "close_market_pct": 51.1,
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-10-20T21:00:15+00:00"
+  "close_at": "2026-10-20T22:45:12+00:00",
+  "close_median": -115,
+  "close_novig_p": 0.510585573670457,
+  "closed": true,
+  "clv_pts": -0.7,
+  "close_ev_units": -0.052,
+  "clv_price": -0.007951,
+  "clv_novig": -0.006928
  },
  {
   "game_id": 2026020144,
@@ -43,10 +50,17 @@
   "goalies": "Darcy Kuemper (Likely) v Logan Thompson (Confirmed)",
   "locked_at": "2026-10-20T21:00:15+00:00",
   "close_price": 135,
-  "close_market_pct": 41.1,
+  "close_market_pct": 40.9,
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-10-20T21:00:15+00:00"
+  "close_at": "2026-10-20T22:45:12+00:00",
+  "close_median": 135,
+  "close_novig_p": 0.4094243141838453,
+  "closed": true,
+  "clv_pts": -0.2,
+  "close_ev_units": -0.078,
+  "clv_price": 0.0,
+  "clv_novig": -0.002076
  }
 ]
