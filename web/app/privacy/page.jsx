@@ -12,6 +12,8 @@ export default function Privacy() {
       <p>The site has no accounts and no log-in. If you join the email list, your address is collected and stored by Beehiiv, our email service, and Beehiiv's privacy policy applies to it.</p>
       <h2>What the address is used for</h2>
       <p>Sending picks and news about Auspex Sports, including whether a paid tier opens. The list is never sold.</p>
+      <h2>Visits</h2>
+      <p>On auspexsports.com the browser sends one visit ping per page: a random id kept in local storage, the page path, and the referrer. It does not use cookies. Add ?nocount=1 to any address to stop those pings on this browser, or ?count=1 to turn them back on.</p>
       <h2>Hosting</h2>
       <p>The site is hosted on Vercel, which may keep ordinary server logs such as the IP address of a request.</p>
       <h2>How to leave</h2>
