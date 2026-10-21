@@ -1,8 +1,6 @@
 import { notFound } from "next/navigation";
-import { recapDays, recapText, recordText, shareText } from "@/lib/recap";
+import { recapDays, recordText, shareText } from "@/lib/recap";
 import { dayLong, dayShort, signed } from "@/lib/format";
-import { SITE } from "@/lib/site";
-import RecapShare from "@/components/RecapShare";
 
 export const dynamicParams = false;
 
@@ -25,7 +23,6 @@ export default async function RecapDay({ params }) {
   const days = recapDays();
   const d = days.find((x) => x.date === date);
   if (!d) notFound();
-  const url = `${SITE.url}/recap/${d.date}`;
   return (
     <div className="page wrap">
       <div className="intro">
@@ -35,8 +32,7 @@ export default async function RecapDay({ params }) {
       <div className="recap">
         <img className="recap-card" src={`/recap/${d.date}/card`} width="1080" height="1350" alt={`Recap card: ${shareText(d)}`} />
         <div>
-          <RecapShare date={d.date} share={shareText(d)} url={url} text={recapText(d)} />
-          <h2 style={{ fontSize: 18, margin: "26px 0 0" }}>Other days</h2>
+          <h2 style={{ fontSize: 18, margin: 0 }}>Other days</h2>
           <nav className="days" aria-label="Recap days">
             {days.slice(0, 30).map((x) => (
               <a key={x.date} href={`/recap/${x.date}`} aria-current={x.date === d.date ? "page" : undefined}>{dayShort(x.date)} · {recordText(x)}</a>

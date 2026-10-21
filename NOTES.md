@@ -2,6 +2,12 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-21 — Claude — Recap share tools moved behind a password
+
+- The Download image / Post on X / Copy text panel is gone from public `/recap/<date>`. It lives at `/admin/recap/<date>` (`/admin/recap` opens the latest day).
+- `web/middleware.js` guards `/admin/*` with HTTP Basic Auth against the `ADMIN_PASSWORD` env var on Vercel. No env var means locked. `robots.txt` disallows `/admin`.
+- `/recap/<date>/card` stays public because it is the page's social preview image.
+
 ## 2026-10-21 — Claude — Live tracker, daily recap, price shopping, bankroll calculator
 
 - Pick cards show a live line during games (player stat vs the line for NBA props, score for NHL picks) from `/api/live`, which proxies public ESPN and NHL box scores.

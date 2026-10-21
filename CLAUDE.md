@@ -49,7 +49,8 @@ The site does not serve `/data/*.json`. Keep the `data/` directory and the field
 ## Live tracker, recap, calculator
 
 - `/api/live` (`web/app/api/live/route.js`) is the only server route. It takes ESPN game/player ids and NHL game ids from the page, reads public box scores from ESPN and api-web.nhle.com (cached 20 s), and returns stat lines and scores. It reads no `data/` file at request time and returns nothing from the model. `web/components/Live.jsx` polls it every 45 s only while a picked game is starting or in progress and the tab is visible.
-- `/recap/<date>` and `/recap/<date>/card` (1080×1350 PNG) are built at deploy time from graded picks (`web/lib/recap.js`). `/recap` opens the latest day.
+- `/recap/<date>` and `/recap/<date>/card` (1080×1350 PNG) are built at deploy time from graded picks (`web/lib/recap.js`). `/recap` opens the latest day. The public recap shows the card and the day list only.
+- The share tools (download image, post on X, Reddit/newsletter text) are owner-only at `/admin/recap/<date>`. `web/middleware.js` locks everything under `/admin` with HTTP Basic Auth against the `ADMIN_PASSWORD` Vercel env var (any username). Do not put share tools or other owner tools on public pages.
 - The bankroll calculator (`web/components/BankrollCalc.jsx`) runs in the browser on the graded record.
 
 ## Timer
