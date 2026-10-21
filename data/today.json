@@ -1,6 +1,6 @@
 {
  "date": "2026-10-21",
- "generated_at": "2026-10-21T13:51:17+00:00",
+ "generated_at": "2026-10-21T21:30:14+00:00",
  "games": [
   {
    "game_id": 2026020152,
@@ -14,8 +14,8 @@
    "away_score": null,
    "home_goalie": "Ukko-Pekka Luukkonen",
    "away_goalie": "Dan Vladar",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -30,8 +30,8 @@
    "away_score": null,
    "home_goalie": "Linus Ullmark",
    "away_goalie": "Akira Schmid",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
+   "away_goalie_status": "Confirmed",
    "locked": false
   }
  ]
