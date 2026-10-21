@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://auspexsports.com/sitemap.xml
