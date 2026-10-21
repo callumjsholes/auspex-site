@@ -1,6 +1,6 @@
 {
  "date": "2026-10-20",
- "generated_at": "2026-10-21T03:30:51+00:00",
+ "generated_at": "2026-10-21T03:48:42+00:00",
  "games": [
   {
    "game_id": 2026020141,
@@ -86,9 +86,9 @@
    "home": "EDM",
    "away": "MIN",
    "start_utc": "2026-10-21T01:00:00Z",
-   "state": "LIVE",
+   "state": "CRIT",
    "home_score": 3,
-   "away_score": 2
+   "away_score": 3
   },
   {
    "game_id": 2026020149,
