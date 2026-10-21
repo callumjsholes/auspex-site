@@ -2,6 +2,15 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-21 — Claude — Live tracker, daily recap, price shopping, bankroll calculator
+
+- Pick cards show a live line during games (player stat vs the line for NBA props, score for NHL picks) from `/api/live`, which proxies public ESPN and NHL box scores.
+- `/recap/<date>` with a shareable card image and Reddit-ready text; "Recap" is in the nav.
+- Cards and the record table compare the posted price with the typical book (NBA) or the best book at lock (NHL). CSV gains `typical_price` and `best_price`.
+- The record page has an "If you'd followed every pick" calculator.
+
+Others: the site now reads `typical_price`, `typical_n`, `game_id`, `player_id` (NBA) and `best_price`, `best_book` (NHL). Keep those keys.
+
 ## 2026-10-21 — Claude — Old static pages retire; visit-counter tests live here
 
 The private publisher no longer sends the old static site (root HTML, CSS, JS, images, `brand/`). The bot deletes those files on its next publish. auspexsports.com is unaffected: it is `web/`, which reads only `data/*.json`. The visit-counter tests moved here from NHL-MODEL and run on `web/public/visits.js` (`tests/test_visits.py`, workflow `tests.yml`).

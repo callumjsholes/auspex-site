@@ -37,14 +37,20 @@ The site does not serve `/data/*.json`. Keep the `data/` directory and the field
 
 | File | Fields the site uses |
 |---|---|
-| `data/nba_live.json` | `generated_at`, `today`, `next_date`, `rules.lock_minutes`. Each game: `game_id`, `away`, `home`, `start_utc`, `completed`, `locked`, `picks`. Each pick: `id`, `player`, `stat`, `side`, `line`, `date`, `start_utc`, `locked_at`, `game`, `price`, `book`, `stake`, `result`, `units`, `clv_pts`, `actual`. |
-| `data/picks.json` | Rows with `source` `live` only. `game_id`, `game`, `team`, `date`, `locked_at`, `price`, `stake`, `result`, `units`, `clv_pts`, `home_score`, `away_score`. |
+| `data/nba_live.json` | `generated_at`, `today`, `next_date`, `rules.lock_minutes`. Each game: `game_id`, `away`, `home`, `start_utc`, `completed`, `locked`, `picks`. Each pick: `id`, `player`, `stat`, `side`, `line`, `date`, `start_utc`, `locked_at`, `game`, `price`, `book`, `stake`, `result`, `units`, `clv_pts`, `actual`, `typical_price`, `typical_n` (price shopping), `game_id`, `player_id` (public ESPN ids for the live tracker). |
+| `data/picks.json` | Rows with `source` `live` only. `game_id`, `game`, `team`, `date`, `locked_at`, `price`, `best_price`, `best_book`, `stake`, `result`, `units`, `clv_pts`, `home_score`, `away_score`. |
 | `data/today.json` | `date`. Each game: `game_id`, `start_utc`, `away`, `home`, `home_score`, `away_score`. |
 | `data/nba.json` | `stats[].k` and `stats[].v` when the label matches ROI, won, or Unseen. `books.caption`, `books.rows`. |
 | `data/backtest.json` | `total`. Each row: `season`, `units`, `roi`. |
 | `data/summary.json` | `generated_at` only. |
 
 `data/charts.json`, `data/meta.json`, `data/research.json`, and `data/wake.json` are not read by the pages. They still stay where they are.
+
+## Live tracker, recap, calculator
+
+- `/api/live` (`web/app/api/live/route.js`) is the only server route. It takes ESPN game/player ids and NHL game ids from the page, reads public box scores from ESPN and api-web.nhle.com (cached 20 s), and returns stat lines and scores. It reads no `data/` file at request time and returns nothing from the model. `web/components/Live.jsx` polls it every 45 s only while a picked game is starting or in progress and the tab is visible.
+- `/recap/<date>` and `/recap/<date>/card` (1080×1350 PNG) are built at deploy time from graded picks (`web/lib/recap.js`). `/recap` opens the latest day.
+- The bankroll calculator (`web/components/BankrollCalc.jsx`) runs in the browser on the graded record.
 
 ## Timer
 

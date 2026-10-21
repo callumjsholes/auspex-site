@@ -16,3 +16,12 @@ export const stamp = (iso) =>
 export const tone = (v) => (v > 0 ? "pos" : v < 0 ? "neg" : "");
 export const resultTone = (r) => (r === "Won" ? "pos" : r === "Lost" ? "neg" : "");
 export const resultLabel = (r) => (r === "Pending" ? "Open" : r);
+
+// Implied probability of an American price, and how much better one price is than another in
+// cents (the betting shorthand: -106 vs -115 is "9 cents better"). Positive = `a` pays more.
+export const implied = (v) => (v == null ? null : v > 0 ? 100 / (v + 100) : -v / (-v + 100));
+export const centsBetter = (a, b) => {
+  if (a == null || b == null) return null;
+  const line = (v) => (v > 0 ? v - 100 : v + 100); // put both on one scale through even money
+  return Math.round(line(a) - line(b));
+};

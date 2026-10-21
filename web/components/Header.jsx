@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 const LINKS = [
   { href: "/#today", label: "Today's picks", match: null },
   { href: "/record", label: "Record", match: "/record" },
+  { href: "/recap", label: "Recap", match: "/recap" },
   { href: "/method", label: "Method", match: "/method" },
   { href: "/faq", label: "FAQ", match: "/faq" },
 ];
@@ -25,7 +26,7 @@ export default function Header() {
         </button>
         <nav id="site-nav" className={"nav" + (open ? " open" : "")} aria-label="Site" onClick={() => setOpen(false)}>
           {LINKS.map((l) => (
-            <a key={l.href} href={l.href} aria-current={l.match && path === l.match ? "page" : undefined}>{l.label}</a>
+            <a key={l.href} href={l.href} aria-current={l.match && (path === l.match || path.startsWith(l.match + "/")) ? "page" : undefined}>{l.label}</a>
           ))}
           <a className="cta" href="/#join">Get picks by email</a>
         </nav>

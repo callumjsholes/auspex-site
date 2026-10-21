@@ -50,6 +50,10 @@ function nbaRow(p) {
     pick: `${p.player} ${verb} ${p.line} ${stat}`, short: `${p.player} ${verb} ${p.line} ${p.stat}`,
     price: p.price, book: BOOK[p.book] || p.book, stake: p.stake, result: p.result, units: p.units ?? null, clv: p.clv_pts ?? null,
     actual: p.actual ?? null, stat: p.stat,
+    // Price shopping: the median price across tracked books at the same line (filled from the lock archive).
+    typical: p.typical_price ?? null, typicalN: p.typical_n ?? null,
+    // Public ESPN ids, for the live tracker's box-score lookup.
+    espnGame: p.game_id ?? null, espnPlayer: p.player_id ?? null, side: p.side, line: p.line,
   };
 }
 function nhlRow(p) {
@@ -59,6 +63,9 @@ function nhlRow(p) {
     pick: `${p.team} to win`, short: `${p.team} moneyline`, price: p.price, book: "Median price", stake: p.stake,
     result: p.result, units: p.units ?? null, clv: p.clv_pts ?? null, actual: p.home_score != null ? `${p.away_score}–${p.home_score}` : null,
     stat: "ml",
+    // Price shopping: graded at the median price; the best single-book price at lock is shown beside it.
+    best: p.best_price ?? null, bestBook: p.best_book ? BOOK[p.best_book] || p.best_book : null,
+    nhlGame: p.game_id ?? null, team: p.team, away, home,
   };
 }
 
