@@ -1,15 +1,15 @@
 {
- "generated_at": "2026-10-21T23:20:31+00:00",
+ "generated_at": "2026-10-21T23:41:00+00:00",
  "keep_watching_until": "2026-10-22T02:30:00+00:00",
  "events": [
   {
-   "at": "2026-10-21T23:40:00+00:00",
-   "key": "nba:lock",
+   "at": "2026-10-21T23:50:00+00:00",
+   "key": "nba:close",
    "mode": "skip",
-   "nba_mode": "lock"
+   "nba_mode": "close"
   },
   {
-   "at": "2026-10-21T23:50:00+00:00",
+   "at": "2026-10-22T00:20:00+00:00",
    "key": "nba:close",
    "mode": "skip",
    "nba_mode": "close"
