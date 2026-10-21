@@ -1,51 +1,56 @@
 {
- "generated_at": "2026-10-20T22:45:12+00:00",
+ "generated_at": "2026-10-21T03:06:24+00:00",
  "today": "2026-10-20",
  "live": {
-  "bets": 0,
-  "wins": 0,
+  "bets": 2,
+  "wins": 2,
   "losses": 0,
-  "staked": 0,
-  "units": 0,
-  "roi": null,
-  "avg_clv_pts": null,
-  "beat_close_pct": null,
-  "pending": 2,
+  "staked": 3,
+  "units": 3.56,
+  "roi": 118.5,
+  "avg_clv_pts": -0.45,
+  "beat_close_pct": 0.0,
+  "pending": 0,
   "close_ev_units": -0.13,
   "close_ev_roi": -4.3,
   "close_picks": 2
  },
  "live_by_tier": {
   "Bet": {
-   "bets": 0,
-   "wins": 0,
+   "bets": 1,
+   "wins": 1,
    "losses": 0,
-   "staked": 0,
-   "units": 0,
-   "roi": null,
-   "avg_clv_pts": null,
-   "beat_close_pct": null,
-   "pending": 1,
+   "staked": 1,
+   "units": 0.85,
+   "roi": 85.5,
+   "avg_clv_pts": -0.7,
+   "beat_close_pct": 0.0,
+   "pending": 0,
    "close_ev_units": -0.05,
    "close_ev_roi": -5.2,
    "close_picks": 1
   },
   "Best bet": {
-   "bets": 0,
-   "wins": 0,
+   "bets": 1,
+   "wins": 1,
    "losses": 0,
-   "staked": 0,
-   "units": 0,
-   "roi": null,
-   "avg_clv_pts": null,
-   "beat_close_pct": null,
-   "pending": 1,
+   "staked": 2,
+   "units": 2.7,
+   "roi": 135.0,
+   "avg_clv_pts": -0.2,
+   "beat_close_pct": 0.0,
+   "pending": 0,
    "close_ev_units": -0.08,
    "close_ev_roi": -3.9,
    "close_picks": 1
   }
  },
- "live_series": [],
+ "live_series": [
+  {
+   "date": "2026-10-20",
+   "units": 3.56
+  }
+ ],
  "backtest_this_season": {
   "bets": 0,
   "wins": 0,
@@ -62,12 +67,12 @@
  },
  "backtest_series": [],
  "accuracy": {
-  "games": 0,
-  "model_logloss": null,
-  "market_logloss": null,
-  "lines_games": 0,
-  "lines_logloss": null,
-  "main_logloss_same_games": null
+  "games": 7,
+  "model_logloss": 0.7333,
+  "market_logloss": 0.7423,
+  "lines_games": 7,
+  "lines_logloss": 0.7317,
+  "main_logloss_same_games": 0.7333
  },
  "errors": [],
  "config": {

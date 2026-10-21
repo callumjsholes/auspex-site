@@ -19,8 +19,8 @@
   "locked_at": "2026-10-20T21:00:15+00:00",
   "close_price": -115,
   "close_market_pct": 51.1,
-  "result": "Pending",
-  "units": null,
+  "result": "Won",
+  "units": 0.855,
   "source": "live",
   "close_at": "2026-10-20T22:45:12+00:00",
   "close_median": -115,
@@ -29,7 +29,10 @@
   "clv_pts": -0.7,
   "close_ev_units": -0.052,
   "clv_price": -0.007951,
-  "clv_novig": -0.006928
+  "clv_novig": -0.006928,
+  "home_score": 4,
+  "away_score": 3,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020144,
@@ -51,8 +54,8 @@
   "locked_at": "2026-10-20T21:00:15+00:00",
   "close_price": 135,
   "close_market_pct": 40.9,
-  "result": "Pending",
-  "units": null,
+  "result": "Won",
+  "units": 2.7,
   "source": "live",
   "close_at": "2026-10-20T22:45:12+00:00",
   "close_median": 135,
@@ -61,6 +64,9 @@
   "clv_pts": -0.2,
   "close_ev_units": -0.078,
   "clv_price": 0.0,
-  "clv_novig": -0.002076
+  "clv_novig": -0.002076,
+  "home_score": 2,
+  "away_score": 5,
+  "last_period": "REG"
  }
 ]
