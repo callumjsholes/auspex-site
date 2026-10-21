@@ -6,7 +6,7 @@ export default function Terms() {
   return (
     <div className="page wrap prose">
       <h1>Terms</h1>
-      <p className="lede">Plain-language terms. A draft for the owner to review; not a lawyer's document.</p>
+      <p className="lede">Plain-language terms for using auspexsports.com.</p>
       <p>These terms cover auspexsports.com, run by Auspex Sports. Questions: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
       <h2>What the picks are</h2>
       <p>Picks are information. They are not financial, betting or investment advice, and they are not a guarantee of profit. We post a price before the game and grade the result at that price. Past results, including every test on the site, don't guarantee future results.</p>
