@@ -66,29 +66,7 @@
   "close_picks": 0
  },
  "backtest_series": [],
- "accuracy": {
-  "games": 11,
-  "model_logloss": 0.6798,
-  "market_logloss": 0.6857,
-  "lines_games": 11,
-  "lines_logloss": 0.677,
-  "main_logloss_same_games": 0.6798
- },
- "errors": [],
  "config": {
-  "staking": [
-   {
-    "min_edge": 7,
-    "units": 2,
-    "label": "Best bet"
-   },
-   {
-    "min_edge": 5,
-    "units": 1,
-    "label": "Bet"
-   }
-  ],
-  "pregame_minutes": 120,
-  "price_rule": "median"
+  "pregame_minutes": 120
  }
 }

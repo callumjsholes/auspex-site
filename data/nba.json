@@ -1,7 +1,7 @@
 {
  "generated_at": "2026-10-20T04:04:55+00:00",
  "title": "NBA player props.",
- "tagline": "Points, rebounds and assists. A box-score model of minutes, role, injuries and matchups, blended with the betting market's own price, and only bet where the two disagree. Tested on 292 games it never saw, against real prices from US sportsbooks.",
+ "tagline": "Points, rebounds and assists, posted before tip-off and graded at the posted price.",
  "stats": [
   {
    "v": "+7.4%",
@@ -21,8 +21,8 @@
   }
  ],
  "books": {
-  "heading": "Return by where you bet",
-  "caption": "One bet per player and stat, 1 unit each, when the expected value is at least 4% and the chance beats the market's by 2+ points. Prices 45 minutes before tip, 292 unseen games (2025-12-16 to 2026-01-24). Range is a 95% interval: the sample is still small and every range includes small losses.",
+  "heading": "Return by sportsbook",
+  "caption": "Same unseen 2025-26 test bets, by where they were placed.",
   "rows": [
    [
     "Best price across 6 US books",
@@ -50,84 +50,12 @@
    ]
   ]
  },
- "tests": [
-  {
-   "test": "Game lines: spreads, totals, moneylines",
-   "result": "Neural nets, Bayesian and Monte Carlo models on ~150 features. Best holdout ROI -2.4%, -1.1%, +0.3%: all within normal luck.",
-   "verdict": "No edge",
-   "tone": "no"
-  },
-  {
-   "test": "Moneyline vs spread mismatches",
-   "result": "An apparent +7% came from stale lines in the archive data.",
-   "verdict": "Dead",
-   "tone": "no"
-  },
-  {
-   "test": "Opening-line movement (spreads)",
-   "result": "+0.7 to +1.0 points of closing-line value per bet on unseen games. ROI about +4%, not yet significant.",
-   "verdict": "Promising",
-   "tone": "wait"
-  },
-  {
-   "test": "Props: model alone vs the books",
-   "result": "More accurate than recent averages, but less accurate than the books' prices on its own (Brier 0.2374 vs 0.2339 on points).",
-   "verdict": "Not enough",
-   "tone": "no"
-  },
-  {
-   "test": "Props: model blended with the market",
-   "result": "Beats the books' prices on points and rebounds and ties on assists. Unseen bets returned +7.4% at the best price (-0.3% to +15.1%).",
-   "verdict": "Live",
-   "tone": "yes"
-  },
-  {
-   "test": "Bigger edge, bigger stake?",
-   "result": "Bets with the largest expected value did no better in the months used to set the rules, so every pick is 1 unit.",
-   "verdict": "Flat stakes",
-   "tone": "wait"
-  }
- ],
+ "tests": [],
+ "method": [],
+ "next": "",
  "sample": {
-  "heading": "How accurate are the probabilities?",
-  "caption": "Every line the books posted in the 292 unseen games, scored by Brier score (lower is better). 'Final' is the price the picks use: the market and the model blended.",
-  "rows": [
-   {
-    "stat": "Points",
-    "lines": 23669,
-    "books": "0.2339",
-    "model": "0.2374",
-    "final": "0.2332"
-   },
-   {
-    "stat": "Rebounds",
-    "lines": 8880,
-    "books": "0.2386",
-    "model": "0.2448",
-    "final": "0.2384"
-   },
-   {
-    "stat": "Assists",
-    "lines": 6853,
-    "books": "0.2408",
-    "model": "0.2457",
-    "final": "0.2408"
-   }
-  ]
- },
- "method": [
-  {
-   "h": "Minutes first",
-   "p": "Recent minutes, starting role, rest, back-to-backs, games back from injury and the minutes left by injured teammates at the same position."
-  },
-  {
-   "h": "Rates and matchups",
-   "p": "Recent and long-run per-minute production, usage freed up by absences, and each defense's record against every position."
-  },
-  {
-   "h": "Market-aware",
-   "p": "The model's price is blended with the consensus no-vig price across books. A pick needs 4%+ expected value at the best available price."
-  }
- ],
- "next": "Each game's picks lock about 50 minutes before tip, after the injury report, and are graded at the posted price and book. Closing prices are logged about 10 minutes before tip."
+  "heading": "",
+  "caption": "",
+  "rows": []
+ }
 }
