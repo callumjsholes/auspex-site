@@ -3,6 +3,7 @@ import { SITE } from "@/lib/site";
 import { pct, record, signed, units, stamp } from "@/lib/format";
 import RecordCharts from "@/components/RecordCharts";
 import RecordTable from "@/components/RecordTable";
+import BankrollCalc from "@/components/BankrollCalc";
 
 export const metadata = { title: "Record", description: "Every Auspex Sports pick since launch, graded at the posted price, with closing-line value." };
 
@@ -27,6 +28,7 @@ export default function RecordPage() {
       </div>
       <Kpis s={D.sum.all} />
       <RecordCharts rows={D.all} />
+      <BankrollCalc rows={D.all} />
       <section className="block" aria-labelledby="all-h" style={{ paddingTop: 48 }}>
         <div className="head"><h2 id="all-h">Every pick</h2></div>
         <RecordTable rows={D.all} />

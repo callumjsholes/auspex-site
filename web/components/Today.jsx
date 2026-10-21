@@ -1,14 +1,18 @@
 "use client";
 import { useState } from "react";
 import { odds, timeET, dayLong, resultLabel, resultTone, units as u } from "@/lib/format";
+import { PriceShop } from "@/components/PriceShop";
+import { LiveLine, useLive } from "@/components/Live";
 
-function Ticket({ p, nhl }) {
+function Ticket({ p, nhl, live }) {
   const done = p.result !== "Pending";
   return (
     <article className={"ticket is-pick" + (nhl ? " nhl" : "")}>
       <div className="meta"><span>{p.game}{p.start ? `, ${timeET(p.start)}` : ""}</span><span className={"state " + resultTone(p.result)}>{resultLabel(p.result)}{done && p.units != null ? ` ${u(p.units)}` : ""}</span></div>
       <h3 className="call">{p.pick}</h3>
       <div className="price"><b>{odds(p.price)} <span>{nhl ? "median price" : `at ${p.book}`}</span></b><span>{p.actual != null ? (nhl ? `Final ${p.actual}` : `Finished with ${p.actual}`) : `${p.stake} unit${p.stake === 1 ? "" : "s"}`}</span></div>
+      <PriceShop p={p} nhl={nhl} />
+      {!done && <LiveLine p={p} nhl={nhl} live={live} />}
     </article>
   );
 }
@@ -27,6 +31,7 @@ export default function Today({ nbaDate, nhlDate, nbaGames, nbaPicks, nbaNext, n
   const locked = nbaGames.filter((g) => g.locked).length;
   const nhlPicks = nhlGames.filter((g) => g.pick);
   const nhlLocked = nhlPicks.length > 0;
+  const live = useLive(nbaPicks, nhlPicks.map((g) => ({ ...g.pick, start: g.start })));
   return (
     <section className="block wrap" id="today" aria-labelledby="today-h">
       <div className="head">
@@ -52,7 +57,7 @@ export default function Today({ nbaDate, nhlDate, nbaGames, nbaPicks, nbaNext, n
             </div>
           )}
           {nbaPicks.length ? (
-            <div className="cards">{nbaPicks.map((p) => <Ticket key={p.id} p={p} />)}</div>
+            <div className="cards">{nbaPicks.map((p) => <Ticket key={p.id} p={p} live={live} />)}</div>
           ) : (
             <div className="empty">
               {!nbaGames.length ? `No NBA games today${nbaNext ? `. Next slate: ${dayLong(nbaNext)}.` : "."}`
@@ -65,7 +70,7 @@ export default function Today({ nbaDate, nhlDate, nbaGames, nbaPicks, nbaNext, n
         <div role="tabpanel">
           {!nhlGames.length ? <div className="empty" style={{ marginTop: 22 }}>No NHL games on this slate.</div> : (
             <div className="cards" style={{ marginTop: 22 }}>
-              {nhlPicks.map((g) => <Ticket key={g.id} p={{ ...g.pick, start: g.start }} nhl />)}
+              {nhlPicks.map((g) => <Ticket key={g.id} p={{ ...g.pick, start: g.start }} nhl live={live} />)}
               {!nhlLocked && <div className="empty">Picks post here before the first puck drop.</div>}
               {nhlGames.filter((g) => !g.pick).map((g) => <NhlGame key={g.id} g={g} />)}
             </div>
