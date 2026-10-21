@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T04:53:53+00:00",
+ "generated_at": "2026-10-21T13:51:17+00:00",
  "today": "2026-10-21",
  "live": {
   "bets": 2,
@@ -67,12 +67,12 @@
  },
  "backtest_series": [],
  "accuracy": {
-  "games": 10,
-  "model_logloss": 0.6737,
-  "market_logloss": 0.6843,
-  "lines_games": 10,
-  "lines_logloss": 0.6711,
-  "main_logloss_same_games": 0.6737
+  "games": 11,
+  "model_logloss": 0.6798,
+  "market_logloss": 0.6857,
+  "lines_games": 11,
+  "lines_logloss": 0.677,
+  "main_logloss_same_games": 0.6798
  },
  "errors": [],
  "config": {
