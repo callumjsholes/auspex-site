@@ -6,6 +6,12 @@ name: Site timer arm
 
 on:
   workflow_dispatch:
+    inputs:
+      auspex_timer:
+        description: "From NHL-MODEL. public = this timer may dispatch locks."
+        required: false
+        default: ""
+        type: string
   schedule:
     - cron: "7 15,19,23 * * *"
 
@@ -23,5 +29,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           NHL_MODEL_DISPATCH_TOKEN: ${{ secrets.NHL_MODEL_DISPATCH_TOKEN }}
+          AUSPEX_TIMER: ${{ github.event.inputs.auspex_timer || vars.AUSPEX_TIMER }}
           TIMER_CMD: arm
         run: python3 .github/timer.py arm

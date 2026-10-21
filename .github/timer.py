@@ -11,10 +11,34 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent  # repo root when this file lives at .github/timer.py
 BUDGET = 5.3 * 3600
 ACTIVE = {"queued", "in_progress", "waiting", "requested", "pending"}
+WAKE_ATTEMPTS = 4
+
+
+def acting_timer(env_mode, published_mode):
+    """Return 'public' or 'private'. Keep in step with pipeline/timer_role.py.
+
+    The site timer dispatches only when this returns 'public'. An explicit
+    private (rescue) from the environment or from wake.json wins over public.
+    """
+    env = (env_mode or "").strip().lower()
+    published = (published_mode or "").strip().lower()
+    if env == "private" or published == "private":
+        return "private"
+    if env == "public" or published == "public":
+        return "public"
+    return "private"
 
 
 def log(msg):
     print(f"{dt.datetime.now(dt.timezone.utc):%H:%M:%S}Z {msg}", flush=True)
+
+
+def pull_main():
+    """Update main. A failed rebase is aborted so the checkout is never left mid-rebase."""
+    proc = subprocess.run(["git", "pull", "-q", "--rebase", "origin", "main"], cwd=ROOT, check=False)
+    if proc.returncode != 0:
+        subprocess.run(["git", "rebase", "--abort"], cwd=ROOT, check=False)
+    return proc.returncode == 0
 
 
 def _t(s):
@@ -60,6 +84,42 @@ def timer_busy(repo, token, my_id):
     return False
 
 
+def read_wake(path, attempts=WAKE_ATTEMPTS, sleep_fn=None, pull_fn=None):
+    """Parse wake.json. Retry a few times. None means it was there and did not parse.
+
+    A missing file is an empty schedule. A parse error is not: the caller must
+    not treat it as "nothing left to do today".
+    """
+    sleep_fn = sleep_fn or time.sleep
+    path = Path(path)
+    for i in range(attempts):
+        if i and pull_fn:
+            pull_fn()
+        try:
+            if not path.exists():
+                return {"events": []}
+            data = json.loads(path.read_text())
+            if not isinstance(data, dict):
+                raise json.JSONDecodeError("wake.json was not an object", "", 0)
+            return data
+        except (OSError, json.JSONDecodeError):
+            log(f"wake.json could not be read (attempt {i + 1} of {attempts})")
+            if i + 1 < attempts:
+                sleep_fn(5)
+    return None
+
+
+def arm_should_start(env_mode, spec):
+    """False when a readable schedule says this chain is not on duty.
+
+    An unreadable wake.json still starts the waiter so it can retry the read.
+    """
+    if spec is None:
+        return True
+    published = spec.get("auspex_timer") if isinstance(spec, dict) else ""
+    return acting_timer(env_mode, published) == "public"
+
+
 def due(spec, done_at, now):
     out = []
     for event in spec.get("events") or []:
@@ -76,7 +136,24 @@ def due(spec, done_at, now):
     return out
 
 
-def watch(now_fn=None, sleep_fn=None, pull_fn=None, dispatch_fn=None, load_fn=None, handoff_fn=None, start=None):
+def _stand_down():
+    log("site timer standing down (AUSPEX_TIMER is not public)")
+    return 0
+
+
+def _unreadable(start, sleep_fn, handoff_fn):
+    """A bad wake.json is retried until the budget runs out. It does not end the day."""
+    log("wake.json could not be read; retrying")
+    if time.time() - start > BUDGET:
+        if handoff_fn:
+            handoff_fn()
+        log("handing over to a fresh timer run")
+        return 0
+    sleep_fn(60)
+    return None
+
+
+def watch(now_fn=None, sleep_fn=None, pull_fn=None, dispatch_fn=None, load_fn=None, handoff_fn=None, start=None, gate_fn=None):
     now_fn = now_fn or (lambda: dt.datetime.now(dt.timezone.utc))
     sleep_fn = sleep_fn or time.sleep
     start = start if start is not None else time.time()
@@ -85,6 +162,12 @@ def watch(now_fn=None, sleep_fn=None, pull_fn=None, dispatch_fn=None, load_fn=No
         if pull_fn:
             pull_fn()
         spec = load_fn() if load_fn else {}
+        if spec is None:
+            if _unreadable(start, sleep_fn, handoff_fn) == 0:
+                return 0
+            continue
+        if gate_fn is not None and not gate_fn(spec):
+            return _stand_down()
         events = due(spec, done_at, now_fn())
         until = spec.get("keep_watching_until")
         if not events:
@@ -106,6 +189,17 @@ def watch(now_fn=None, sleep_fn=None, pull_fn=None, dispatch_fn=None, load_fn=No
                 log("handing over to a fresh timer run")
                 return 0
             sleep_fn(min(60, max(1, (when - now_fn()).total_seconds())))
+        if pull_fn:
+            pull_fn()
+        if load_fn:
+            fresh = load_fn()
+            if fresh is None:
+                if _unreadable(start, sleep_fn, handoff_fn) == 0:
+                    return 0
+                continue
+            spec = fresh
+        if gate_fn is not None and not gate_fn(spec):
+            return _stand_down()
         inputs = {"mode": event.get("mode") or "skip", "nba_mode": event.get("nba_mode") or "skip"}
         if dispatch_fn(inputs):
             key = event.get("key") or ""
@@ -120,10 +214,19 @@ def arm():
     if not os.environ.get("NHL_MODEL_DISPATCH_TOKEN", "").strip():
         log("site timer arm skipped: NHL_MODEL_DISPATCH_TOKEN is not set")
         return 0
+    env_mode = os.environ.get("AUSPEX_TIMER", "")
+    wake = ROOT / "data" / "wake.json"
+
+    spec = read_wake(wake, pull_fn=pull_main)
+    if not arm_should_start(env_mode, spec):
+        log("site timer arm skipped (AUSPEX_TIMER is not public)")
+        return 0
     if timer_busy(repo, token, my_id):
         log("site timer already running or queued")
         return 0
-    dispatch(repo, "timer.yml", token)
+    published = spec.get("auspex_timer") if isinstance(spec, dict) else ""
+    mode = "public" if acting_timer(env_mode, published) == "public" else env_mode.strip().lower()
+    dispatch(repo, "timer.yml", token, {"auspex_timer": mode})
     return 0
 
 
@@ -137,26 +240,23 @@ def wait():
     repo = os.environ.get("GITHUB_REPOSITORY", "")
     wake = ROOT / "data" / "wake.json"
 
-    def pull():
-        subprocess.run(["git", "pull", "-q", "--rebase", "origin", "main"], cwd=ROOT, check=False)
-
     def load():
-        try:
-            return json.loads(wake.read_text()) if wake.exists() else {"events": []}
-        except (OSError, json.JSONDecodeError):
-            log("wake.json could not be read")
-            return {"events": []}
+        return read_wake(wake, pull_fn=pull_main)
 
     def fire(inputs):
         return dispatch(private, "daily.yml", token, inputs)
 
     def handoff():
         if gh and repo:
-            dispatch(repo, "timer.yml", gh)
+            dispatch(repo, "timer.yml", gh, {"auspex_timer": os.environ.get("AUSPEX_TIMER", "").strip().lower()})
+
+    def gate(spec):
+        published = spec.get("auspex_timer") if isinstance(spec, dict) else ""
+        return acting_timer(os.environ.get("AUSPEX_TIMER", ""), published) == "public"
 
     if not wake.exists():
-        pull()
-    return watch(pull_fn=pull, dispatch_fn=fire, load_fn=load, handoff_fn=handoff)
+        pull_main()
+    return watch(pull_fn=pull_main, dispatch_fn=fire, load_fn=load, handoff_fn=handoff, gate_fn=gate)
 
 
 if __name__ == "__main__":

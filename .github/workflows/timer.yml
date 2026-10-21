@@ -6,6 +6,12 @@ name: Site timer
 
 on:
   workflow_dispatch:
+    inputs:
+      auspex_timer:
+        description: "From NHL-MODEL. public = this timer may dispatch locks."
+        required: false
+        default: ""
+        type: string
 
 permissions:
   contents: read
@@ -26,5 +32,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           NHL_MODEL_DISPATCH_TOKEN: ${{ secrets.NHL_MODEL_DISPATCH_TOKEN }}
           NHL_MODEL_REPO: callumjsholes/NHL-MODEL
+          AUSPEX_TIMER: ${{ github.event.inputs.auspex_timer || vars.AUSPEX_TIMER }}
           TIMER_CMD: wait
         run: python3 .github/timer.py wait
