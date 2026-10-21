@@ -4,14 +4,33 @@ This file is copied to the public site repo. It has no model code. Minutes it
 spends waiting are on the public repo, which does not count against the
 private repo's 2,000 Actions minutes. If NHL_MODEL_DISPATCH_TOKEN is unset it
 exits 0 so a schedule can exist before the secret does.
+
+The published schedule includes the next morning preview. This file also
+invents that slot when an older wake.json has only locks, and it does not
+exit overnight, so a skipped GitHub cron still gets a slate.
 """
 import datetime as dt, json, os, subprocess, sys, time, urllib.error, urllib.request
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent  # repo root when this file lives at .github/timer.py
 BUDGET = 5.3 * 3600
 ACTIVE = {"queued", "in_progress", "waiting", "requested", "pending"}
+ET = ZoneInfo("America/New_York")
 WAKE_ATTEMPTS = 4
+# Slot clock in Eastern. pipeline/wake.py is the source of truth when this
+# file is published from NHL-MODEL. 9:15 is 15 min after the 09:00 NHL preview;
+# 10:15 is 15 min after the 10:00 NBA preview. A slate published after 09:00 /
+# 10:00 already happened (the cron fires at minute 7). Noon is the cutoff for
+# inventing a missed NHL morning when wake.json has no morning slot of its own:
+# past that, the published plan owns the decision so a catch-up cannot land
+# inside the lock window.
+NHL_SLOT = (9, 15)
+NBA_SLOT = (10, 15)
+NHL_PROOF = (9, 0)
+NBA_PROOF = (10, 0)
+NHL_HEAL_UNTIL = (12, 0)
+MORNING_KEYS = {"morning", "nba:morning"}
 
 
 def acting_timer(env_mode, published_mode):
@@ -120,6 +139,87 @@ def arm_should_start(env_mode, spec):
     return acting_timer(env_mode, published) == "public"
 
 
+def _clock(day, hour, minute):
+    return dt.datetime(day.year, day.month, day.day, hour, minute, tzinfo=ET)
+
+
+def _proof_time(doc, day, hour, minute):
+    """True when a published file is this Eastern date and was written after the morning clock."""
+    if not isinstance(doc, dict):
+        return False
+    if (doc.get("date") or doc.get("today")) != day.isoformat():
+        return False
+    try:
+        return _t(doc["generated_at"]) >= _clock(day, hour, minute)
+    except (KeyError, TypeError, ValueError):
+        return False
+
+
+def _listed(spec, field):
+    if field not in spec:
+        return None
+    value = spec.get(field) or []
+    return {str(item) for item in value}
+
+
+def _synth(day, hour, minute, key, mode, nba_mode):
+    when = _clock(day, hour, minute)
+    return {"at": when.astimezone(dt.timezone.utc).isoformat(timespec="seconds"), "key": key, "mode": mode, "nba_mode": nba_mode}
+
+
+def ensure_mornings(spec, now, nhl_doc=None, nba_doc=None):
+    """Add morning slots when wake.json was written before this waiter knew about them.
+
+    If a morning key is already in `events`, the private plan decided (including
+    the lock-window cutoff) and this function leaves that key alone. Two days
+    are kept so the waiter is already holding tomorrow when it fires today.
+    Other fields, including auspex_timer, are left in place.
+    """
+    spec = dict(spec or {})
+    events = [dict(event) for event in (spec.get("events") or []) if isinstance(event, dict)]
+    today = now.astimezone(ET).date()
+    nhl_done = _listed(spec, "nhl_morning_done")
+    nba_done = _listed(spec, "nba_morning_done")
+
+    def nhl_open(day):
+        if nhl_done is not None:
+            return day.isoformat() not in nhl_done
+        return not _proof_time(nhl_doc, day, *NHL_PROOF)
+
+    def nba_open(day):
+        if nba_done is not None:
+            return day.isoformat() not in nba_done
+        return not _proof_time(nba_doc, day, *NBA_PROOF)
+
+    def fill(key, open_fn, hour, minute, mode, nba_mode, heal_until):
+        if any(event.get("key") == key for event in events):
+            return
+        added = 0
+        for offset in range(7):
+            day = today + dt.timedelta(days=offset)
+            if not open_fn(day):
+                continue
+            slot = _clock(day, hour, minute)
+            if heal_until and offset == 0 and now >= _clock(day, *heal_until) and now >= slot:
+                continue
+            events.append(_synth(day, hour, minute, key, mode, nba_mode))
+            added += 1
+            if added == 2:
+                break
+
+    fill("morning", nhl_open, *NHL_SLOT, "morning", "skip", NHL_HEAL_UNTIL)
+    fill("nba:morning", nba_open, *NBA_SLOT, "skip", "morning", None)
+    events.sort(key=lambda event: event.get("at") or "")
+    spec["events"] = events
+    return spec
+
+
+def pick_next(pairs, now):
+    """`(when, event)` list from `due`. A lock that is already due beats a catch-up morning."""
+    due_locks = [item for item in pairs if item[0] <= now and item[1].get("key") not in MORNING_KEYS]
+    return due_locks[0] if due_locks else pairs[0]
+
+
 def due(spec, done_at, now):
     out = []
     for event in spec.get("events") or []:
@@ -180,7 +280,7 @@ def watch(now_fn=None, sleep_fn=None, pull_fn=None, dispatch_fn=None, load_fn=No
                 continue
             log("nothing left to do today")
             return 0
-        when, event = events[0]
+        when, event = pick_next(events, now_fn())
         log(f"next: {event.get('key')} at {when:%H:%M}Z")
         while now_fn() < when:
             if time.time() - start > BUDGET:
@@ -240,8 +340,25 @@ def wait():
     repo = os.environ.get("GITHUB_REPOSITORY", "")
     wake = ROOT / "data" / "wake.json"
 
+    def _read(path):
+        try:
+            return json.loads(path.read_text()) if path.exists() else None
+        except (OSError, json.JSONDecodeError):
+            return None
+
     def load():
-        return read_wake(wake, pull_fn=pull_main)
+        spec = read_wake(wake, pull_fn=pull_main)
+        if spec is None:
+            return None
+        # Fold a missed morning in here, not in watch(), so a test that feeds
+        # watch() its own events is not given an extra day to wait for.
+        # A parse failure stays None so the waiter retries instead of ending the day.
+        return ensure_mornings(
+            spec,
+            dt.datetime.now(dt.timezone.utc),
+            _read(ROOT / "data" / "today.json"),
+            _read(ROOT / "data" / "nba_live.json"),
+        )
 
     def fire(inputs):
         return dispatch(private, "daily.yml", token, inputs)

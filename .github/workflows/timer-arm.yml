@@ -1,7 +1,9 @@
 name: Site timer arm
 
 # Short backstop. Starts the site timer if one is not already waiting.
-# Three times a day, plus when the private repo's morning run dispatches it.
+# The timer keeps itself alive overnight and fires the morning preview; these
+# crons only restart it if that chain has stopped. 13:20 and 14:20 UTC are
+# 9:20 ET in EDT and EST. Minutes here are free (this repo stays public).
 # Exits immediately if NHL_MODEL_DISPATCH_TOKEN is unset.
 
 on:
@@ -13,6 +15,7 @@ on:
         default: ""
         type: string
   schedule:
+    - cron: "20 13,14 * * *"
     - cron: "7 15,19,23 * * *"
 
 permissions:
