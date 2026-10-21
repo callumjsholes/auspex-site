@@ -6,7 +6,7 @@ export default function Privacy() {
   return (
     <div className="page wrap prose">
       <h1>Privacy</h1>
-      <p className="lede">A draft for the owner to review; not a lawyer's document.</p>
+      <p className="lede">How auspexsports.com handles your information.</p>
       <p>Auspex Sports runs auspexsports.com. Contact: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
       <h2>Email list</h2>
       <p>The site has no accounts and no log-in. If you join the email list, your address is collected and stored by Beehiiv, our email service, and Beehiiv's privacy policy applies to it.</p>
