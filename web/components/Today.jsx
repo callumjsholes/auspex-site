@@ -2,13 +2,15 @@
 import { useState } from "react";
 import { odds, timeET, dayLong, resultLabel, resultTone, units as u } from "@/lib/format";
 import { PriceShop } from "@/components/PriceShop";
-import { LiveLine, useLive } from "@/components/Live";
+import { LiveLine, useLive, liveView } from "@/components/Live";
 
 function Ticket({ p, nhl, live }) {
   const done = p.result !== "Pending";
+  const lv = done ? null : liveView(p, nhl, live);
+  const status = lv ? (lv.label === "Final" ? "Final, grading" : "Live") : resultLabel(p.result);
   return (
-    <article className={"ticket is-pick" + (nhl ? " nhl" : "")}>
-      <div className="meta"><span>{p.game}{p.start ? `, ${timeET(p.start)}` : ""}</span><span className={"state " + resultTone(p.result)}>{resultLabel(p.result)}{done && p.units != null ? ` ${u(p.units)}` : ""}</span></div>
+    <article className={"ticket is-pick" + (nhl ? " nhl" : "") + (lv && lv.label === "Live" ? " is-live" : "")}>
+      <div className="meta"><span>{p.game}{p.start ? `, ${timeET(p.start)}` : ""}</span><span className={"state " + (lv ? lv.tone : resultTone(p.result))}>{status}{done && p.units != null ? ` ${u(p.units)}` : ""}</span></div>
       <h3 className="call">{p.pick}</h3>
       <div className="price"><b>{odds(p.price)} <span>{nhl ? "median price" : `at ${p.book}`}</span></b><span>{p.actual != null ? (nhl ? `Final ${p.actual}` : `Finished with ${p.actual}`) : `${p.stake} unit${p.stake === 1 ? "" : "s"}`}</span></div>
       <PriceShop p={p} nhl={nhl} />
@@ -16,6 +18,9 @@ function Ticket({ p, nhl, live }) {
     </article>
   );
 }
+
+// Earliest tip first, so games in progress sit at the top; picks in the same game stay together.
+const byTip = (ps) => [...ps].sort((a, b) => (a.start || "").localeCompare(b.start || "") || a.game.localeCompare(b.game));
 
 function NhlGame({ g }) {
   return (
@@ -57,7 +62,7 @@ export default function Today({ nbaDate, nhlDate, nbaGames, nbaPicks, nbaNext, n
             </div>
           )}
           {nbaPicks.length ? (
-            <div className="cards">{nbaPicks.map((p) => <Ticket key={p.id} p={p} live={live} />)}</div>
+            <div className="cards">{byTip(nbaPicks).map((p) => <Ticket key={p.id} p={p} live={live} />)}</div>
           ) : (
             <div className="empty">
               {!nbaGames.length ? `No NBA games today${nbaNext ? `. Next slate: ${dayLong(nbaNext)}.` : "."}`

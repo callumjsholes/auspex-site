@@ -298,3 +298,4 @@ td .sub { display: block; font-size: 13px; color: var(--muted); }
 .recap .days a { font-size: 14px; padding: 5px 10px; border-radius: 999px; background: var(--soft); color: var(--ink); text-decoration: none; }
 .recap .days a[aria-current="page"] { background: var(--ink); color: var(--paper); }
 @media (max-width: 860px) { .recap { grid-template-columns: 1fr; } }
+.ticket.is-live { box-shadow: var(--shadow), 0 0 0 2px color-mix(in srgb, var(--bronze) 45%, transparent); }
