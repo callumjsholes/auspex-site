@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T14:15:30+00:00",
+ "generated_at": "2026-10-21T22:10:27+00:00",
  "today": "2026-10-21",
  "games": [
   {
@@ -12,8 +12,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 2
   },
   {
    "game_id": "401909835",
@@ -25,8 +25,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909091",
@@ -148,6 +148,78 @@
  ],
  "next_date": "2026-10-22",
  "picks": [
+  {
+   "id": "401909835-4277905-ast",
+   "game_id": "401909835",
+   "date": "2026-10-21",
+   "start_utc": "2026-10-21T23:00Z",
+   "game": "MIL@WAS",
+   "player": "Trae Young",
+   "player_id": "4277905",
+   "team": "WAS",
+   "opp": "MIL",
+   "stat": "ast",
+   "side": "Under",
+   "line": 10.5,
+   "price": -122,
+   "book": "williamhill_us",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -130,
+   "typical_n": 4,
+   "locked_at": "2026-10-21T22:10:27+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
+  {
+   "id": "401909834-4702382-pts",
+   "game_id": "401909834",
+   "date": "2026-10-21",
+   "start_utc": "2026-10-21T23:00Z",
+   "game": "ATL@ORL",
+   "player": "Tristan da Silva",
+   "player_id": "4702382",
+   "team": "ORL",
+   "opp": "ATL",
+   "stat": "pts",
+   "side": "Under",
+   "line": 9.5,
+   "price": 100,
+   "book": "betmgm",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -110,
+   "typical_n": 5,
+   "locked_at": "2026-10-21T22:10:27+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
+  {
+   "id": "401909834-4566434-ast",
+   "game_id": "401909834",
+   "date": "2026-10-21",
+   "start_utc": "2026-10-21T23:00Z",
+   "game": "ATL@ORL",
+   "player": "Franz Wagner",
+   "player_id": "4566434",
+   "team": "ORL",
+   "opp": "ATL",
+   "stat": "ast",
+   "side": "Under",
+   "line": 5.5,
+   "price": -143,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -151,
+   "typical_n": 4,
+   "locked_at": "2026-10-21T22:10:27+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909090-4683778-reb",
    "game_id": "401909090",
@@ -632,7 +704,7 @@
   "units_typical": 0.74,
   "roi_typical": 8.3,
   "typical_picks": 9,
-  "pending": 0,
+  "pending": 3,
   "avg_clv_pts": 1.14,
   "beat_close_pct": 66.7,
   "clv_n": 15
@@ -649,7 +721,7 @@
    "units_typical": 0.74,
    "roi_typical": 8.3,
    "typical_picks": 9,
-   "pending": 0,
+   "pending": 3,
    "avg_clv_pts": 1.14,
    "beat_close_pct": 66.7,
    "clv_n": 15
