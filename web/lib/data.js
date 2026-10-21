@@ -49,7 +49,7 @@ function nbaRow(p) {
     id: "nba-" + p.id, league: "NBA", date: p.date, start: p.start_utc, locked: p.locked_at, game: p.game.replace("@", " at "),
     pick: `${p.player} ${verb} ${p.line} ${stat}`, short: `${p.player} ${verb} ${p.line} ${p.stat}`,
     price: p.price, book: BOOK[p.book] || p.book, stake: p.stake, result: p.result, units: p.units ?? null, clv: p.clv_pts ?? null,
-    actual: p.actual ?? null,
+    actual: p.actual ?? null, stat: p.stat,
   };
 }
 function nhlRow(p) {
@@ -58,6 +58,7 @@ function nhlRow(p) {
     id: "nhl-" + p.game_id, league: "NHL", date: p.date, start: null, locked: p.locked_at, game: `${away} at ${home}`,
     pick: `${p.team} to win`, short: `${p.team} moneyline`, price: p.price, book: "Median price", stake: p.stake,
     result: p.result, units: p.units ?? null, clv: p.clv_pts ?? null, actual: p.home_score != null ? `${p.away_score}–${p.home_score}` : null,
+    stat: "ml",
   };
 }
 

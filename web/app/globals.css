@@ -146,7 +146,7 @@ section.block { padding-top: 72px; padding-bottom: 8px; }
 
 .tabs { display: inline-flex; background: var(--soft); border-radius: 999px; padding: 4px; gap: 2px; }
 .tabs button { border: 0; background: none; font: 650 15px var(--text); color: var(--muted); padding: 8px 18px; border-radius: 999px; cursor: pointer; }
-.tabs button[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(19,35,58,.15); }
+.tabs button[aria-selected="true"], .tabs button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(19,35,58,.15); }
 
 .slate { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 18px; }
 .slate span { font-size: 13.5px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; color: var(--muted); }
@@ -246,3 +246,17 @@ td .sub { display: block; font-size: 13px; color: var(--muted); }
 .legal a:hover { text-decoration: underline; }
 @media (max-width: 760px) { .legal { grid-template-columns: 1fr; gap: 24px; } }
 .base { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 18px 0 40px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+
+/* ---------- interactive charts */
+.chartbox { position: relative; }
+.chartbox svg:focus-visible { outline: 2px solid var(--bronze); outline-offset: 4px; border-radius: 8px; }
+.chartbox svg { cursor: crosshair; touch-action: pan-y; }
+.tip { position: absolute; width: 220px; pointer-events: none; background: var(--navy); color: var(--on-navy); border-radius: 10px; padding: 10px 12px; font-size: 13px; line-height: 1.4; box-shadow: 0 14px 30px -14px rgba(0,0,0,.55); display: grid; gap: 3px; z-index: 5; }
+.tip b { font-weight: 650; font-size: 14px; }
+.tip span { color: var(--on-navy-muted); }
+.tip .tip-total { color: var(--on-navy); font-weight: 650; font-variant-numeric: tabular-nums; }
+.tip em { font-style: normal; font-weight: 650; }
+.tip em.pos { color: #5fd3a1; } .tip em.neg { color: #f19a8b; }
+.two-tables { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 36px; }
+.two-tables h3 { font-size: 16px; margin: 0 0 10px; }
+@media (max-width: 760px) { .two-tables { grid-template-columns: 1fr; } }

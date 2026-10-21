@@ -1,7 +1,7 @@
 import { getData } from "@/lib/data";
 import { SITE } from "@/lib/site";
 import { pct, record, signed, units, stamp } from "@/lib/format";
-import UnitsChart from "@/components/UnitsChart";
+import RecordCharts from "@/components/RecordCharts";
 import RecordTable from "@/components/RecordTable";
 
 export const metadata = { title: "Record", description: "Every Auspex Sports pick since launch, graded at the posted price, with closing-line value." };
@@ -26,17 +26,7 @@ export default function RecordPage() {
         <p className="lede">Every pick since {SITE.launch}, graded at the price and book it was posted at. Closing-line value (CLV) is how many percentage points the market moved toward the pick after it posted. {D.generatedAt ? `Updated ${stamp(D.generatedAt)}.` : ""}</p>
       </div>
       <Kpis s={D.sum.all} />
-      <section className="block" style={{ paddingTop: 40 }}>
-        <div className="split">
-          <div className="panel"><UnitsChart points={D.curve} /></div>
-          <div className="stats">
-            <div className="stat"><b className="num">{record(D.sum.nba)}</b><span>NBA props, {D.sum.nba.bets ? units(D.sum.nba.units) : "no graded picks"}</span></div>
-            <div className="stat"><b className="num">{record(D.sum.nhl)}</b><span>NHL moneylines, {D.sum.nhl.bets ? units(D.sum.nhl.units) : "no graded picks"}</span></div>
-            <div className="stat"><b className="num">{D.sum.nba.avgClv != null ? signed(D.sum.nba.avgClv, 2) : "–"}</b><span>NBA average CLV, points</span></div>
-            <div className="stat"><b className="num">{D.sum.nhl.avgClv != null ? signed(D.sum.nhl.avgClv, 2) : "–"}</b><span>NHL average CLV, points</span></div>
-          </div>
-        </div>
-      </section>
+      <RecordCharts rows={D.all} />
       <section className="block" aria-labelledby="all-h" style={{ paddingTop: 48 }}>
         <div className="head"><h2 id="all-h">Every pick</h2></div>
         <RecordTable rows={D.all} />
