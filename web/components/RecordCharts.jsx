@@ -4,7 +4,7 @@ import { odds, signed, units as fmtUnits, dayShort, record } from "@/lib/format"
 
 const LEAGUES = ["All", "NBA", "NHL"];
 const STATS = [["all", "All markets"], ["pts", "Points"], ["reb", "Rebounds"], ["ast", "Assists"], ["ml", "NHL moneylines"]];
-const graded = (r) => r.result === "Won" || r.result === "Lost" || r.result === "Push";
+const graded = (result) => result === "Won" || result === "Lost" || result === "Push";
 
 function summarize(rows) {
   const done = rows.filter((r) => graded(r.result));
