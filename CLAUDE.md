@@ -19,7 +19,7 @@ Bot-owned paths:
 - `.github/workflows/timer.yml`
 - `.github/workflows/timer-arm.yml`
 - `data/backtest.json`, `data/charts.json`, `data/meta.json`, `data/nba.json`, `data/nba_live.json`, `data/picks.json`, `data/research.json`, `data/summary.json`, `data/today.json`, `data/wake.json`
-- The old static site files also on the list: `.nojekyll`, `404.html`, `apple-touch-icon.png`, `brand/mark.png`, `content.js`, `faq.html`, `favicon-32.png`, `favicon.ico`, `icon-192.png`, `icon-512.png`, `index.html`, `og.png`, `privacy.html`, `record.html`, `robots.txt`, `site.js`, `sitemap.xml`, `styles.css`, `terms.html`, `visits.js`, `waitlist.js`
+- `.nojekyll`. The old static site files (`index.html`, `record.html`, `site.js`, root `visits.js` and the rest) were dropped from the private publisher on 2026-10-21; the bot deletes them on its next publish. Do not recreate them.
 
 `data/wake.json` feeds the site timer. The website does not read it.
 
@@ -52,7 +52,7 @@ The site does not serve `/data/*.json`. Keep the `data/` directory and the field
 
 ## Visitor counter
 
-Keep it. `web/public/visits.js` is loaded from `web/app/layout.jsx`. On auspexsports.com and www it posts one visit to the auspex-visits Cloudflare Worker. `?nocount=1` turns that off for the browser. `?count=1` turns it back on. The privacy page says so. The root `visits.js` is the bot's copy. Change the copy in `web/public/` if the site's counter needs a change.
+Keep it. `web/public/visits.js` is loaded from `web/app/layout.jsx`. On auspexsports.com and www it posts one visit to the auspex-visits Cloudflare Worker. `?nocount=1` turns that off for the browser. `?count=1` turns it back on. The privacy page says so. Change it in `web/public/visits.js`; `tests/test_visits.py` covers it (`python3 -m unittest discover -s tests`, needs node).
 
 ## Writing
 

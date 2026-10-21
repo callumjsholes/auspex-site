@@ -2,6 +2,10 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-21 — Claude — Old static pages retire; visit-counter tests live here
+
+The private publisher no longer sends the old static site (root HTML, CSS, JS, images, `brand/`). The bot deletes those files on its next publish. auspexsports.com is unaffected: it is `web/`, which reads only `data/*.json`. The visit-counter tests moved here from NHL-MODEL and run on `web/public/visits.js` (`tests/test_visits.py`, workflow `tests.yml`).
+
 ## 2026-10-21
 
 - The public site moved from GitHub Pages to the Next.js app in `web/`, deployed on Vercel with Root Directory `web`. Commits `5bdbf93` and `5263e78`.
