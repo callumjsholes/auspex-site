@@ -111,6 +111,27 @@
   function nbaReason(p) {
     return reasonText(p.model_pct, p.market_pct, p.ev_pct, p.n_books);
   }
+  function typicalPriceText(price, n) {
+    const odds = Number(price);
+    if (price == null || price === "" || !Number.isFinite(odds) || odds === 0) {
+      return copy("templates.typicalMissing");
+    }
+    const count = Number(n);
+    const books = Number.isFinite(count) && count >= 1
+      ? (Math.round(count) === 1 ? "1 book" : Math.round(count) + " books")
+      : "";
+    if (!books) return copy("templates.typicalPriceShort", { price: am(odds) });
+    return copy("templates.typicalPrice", { price: am(odds), books: books });
+  }
+  function typicalUnitsText(p, league) {
+    const sport = league || p.league;
+    if (sport && sport !== "NBA") return "–";
+    const missingPrice = p.typical_price == null || p.typical_price === "";
+    if (p.units_typical == null || p.units_typical === "" || !Number.isFinite(Number(p.units_typical))) {
+      return missingPrice ? copy("templates.typicalNa") : "–";
+    }
+    return sg(Number(p.units_typical), 2);
+  }
 
   function nbaRuleText() {
     const rules = NBA_LIVE && NBA_LIVE.rules;
@@ -495,12 +516,16 @@
       banner($("#nba-banner"), "");
       const items = [
         [`${S.wins}–${S.losses}${S.pushes ? "–" + S.pushes : ""}`, copy("templates.kpiLive")],
-        [sg(S.units, 2) + "u", copy("templates.kpiLiveUnits")],
+        [sg(S.units, 2) + "u", copy("templates.unitsBest")],
+        [S.typical_picks ? sg(S.units_typical, 2) + "u" : copy("templates.typicalNa"), copy("templates.unitsTypical")],
         [S.roi == null ? "n/a" : sg(S.roi) + "%", copy("templates.kpiLiveRoi")],
       ];
       if (S.beat_close_pct != null) items.push([S.beat_close_pct.toFixed(0) + "%", copy("templates.kpiBeat")]);
       kpis(host, items);
-      $("#nba-words").textContent = S.clv_n ? copy("templates.nbaWordsClv", { avg: sg(S.avg_clv_pts, 2), n: S.clv_n }) : copy("templates.nbaWordsWait");
+      let words = S.clv_n ? copy("templates.nbaWordsClv", { avg: sg(S.avg_clv_pts, 2), n: S.clv_n }) : copy("templates.nbaWordsWait");
+      if (!S.typical_picks) words += " " + copy("templates.nbaTypicalNone");
+      else if (S.typical_picks < S.bets) words += " " + copy("templates.nbaTypicalCovers", { n: S.typical_picks, bets: S.bets });
+      $("#nba-words").textContent = words;
     }
   }
 
@@ -537,6 +562,7 @@
         f.append(el("span", "tag", `${am(p.price)} at ${BOOK[p.book] || p.book}`));
         if (p.actual != null) f.append(el("span", "num p", copy("templates.actual", { n: p.actual })));
         else if (!why && finite(p.ev_pct)) f.append(el("span", "num p", copy("templates.ev", { n: sg(p.ev_pct) + "%" })));
+        f.append(el("span", "typical", typicalPriceText(p.typical_price, p.typical_n)));
         c.append(f); box.append(c);
       });
     };
@@ -558,7 +584,7 @@
     const rows = runningRows(NBA_LIVE.picks, $("#nba-filter").value);
     const tb = $("#nba-hist tbody"); tb.innerHTML = "";
     if (!NBA_LIVE.picks.length) {
-      const tr = el("tr"), td = el("td"); td.colSpan = 9; td.append(emptyCard(copy("slip.day1"), copy("templates.liveEmptyNba"))); tr.append(td); tb.append(tr);
+      const tr = el("tr"), td = el("td"); td.colSpan = 10; td.append(emptyCard(copy("slip.day1"), copy("templates.liveEmptyNba"))); tr.append(td); tb.append(tr);
       $("#nba-clv").textContent = copy("templates.nbaClvWait");
       return;
     }
@@ -568,7 +594,8 @@
       tr.append(el("td", "r num " + (p.clv_pts == null ? "p" : p.clv_pts > 0 ? "w" : p.clv_pts < 0 ? "l" : "p"), p.clv_pts == null ? "–" : sg(p.clv_pts) + " pts"));
       tr.append(el("td", "r num", p.actual == null ? "–" : String(p.actual)));
       const cell = el("td"); cell.append(badge(p.result)); tr.append(cell);
-      tr.append(el("td", "r num " + (p.units > 0 ? "w" : p.units < 0 ? "l" : "p"), p.units == null ? "–" : sg(p.units, 2)), el("td", "r num", sg(p._run, 2)));
+      tr.append(el("td", "r num " + (p.units > 0 ? "w" : p.units < 0 ? "l" : "p"), p.units == null ? "–" : sg(p.units, 2)));
+      tr.append(el("td", "r", typicalUnitsText(p, "NBA")), el("td", "r num", sg(p._run, 2)));
       tb.append(tr);
     });
     const S = NBA_LIVE.summary;
@@ -772,7 +799,8 @@
         odds: p.price,
         stake: p.stake,
         result: p.result,
-        units: finite(p.units) ? Number(p.units) : null
+        units: finite(p.units) ? Number(p.units) : null,
+        units_typical: finite(p.units_typical) ? Number(p.units_typical) : null
       });
     });
     rows.sort((a, b) => (a.date + " " + a.locked_at).localeCompare(b.date + " " + b.locked_at) || a.league.localeCompare(b.league) || a.pick.localeCompare(b.pick));
@@ -885,7 +913,7 @@
       if (!shown.length) {
         const tr = el("tr");
         const td = el("td", "", rows.length ? copy("record.filterEmpty") : copy("record.empty"));
-        td.colSpan = 10;
+        td.colSpan = 11;
         tr.append(td);
         tb.append(tr);
         return;
@@ -905,6 +933,7 @@
         tr.append(cell);
         tr.append(
           el("td", "r num " + (p.units > 0 ? "w" : p.units < 0 ? "l" : "p"), p.units == null ? "–" : sg(p.units, 2)),
+          el("td", "r", typicalUnitsText(p)),
           el("td", "r num", sg(p._run, 2)),
           el("td", "r num", p._rec)
         );
@@ -913,11 +942,21 @@
     }
     function drawSummary() {
       const totals = recordTotals(rows);
+      const nbaGraded = rows.filter((p) => p.league === "NBA" && (p.result === "Won" || p.result === "Lost" || p.result === "Push"));
+      const onlyNba = rows.length > 0 && rows.every((p) => p.league === "NBA");
+      const covered = nbaGraded.filter((p) => p.units_typical != null);
+      const typicalUnits = covered.length ? Math.round(covered.reduce((sum, p) => sum + p.units_typical, 0) * 100) / 100 : null;
+      const nbaUnits = Math.round(nbaGraded.reduce((sum, p) => sum + (p.units == null ? 0 : p.units), 0) * 100) / 100;
       const items = [
-        [recordLabel(rows), copy("record.kpiRecord")],
-        [sg(totals.units, 2) + "u", copy("record.kpiUnits")],
-        [unitCount(totals.staked), copy("record.kpiStaked")]
+        [recordLabel(rows), copy("record.kpiRecord")]
       ];
+      if (onlyNba) items.push([sg(totals.units, 2) + "u", copy("record.unitsBest")]);
+      else {
+        items.push([sg(totals.units, 2) + "u", copy("record.kpiUnits")]);
+        if (nbaGraded.length) items.push([sg(nbaUnits, 2) + "u", copy("record.unitsBest")]);
+      }
+      if (nbaGraded.length) items.push([typicalUnits == null ? copy("record.typicalNa") : sg(typicalUnits, 2) + "u", copy("record.unitsTypical")]);
+      items.push([unitCount(totals.staked), copy("record.kpiStaked")]);
       if (totals.roi != null) items.push([sg(totals.roi, 1) + "%", copy("record.kpiRoi")]);
       kpis($("#record-kpis"), items);
       const tableHead = $("#record-table-h");
@@ -951,8 +990,8 @@
     $("#record-league").addEventListener("change", paint);
     $("#record-result").addEventListener("change", paint);
     $("#record-csv").addEventListener("click", () => {
-      csvDownload("auspex-record.csv", ["date", "league", "matchup", "pick", "odds", "stake", "result", "units", "running_units", "running_record"],
-        shownRows().slice().reverse().map((p) => [p.date, p.league, p.matchup, p.pick, p.odds, p.stake, p.result, p.units, p.units == null ? "" : p._run.toFixed(2), p._rec]));
+      csvDownload("auspex-record.csv", ["date", "league", "matchup", "pick", "odds", "stake", "result", "units", "units_typical", "running_units", "running_record"],
+        shownRows().slice().reverse().map((p) => [p.date, p.league, p.matchup, p.pick, p.odds, p.stake, p.result, p.units, p.units_typical == null ? "" : p.units_typical, p.units == null ? "" : p._run.toFixed(2), p._rec]));
     });
     addEventListener("resize", () => {
       clearTimeout(bootRecord.resizeTimer);
@@ -1025,8 +1064,8 @@
     });
     $("#nba-csv").addEventListener("click", () => {
       const rows = runningRows(NBA_LIVE.picks, $("#nba-filter").value);
-      csvDownload("auspex-nba-picks.csv", ["date", "player", "side", "line", "stat", "price", "book", "clv_pts", "actual", "result", "units", "running"],
-        rows.map((p) => [p.date, p.player, p.side, p.line, p.stat, p.price, p.book, p.clv_pts, p.actual, p.result, p.units, p._run.toFixed(2)]));
+      csvDownload("auspex-nba-picks.csv", ["date", "player", "side", "line", "stat", "price", "typical_price", "book", "clv_pts", "actual", "result", "units", "units_typical", "running"],
+        rows.map((p) => [p.date, p.player, p.side, p.line, p.stat, p.price, p.typical_price, p.book, p.clv_pts, p.actual, p.result, p.units, p.units_typical, p._run.toFixed(2)]));
     });
     addEventListener("hashchange", () => show(true));
     let resizeTimer;

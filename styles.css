@@ -174,7 +174,8 @@ button.btn { font-family: inherit; appearance: none; -webkit-appearance: none; }
 .card .match, .card .bet { font-weight: 680; font-size: 20px; margin: 8px 0 4px; line-height: 1.25; }
 .card .why { margin: 8px 0 0; font-size: 15px; line-height: 1.45; color: var(--ink); }
 .card .goalies { font-size: 13px; color: var(--muted); }
-.card .foot { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 14px; }
+.card .foot { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 14px; }
+.card .foot .typical { flex-basis: 100%; margin-top: 2px; font-weight: 550; }
 .tag { font-weight: 650; }
 .tag.pass { color: var(--muted); font-weight: 550; }
 .empty-card { border: 1px solid var(--line); padding: 16px; }
