@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-22T14:15:27+00:00",
+ "generated_at": "2026-10-22T22:10:28+00:00",
  "today": "2026-10-22",
  "games": [
   {
@@ -12,8 +12,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 2
   },
   {
    "game_id": "401909094",
@@ -31,6 +31,54 @@
  ],
  "next_date": "2026-10-23",
  "picks": [
+  {
+   "id": "401909093-4576087-pts",
+   "game_id": "401909093",
+   "date": "2026-10-22",
+   "start_utc": "2026-10-22T23:00Z",
+   "game": "CLE@PHI",
+   "player": "Peyton Watson",
+   "player_id": "4576087",
+   "team": "CLE",
+   "opp": "PHI",
+   "stat": "pts",
+   "side": "Under",
+   "line": 13.5,
+   "price": -112,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -120,
+   "typical_n": 3,
+   "locked_at": "2026-10-22T22:10:28+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
+  {
+   "id": "401909093-5124612-ast",
+   "game_id": "401909093",
+   "date": "2026-10-22",
+   "start_utc": "2026-10-22T23:00Z",
+   "game": "CLE@PHI",
+   "player": "VJ Edgecombe",
+   "player_id": "5124612",
+   "team": "PHI",
+   "opp": "CLE",
+   "stat": "ast",
+   "side": "Over",
+   "line": 2.5,
+   "price": 117,
+   "book": "draftkings",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": 112,
+   "typical_n": 4,
+   "locked_at": "2026-10-22T22:10:28+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909842-4432170-reb",
    "game_id": "401909842",
@@ -2373,7 +2421,7 @@
   "units_typical": 8.12,
   "roi_typical": 11.8,
   "typical_picks": 69,
-  "pending": 0,
+  "pending": 2,
   "avg_clv_pts": 0.38,
   "beat_close_pct": 49.3,
   "clv_n": 75
@@ -2390,7 +2438,7 @@
    "units_typical": 8.12,
    "roi_typical": 11.8,
    "typical_picks": 69,
-   "pending": 0,
+   "pending": 2,
    "avg_clv_pts": 0.38,
    "beat_close_pct": 49.3,
    "clv_n": 75
