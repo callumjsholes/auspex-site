@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T23:50:21+00:00",
+ "generated_at": "2026-10-22T00:20:28+00:00",
  "today": "2026-10-21",
  "games": [
   {
@@ -10,8 +10,8 @@
    "start_utc": "2026-10-21T23:00Z",
    "state": "in",
    "completed": false,
-   "hs": 33,
-   "as_": 31,
+   "hs": 62,
+   "as_": 72,
    "locked": true,
    "picks": 2
   },
@@ -23,8 +23,8 @@
    "start_utc": "2026-10-21T23:00Z",
    "state": "in",
    "completed": false,
-   "hs": 27,
-   "as_": 28,
+   "hs": 51,
+   "as_": 56,
    "locked": true,
    "picks": 1
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-10-21T23:30Z",
    "state": "in",
    "completed": false,
-   "hs": 14,
-   "as_": 17,
+   "hs": 35,
+   "as_": 34,
    "locked": true,
    "picks": 8
   },
@@ -49,8 +49,8 @@
    "start_utc": "2026-10-21T23:30Z",
    "state": "in",
    "completed": false,
-   "hs": 11,
-   "as_": 5,
+   "hs": 26,
+   "as_": 27,
    "locked": true,
    "picks": 10
   },
@@ -62,8 +62,8 @@
    "start_utc": "2026-10-21T23:30Z",
    "state": "in",
    "completed": false,
-   "hs": 7,
-   "as_": 0,
+   "hs": 43,
+   "as_": 23,
    "locked": true,
    "picks": 9
   },
@@ -73,10 +73,10 @@
    "home": "MEM",
    "away": "UTA",
    "start_utc": "2026-10-22T00:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 9,
+   "as_": 7,
    "locked": true,
    "picks": 8
   },
@@ -86,10 +86,10 @@
    "home": "NOP",
    "away": "IND",
    "start_utc": "2026-10-22T00:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 14,
+   "as_": 19,
    "locked": true,
    "picks": 2
   },
@@ -170,7 +170,13 @@
    "locked_at": "2026-10-21T23:40:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-22T00:20:28+00:00",
+   "close_median": 103,
+   "clv_pts": -0.4,
+   "close_price": 108,
+   "close_line": 6.5
   },
   {
    "id": "401909840-4278049-pts",
@@ -194,7 +200,13 @@
    "locked_at": "2026-10-21T23:40:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-22T00:20:28+00:00",
+   "close_median": -105,
+   "clv_pts": -0.2,
+   "close_price": 102,
+   "close_line": 9.5
   },
   {
    "id": "401909840-5041939-ast",
@@ -218,7 +230,13 @@
    "locked_at": "2026-10-21T23:40:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-22T00:20:28+00:00",
+   "close_median": 116,
+   "clv_pts": 0.1,
+   "close_price": 116,
+   "close_line": 4.5
   },
   {
    "id": "401909840-4871144-ast",
@@ -242,7 +260,13 @@
    "locked_at": "2026-10-21T23:40:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-22T00:20:28+00:00",
+   "close_median": 117,
+   "clv_pts": -1.4,
+   "close_price": null,
+   "close_line": 4.5
   },
   {
    "id": "401909840-6442-ast",
@@ -266,7 +290,13 @@
    "locked_at": "2026-10-21T23:40:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-22T00:20:28+00:00",
+   "close_median": 109,
+   "clv_pts": 0.1,
+   "close_price": 114,
+   "close_line": 4.5
   },
   {
    "id": "401909839-5061589-pts",
@@ -1953,9 +1983,9 @@
   "roi_typical": 8.3,
   "typical_picks": 9,
   "pending": 45,
-  "avg_clv_pts": 0.44,
-  "beat_close_pct": 49.1,
-  "clv_n": 55
+  "avg_clv_pts": 0.38,
+  "beat_close_pct": 48.3,
+  "clv_n": 60
  },
  "by_tier": {
   "Pick": {
@@ -1970,9 +2000,9 @@
    "roi_typical": 8.3,
    "typical_picks": 9,
    "pending": 45,
-   "avg_clv_pts": 0.44,
-   "beat_close_pct": 49.1,
-   "clv_n": 55
+   "avg_clv_pts": 0.38,
+   "beat_close_pct": 48.3,
+   "clv_n": 60
   }
  },
  "series": [
