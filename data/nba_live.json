@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23T22:50:27+00:00",
+ "generated_at": "2026-10-23T23:10:29+00:00",
  "today": "2026-10-23",
  "games": [
   {
@@ -90,8 +90,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 2
   },
   {
    "game_id": "401909096",
@@ -161,6 +161,54 @@
  ],
  "next_date": "2026-10-24",
  "picks": [
+  {
+   "id": "401909847-5107199-ast",
+   "game_id": "401909847",
+   "date": "2026-10-23",
+   "start_utc": "2026-10-24T00:00Z",
+   "game": "DET@MIA",
+   "player": "Daniss Jenkins",
+   "player_id": "5107199",
+   "team": "DET",
+   "opp": "MIA",
+   "stat": "ast",
+   "side": "Over",
+   "line": 2.5,
+   "price": -156,
+   "book": "draftkings",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -157,
+   "typical_n": 3,
+   "locked_at": "2026-10-23T23:10:29+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
+  {
+   "id": "401909847-4432166-pts",
+   "game_id": "401909847",
+   "date": "2026-10-23",
+   "start_utc": "2026-10-24T00:00Z",
+   "game": "DET@MIA",
+   "player": "Cade Cunningham",
+   "player_id": "4432166",
+   "team": "DET",
+   "opp": "MIA",
+   "stat": "pts",
+   "side": "Under",
+   "line": 24.5,
+   "price": -109,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -115,
+   "typical_n": 5,
+   "locked_at": "2026-10-23T23:10:29+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909843-3032979-ast",
    "game_id": "401909843",
@@ -3475,7 +3523,7 @@
   "units_typical": 5.3,
   "roi_typical": 6.4,
   "typical_picks": 83,
-  "pending": 18,
+  "pending": 20,
   "avg_clv_pts": 0.46,
   "beat_close_pct": 50.5,
   "clv_n": 107
@@ -3492,7 +3540,7 @@
    "units_typical": 5.3,
    "roi_typical": 6.4,
    "typical_picks": 83,
-   "pending": 18,
+   "pending": 20,
    "avg_clv_pts": 0.46,
    "beat_close_pct": 50.5,
    "clv_n": 107
