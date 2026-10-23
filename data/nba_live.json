@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23T23:50:31+00:00",
+ "generated_at": "2026-10-23T23:51:20+00:00",
  "today": "2026-10-23",
  "games": [
   {
@@ -76,7 +76,7 @@
    "state": "in",
    "completed": false,
    "hs": 26,
-   "as_": 38,
+   "as_": 40,
    "locked": true,
    "picks": 3
   },
