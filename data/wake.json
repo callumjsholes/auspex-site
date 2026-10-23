@@ -1,13 +1,7 @@
 {
- "generated_at": "2026-10-23T02:30:17+00:00",
- "keep_watching_until": "2026-10-23T20:00:00+00:00",
+ "generated_at": "2026-10-23T05:00:17+00:00",
+ "keep_watching_until": "2026-10-24T01:00:00+00:00",
  "events": [
-  {
-   "at": "2026-10-23T05:00:00+00:00",
-   "key": "nba:grade",
-   "mode": "skip",
-   "nba_mode": "grade"
-  },
   {
    "at": "2026-10-23T13:15:00+00:00",
    "key": "morning",
@@ -27,7 +21,37 @@
    "nba_mode": "lock"
   },
   {
+   "at": "2026-10-23T22:00:00+00:00",
+   "key": "pregame",
+   "mode": "pregame",
+   "nba_mode": "skip"
+  },
+  {
+   "at": "2026-10-23T22:10:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
+   "at": "2026-10-23T23:10:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
    "at": "2026-10-23T23:30:00+00:00",
+   "key": "nba:grade",
+   "mode": "skip",
+   "nba_mode": "grade"
+  },
+  {
+   "at": "2026-10-24T02:30:00+00:00",
+   "key": "nba:grade",
+   "mode": "skip",
+   "nba_mode": "grade"
+  },
+  {
+   "at": "2026-10-24T03:30:00+00:00",
    "key": "nba:grade",
    "mode": "skip",
    "nba_mode": "grade"
