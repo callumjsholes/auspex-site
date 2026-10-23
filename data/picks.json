@@ -53,11 +53,14 @@
   "best_price": 180,
   "best_book": "betrivers",
   "locked_at": "2026-10-22T21:00:14+00:00",
-  "close_price": 175,
+  "close_price": 176,
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-10-22T21:00:14+00:00"
+  "close_at": "2026-10-23T00:45:14+00:00",
+  "close_median": 176,
+  "closed": true,
+  "clv_pts": -0.9
  },
  {
   "game_id": 2026020164,
