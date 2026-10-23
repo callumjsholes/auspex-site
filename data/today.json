@@ -1,6 +1,6 @@
 {
  "date": "2026-10-23",
- "generated_at": "2026-10-23T13:15:15+00:00",
+ "generated_at": "2026-10-23T22:00:16+00:00",
  "games": [
   {
    "game_id": 2026020166,
@@ -14,8 +14,8 @@
    "away_score": null,
    "home_goalie": "Spencer Knight",
    "away_goalie": "Jacob Fowler",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -30,8 +30,8 @@
    "away_score": null,
    "home_goalie": "Mackenzie Blackwood",
    "away_goalie": "Andrei Vasilevskiy",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   }
  ]
