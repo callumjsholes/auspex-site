@@ -74,11 +74,14 @@
   "best_price": -169,
   "best_book": "betonlineag",
   "locked_at": "2026-10-22T21:00:14+00:00",
-  "close_price": -174,
+  "close_price": -182,
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-10-22T21:00:14+00:00"
+  "close_at": "2026-10-23T01:45:16+00:00",
+  "close_median": -182,
+  "closed": true,
+  "clv_pts": 1.0
  },
  {
   "game_id": 2026020142,
