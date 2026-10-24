@@ -1,9 +1,8 @@
 "use client";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { odds, signed, units as fmtUnits, unitsFromMilli, dayShort, record } from "@/lib/format";
 import { isGraded, summarize, runningTotals } from "@/lib/summary";
 
-const LEAGUES = ["All", "NBA", "NHL"];
 const STATS = [["all", "All markets"], ["pts", "Points"], ["reb", "Rebounds"], ["ast", "Assists"], ["ml", "NHL moneylines"]];
 const graded = isGraded;
 
@@ -151,36 +150,36 @@ function Breakdown({ rows, by, label }) {
 
 const STAT_NAME = { pts: "Points", reb: "Rebounds", ast: "Assists", ml: "NHL moneyline" };
 
-export default function RecordCharts({ rows }) {
-  const [league, setLeague] = useState("All");
+export default function RecordCharts({ rows, league = "All" }) {
   const [stat, setStat] = useState("all");
   const [view, setView] = useState("units");
+  useEffect(() => {
+    if (league === "NHL" && stat !== "all" && stat !== "ml") setStat("all");
+    if (league === "NBA" && stat === "ml") setStat("all");
+  }, [league, stat]);
   const chrono = useMemo(() => [...rows].sort((a, b) => (a.date + (a.locked || "")).localeCompare(b.date + (b.locked || ""))), [rows]);
-  const shown = useMemo(() => chrono.filter((r) => (league === "All" || r.league === league) && (stat === "all" || r.stat === stat)), [chrono, league, stat]);
+  const shown = useMemo(() => chrono.filter((r) => stat === "all" || r.stat === stat), [chrono, stat]);
   const done = shown.filter((r) => graded(r.result));
   const s = summarize(shown);
-  const filtered = league !== "All" || stat !== "all";
+  const filtered = stat !== "all";
   const statOpts = STATS.filter(([k]) => k === "all" || (league === "NHL" ? k === "ml" : league === "NBA" ? k !== "ml" : true));
   return (
     <section className="block" id="charts" aria-labelledby="charts-h" style={{ paddingTop: 40 }}>
       <div className="head">
-        <div><h2 id="charts-h">Explore the record</h2><p className="lede">Filter by league and market. Hover or tap the chart, or use the arrow keys, to see each pick.{filtered ? "" : " With no filter, the totals match the top of this page."}</p></div>
+        <div><h2 id="charts-h">Explore the record</h2><p className="lede">League and dates are set above. Narrow the chart by market. Hover or tap the chart, or use the arrow keys, to see each pick.{filtered ? "" : " With every market, the line ends on the total at the top of this page."}</p></div>
       </div>
       <div className="filters">
-        <div className="tabs" role="group" aria-label="League">
-          {LEAGUES.map((l) => <button key={l} aria-pressed={league === l} onClick={() => { setLeague(l); setStat("all"); }}>{l === "All" ? "All picks" : l}</button>)}
-        </div>
         <label>Market <select value={stat} onChange={(e) => setStat(e.target.value)}>{statOpts.map(([k, n]) => <option key={k} value={k}>{n}</option>)}</select></label>
         <div className="tabs" role="group" aria-label="Chart">
-          <button aria-pressed={view === "units"} onClick={() => setView("units")}>Units</button>
-          <button aria-pressed={view === "clv"} onClick={() => setView("clv")}>Closing-line value</button>
+          <button type="button" aria-pressed={view === "units"} onClick={() => setView("units")}>Units</button>
+          <button type="button" aria-pressed={view === "clv"} onClick={() => setView("clv")}>Closing-line value</button>
         </div>
       </div>
       <div className={filtered ? "split" : ""}>
         <div className="panel">{view === "units" ? <UnitsCurve rows={done} /> : <ClvBars rows={shown} />}</div>
         {filtered && (
           <div>
-            <h3 className="filter-h">This filter</h3>
+            <h3 className="filter-h">This market</h3>
             <div className="stats">
               <div className="stat"><b className="num">{record(s)}</b><span>Record</span></div>
               <div className="stat"><b className={"num " + (s.units > 0 ? "pos" : s.units < 0 ? "neg" : "")}>{s.bets ? unitsFromMilli(s.unitMilli) : "–"}</b><span>Units</span></div>

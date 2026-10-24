@@ -1,6 +1,11 @@
+import { pageMeta } from "@/lib/meta";
 import { SITE } from "@/lib/site";
 
-export const metadata = { title: "Terms", description: "Terms of use for auspexsports.com." };
+export const metadata = pageMeta({
+  title: "Terms",
+  description: "Terms of use for auspexsports.com.",
+  path: "/terms",
+});
 
 export default function Terms() {
   return (

@@ -12,9 +12,8 @@ function shopSub(r) {
 }
 
 export default function RecordTable({ rows }) {
-  const [league, setLeague] = useState("All");
   const [result, setResult] = useState("All");
-  const shown = useMemo(() => rows.filter((r) => (league === "All" || r.league === league) && (result === "All" || r.result === result)), [rows, league, result]);
+  const shown = useMemo(() => rows.filter((r) => result === "All" || r.result === result), [rows, result]);
   const csv = () => {
     const head = ["date", "league", "game", "pick", "price", "book", "typical_price", "best_price", "stake", "result", "units", "clv_pts", "locked_at"];
     const lines = [head.join(",")].concat(shown.map((r) => [r.date, r.league, r.game, r.pick, r.price, r.book, r.typical ?? "", r.best ?? "", r.stake, r.result, r.units ?? "", r.clv ?? "", r.locked].map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`).join(",")));
@@ -25,7 +24,6 @@ export default function RecordTable({ rows }) {
   return (
     <>
       <div className="filters">
-        <label>League <select value={league} onChange={(e) => setLeague(e.target.value)}><option>All</option><option>NBA</option><option>NHL</option></select></label>
         <label>Result <select value={result} onChange={(e) => setResult(e.target.value)}><option>All</option><option>Won</option><option>Lost</option><option>Push</option><option value="Pending">Open</option><option>Void</option></select></label>
         <button className="btn line" style={{ padding: "7px 14px", fontSize: 14 }} onClick={csv}>Download CSV</button>
         <span className="muted" style={{ fontSize: 14 }}>{shown.length} pick{shown.length === 1 ? "" : "s"}</span>

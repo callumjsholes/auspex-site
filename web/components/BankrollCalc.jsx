@@ -7,9 +7,9 @@ import { useMemo, useState } from "react";
 const graded = (r) => r === "Won" || r === "Lost" || r === "Push";
 const money = (v) => (v < 0 ? "−$" : "$") + Math.abs(v).toLocaleString("en-US", { maximumFractionDigits: 0 });
 
-export function simulate(rows, { bankroll, pct, mode, league }) {
+export function simulate(rows, { bankroll, pct, mode }) {
   const picks = rows
-    .filter((r) => graded(r.result) && r.units != null && (league === "All" || r.league === league))
+    .filter((r) => graded(r.result) && r.units != null)
     .sort((a, b) => (a.date + (a.locked || "")).localeCompare(b.date + (b.locked || "")));
   let bank = bankroll;
   let peak = bankroll;
@@ -45,15 +45,14 @@ export default function BankrollCalc({ rows }) {
   const [bankroll, setBankroll] = useState(1000);
   const [pct, setPct] = useState(1);
   const [mode, setMode] = useState("flat");
-  const [league, setLeague] = useState("All");
   const ok = bankroll > 0 && pct > 0 && pct <= 10;
-  const r = useMemo(() => (ok ? simulate(rows, { bankroll, pct, mode, league }) : null), [rows, bankroll, pct, mode, league, ok]);
+  const r = useMemo(() => (ok ? simulate(rows, { bankroll, pct, mode }) : null), [rows, bankroll, pct, mode, ok]);
   return (
     <section className="block" id="calculator" aria-labelledby="calc-h" style={{ paddingTop: 48 }}>
       <div className="head">
         <div>
           <h2 id="calc-h">If you'd followed every pick</h2>
-          <p className="lede">Pick a bankroll and a unit size. This replays the graded record at the posted prices, in order.</p>
+          <p className="lede">Pick a bankroll and a unit size. This replays the graded picks in the filter above, at the posted prices, in order.</p>
         </div>
       </div>
       <div className="calc">
@@ -61,7 +60,6 @@ export default function BankrollCalc({ rows }) {
           <label>Starting bankroll ($)<input type="number" min="1" step="50" value={bankroll} onChange={(e) => setBankroll(Number(e.target.value))} /></label>
           <label>1 unit (% of bankroll)<input type="number" min="0.1" max="10" step="0.5" value={pct} onChange={(e) => setPct(Number(e.target.value))} /></label>
           <label>Unit size<select value={mode} onChange={(e) => setMode(e.target.value)}><option value="flat">Stays the same</option><option value="grow">Grows with bankroll</option></select></label>
-          <label>League<select value={league} onChange={(e) => setLeague(e.target.value)}><option>All</option><option>NBA</option><option>NHL</option></select></label>
         </div>
         {!ok ? <div className="empty">Use a bankroll above $0 and a unit between 0.1% and 10%.</div>
           : !r.picks ? <div className="empty">No graded picks in this filter yet.</div> : (

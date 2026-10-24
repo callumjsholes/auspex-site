@@ -5,6 +5,7 @@ import { PriceShop } from "@/components/PriceShop";
 import { LiveLine, useLive, liveView } from "@/components/Live";
 import Term from "@/components/Term";
 import LocalTime from "@/components/LocalTime";
+import HowToRead from "@/components/HowToRead";
 
 const STAT_NAME = { pts: "points", reb: "rebounds", ast: "assists" };
 
@@ -136,24 +137,6 @@ function GameBoard({ games, lockMinutes }) {
 
 function MailLink() {
   return <p className="mail-line"><a href="#join">Email me when picks lock</a></p>;
-}
-
-function HowToRead() {
-  return (
-    <aside className="howto" aria-labelledby="howto-h">
-      <h3 id="howto-h">How to read a pick</h3>
-      <p>
-        I put the bet, the price, and the book on each card.
-        A price like <Term k="odds">−110</Term> is American odds: you risk $110 to win $100.{" "}
-        <Term k="unit">1 unit</Term> is 1% of a bankroll.{" "}
-        <Term k="over">Over</Term> means the player finishes above the line, and <Term k="under">under</Term> means below it.{" "}
-        A <Term k="moneyline">moneyline</Term> is a bet on which team wins.
-        NHL cards use the <Term k="median">median price</Term>.
-        The <Term k="closing">closing line</Term> is the last price before the game.
-        {" "}<a href="/faq">More answers</a>
-      </p>
-    </aside>
-  );
 }
 
 function NhlNote({ games, now, hasPick }) {

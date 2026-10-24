@@ -22,6 +22,7 @@ export default function Home() {
             <p className="deck">Auspex posts NBA player props and NHL moneylines from its own pricing models. Each pick goes up before tip-off or puck drop with the price and the book, and is graded at that price, win or lose.</p>
             <div className="ctas">
               <a className="btn bronze" href="#today">See today's picks</a>
+              <a className="btn ghost" href="/start">Start here</a>
               <a className="btn ghost" href="/record">Full record</a>
             </div>
           </div>

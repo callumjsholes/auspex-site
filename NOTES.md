@@ -2,6 +2,16 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-24 — Site — Start page, previews, signup, filters
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- `/start` is a short page for a new visitor: what the site is, the same "How to read a pick" explainer as the home page, how the live record is counted, and the same responsible-gambling lines as the footer. It is in the header, the home page, the footer, and the sitemap. The live sentence is built from `web/lib/summary.js`. Tests stay on the method page and are not added into that sentence.
+- Public pages set their own Open Graph and Twitter title and description. The preview image is generated at build time (`opengraph-image` / `twitter-image`) from the published record. The home image shows the live record. A recap image shows that day's record. Both are 1200×630. They do not add a field the pages do not already show.
+- The email form still uses the existing Beehiiv form (`Auspex site waitlist`, id in `web/lib/site.js`). It does not use an API key. Beehiiv has one published note and no live automation, so the form does not name a send schedule.
+- `/record` has one league control (All / NBA / NHL) and one date control (All time / Last 7 days / Last 30 days). The summary, the chart, the calculator, and the table all use that slice, summed in `web/lib/summary.js`. The chart still has its market filter. The table still has its result filter. Last 7 days and last 30 days use the visitor's calendar. The live record currently starts October 20, 2026, so both windows are the whole record until more days are graded.
+- `/recap` renders the latest day directly. It no longer redirects.
+
 ## 2026-10-24 — Site — Clearer pages, one unit total
 
 The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.

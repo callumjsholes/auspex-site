@@ -1,8 +1,13 @@
 import { getData } from "@/lib/data";
+import { pageMeta } from "@/lib/meta";
 import { SITE } from "@/lib/site";
 import { TERMS } from "@/lib/terms";
 
-export const metadata = { title: "FAQ", description: "How Auspex Sports picks lock, how they're graded, and what a unit, a moneyline, and American odds mean." };
+export const metadata = pageMeta({
+  title: "FAQ",
+  description: "How Auspex Sports picks lock, how they're graded, and what a unit, a moneyline, and American odds mean.",
+  path: "/faq",
+});
 
 export default function Faq() {
   const lock = getData().lockMinutes;

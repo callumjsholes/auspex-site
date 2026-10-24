@@ -1,6 +1,11 @@
+import { pageMeta } from "@/lib/meta";
 import { SITE } from "@/lib/site";
 
-export const metadata = { title: "Privacy", description: "What auspexsports.com collects, and how to opt out." };
+export const metadata = pageMeta({
+  title: "Privacy",
+  description: "What auspexsports.com collects, and how to opt out.",
+  path: "/privacy",
+});
 
 export default function Privacy() {
   return (
