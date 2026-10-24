@@ -88,11 +88,14 @@ export function getData() {
   const all = [...nba, ...nhl].sort((a, b) => (b.date + (b.locked || "")).localeCompare(a.date + (a.locked || "")));
   const nhlLocked = new Map(nhl.filter((r) => r.date === today.date).map((r) => [r.game, r]));
 
-  // Today's NHL slate: matchups and start times; a pick only once it has locked.
+  // Today's NHL slate: matchups, start times, and whether the game has locked.
+  // A pick is attached only from the public picks feed. Prices and edges on the
+  // schedule file stay here and never go out to a page.
   const nhlToday = (today.games || []).map((g) => {
-    const locked = nhlLocked.get(`${g.away} at ${g.home}`);
+    const pick = nhlLocked.get(`${g.away} at ${g.home}`);
     return { id: g.game_id, start: g.start_utc, away: g.away, home: g.home,
-      score: g.home_score != null ? `${g.away_score}–${g.home_score}` : null, pick: locked || null };
+      score: g.home_score != null ? `${g.away_score}–${g.home_score}` : null,
+      locked: !!g.locked, pick: pick || null };
   });
 
   // Only the headline test numbers, nothing about how the model works.
@@ -102,7 +105,10 @@ export function getData() {
   return {
     generatedAt: [nbaLive.generated_at, summary.generated_at].filter(Boolean).sort().pop() || null,
     nbaDate: nbaLive.today, nhlDate: today.date,
-    nbaGames: (nbaLive.games || []).map((g) => ({ id: g.game_id, away: g.away, home: g.home, start: g.start_utc, completed: g.completed, locked: g.locked, picks: g.picks })),
+    nbaGames: (nbaLive.games || []).map((g) => ({
+      id: g.game_id, away: g.away, home: g.home, start: g.start_utc, completed: g.completed, locked: g.locked, picks: g.picks,
+      score: g.completed && g.as_ != null && g.hs != null ? `${g.as_}–${g.hs}` : null,
+    })),
     nbaNext: nbaLive.next_date || null, lockMinutes: nbaLive.rules?.lock_minutes || 50,
     nbaToday: nba.filter((r) => r.date === nbaLive.today),
     nhlToday,
