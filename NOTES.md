@@ -21,6 +21,21 @@ The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was 
 - Today's slate shows each NBA game's lock time (tip minus `rules.lock_minutes`) and a countdown once the page is running in the browser. Times render in Eastern Time on the server, then switch to the visitor's time zone after mount. The empty state links to the existing `#join` email form.
 - Below 600px the Every pick table stacks one row per pick, and `/recap/<date>` shows the picks as HTML instead of the shrunk card. `/recap/<date>/card` is still the PNG.
 
+## 2026-10-24 — Terms of use and privacy policy
+
+- `/terms` and `/privacy` are the public terms and the privacy policy. The footer links to both. The privacy page still documents the visit counter: local storage keys `auspex_vid` and `auspex_nocount`, the auspex-visits Worker, and `?nocount=1` / `?count=1`.
+- Contact on both pages is `hello@auspexsports.com` from `web/lib/site.js`. The site has no accounts, no payments, no analytics script, and no X embed. Paid subscriptions are described as not active.
+- The privacy page says the signup form sends the address to Beehiiv from this site. The site does not store it.
+- `CLAUDE.md`, `AGENTS.md`, and this file stay off `.auspex-published.json`.
+
+## 2026-10-24 — Game pages
+
+- Static pages for every NHL and NBA game in the public feed: `/nhl/<date>/<away>-at-<home>` and `/nba/...`. League indexes are `/nba` and `/nhl`. Date indexes are `/nba/<date>` and `/nhl/<date>`.
+- Built only from `web/lib/data.js`. A pick is shown only after it is in the public picks. Today's full slate, including games that have not locked, comes from `nba_live.json` `games` and `today.json` `games` (matchup and start time). Older pages are games that have a locked or graded pick. The publish files do not keep a full slate once the day rolls, and they do not list future games (NBA `next_date` is a date with no matchups).
+- `nhlToday` now includes `locked` from `today.json`. NBA game pages read `hs` and `as_` when `completed` is true, for the final score. No prices, edges, or other model fields were added to what the pages receive.
+- NHL rows in `picks.json` have no `start_utc`, so a graded NHL page from an earlier day has the date and not the puck-drop time.
+- `sitemap.js` lists the new URLs. `robots.txt` was already in place. `CLAUDE.md`, `AGENTS.md`, and this file stay off `.auspex-published.json`.
+
 ## 2026-10-21 — Claude — Recap share tools moved behind a password
 
 - The Download image / Post on X / Copy text panel is gone from public `/recap/<date>`. It lives at `/admin/recap/<date>` (`/admin/recap` opens the latest day).

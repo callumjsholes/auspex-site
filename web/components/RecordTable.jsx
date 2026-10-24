@@ -2,6 +2,7 @@
 import { useMemo, useState } from "react";
 import { odds, dayShort, resultLabel, resultTone, units, signed, centsBetter } from "@/lib/format";
 import Term from "@/components/Term";
+import { matchupPath } from "@/lib/teams";
 
 // Price shopping in the table: NBA shows the typical book price, NHL the best single-book price at lock.
 function shopSub(r) {
@@ -38,10 +39,12 @@ export default function RecordTable({ rows }) {
           </thead>
           <tbody>
             {shown.length === 0 && <tr><td colSpan={8} className="muted pick-main">Nothing matches this filter.</td></tr>}
-            {shown.map((r) => (
+            {shown.map((r) => {
+              const href = matchupPath(r.league, r.date, r.game);
+              return (
               <tr key={r.id}>
                 <td className="num" data-label="Date"><span className="cell">{dayShort(r.date)}</span></td>
-                <td className="pick-main" data-label="Pick"><span className="cell"><span className={"tag " + r.league.toLowerCase()}>{r.league}</span>{r.pick}<span className="sub">{r.game}{r.actual != null ? `, finished ${r.actual}` : ""}</span></span></td>
+                <td className="pick-main" data-label="Pick"><span className="cell"><span className={"tag " + r.league.toLowerCase()}>{r.league}</span>{r.pick}<span className="sub">{href ? <a href={href}>{r.game}</a> : r.game}{r.actual != null ? `, finished ${r.actual}` : ""}</span></span></td>
                 <td className="r num" data-label="Price"><span className="cell">{odds(r.price)}{shopSub(r)}</span></td>
                 <td className="muted" data-label="Book"><span className="cell">{r.book}</span></td>
                 <td className="r num" data-label="Stake"><span className="cell">{r.stake}u</span></td>
@@ -49,7 +52,8 @@ export default function RecordTable({ rows }) {
                 <td className={"r " + resultTone(r.result)} data-label="Result"><span className="cell">{resultLabel(r.result)}</span></td>
                 <td className={"r num " + resultTone(r.result)} data-label="Units"><span className="cell">{r.units == null ? "–" : units(r.units)}</span></td>
               </tr>
-            ))}
+              );
+            })}
           </tbody>
         </table>
       </div>

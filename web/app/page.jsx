@@ -4,6 +4,8 @@ import { pct, record, signed, stamp, units, unitsFromMilli, dayShort, resultTone
 import Today from "@/components/Today";
 import UnitsChart from "@/components/UnitsChart";
 import Join from "@/components/Join";
+import { GameDirectory } from "@/components/GameLists";
+import { matchupPath } from "@/lib/teams";
 
 export default function Home() {
   const D = getData();
@@ -47,10 +49,10 @@ export default function Home() {
             <div className="wrap tape-in" tabIndex={0} role="region" aria-label="Latest results. Scroll sideways for more.">
               <span className="tape-label">Latest results</span>
               {tape.map((r) => (
-                <span className="tick" key={r.id}>
+                <a className="tick" key={r.id} href={matchupPath(r.league, r.date, r.game) || "/record"}>
                   <span>{dayShort(r.date)}</span><b title={r.short}>{r.short}</b><span>{odds(r.price)}</span>
                   <span className={"r " + resultTone(r.result)}>{r.result === "Push" ? "Push" : units(r.units)}</span>
-                </span>
+                </a>
               ))}
             </div>
           </div>
@@ -59,6 +61,8 @@ export default function Home() {
 
       <Today nbaDate={D.nbaDate} nhlDate={D.nhlDate} nbaGames={D.nbaGames} nbaPicks={D.nbaToday} nbaNext={D.nbaNext}
              nhlGames={D.nhlToday} lockMinutes={D.lockMinutes} />
+
+      <GameDirectory />
 
       <section className="block wrap" aria-labelledby="rec-h">
         <div className="head">

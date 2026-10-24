@@ -13,6 +13,8 @@ export default function Footer() {
           <ul>
             <li><a href="/start">Start here</a></li>
             <li><a href="/record">Every graded pick</a></li>
+            <li><a href="/nba">NBA games</a></li>
+            <li><a href="/nhl">NHL games</a></li>
             <li><a href="/method">Method and tests</a></li>
             <li><a href="/faq">FAQ</a></li>
           </ul>
@@ -22,8 +24,8 @@ export default function Footer() {
           <ul>
             <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
             <li><a href={SITE.x} rel="noopener">{SITE.xHandle} on X</a></li>
-            <li><a href="/terms">Terms</a></li>
-            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms of use</a></li>
+            <li><a href="/privacy">Privacy policy</a></li>
           </ul>
         </div>
       </div>

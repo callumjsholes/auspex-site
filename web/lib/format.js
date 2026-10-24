@@ -34,8 +34,16 @@ export const record = (s) => (s.bets ? `${s.wins}–${s.losses}${s.pushes ? `–
 const ET = "America/New_York";
 export const timeET = (iso) =>
   iso ? new Date(iso).toLocaleTimeString("en-US", { timeZone: ET, hour: "numeric", minute: "2-digit" }) + " ET" : "";
+export const timeEastern = (iso) =>
+  iso ? new Date(iso).toLocaleTimeString("en-US", { timeZone: ET, hour: "numeric", minute: "2-digit" }) + " Eastern Time" : "";
 export const dayLong = (d) =>
   d ? new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long", month: "long", day: "numeric" }) : "";
+export const dayLongYear = (d) =>
+  d ? new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long", month: "long", day: "numeric", year: "numeric" }) : "";
+export const dayMonthYear = (d) =>
+  d ? new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", month: "long", day: "numeric", year: "numeric" }) : "";
+export const dayTitle = (d) =>
+  d ? new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", month: "short", day: "numeric", year: "numeric" }) : "";
 export const dayShort = (d) =>
   d ? new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", month: "short", day: "numeric" }) : "";
 export const stamp = (iso) =>

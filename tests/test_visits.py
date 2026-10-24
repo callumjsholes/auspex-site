@@ -88,6 +88,12 @@ class Visits(unittest.TestCase):
         self.assertLessEqual(len(script.splitlines()), 40)
         self.assertNotIn("document.cookie", script)
 
+    def test_privacy_page_documents_the_counter_and_opt_out(self):
+        page = (ROOT / "web" / "app" / "privacy" / "page.jsx").read_text()
+        for bit in ("?nocount=1", "?count=1", "auspex_vid", "auspex_nocount", "auspex-visits.callumjsholes.workers.dev"):
+            self.assertIn(bit, page)
+        self.assertNotIn("document.cookie", page)
+
     def test_opt_out_strips_the_param_and_sends_nothing(self):
         got = load([{
             "hostname": "auspexsports.com",

@@ -6,6 +6,7 @@ import { LiveLine, useLive, liveView } from "@/components/Live";
 import Term from "@/components/Term";
 import LocalTime from "@/components/LocalTime";
 import HowToRead from "@/components/HowToRead";
+import { gamePath, matchupPath } from "@/lib/teams";
 
 const STAT_NAME = { pts: "points", reb: "rebounds", ast: "assists" };
 
@@ -16,14 +17,15 @@ function Call({ p, nhl }) {
   return <>{p.player} <Term k={verb}>{verb}</Term> {p.line} {STAT_NAME[p.stat] || p.stat}</>;
 }
 
-function Ticket({ p, nhl, live }) {
+function Ticket({ p, nhl, live, href }) {
   const done = p.result !== "Pending";
   const lv = done ? null : liveView(p, nhl, live);
   const status = lv ? (lv.label === "Final" ? "Final, grading" : "Live") : resultLabel(p.result);
+  const game = href ? <a href={href}>{p.game}</a> : p.game;
   return (
     <article className={"ticket is-pick" + (nhl ? " nhl" : "") + (lv && lv.label === "Live" ? " is-live" : "")}>
       <div className="meta">
-        <span>{p.game}{p.start ? <>, <LocalTime iso={p.start} /></> : ""}</span>
+        <span>{game}{p.start ? <>, <LocalTime iso={p.start} /></> : ""}</span>
         <span className={"state " + (lv ? lv.tone : resultTone(p.result))}>{status}{done && p.units != null ? ` ${u(p.units)}` : ""}</span>
       </div>
       <h3 className="call"><Call p={p} nhl={nhl} /></h3>
@@ -74,6 +76,12 @@ function namesOf(games) {
   return `${names[0]} and ${names.length - 1} other games`;
 }
 
+function GameName({ league, date, away, home }) {
+  const href = gamePath(league, date, away, home);
+  const label = `${away} at ${home}`;
+  return href ? <a href={href}>{label}</a> : label;
+}
+
 function NextLock({ games, lockMinutes, now }) {
   const pending = byStart(games.filter((g) => !g.locked && !g.completed && g.start))
     .map((g) => ({ ...g, lockAt: lockIso(g.start, lockMinutes) }));
@@ -95,7 +103,7 @@ function NextLock({ games, lockMinutes, now }) {
   return <p className="lockline">Next {verb} {left}at {when}: {who}.</p>;
 }
 
-function GameBoard({ games, lockMinutes }) {
+function GameBoard({ games, lockMinutes, date }) {
   const ordered = byStart(games);
   const pending = ordered.filter((g) => !g.locked && !g.completed);
   const posted = ordered.filter((g) => g.locked || g.completed);
@@ -108,7 +116,7 @@ function GameBoard({ games, lockMinutes }) {
           <ul className="board-list">
             {pending.map((g) => (
               <li key={g.id}>
-                <b>{g.away} at {g.home}</b>
+                <b><GameName league="NBA" date={date} away={g.away} home={g.home} /></b>
                 <span className="status">Waiting</span>
                 <span>Locks <LocalTime iso={lockIso(g.start, lockMinutes)} /></span>
                 <span>Tips <LocalTime iso={g.start} /></span>
@@ -123,7 +131,7 @@ function GameBoard({ games, lockMinutes }) {
           <ul className="board-list">
             {posted.map((g) => (
               <li key={g.id} className="posted">
-                <b>{g.away} at {g.home}</b>
+                <b><GameName league="NBA" date={date} away={g.away} home={g.home} /></b>
                 <span className="status">{g.completed ? "Final" : g.picks ? `${g.picks} pick${g.picks === 1 ? "" : "s"} posted` : "No prop posted"}</span>
                 <span>Tipped <LocalTime iso={g.start} /></span>
               </li>
@@ -152,7 +160,7 @@ function NhlNote({ games, now, hasPick }) {
   return <p className="lockline">Picks lock before the first puck drop, {left}at {when}: {who}.</p>;
 }
 
-function NhlSlate({ games, now }) {
+function NhlSlate({ games, now, date }) {
   const open = games.filter((g) => !g.pick);
   if (!open.length) return null;
   return (
@@ -161,7 +169,7 @@ function NhlSlate({ games, now }) {
         const started = now != null && g.start && Date.parse(g.start) <= now;
         return (
           <li key={g.id} className={started ? "posted" : ""}>
-            <b>{g.away} at {g.home}</b>
+            <b><GameName league="NHL" date={date} away={g.away} home={g.home} /></b>
             <span className="status">{g.score ? `Final ${g.score}` : started ? "No pick" : "No pick yet"}</span>
             <span>Puck drop <LocalTime iso={g.start} /></span>
           </li>
@@ -200,9 +208,9 @@ export default function Today({ nbaDate, nhlDate, nbaGames, nbaPicks, nbaNext, n
       {tab === "nba" ? (
         <div role="tabpanel">
           <NextLock games={nbaGames} lockMinutes={lockMinutes} now={now} />
-          <GameBoard games={nbaGames} lockMinutes={lockMinutes} />
+          <GameBoard games={nbaGames} lockMinutes={lockMinutes} date={nbaDate} />
           {nbaPicks.length ? (
-            <div className="cards">{byTip(nbaPicks).map((p) => <Ticket key={p.id} p={p} live={live} />)}</div>
+            <div className="cards">{byTip(nbaPicks).map((p) => <Ticket key={p.id} p={p} live={live} href={matchupPath("NBA", p.date, p.game)} />)}</div>
           ) : (
             <div className="empty">
               {!nbaGames.length
@@ -221,9 +229,9 @@ export default function Today({ nbaDate, nhlDate, nbaGames, nbaPicks, nbaNext, n
             <>
               <NhlNote games={nhlGames} now={now} hasPick={nhlWithPicks.length > 0} />
               {nhlWithPicks.length > 0 && (
-                <div className="cards">{nhlWithPicks.map((g) => <Ticket key={g.id} p={{ ...g.pick, start: g.start }} nhl live={live} />)}</div>
+                <div className="cards">{nhlWithPicks.map((g) => <Ticket key={g.id} p={{ ...g.pick, start: g.start }} nhl live={live} href={gamePath("NHL", nhlDate, g.away, g.home)} />)}</div>
               )}
-              <NhlSlate games={nhlGames} now={now} />
+              <NhlSlate games={nhlGames} now={now} date={nhlDate} />
               {!nhlWithPicks.length && <MailLink />}
             </>
           )}
