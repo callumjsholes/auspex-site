@@ -49,7 +49,7 @@ export default function BankrollCalc({ rows }) {
   const ok = bankroll > 0 && pct > 0 && pct <= 10;
   const r = useMemo(() => (ok ? simulate(rows, { bankroll, pct, mode, league }) : null), [rows, bankroll, pct, mode, league, ok]);
   return (
-    <section className="block" aria-labelledby="calc-h" style={{ paddingTop: 48 }}>
+    <section className="block" id="calculator" aria-labelledby="calc-h" style={{ paddingTop: 48 }}>
       <div className="head">
         <div>
           <h2 id="calc-h">If you'd followed every pick</h2>

@@ -2,6 +2,15 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-24 — Site — Clearer pages, one unit total
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- Every unit total on the site now comes from `web/lib/summary.js`. It sums graded units as integer thousandths, so order cannot change the result. The home ledger, the record page, the record charts (including a filtered chart's last point), each daily recap, and the recap card all use it. Display rounds that sum half away from zero to the cent (`+20.015u` prints as `+20.02u`). Adding already-rounded league or market rows can still be a cent off the headline. That is display rounding, not a second sum.
+- Pick cards and the record table use short definitions from `web/lib/terms.js` (American odds, unit, over, under, moneyline, median price, closing line). The FAQ has three new answers from that same file: what −110 means, what a moneyline is, and what over/under means. Nothing in those answers describes the model.
+- Today's slate shows each NBA game's lock time (tip minus `rules.lock_minutes`) and a countdown once the page is running in the browser. Times render in Eastern Time on the server, then switch to the visitor's time zone after mount. The empty state links to the existing `#join` email form.
+- Below 600px the Every pick table stacks one row per pick, and `/recap/<date>` shows the picks as HTML instead of the shrunk card. `/recap/<date>/card` is still the PNG.
+
 ## 2026-10-21 — Claude — Recap share tools moved behind a password
 
 - The Download image / Post on X / Copy text panel is gone from public `/recap/<date>`. It lives at `/admin/recap/<date>` (`/admin/recap` opens the latest day).

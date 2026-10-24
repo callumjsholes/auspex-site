@@ -1,6 +1,33 @@
 export const odds = (v) => (v == null ? "–" : v > 0 ? `+${v}` : `${v}`);
 export const signed = (v, d = 1) => (v == null || Number.isNaN(v) ? "–" : `${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v).toFixed(d)}`);
 export const units = (v) => (v == null ? "–" : `${signed(v, 2)}u`);
+
+// A summed total, kept as integer thousandths in summary.js. Half away from zero,
+// so the same total prints the same text on every page.
+export function unitsFromMilli(milli) {
+  if (milli == null || Number.isNaN(Number(milli))) return "–";
+  const n = Math.round(Number(milli));
+  const sign = n > 0 ? "+" : n < 0 ? "−" : "";
+  const cents = Math.floor(Math.abs(n) / 10 + 0.5);
+  const whole = Math.floor(cents / 100);
+  const frac = String(cents % 100).padStart(2, "0");
+  return `${sign}${whole}.${frac}u`;
+}
+
+export const signedMilli = (milli) => {
+  const text = unitsFromMilli(milli);
+  return text === "–" ? text : text.slice(0, -1);
+};
+
+// "up 20.02 units" / "down 1.50 units", from the same thousandths total.
+export function unitsWords(milli) {
+  const text = unitsFromMilli(milli);
+  if (text === "–") return "no graded units yet";
+  const num = text.replace(/^[+−]/, "").replace(/u$/, "");
+  if (text.startsWith("−")) return `down ${num} units`;
+  if (text.startsWith("+")) return `up ${num} units`;
+  return `even at ${num} units`;
+}
 export const pct = (v, d = 0) => (v == null ? "–" : `${Number(v).toFixed(d)}%`);
 export const record = (s) => (s.bets ? `${s.wins}–${s.losses}${s.pushes ? `–${s.pushes}` : ""}` : "0–0");
 

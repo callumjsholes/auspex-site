@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { recapDays, recordText, shareText } from "@/lib/recap";
-import { dayLong, dayShort, signed } from "@/lib/format";
+import { dayLong, dayShort, odds, resultTone, signedMilli, units } from "@/lib/format";
 
 export const dynamicParams = false;
 
@@ -27,10 +27,23 @@ export default async function RecapDay({ params }) {
     <div className="page wrap">
       <div className="intro">
         <h1>{dayLong(d.date)}</h1>
-        <p className="lede">{recordText(d)}, {signed(d.units, 2)} units at the posted prices{d.open ? `. ${d.open} pick${d.open === 1 ? "" : "s"} from this slate still open` : ""}.</p>
+        <p className="lede">A recap is one day's graded picks: the record, the units, and each result.</p>
+        <p className="lede">{recordText(d)}, {signedMilli(d.unitMilli)} units at the posted prices{d.open ? `. ${d.open} pick${d.open === 1 ? "" : "s"} from this slate still open` : ""}.</p>
       </div>
       <div className="recap">
-        <img className="recap-card" src={`/recap/${d.date}/card`} width="1080" height="1350" alt={`Recap card: ${shareText(d)}`} />
+        <img className="recap-card recap-hero" src={`/recap/${d.date}/card`} width="1080" height="1350" alt={`Recap card: ${shareText(d)}`} />
+        <ol className="recap-picks">
+          {d.picks.map((p) => (
+            <li key={p.id}>
+              <div className="recap-row">
+                <span><span className={"tag " + p.league.toLowerCase()}>{p.league}</span>{p.game}</span>
+                <span className={resultTone(p.result)}>{p.result} {p.units == null ? "" : units(p.units)}</span>
+              </div>
+              <strong>{p.pick}</strong>
+              <span className="muted">{odds(p.price)}{p.league === "NBA" ? ` at ${p.book}` : " median"}{p.actual != null ? ` · finished ${p.actual}` : ""}</span>
+            </li>
+          ))}
+        </ol>
         <div>
           <h2 style={{ fontSize: 18, margin: 0 }}>Other days</h2>
           <nav className="days" aria-label="Recap days">
