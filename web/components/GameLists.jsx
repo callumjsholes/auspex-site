@@ -1,6 +1,6 @@
 import { getCatalog, datesFor, gameStatus, dateBlurb } from "@/lib/games";
 import { dayLongYear, dayTitle, timeET, stamp } from "@/lib/format";
-import { SITE } from "@/lib/site";
+import { pageMeta } from "@/lib/meta";
 
 function GameLinks({ games }) {
   if (!games.length) return <p className="note">Nothing on the current slate.</p>;
@@ -99,14 +99,7 @@ export function DateIndex({ league, date }) {
 }
 
 function social(title, description, path) {
-  const full = `${title} | ${SITE.name}`;
-  return {
-    title,
-    description,
-    alternates: { canonical: path },
-    openGraph: { title: full, description, url: path, type: "website", images: ["/og.png"] },
-    twitter: { title: full, description },
-  };
+  return pageMeta({ title, description, path });
 }
 
 export function leagueMetadata(league) {

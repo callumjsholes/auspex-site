@@ -1,9 +1,11 @@
+import { pageMeta } from "@/lib/meta";
 import { SITE } from "@/lib/site";
 
-export const metadata = {
+export const metadata = pageMeta({
   title: "Privacy policy",
   description: "What auspexsports.com collects: the Beehiiv email list, a visit counter, and host logs. No accounts and no analytics script.",
-};
+  path: "/privacy",
+});
 
 export default function Privacy() {
   return (
@@ -16,7 +18,7 @@ export default function Privacy() {
       <p>The site has no accounts, no log-in, and no payments. I don't sell personal information.</p>
 
       <h2>Email list</h2>
-      <p>The signup form opens Beehiiv's subscribe page at auspexsports.beehiiv.com and puts the address you typed into that page's link, so Beehiiv can ask you to confirm it. I don't receive that form on this site, and I don't store the address here. Beehiiv stores it and sends the mail. <a href="https://www.beehiiv.com/privacy" rel="noopener">Beehiiv's privacy policy</a> applies to that.</p>
+      <p>The signup form on this site sends the address you type to Beehiiv. I don't receive a copy, and I don't store the address here. Beehiiv stores it and sends the mail. <a href="https://www.beehiiv.com/privacy" rel="noopener">Beehiiv's privacy policy</a> applies to that.</p>
       <p>I use the list to send picks and news about Auspex Sports, including if a paid tier opens. I don't sell the list. Every email has an unsubscribe link. You can also email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> and I will have the address removed.</p>
 
       <h2>Visit counter</h2>

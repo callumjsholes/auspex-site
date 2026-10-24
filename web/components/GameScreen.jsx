@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { findGame, datesFor, getCatalog, previewState, gameIntro, gameDescription, gameTitle, sportsEvent, finalText, gameStatus } from "@/lib/games";
 import { dayMonthYear, timeET } from "@/lib/format";
 import { SITE } from "@/lib/site";
+import { pageMeta } from "@/lib/meta";
 import GamePicks from "@/components/GamePicks";
 import Join from "@/components/Join";
 
@@ -80,12 +81,5 @@ export async function gameMetadata(league, params) {
   const { lockMinutes } = getCatalog();
   const title = gameTitle(game);
   const description = gameDescription(game, lockMinutes);
-  const full = `${title} | ${SITE.name}`;
-  return {
-    title,
-    description,
-    alternates: { canonical: game.path },
-    openGraph: { title: full, description, url: game.path, type: "website", images: ["/og.png"] },
-    twitter: { title: full, description },
-  };
+  return pageMeta({ title, description, path: game.path });
 }

@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
+import RecapView from "@/components/RecapView";
+import { dayShort } from "@/lib/format";
+import { pageMeta } from "@/lib/meta";
 import { recapDays, recordText, shareText } from "@/lib/recap";
-import { dayLong, dayShort, signed } from "@/lib/format";
 
 export const dynamicParams = false;
 
@@ -12,10 +14,12 @@ export async function generateMetadata({ params }) {
   const { date } = await params;
   const d = recapDays().find((x) => x.date === date);
   if (!d) return {};
-  const title = `${dayShort(d.date)} recap: ${recordText(d)}`;
-  const description = shareText(d);
-  const image = { url: `/recap/${d.date}/card`, width: 1080, height: 1350, alt: `Auspex Sports picks for ${dayLong(d.date)}` };
-  return { title, description, openGraph: { title, description, images: [image] }, twitter: { card: "summary_large_image", title, description, images: [image.url] } };
+  return pageMeta({
+    title: `${dayShort(d.date)} recap: ${recordText(d)}`,
+    description: shareText(d),
+    path: `/recap/${d.date}`,
+    image: `/recap/${d.date}/opengraph-image`,
+  });
 }
 
 export default async function RecapDay({ params }) {
@@ -23,23 +27,5 @@ export default async function RecapDay({ params }) {
   const days = recapDays();
   const d = days.find((x) => x.date === date);
   if (!d) notFound();
-  return (
-    <div className="page wrap">
-      <div className="intro">
-        <h1>{dayLong(d.date)}</h1>
-        <p className="lede">{recordText(d)}, {signed(d.units, 2)} units at the posted prices{d.open ? `. ${d.open} pick${d.open === 1 ? "" : "s"} from this slate still open` : ""}.</p>
-      </div>
-      <div className="recap">
-        <img className="recap-card" src={`/recap/${d.date}/card`} width="1080" height="1350" alt={`Recap card: ${shareText(d)}`} />
-        <div>
-          <h2 style={{ fontSize: 18, margin: 0 }}>Other days</h2>
-          <nav className="days" aria-label="Recap days">
-            {days.slice(0, 30).map((x) => (
-              <a key={x.date} href={`/recap/${x.date}`} aria-current={x.date === d.date ? "page" : undefined}>{dayShort(x.date)} · {recordText(x)}</a>
-            ))}
-          </nav>
-        </div>
-      </div>
-    </div>
-  );
+  return <RecapView d={d} days={days} />;
 }

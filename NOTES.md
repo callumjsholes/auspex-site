@@ -2,10 +2,30 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-24 — Site — Start page, previews, signup, filters
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- `/start` is a short page for a new visitor: what the site is, the same "How to read a pick" explainer as the home page, how the live record is counted, and the same responsible-gambling lines as the footer. It is in the header, the home page, the footer, and the sitemap. The live sentence is built from `web/lib/summary.js`. Tests stay on the method page and are not added into that sentence.
+- Public pages set their own Open Graph and Twitter title and description. The preview image is generated at build time (`opengraph-image` / `twitter-image`) from the published record. The home image shows the live record. A recap image shows that day's record. Both are 1200×630. They do not add a field the pages do not already show.
+- The email form still uses the existing Beehiiv form (`Auspex site waitlist`, id in `web/lib/site.js`). It does not use an API key. Beehiiv has one published note and no live automation, so the form does not name a send schedule.
+- `/record` has one league control (All / NBA / NHL) and one date control (All time / Last 7 days / Last 30 days). The summary, the chart, the calculator, and the table all use that slice, summed in `web/lib/summary.js`. The chart still has its market filter. The table still has its result filter. Last 7 days and last 30 days use the visitor's calendar. The live record currently starts October 20, 2026, so both windows are the whole record until more days are graded.
+- `/recap` renders the latest day directly. It no longer redirects.
+
+## 2026-10-24 — Site — Clearer pages, one unit total
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- Every unit total on the site now comes from `web/lib/summary.js`. It sums graded units as integer thousandths, so order cannot change the result. The home ledger, the record page, the record charts (including a filtered chart's last point), each daily recap, and the recap card all use it. Display rounds that sum half away from zero to the cent (`+20.015u` prints as `+20.02u`). Adding already-rounded league or market rows can still be a cent off the headline. That is display rounding, not a second sum.
+- Pick cards and the record table use short definitions from `web/lib/terms.js` (American odds, unit, over, under, moneyline, median price, closing line). The FAQ has three new answers from that same file: what −110 means, what a moneyline is, and what over/under means. Nothing in those answers describes the model.
+- Today's slate shows each NBA game's lock time (tip minus `rules.lock_minutes`) and a countdown once the page is running in the browser. Times render in Eastern Time on the server, then switch to the visitor's time zone after mount. The empty state links to the existing `#join` email form.
+- Below 600px the Every pick table stacks one row per pick, and `/recap/<date>` shows the picks as HTML instead of the shrunk card. `/recap/<date>/card` is still the PNG.
+
 ## 2026-10-24 — Terms of use and privacy policy
 
 - `/terms` and `/privacy` are the public terms and the privacy policy. The footer links to both. The privacy page still documents the visit counter: local storage keys `auspex_vid` and `auspex_nocount`, the auspex-visits Worker, and `?nocount=1` / `?count=1`.
 - Contact on both pages is `hello@auspexsports.com` from `web/lib/site.js`. The site has no accounts, no payments, no analytics script, and no X embed. Paid subscriptions are described as not active.
+- The privacy page says the signup form sends the address to Beehiiv from this site. The site does not store it.
 - `CLAUDE.md`, `AGENTS.md`, and this file stay off `.auspex-published.json`.
 
 ## 2026-10-24 — Game pages

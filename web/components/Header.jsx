@@ -3,6 +3,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 const LINKS = [
+  { href: "/start", label: "Start here", match: "/start" },
   { href: "/#today", label: "Today's picks", match: null },
   { href: "/record", label: "Record", match: "/record" },
   { href: "/recap", label: "Recap", match: "/recap" },
@@ -18,7 +19,7 @@ export default function Header() {
       <a className="skip" href="#main">Skip to content</a>
       <div className="wrap bar">
         <a className="brand" href="/" aria-label="Auspex Sports home">
-          <img src="/mark.png" alt="" width="40" height="40" />
+          <img src="/mark.webp" alt="" width="40" height="40" />
           <span>Auspex Sports</span>
         </a>
         <button className="menu" aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen(!open)}>

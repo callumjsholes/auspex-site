@@ -1,7 +1,12 @@
 import { getData } from "@/lib/data";
 import { signed } from "@/lib/format";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata = { title: "Method", description: "How Auspex Sports posts and grades picks, and how the models performed on games they never saw." };
+export const metadata = pageMeta({
+  title: "Method",
+  description: "How Auspex Sports posts and grades picks, and how the models performed on games they never saw.",
+  path: "/method",
+});
 
 export default function Method() {
   const D = getData();

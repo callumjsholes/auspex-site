@@ -1,23 +1,10 @@
 "use client";
-import { useMemo, useRef, useState } from "react";
-import { odds, signed, units as fmtUnits, dayShort, record } from "@/lib/format";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { odds, signed, units as fmtUnits, unitsFromMilli, dayShort, record } from "@/lib/format";
+import { isGraded, summarize, runningTotals } from "@/lib/summary";
 
-const LEAGUES = ["All", "NBA", "NHL"];
 const STATS = [["all", "All markets"], ["pts", "Points"], ["reb", "Rebounds"], ["ast", "Assists"], ["ml", "NHL moneylines"]];
-const graded = (result) => result === "Won" || result === "Lost" || result === "Push";
-
-function summarize(rows) {
-  const done = rows.filter((r) => graded(r.result));
-  const staked = done.reduce((a, r) => a + r.stake, 0);
-  const u = done.reduce((a, r) => a + (r.units || 0), 0);
-  const clv = rows.filter((r) => r.clv != null);
-  return {
-    bets: done.length, wins: done.filter((r) => r.result === "Won").length, losses: done.filter((r) => r.result === "Lost").length,
-    pushes: done.filter((r) => r.result === "Push").length, staked, units: u, roi: staked ? (100 * u) / staked : null,
-    avgClv: clv.length ? clv.reduce((a, r) => a + r.clv, 0) / clv.length : null,
-    beat: clv.length ? (100 * clv.filter((r) => r.clv > 0).length) / clv.length : null, clvN: clv.length,
-  };
-}
+const graded = isGraded;
 
 // Shared hover/keyboard logic for both charts: one index, a tooltip that follows it.
 function useScrub(n) {
@@ -51,9 +38,10 @@ function PickLine({ r }) {
 
 function UnitsCurve({ rows }) {
   const W = 760, H = 300, m = { l: 48, r: 18, t: 18, b: 30 };
-  const pts = useMemo(() => { let c = 0; return rows.map((r) => ({ r, y: (c += r.units || 0) })); }, [rows]);
+  const pts = useMemo(() => runningTotals(rows).map((p) => ({ r: p.r, y: p.units, unitMilli: p.unitMilli })), [rows]);
   const { i, setI, onKey } = useScrub(pts.length);
   const box = useRef(null);
+  const svg = useRef(null);
   if (pts.length < 2) return <div className="empty">The units line draws once two picks in this filter are graded.</div>;
   const ys = pts.map((p) => p.y).concat(0);
   let lo = Math.min(...ys), hi = Math.max(...ys); const pad = Math.max(0.5, (hi - lo) * 0.12); lo -= pad; hi += pad;
@@ -69,12 +57,20 @@ function UnitsCurve({ rows }) {
     setI(Math.max(0, Math.min(pts.length - 1, k)));
   };
   const cur = i != null ? pts[i] : null;
-  const scale = box.current ? box.current.clientWidth / W : 1;
+  const svgRect = svg.current?.getBoundingClientRect();
+  const hostRect = box.current?.getBoundingClientRect();
+  const scale = svgRect ? svgRect.width / W : 1;
+  const dx = svgRect && hostRect ? svgRect.left - hostRect.left : 0;
+  const dy = svgRect && hostRect ? svgRect.top - hostRect.top : 0;
+  const end = unitsFromMilli(pts[pts.length - 1].unitMilli);
   return (
     <div className="chartbox" ref={box}>
-      <svg className="chart" viewBox={`0 0 ${W} ${H}`} tabIndex={0} onKeyDown={onKey} onMouseMove={move} onMouseLeave={() => setI(null)}
+      <div className="chart-frame">
+        <span className="chart-y">Units won</span>
+        <div className="chart-plot">
+      <svg ref={svg} className="chart" viewBox={`0 0 ${W} ${H}`} tabIndex={0} onKeyDown={onKey} onMouseMove={move} onMouseLeave={() => setI(null)}
            onTouchStart={(e) => move(e.touches[0] ? { currentTarget: e.currentTarget, clientX: e.touches[0].clientX } : e)}
-           role="img" aria-label={`Cumulative units over ${pts.length} graded picks, ending at ${signed(last, 2)} units. Use the arrow keys to step through picks.`}>
+           role="img" aria-label={`Units won after each pick. ${pts.length} graded picks, ending at ${end}. The horizontal axis is picks. Use the arrow keys to step through picks.`}>
         {ticks.map((t) => (<g key={t}><line x1={m.l} x2={W - m.r} y1={Y(t)} y2={Y(t)} stroke="var(--line)" /><text x={m.l - 8} y={Y(t) + 4} textAnchor="end">{signed(t, step < 1 ? 1 : 0)}</text></g>))}
         <line x1={m.l} x2={W - m.r} y1={Y(0)} y2={Y(0)} stroke="var(--muted)" strokeDasharray="3 4" />
         <path d={`${d}L${X(pts.length - 1)},${Y(0)}L${X(0)},${Y(0)}Z`} fill={col} opacity="0.1" />
@@ -83,9 +79,12 @@ function UnitsCurve({ rows }) {
         {cur && (<g><line x1={X(i)} x2={X(i)} y1={m.t} y2={H - m.b} stroke="var(--ink)" strokeOpacity=".35" /><circle cx={X(i)} cy={Y(cur.y)} r="6" fill="var(--surface)" stroke={col} strokeWidth="2.5" /></g>)}
         <text x={m.l} y={H - 8}>Pick 1</text><text x={W - m.r} y={H - 8} textAnchor="end">Pick {pts.length}</text>
       </svg>
+        </div>
+        <span className="chart-x">Picks</span>
+      </div>
       {cur && (
-        <Tip x={X(i) * scale} y={Y(cur.y) * scale - 110} w={box.current ? box.current.clientWidth : W}>
-          <span className="tip-total">Pick {i + 1}: {fmtUnits(cur.y)} total</span>
+        <Tip x={dx + X(i) * scale} y={dy + Y(cur.y) * scale - 110} w={box.current ? box.current.clientWidth : W}>
+          <span className="tip-total">Pick {i + 1}: {unitsFromMilli(cur.unitMilli)} total</span>
           <PickLine r={cur.r} />
         </Tip>
       )}
@@ -143,7 +142,7 @@ function Breakdown({ rows, by, label }) {
     <div className="tablewrap"><table>
       <thead><tr><th>{label}</th><th className="r">Record</th><th className="r">Units</th><th className="r">ROI</th><th className="r">Avg CLV</th></tr></thead>
       <tbody>{groups.map(({ k, s }) => (
-        <tr key={k}><td>{k}</td><td className="r num">{record(s)}</td><td className={"r num " + (s.units > 0 ? "pos" : s.units < 0 ? "neg" : "")}>{s.bets ? fmtUnits(s.units) : "–"}</td>
+        <tr key={k}><td>{k}</td><td className="r num">{record(s)}</td><td className={"r num " + (s.units > 0 ? "pos" : s.units < 0 ? "neg" : "")}>{s.bets ? unitsFromMilli(s.unitMilli) : "–"}</td>
           <td className="r num">{s.roi != null ? `${signed(s.roi, 1)}%` : "–"}</td><td className="r num">{s.avgClv != null ? signed(s.avgClv, 2) : "–"}</td></tr>))}</tbody>
     </table></div>
   );
@@ -151,38 +150,44 @@ function Breakdown({ rows, by, label }) {
 
 const STAT_NAME = { pts: "Points", reb: "Rebounds", ast: "Assists", ml: "NHL moneyline" };
 
-export default function RecordCharts({ rows }) {
-  const [league, setLeague] = useState("All");
+export default function RecordCharts({ rows, league = "All" }) {
   const [stat, setStat] = useState("all");
   const [view, setView] = useState("units");
+  useEffect(() => {
+    if (league === "NHL" && stat !== "all" && stat !== "ml") setStat("all");
+    if (league === "NBA" && stat === "ml") setStat("all");
+  }, [league, stat]);
   const chrono = useMemo(() => [...rows].sort((a, b) => (a.date + (a.locked || "")).localeCompare(b.date + (b.locked || ""))), [rows]);
-  const shown = useMemo(() => chrono.filter((r) => (league === "All" || r.league === league) && (stat === "all" || r.stat === stat)), [chrono, league, stat]);
+  const shown = useMemo(() => chrono.filter((r) => stat === "all" || r.stat === stat), [chrono, stat]);
   const done = shown.filter((r) => graded(r.result));
   const s = summarize(shown);
+  const filtered = stat !== "all";
   const statOpts = STATS.filter(([k]) => k === "all" || (league === "NHL" ? k === "ml" : league === "NBA" ? k !== "ml" : true));
   return (
-    <section className="block" aria-labelledby="charts-h" style={{ paddingTop: 40 }}>
+    <section className="block" id="charts" aria-labelledby="charts-h" style={{ paddingTop: 40 }}>
       <div className="head">
-        <div><h2 id="charts-h">Explore the record</h2><p className="lede">Filter by league and market. Hover or tap the chart, or use the arrow keys, to see each pick.</p></div>
+        <div><h2 id="charts-h">Explore the record</h2><p className="lede">League and dates are set above. Narrow the chart by market. Hover or tap the chart, or use the arrow keys, to see each pick.{filtered ? "" : " With every market, the line ends on the total at the top of this page."}</p></div>
       </div>
       <div className="filters">
-        <div className="tabs" role="group" aria-label="League">
-          {LEAGUES.map((l) => <button key={l} aria-pressed={league === l} onClick={() => { setLeague(l); setStat("all"); }}>{l === "All" ? "All picks" : l}</button>)}
-        </div>
         <label>Market <select value={stat} onChange={(e) => setStat(e.target.value)}>{statOpts.map(([k, n]) => <option key={k} value={k}>{n}</option>)}</select></label>
         <div className="tabs" role="group" aria-label="Chart">
-          <button aria-pressed={view === "units"} onClick={() => setView("units")}>Units</button>
-          <button aria-pressed={view === "clv"} onClick={() => setView("clv")}>Closing-line value</button>
+          <button type="button" aria-pressed={view === "units"} onClick={() => setView("units")}>Units</button>
+          <button type="button" aria-pressed={view === "clv"} onClick={() => setView("clv")}>Closing-line value</button>
         </div>
       </div>
-      <div className="split">
+      <div className={filtered ? "split" : ""}>
         <div className="panel">{view === "units" ? <UnitsCurve rows={done} /> : <ClvBars rows={shown} />}</div>
-        <div className="stats">
-          <div className="stat"><b className="num">{record(s)}</b><span>Record</span></div>
-          <div className="stat"><b className={"num " + (s.units > 0 ? "pos" : s.units < 0 ? "neg" : "")}>{s.bets ? fmtUnits(s.units) : "–"}</b><span>Units</span></div>
-          <div className="stat"><b className="num">{s.roi != null ? `${signed(s.roi, 1)}%` : "–"}</b><span>ROI at the posted price</span></div>
-          <div className="stat"><b className="num">{s.beat != null ? `${s.beat.toFixed(0)}%` : "–"}</b><span>Beat the closing line{s.clvN ? `, ${s.clvN} picks` : ""}</span></div>
-        </div>
+        {filtered && (
+          <div>
+            <h3 className="filter-h">This market</h3>
+            <div className="stats">
+              <div className="stat"><b className="num">{record(s)}</b><span>Record</span></div>
+              <div className="stat"><b className={"num " + (s.units > 0 ? "pos" : s.units < 0 ? "neg" : "")}>{s.bets ? unitsFromMilli(s.unitMilli) : "–"}</b><span>Units</span></div>
+              <div className="stat"><b className="num">{s.roi != null ? `${signed(s.roi, 1)}%` : "–"}</b><span>ROI at the posted price</span></div>
+              <div className="stat"><b className="num">{s.beatClose != null ? `${s.beatClose.toFixed(0)}%` : "–"}</b><span>Beat the closing line{s.clvN ? `, ${s.clvN} picks` : ""}</span></div>
+            </div>
+          </div>
+        )}
       </div>
       <div className="two-tables">
         <div><h3>By market</h3><Breakdown rows={shown} by={(r) => STAT_NAME[r.stat]} label="Market" /></div>
