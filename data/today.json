@@ -1,6 +1,6 @@
 {
  "date": "2026-10-24",
- "generated_at": "2026-10-24T13:15:16+00:00",
+ "generated_at": "2026-10-24T15:00:13+00:00",
  "games": [
   {
    "game_id": 2026020168,
@@ -14,7 +14,7 @@
    "away_score": null,
    "home_goalie": "Joseph Woll",
    "away_goalie": "Lukas Dostal",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed",
    "locked": false
   },
@@ -46,7 +46,7 @@
    "away_score": null,
    "home_goalie": "Jeremy Swayman",
    "away_goalie": "Yaroslav Askarov",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed",
    "locked": false
   },
@@ -60,9 +60,9 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Samuel Ersson",
+   "home_goalie": "Jonas Johansson",
    "away_goalie": "Dylan Garand",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
    "away_goalie_status": "Unconfirmed",
    "locked": false
   },
@@ -80,7 +80,14 @@
    "away_goalie": "Juuse Saros",
    "home_goalie_status": "Unconfirmed",
    "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "n_books": 11,
+   "home_price": -139,
+   "away_price": 118,
+   "edge_side": "home",
+   "edge_team": "PIT",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020173,
@@ -94,9 +101,16 @@
    "away_score": null,
    "home_goalie": "Charlie Lindgren",
    "away_goalie": "Ukko-Pekka Luukkonen",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "n_books": 11,
+   "home_price": -122,
+   "away_price": 102,
+   "edge_side": "home",
+   "edge_team": "WSH",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020174,
@@ -108,9 +122,9 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Jet Greaves",
+   "home_goalie": "Cam Talbot",
    "away_goalie": "Carter Hart",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
    "away_goalie_status": "Unconfirmed",
    "locked": false
   },
@@ -157,7 +171,7 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Karel Vejmelka",
-   "away_goalie": "Andrei Vasilevskiy",
+   "away_goalie": "Dennis Hildeby",
    "home_goalie_status": "Unconfirmed",
    "away_goalie_status": "Unconfirmed",
    "locked": false
