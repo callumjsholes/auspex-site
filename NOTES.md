@@ -2,6 +2,12 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-24 — Terms of use and privacy policy
+
+- `/terms` and `/privacy` are the public terms and the privacy policy. The footer links to both. The privacy page still documents the visit counter: local storage keys `auspex_vid` and `auspex_nocount`, the auspex-visits Worker, and `?nocount=1` / `?count=1`.
+- Contact on both pages is `hello@auspexsports.com` from `web/lib/site.js`. The site has no accounts, no payments, no analytics script, and no X embed. Paid subscriptions are described as not active.
+- `CLAUDE.md`, `AGENTS.md`, and this file stay off `.auspex-published.json`.
+
 ## 2026-10-24 — Game pages
 
 - Static pages for every NHL and NBA game in the public feed: `/nhl/<date>/<away>-at-<home>` and `/nba/...`. League indexes are `/nba` and `/nhl`. Date indexes are `/nba/<date>` and `/nhl/<date>`.

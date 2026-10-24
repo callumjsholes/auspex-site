@@ -24,8 +24,8 @@ export default function Footer() {
           <ul>
             <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
             <li><a href={SITE.x} rel="noopener">{SITE.xHandle} on X</a></li>
-            <li><a href="/terms">Terms</a></li>
-            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms of use</a></li>
+            <li><a href="/privacy">Privacy policy</a></li>
           </ul>
         </div>
       </div>
