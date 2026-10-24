@@ -37,12 +37,12 @@ The site does not serve `/data/*.json`. Keep the `data/` directory and the field
 
 | File | Fields the site uses |
 |---|---|
-| `data/nba_live.json` | `generated_at`, `today`, `next_date`, `rules.lock_minutes`. Each game: `game_id`, `away`, `home`, `start_utc`, `completed`, `locked`, `picks`. Each pick: `id`, `player`, `stat`, `side`, `line`, `date`, `start_utc`, `locked_at`, `game`, `price`, `book`, `stake`, `result`, `units`, `clv_pts`, `actual`, `typical_price`, `typical_n` (price shopping), `game_id`, `player_id` (public ESPN ids for the live tracker). |
-| `data/picks.json` | Rows with `source` `live` only. `game_id`, `game`, `team`, `date`, `locked_at`, `price`, `best_price`, `best_book`, `stake`, `result`, `units`, `clv_pts`, `home_score`, `away_score`. |
+| `data/nba_live.json` | `generated_at`, `today`, `next_date`, `rules.lock_minutes`. Each game: `game_id`, `away`, `home`, `start_utc`, `completed`, `locked`, `picks`. Each pick: `id`, `player`, `stat`, `side`, `line`, `date`, `start_utc`, `locked_at`, `game`, `price`, `book`, `stake`, `result`, `units`, `clv_pts`, `clv_cents`, `close_median`, `close_best`, `close_best_book`, `close_quote_line`, `close_line_exact`, `actual`, `typical_price`, `typical_n` (price shopping), `game_id`, `player_id` (public ESPN ids for the live tracker). `summary` and `by_tier`: `avg_clv_cents`, `beat_close_cents_pct`, `clv_cents_n`, `clv_na`. |
+| `data/picks.json` | Rows with `source` `live` only. `game_id`, `game`, `team`, `date`, `locked_at`, `price`, `best_price`, `best_book`, `stake`, `result`, `units`, `clv_pts`, `clv_cents`, `close_median`, `close_best`, `close_best_book`, `home_score`, `away_score`. |
 | `data/today.json` | `date`. Each game: `game_id`, `start_utc`, `away`, `home`, `home_score`, `away_score`. |
 | `data/nba.json` | `stats[].k` and `stats[].v` when the label matches ROI, won, or Unseen. `books.caption`, `books.rows`. |
 | `data/backtest.json` | `total`. Each row: `season`, `units`, `roi`. |
-| `data/summary.json` | `generated_at` only. |
+| `data/summary.json` | `generated_at`. `live` and `live_by_tier`: `avg_clv_cents`, `beat_close_cents_pct`, `clv_cents_n`, `clv_na`. |
 
 `data/charts.json`, `data/meta.json`, `data/research.json`, and `data/wake.json` are not read by the pages. They still stay where they are.
 

@@ -19,7 +19,7 @@ export default function Method() {
         <div className="cols3">
           <div><h3>Posted before the game</h3><p>Every pick locks before tip-off or puck drop, with a timestamp, the price and the book. Nothing is added after the fact.</p></div>
           <div><h3>Graded at the posted price</h3><p>Results use the price that was posted, juice included. A prop is void if the player doesn't play. Nothing is edited or deleted.</p></div>
-          <div><h3>Checked against the close</h3><p>The closing price is logged before every game. Beating it over hundreds of picks is the clearest sign the edge is real.</p></div>
+          <div><h3>Checked against the close</h3><p>I log the closing price before every game. Beating it is the best sign of a real edge, even on losing nights.</p></div>
         </div>
       </section>
 
@@ -58,7 +58,7 @@ export default function Method() {
         <dl className="faq">
           <dt>Unit</dt><dd>1% of bankroll. NBA props are 1 unit each. NHL picks are 1 or 2 units.</dd>
           <dt>ROI</dt><dd>Units won divided by units staked.</dd>
-          <dt>Closing-line value (CLV)</dt><dd>How far the market moved toward the pick between posting and the last price before the game, in percentage points.</dd>
+          <dt>Closing-line value (CLV)</dt><dd>How many cents the locked price beat the closing median by. One cent is one percentage point of implied probability. Positive means the price I locked was longer than the close.</dd>
           <dt>Out of sample</dt><dd>Games the model never saw while it was being built.</dd>
         </dl>
       </section>

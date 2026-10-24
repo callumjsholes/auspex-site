@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { odds, timeET, dayLong, resultLabel, resultTone, units as u } from "@/lib/format";
 import { PriceShop } from "@/components/PriceShop";
+import { CloseLine } from "@/components/CloseLine";
 import { LiveLine, useLive, liveView } from "@/components/Live";
 
 function Ticket({ p, nhl, live }) {
@@ -14,6 +15,7 @@ function Ticket({ p, nhl, live }) {
       <h3 className="call">{p.pick}</h3>
       <div className="price"><b>{odds(p.price)} <span>{nhl ? "median price" : `at ${p.book}`}</span></b><span>{p.actual != null ? (nhl ? `Final ${p.actual}` : `Finished with ${p.actual}`) : `${p.stake} unit${p.stake === 1 ? "" : "s"}`}</span></div>
       <PriceShop p={p} nhl={nhl} />
+      <CloseLine p={p} />
       {!done && <LiveLine p={p} nhl={nhl} live={live} />}
     </article>
   );

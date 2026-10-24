@@ -2,6 +2,14 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-24 — Closing prices and CLV in cents
+
+- Pick cards show the locked price against `close_median`, the CLV in cents, and a tick when `clv_cents` is positive. If `close_line_exact` is false, the close is labeled the nearest line, with `close_quote_line` when that is a number. `close_best` and `close_best_book` show when the best close differs from the median.
+- The record page adds a closing-line value summary: average CLV in cents, the share of picks that beat the close, and the sample size. One cent is one percentage point of implied probability. Positive means the locked price was longer than the closing median.
+- Totals come from `nba_live.json` `summary` (else `by_tier`) and `summary.json` `live` (else `live_by_tier`): `avg_clv_cents`, `beat_close_cents_pct`, `clv_cents_n`, `clv_na`. Per-pick `clv_cents` is the fallback only when that league has no totals.
+- A missing field renders as nothing or n/a. The site does not invent cents from the American price or from `clv_pts`. The points CLV already on the record stays labeled "in points".
+- Keep these keys. `tests/fixtures/clv/` covers a publish with the fields and one without.
+
 ## 2026-10-21 — Claude — Recap share tools moved behind a password
 
 - The Download image / Post on X / Copy text panel is gone from public `/recap/<date>`. It lives at `/admin/recap/<date>` (`/admin/recap` opens the latest day).
