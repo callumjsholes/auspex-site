@@ -131,7 +131,8 @@ html { scroll-behavior: smooth; }
 .tape-in { display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; mask-image: linear-gradient(90deg, #000 85%, transparent); }
 .tape-in::-webkit-scrollbar { display: none; }
 .tape-label { flex: none; padding: 14px 18px 14px 0; font-size: 13px; font-weight: 650; color: var(--on-navy); white-space: nowrap; }
-.tick { flex: none; display: flex; gap: 10px; align-items: baseline; padding: 14px 18px; border-left: 1px solid rgba(255,255,255,.08); white-space: nowrap; font-size: 14px; color: var(--on-navy-muted); }
+.tick { flex: none; display: flex; gap: 10px; align-items: baseline; padding: 14px 18px; border-left: 1px solid rgba(255,255,255,.08); white-space: nowrap; font-size: 14px; color: var(--on-navy-muted); text-decoration: none; }
+a.tick:hover b { text-decoration: underline; }
 .tick b { color: var(--on-navy); font-weight: 600; }
 .tick .r { font-weight: 700; font-variant-numeric: tabular-nums; }
 .tick .r.pos { color: #5fd3a1; } .tick .r.neg { color: #f19a8b; }
@@ -141,6 +142,7 @@ section.block { padding-top: 72px; padding-bottom: 8px; }
 .head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
 .head h2, .page h1 { font: 400 clamp(30px, 3.6vw, 42px)/1.08 var(--display); margin: 0; }
 .lede { color: var(--muted); max-width: 68ch; margin: 8px 0 0; font-size: 17px; }
+.lede a, .note a, .empty a { color: var(--bronze-text); }
 .more { font-weight: 650; color: var(--bronze-text); text-decoration: none; white-space: nowrap; }
 .more:hover { text-decoration: underline; }
 
@@ -149,14 +151,17 @@ section.block { padding-top: 72px; padding-bottom: 8px; }
 .tabs button[aria-selected="true"], .tabs button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(19,35,58,.15); }
 
 .slate { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 18px; }
-.slate span { font-size: 13.5px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; color: var(--muted); }
-.slate span.on { color: var(--ink); border-color: var(--bronze); }
+.slate span, .slate a { font-size: 13.5px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; color: var(--muted); text-decoration: none; }
+.slate span.on, .slate a.on { color: var(--ink); border-color: var(--bronze); }
+.slate a:hover { border-color: var(--bronze); color: var(--ink); }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
 .ticket { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px 16px; box-shadow: var(--shadow); position: relative; }
 .ticket.is-pick { border-top: 3px solid var(--bronze); }
 .ticket.nhl.is-pick { border-top-color: var(--ice); }
 .ticket .meta { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; color: var(--muted); }
+.ticket .meta a, .ticket .call a { color: inherit; text-decoration: none; }
+.ticket .meta a:hover, .ticket .call a:hover { text-decoration: underline; }
 .ticket .call { font: 800 25px/1.12 var(--text); font-variation-settings: "wdth" 78; margin: 10px 0 6px; letter-spacing: -0.005em; }
 .ticket .why { font-size: 14px; color: var(--muted); margin: 0; }
 .ticket .price { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
@@ -300,3 +305,24 @@ td .sub { display: block; font-size: 13px; color: var(--muted); }
 .recap .days a[aria-current="page"] { background: var(--ink); color: var(--paper); }
 @media (max-width: 860px) { .recap { grid-template-columns: 1fr; } }
 .ticket.is-live { box-shadow: var(--shadow), 0 0 0 2px color-mix(in srgb, var(--bronze) 45%, transparent); }
+
+/* Game preview pages */
+.crumb { font-size: 14px; color: var(--muted); margin: 0 0 10px; }
+.crumb a { color: var(--bronze-text); text-decoration: none; }
+.crumb a:hover { text-decoration: underline; }
+.subhead { font-size: 16px; margin: 8px 0 0; }
+.subhead a { color: inherit; text-decoration: none; }
+.subhead a:hover { text-decoration: underline; }
+.final { font: 800 28px/1.1 var(--text); font-variation-settings: "wdth" 78; margin: 22px 0 0; letter-spacing: -0.01em; }
+.datelist, .gamelist { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 10px; }
+.datelist a, .gamelist a {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 8px 18px; flex-wrap: wrap;
+  text-decoration: none; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow);
+}
+.datelist a:hover, .gamelist a:hover { border-color: var(--bronze); }
+.gamelist .match { font-weight: 700; }
+.gamelist .when, .datelist .count { color: var(--muted); font-size: 14px; }
+.gstatus { font-size: 14px; font-weight: 650; color: var(--muted); margin-left: auto; }
+.empty p { margin: 0 0 8px; }
+.empty p:last-child { margin: 0; }

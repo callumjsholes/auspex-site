@@ -8,6 +8,14 @@ Shared change log for this repo. Newest first. Add an entry when a change is som
 - Contact on both pages is `hello@auspexsports.com` from `web/lib/site.js`. The site has no accounts, no payments, no analytics script, and no X embed. Paid subscriptions are described as not active.
 - `CLAUDE.md`, `AGENTS.md`, and this file stay off `.auspex-published.json`.
 
+## 2026-10-24 — Game pages
+
+- Static pages for every NHL and NBA game in the public feed: `/nhl/<date>/<away>-at-<home>` and `/nba/...`. League indexes are `/nba` and `/nhl`. Date indexes are `/nba/<date>` and `/nhl/<date>`.
+- Built only from `web/lib/data.js`. A pick is shown only after it is in the public picks. Today's full slate, including games that have not locked, comes from `nba_live.json` `games` and `today.json` `games` (matchup and start time). Older pages are games that have a locked or graded pick. The publish files do not keep a full slate once the day rolls, and they do not list future games (NBA `next_date` is a date with no matchups).
+- `nhlToday` now includes `locked` from `today.json`. NBA game pages read `hs` and `as_` when `completed` is true, for the final score. No prices, edges, or other model fields were added to what the pages receive.
+- NHL rows in `picks.json` have no `start_utc`, so a graded NHL page from an earlier day has the date and not the puck-drop time.
+- `sitemap.js` lists the new URLs. `robots.txt` was already in place. `CLAUDE.md`, `AGENTS.md`, and this file stay off `.auspex-published.json`.
+
 ## 2026-10-21 — Claude — Recap share tools moved behind a password
 
 - The Download image / Post on X / Copy text panel is gone from public `/recap/<date>`. It lives at `/admin/recap/<date>` (`/admin/recap` opens the latest day).

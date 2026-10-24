@@ -1,6 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import { odds, dayShort, resultLabel, resultTone, units, signed, centsBetter } from "@/lib/format";
+import { matchupPath } from "@/lib/teams";
 
 // Price shopping in the table: NBA shows the typical book price, NHL the best single-book price at lock.
 function shopSub(r) {
@@ -36,10 +37,12 @@ export default function RecordTable({ rows }) {
           </thead>
           <tbody>
             {shown.length === 0 && <tr><td colSpan={8} className="muted">Nothing matches this filter.</td></tr>}
-            {shown.map((r) => (
+            {shown.map((r) => {
+              const href = matchupPath(r.league, r.date, r.game);
+              return (
               <tr key={r.id}>
                 <td className="num">{dayShort(r.date)}</td>
-                <td><span className={"tag " + r.league.toLowerCase()}>{r.league}</span>{r.pick}<span className="sub">{r.game}{r.actual != null ? `, finished ${r.actual}` : ""}</span></td>
+                <td><span className={"tag " + r.league.toLowerCase()}>{r.league}</span>{r.pick}<span className="sub">{href ? <a href={href}>{r.game}</a> : r.game}{r.actual != null ? `, finished ${r.actual}` : ""}</span></td>
                 <td className="r num">{odds(r.price)}{shopSub(r)}</td>
                 <td className="muted">{r.book}</td>
                 <td className="r num">{r.stake}u</td>
@@ -47,7 +50,8 @@ export default function RecordTable({ rows }) {
                 <td className={"r " + resultTone(r.result)}>{resultLabel(r.result)}</td>
                 <td className={"r num " + resultTone(r.result)}>{r.units == null ? "–" : units(r.units)}</td>
               </tr>
-            ))}
+              );
+            })}
           </tbody>
         </table>
       </div>

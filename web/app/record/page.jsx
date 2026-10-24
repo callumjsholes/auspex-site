@@ -25,6 +25,7 @@ export default function RecordPage() {
       <div className="intro">
         <h1>The record</h1>
         <p className="lede">Every pick since {SITE.launch}, graded at the price and book it was posted at. Closing-line value (CLV) is how many percentage points the market moved toward the pick after it posted. {D.generatedAt ? `Updated ${stamp(D.generatedAt)}.` : ""}</p>
+        <p className="note">Each game has its own page: <a href="/nba">NBA games</a>, <a href="/nhl">NHL games</a>.</p>
       </div>
       <Kpis s={D.sum.all} />
       <RecordCharts rows={D.all} />

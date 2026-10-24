@@ -1,32 +1,18 @@
 "use client";
 import { useState } from "react";
-import { odds, timeET, dayLong, resultLabel, resultTone, units as u } from "@/lib/format";
-import { PriceShop } from "@/components/PriceShop";
-import { LiveLine, useLive, liveView } from "@/components/Live";
-
-function Ticket({ p, nhl, live }) {
-  const done = p.result !== "Pending";
-  const lv = done ? null : liveView(p, nhl, live);
-  const status = lv ? (lv.label === "Final" ? "Final, grading" : "Live") : resultLabel(p.result);
-  return (
-    <article className={"ticket is-pick" + (nhl ? " nhl" : "") + (lv && lv.label === "Live" ? " is-live" : "")}>
-      <div className="meta"><span>{p.game}{p.start ? `, ${timeET(p.start)}` : ""}</span><span className={"state " + (lv ? lv.tone : resultTone(p.result))}>{status}{done && p.units != null ? ` ${u(p.units)}` : ""}</span></div>
-      <h3 className="call">{p.pick}</h3>
-      <div className="price"><b>{odds(p.price)} <span>{nhl ? "median price" : `at ${p.book}`}</span></b><span>{p.actual != null ? (nhl ? `Final ${p.actual}` : `Finished with ${p.actual}`) : `${p.stake} unit${p.stake === 1 ? "" : "s"}`}</span></div>
-      <PriceShop p={p} nhl={nhl} />
-      {!done && <LiveLine p={p} nhl={nhl} live={live} />}
-    </article>
-  );
-}
+import { timeET, dayLong } from "@/lib/format";
+import { useLive } from "@/components/Live";
+import { Ticket } from "@/components/Ticket";
+import { gamePath, matchupPath } from "@/lib/teams";
 
 // Earliest tip first, so games in progress sit at the top; picks in the same game stay together.
 const byTip = (ps) => [...ps].sort((a, b) => (a.start || "").localeCompare(b.start || "") || a.game.localeCompare(b.game));
 
-function NhlGame({ g }) {
+function NhlGame({ g, href }) {
   return (
     <article className="ticket nhl">
       <div className="meta"><span>{timeET(g.start)}</span><span>{g.score ? `Final ${g.score}` : "No pick"}</span></div>
-      <h3 className="call">{g.away} at {g.home}</h3>
+      <h3 className="call">{href ? <a href={href}>{g.away} at {g.home}</a> : `${g.away} at ${g.home}`}</h3>
     </article>
   );
 }
@@ -54,15 +40,15 @@ export default function Today({ nbaDate, nhlDate, nbaGames, nbaPicks, nbaNext, n
         <div role="tabpanel">
           {nbaGames.length > 0 && (
             <div className="slate">
-              {nbaGames.map((g) => (
-                <span key={g.id} className={g.locked ? "on" : ""}>
-                  {g.away} at {g.home}, {timeET(g.start)}{g.completed ? ": final" : g.locked ? `: ${g.picks} pick${g.picks === 1 ? "" : "s"}` : ""}
-                </span>
-              ))}
+              {nbaGames.map((g) => {
+                const href = gamePath("NBA", nbaDate, g.away, g.home);
+                const label = `${g.away} at ${g.home}, ${timeET(g.start)}${g.completed ? ": final" : g.locked ? `: ${g.picks} pick${g.picks === 1 ? "" : "s"}` : ""}`;
+                return href ? <a key={g.id} className={g.locked ? "on" : ""} href={href}>{label}</a> : <span key={g.id} className={g.locked ? "on" : ""}>{label}</span>;
+              })}
             </div>
           )}
           {nbaPicks.length ? (
-            <div className="cards">{byTip(nbaPicks).map((p) => <Ticket key={p.id} p={p} live={live} />)}</div>
+            <div className="cards">{byTip(nbaPicks).map((p) => <Ticket key={p.id} p={p} live={live} href={matchupPath("NBA", p.date, p.game)} />)}</div>
           ) : (
             <div className="empty">
               {!nbaGames.length ? `No NBA games today${nbaNext ? `. Next slate: ${dayLong(nbaNext)}.` : "."}`
@@ -75,9 +61,9 @@ export default function Today({ nbaDate, nhlDate, nbaGames, nbaPicks, nbaNext, n
         <div role="tabpanel">
           {!nhlGames.length ? <div className="empty" style={{ marginTop: 22 }}>No NHL games on this slate.</div> : (
             <div className="cards" style={{ marginTop: 22 }}>
-              {nhlPicks.map((g) => <Ticket key={g.id} p={{ ...g.pick, start: g.start }} nhl live={live} />)}
+              {nhlPicks.map((g) => <Ticket key={g.id} p={{ ...g.pick, start: g.start }} nhl live={live} href={gamePath("NHL", nhlDate, g.away, g.home)} />)}
               {!nhlLocked && <div className="empty">Picks post here before the first puck drop.</div>}
-              {nhlGames.filter((g) => !g.pick).map((g) => <NhlGame key={g.id} g={g} />)}
+              {nhlGames.filter((g) => !g.pick).map((g) => <NhlGame key={g.id} g={g} href={gamePath("NHL", nhlDate, g.away, g.home)} />)}
             </div>
           )}
         </div>
