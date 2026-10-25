@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-25T04:00:16+00:00",
+ "generated_at": "2026-10-25T05:30:16+00:00",
  "today": "2026-10-25",
  "games": [
   {
@@ -116,9 +116,9 @@
    "typical_price": -128,
    "typical_n": 3,
    "locked_at": "2026-10-25T01:10:22+00:00",
-   "result": "Pending",
-   "units": null,
-   "units_typical": null,
+   "result": "Won",
+   "units": 0.787,
+   "units_typical": 0.781,
    "closed": true,
    "close_at": "2026-10-25T01:50:31+00:00",
    "close_median": -132,
@@ -129,7 +129,8 @@
    "clv_pts": -0.2,
    "close_price": -130,
    "close_line": 9.5,
-   "clv_cents": 0.95
+   "clv_cents": 0.95,
+   "actual": 9.0
   },
   {
    "id": "401909860-5203685-pts",
@@ -151,9 +152,9 @@
    "typical_price": -125,
    "typical_n": 1,
    "locked_at": "2026-10-25T01:10:22+00:00",
-   "result": "Pending",
-   "units": null,
-   "units_typical": null,
+   "result": "Won",
+   "units": 0.8,
+   "units_typical": 0.8,
    "closed": true,
    "close_at": "2026-10-25T01:50:31+00:00",
    "close_median": -125,
@@ -164,7 +165,8 @@
    "clv_pts": -0.6,
    "close_price": -125,
    "close_line": 8.5,
-   "clv_cents": 0.0
+   "clv_cents": 0.0,
+   "actual": 9.0
   },
   {
    "id": "401909859-4395628-ast",
@@ -5444,17 +5446,17 @@
   }
  ],
  "summary": {
-  "bets": 148,
-  "wins": 83,
+  "bets": 150,
+  "wins": 85,
   "losses": 65,
   "pushes": 0,
-  "staked": 148.0,
-  "units": 13.18,
-  "roi": 8.9,
-  "units_typical": 7.52,
-  "roi_typical": 5.3,
-  "typical_picks": 141,
-  "pending": 2,
+  "staked": 150.0,
+  "units": 14.77,
+  "roi": 9.8,
+  "units_typical": 9.11,
+  "roi_typical": 6.4,
+  "typical_picks": 143,
+  "pending": 0,
   "avg_clv_pts": 0.01,
   "beat_close_pct": 46.3,
   "clv_n": 149,
@@ -5465,17 +5467,17 @@
  },
  "by_tier": {
   "Pick": {
-   "bets": 148,
-   "wins": 83,
+   "bets": 150,
+   "wins": 85,
    "losses": 65,
    "pushes": 0,
-   "staked": 148.0,
-   "units": 13.18,
-   "roi": 8.9,
-   "units_typical": 7.52,
-   "roi_typical": 5.3,
-   "typical_picks": 141,
-   "pending": 2,
+   "staked": 150.0,
+   "units": 14.77,
+   "roi": 9.8,
+   "units_typical": 9.11,
+   "roi_typical": 6.4,
+   "typical_picks": 143,
+   "pending": 0,
    "avg_clv_pts": 0.01,
    "beat_close_pct": 46.3,
    "clv_n": 149,
@@ -5504,7 +5506,7 @@
   },
   {
    "date": "2026-10-24",
-   "units": 13.18
+   "units": 14.77
   }
  ],
  "rules": {
