@@ -29,7 +29,7 @@ export default function RecapView({ d, days }) {
           ))}
         </ol>
         <div>
-          <h2 style={{ fontSize: 18, margin: 0 }}>Other days</h2>
+          <h2 className="side-h">Other days</h2>
           <nav className="days" aria-label="Recap days">
             {days.slice(0, 30).map((x) => (
               <a key={x.date} href={`/recap/${x.date}`} aria-current={x.date === d.date ? "page" : undefined}>{dayShort(x.date)} · {recordText(x)}</a>

@@ -30,7 +30,7 @@ export default function Faq() {
         <h1>Questions</h1>
         <p className="lede">Short answers. Anything else: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
       </div>
-      <dl className="faq prose" style={{ marginTop: 20 }}>
+      <dl className="faq prose">
         {QA.map(([q, a]) => (<div key={q}><dt>{q}</dt><dd>{a}</dd></div>))}
       </dl>
     </div>

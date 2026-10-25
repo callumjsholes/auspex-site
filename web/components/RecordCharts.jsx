@@ -72,9 +72,9 @@ function UnitsCurve({ rows }) {
            onTouchStart={(e) => move(e.touches[0] ? { currentTarget: e.currentTarget, clientX: e.touches[0].clientX } : e)}
            role="img" aria-label={`Units won after each pick. ${pts.length} graded picks, ending at ${end}. The horizontal axis is picks. Use the arrow keys to step through picks.`}>
         {ticks.map((t) => (<g key={t}><line x1={m.l} x2={W - m.r} y1={Y(t)} y2={Y(t)} stroke="var(--line)" /><text x={m.l - 8} y={Y(t) + 4} textAnchor="end">{signed(t, step < 1 ? 1 : 0)}</text></g>))}
-        <line x1={m.l} x2={W - m.r} y1={Y(0)} y2={Y(0)} stroke="var(--muted)" strokeDasharray="3 4" />
-        <path d={`${d}L${X(pts.length - 1)},${Y(0)}L${X(0)},${Y(0)}Z`} fill={col} opacity="0.1" />
-        <path d={d} fill="none" stroke={col} strokeWidth="2.5" strokeLinejoin="round" />
+        <line x1={m.l} x2={W - m.r} y1={Y(0)} y2={Y(0)} stroke="var(--ink)" strokeOpacity="0.28" />
+        <path d={`${d}L${X(pts.length - 1)},${Y(0)}L${X(0)},${Y(0)}Z`} fill={col} opacity="0.08" />
+        <path d={d} fill="none" stroke={col} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
         {pts.length <= 120 && pts.map((p, k) => <circle key={k} cx={X(k)} cy={Y(p.y)} r="2.5" fill={p.r.result === "Won" ? "var(--win)" : p.r.result === "Lost" ? "var(--loss)" : "var(--muted)"} />)}
         {cur && (<g><line x1={X(i)} x2={X(i)} y1={m.t} y2={H - m.b} stroke="var(--ink)" strokeOpacity=".35" /><circle cx={X(i)} cy={Y(cur.y)} r="6" fill="var(--surface)" stroke={col} strokeWidth="2.5" /></g>)}
         <text x={m.l} y={H - 8}>Pick 1</text><text x={W - m.r} y={H - 8} textAnchor="end">Pick {pts.length}</text>
@@ -118,7 +118,7 @@ function ClvBars({ rows }) {
           return <rect key={k} x={m.l + bw * k + bw * 0.15} width={Math.max(1, bw * 0.7)} y={Math.min(y0, y1)} height={Math.max(1, Math.abs(y1 - y0))}
                        fill={r.clv >= 0 ? "var(--win)" : "var(--loss)"} opacity={i == null || i === k ? 0.85 : 0.35} rx="1.5" />;
         })}
-        <path d={line} fill="none" stroke="var(--bronze)" strokeWidth="2.5" />
+        <path d={line} fill="none" stroke="var(--bronze)" strokeWidth="2" strokeLinejoin="round" />
         <text x={m.l} y={H - 8}>Oldest</text><text x={W - m.r} y={H - 8} textAnchor="end">Newest</text>
       </svg>
       {cur && (
@@ -164,7 +164,7 @@ export default function RecordCharts({ rows, league = "All" }) {
   const filtered = stat !== "all";
   const statOpts = STATS.filter(([k]) => k === "all" || (league === "NHL" ? k === "ml" : league === "NBA" ? k !== "ml" : true));
   return (
-    <section className="block" id="charts" aria-labelledby="charts-h" style={{ paddingTop: 40 }}>
+    <section className="block" id="charts" aria-labelledby="charts-h">
       <div className="head">
         <div><h2 id="charts-h">Explore the record</h2><p className="lede">League and dates are set above. Narrow the chart by market. Hover or tap the chart, or use the arrow keys, to see each pick.{filtered ? "" : " With every market, the line ends on the total at the top of this page."}</p></div>
       </div>

@@ -83,7 +83,7 @@ export default function RecordBoard({ rows, launch, updated }) {
       <Kpis s={s} />
       <RecordCharts rows={shown} league={league} />
       <BankrollCalc rows={shown} />
-      <section className="block" id="every-pick" aria-labelledby="all-h" style={{ paddingTop: 48 }}>
+      <section className="block" id="every-pick" aria-labelledby="all-h">
         <div className="head"><h2 id="all-h">Every pick</h2></div>
         <RecordTable rows={shown} />
         <p className="note">Every pick keeps its lock time, price and closing price. A prop is void, not a win or loss, if the player doesn't play.</p>

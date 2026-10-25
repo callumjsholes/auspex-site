@@ -31,7 +31,7 @@ export const metadata = {
   icons: { icon: [{ url: "/favicon.ico" }, { url: "/favicon-32.png", sizes: "32x32" }], apple: "/apple-touch-icon.png" },
 };
 export const viewport = {
-  themeColor: [{ media: "(prefers-color-scheme: light)", color: "#13233a" }, { media: "(prefers-color-scheme: dark)", color: "#0f1b2c" }],
+  themeColor: [{ media: "(prefers-color-scheme: light)", color: "#13233a" }, { media: "(prefers-color-scheme: dark)", color: "#101a28" }],
 };
 
 export default function RootLayout({ children }) {

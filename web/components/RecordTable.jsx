@@ -26,8 +26,8 @@ export default function RecordTable({ rows }) {
     <>
       <div className="filters">
         <label>Result <select value={result} onChange={(e) => setResult(e.target.value)}><option>All</option><option>Won</option><option>Lost</option><option>Push</option><option value="Pending">Open</option><option>Void</option></select></label>
-        <button className="btn line" style={{ padding: "7px 14px", fontSize: 14 }} onClick={csv}>Download CSV</button>
-        <span className="muted" style={{ fontSize: 14 }}>{shown.length} pick{shown.length === 1 ? "" : "s"}</span>
+        <button className="btn line sm" onClick={csv}>Download CSV</button>
+        <span className="count">{shown.length} pick{shown.length === 1 ? "" : "s"}</span>
       </div>
       <p className="note glossary">
         <Term k="odds">Price</Term> is American odds. <Term k="unit">Stake</Term> is in units, and 1 unit is 1% of a bankroll. <Term k="closing">CLV</Term> is how far the closing line moved after the pick was posted.

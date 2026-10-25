@@ -20,7 +20,7 @@ export default async function GameScreen({ league, params }) {
 
   return (
     <>
-      <div className="page wrap" style={state === "wait" ? { paddingBottom: 0 } : undefined}>
+      <div className={"page wrap" + (state === "wait" ? " flush" : "")}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld }} />
         <div className="intro">
           <p className="crumb">
@@ -36,17 +36,17 @@ export default async function GameScreen({ league, params }) {
         </div>
         {score && <p className="final">{score}</p>}
         {game.picks.length > 0 ? (
-          <section className="block" aria-labelledby="pick-h" style={{ paddingTop: 28 }}>
+          <section className="block tight" aria-labelledby="pick-h">
             <h2 id="pick-h">{game.picks.length > 1 ? "Picks" : "Pick"}</h2>
             <GamePicks picks={game.picks} nhl={league === "NHL"} />
           </section>
         ) : (
-          <div className="empty" style={{ marginTop: 22 }}>
+          <div className="empty">
             {state === "wait" ? "Nothing posted for this game yet." : "No pick on this game."}
           </div>
         )}
         {others.length > 0 && (
-          <section className="block" aria-labelledby="others-h" style={{ paddingTop: 48 }}>
+          <section className="block" aria-labelledby="others-h">
             <h2 id="others-h">Other games this day</h2>
             <ul className="gamelist">
               {others.map((g) => {

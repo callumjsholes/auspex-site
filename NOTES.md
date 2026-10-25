@@ -2,6 +2,14 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-25 — Site — Visual system
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`. No route, label, or record number changed.
+
+- The look of the public pages is set in `web/app/globals.css`: navy `#13233a` and bronze buttons `#8f5418`, with a tighter neutral scale, an 8px spacing step, and three radii (8, 12, 16). Marcellus is still the display face and Archivo is still the text face. Dark mode still follows `prefers-color-scheme`.
+- Green and red are only for results. The pages still do not show chances, projections, edges, or minutes, and they still do not describe the model.
+- Preview cards use the same bronze bar as the header. The visit counter, `/admin`, and the responsible-gambling lines are unchanged.
+
 ## 2026-10-24 — Site — Start page, previews, signup, filters
 
 The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
