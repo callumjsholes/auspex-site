@@ -31,7 +31,7 @@ export async function ogCard({ kicker, recordLine, unitsLine, detail }) {
   return new ImageResponse(
     (
       <div style={{ display: "flex", flexDirection: "column", width: "100%", height: "100%", background: "#13233a", color: "#eef2f6", fontFamily: "Marcellus" }}>
-        <div style={{ display: "flex", height: 12, width: "100%", background: "#9a5a1c" }} />
+        <div style={{ display: "flex", height: 8, width: "100%", background: "#8f5418" }} />
         <div style={{ display: "flex", flex: 1, flexDirection: "column", justifyContent: "space-between", padding: "52px 72px 60px" }}>
           <div style={{ display: "flex", alignItems: "center" }}>
             <img src={mark} width={72} height={72} alt="" style={{ borderRadius: 14 }} />

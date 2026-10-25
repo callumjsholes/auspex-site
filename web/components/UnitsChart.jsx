@@ -29,10 +29,10 @@ export default function UnitsChart({ points, label = "Cumulative units after eac
           <text x={m.l - 8} y={Y(t) + 4} textAnchor="end">{signed(t, 1)}</text>
         </g>
       ))}
-      <line x1={m.l} x2={W - m.r} y1={Y(0)} y2={Y(0)} stroke="var(--muted)" strokeDasharray="3 4" />
-      <path d={area} fill={up ? "var(--win)" : "var(--loss)"} opacity="0.1" />
-      <path d={d} fill="none" stroke={up ? "var(--win)" : "var(--loss)"} strokeWidth="2.5" strokeLinejoin="round" />
-      <circle cx={X(points.length - 1)} cy={Y(last.units)} r="4.5" fill={up ? "var(--win)" : "var(--loss)"} />
+      <line x1={m.l} x2={W - m.r} y1={Y(0)} y2={Y(0)} stroke="var(--ink)" strokeOpacity="0.28" />
+      <path d={area} fill={up ? "var(--win)" : "var(--loss)"} opacity="0.08" />
+      <path d={d} fill="none" stroke={up ? "var(--win)" : "var(--loss)"} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+      <circle cx={X(points.length - 1)} cy={Y(last.units)} r="3.5" fill={up ? "var(--win)" : "var(--loss)"} />
       <text x={m.l} y={H - 8}>Pick 1</text>
       <text x={W - m.r} y={H - 8} textAnchor="end">Pick {points.length}</text>
     </svg>

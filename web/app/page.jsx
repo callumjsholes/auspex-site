@@ -25,7 +25,7 @@ export default function Home() {
             <div className="ctas">
               <a className="btn bronze" href="#today">See today's picks</a>
               <a className="btn ghost" href="/start">Start here</a>
-              <a className="btn ghost" href="/record">Full record</a>
+              <a className="btn quiet" href="/record">Full record</a>
             </div>
           </div>
           <aside className="ledger" aria-label="Live record">

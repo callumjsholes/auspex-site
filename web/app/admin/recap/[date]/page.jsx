@@ -28,7 +28,7 @@ export default async function AdminRecapDay({ params }) {
         <img className="recap-card" src={`/recap/${d.date}/card`} width="1080" height="1350" alt={`Recap card: ${shareText(d)}`} />
         <div>
           <RecapShare date={d.date} share={shareText(d)} url={url} text={recapText(d)} />
-          <h2 style={{ fontSize: 18, margin: "26px 0 0" }}>Other days</h2>
+          <h2 className="side-h">Other days</h2>
           <nav className="days" aria-label="Recap days">
             {days.slice(0, 30).map((x) => (
               <a key={x.date} href={`/admin/recap/${x.date}`} aria-current={x.date === d.date ? "page" : undefined}>{dayShort(x.date)} · {recordText(x)}</a>

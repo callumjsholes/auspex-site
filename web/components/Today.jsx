@@ -225,7 +225,7 @@ export default function Today({ nbaDate, nhlDate, nbaGames, nbaPicks, nbaNext, n
         </div>
       ) : (
         <div role="tabpanel">
-          {!nhlGames.length ? <div className="empty" style={{ marginTop: 8 }}>No NHL games on this slate.<MailLink /></div> : (
+          {!nhlGames.length ? <div className="empty">No NHL games on this slate.<MailLink /></div> : (
             <>
               <NhlNote games={nhlGames} now={now} hasPick={nhlWithPicks.length > 0} />
               {nhlWithPicks.length > 0 && (
