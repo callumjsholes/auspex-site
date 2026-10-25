@@ -1,6 +1,6 @@
 {
  "date": "2026-10-25",
- "generated_at": "2026-10-25T13:15:14+00:00",
+ "generated_at": "2026-10-25T17:00:17+00:00",
  "games": [
   {
    "game_id": 2026020180,
@@ -31,7 +31,7 @@
    "home_goalie": "Jake Oettinger",
    "away_goalie": "Ilya Sorokin",
    "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Likely",
    "locked": false
   },
   {
