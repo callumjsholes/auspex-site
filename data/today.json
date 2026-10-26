@@ -1,6 +1,6 @@
 {
  "date": "2026-10-26",
- "generated_at": "2026-10-26T13:15:14+00:00",
+ "generated_at": "2026-10-26T21:00:22+00:00",
  "games": [
   {
    "game_id": 2026020185,
@@ -12,10 +12,10 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Dylan Garand",
+   "home_goalie": "James Reimer",
    "away_goalie": "Darcy Kuemper",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Likely",
    "locked": false
   },
   {
@@ -30,8 +30,8 @@
    "away_score": null,
    "home_goalie": "Devin Cooley",
    "away_goalie": "Sergei Bobrovsky",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Likely",
    "locked": false
   },
   {
@@ -45,10 +45,17 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Tristan Jarry",
-   "away_goalie": "John Gibson",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "away_goalie": "Michal Postava",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
+   "n_books": 11,
+   "home_price": -175,
+   "away_price": 148,
+   "edge_side": "away",
+   "edge_team": "DET",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   }
  ]
 }

@@ -1,5 +1,23 @@
 [
  {
+  "game_id": 2026020187,
+  "date": "2026-10-26",
+  "game": "DET@EDM",
+  "team": "DET",
+  "side": "away",
+  "stake": 1,
+  "tier": "Bet",
+  "price": 148,
+  "best_price": 151,
+  "best_book": "williamhill_us",
+  "locked_at": "2026-10-26T21:00:22+00:00",
+  "close_price": 148,
+  "result": "Pending",
+  "units": null,
+  "source": "live",
+  "close_at": "2026-10-26T21:00:22+00:00"
+ },
+ {
   "game_id": 2026020172,
   "date": "2026-10-24",
   "game": "NSH@PIT",
