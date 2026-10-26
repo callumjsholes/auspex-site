@@ -2,6 +2,16 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-26 — Site — More stats charts
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- Callum signed off on aggregated model-data charts on `/stats` on 2026-10-25. Charts stay in buckets, counts, and averages. Nothing on the page is precise enough to rebuild the model. This change is still not merged.
+- New live-record charts: rolling hit rate and ROI (25 and 50), drawdown, unit bins, streaks, day of week, start time, over/under, home/away, team, opponent, book, hit rate against the break-even implied by the posted price, cents bands against the result, and posted units against typical-price units.
+- Older tests are charted under their own heading and are not added to the live total. They use `charts.json` equity, months, stat, and reshuffle summary, plus the season units `data.js` already keeps from `backtest.json`.
+- Left off, because they would show model internals or a procedure: research changelog, log loss, edge-threshold buckets, closing expected value, and the NHL closing-movement edge counts.
+- Pick cards and pick rows still do not show a chance, an edge, a projection, or minutes. Tier, team, and opponent are joined in `web/lib/stats.js` and are not added to the pick row in `web/lib/data.js`.
+
 ## 2026-10-26 — Site — Stats page
 
 The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.

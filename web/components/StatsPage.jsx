@@ -1,5 +1,6 @@
 import CalChart from "@/components/CalChart";
 import LineChart from "@/components/LineChart";
+import { BookSection, Breakeven, ClvBands, RollingSection, ShapeSection, ShoppingSection, SideSection, SplitTable, TeamSection, TestsSection, WhenSection } from "@/components/StatsMore";
 import { formatCents } from "@/lib/clv";
 import { dayShort, dayTitle, pct, record, resultLabel, signed, unitsFromMilli } from "@/lib/format";
 import { recordSentence } from "@/lib/recordText";
@@ -88,57 +89,7 @@ function marketIntro(facts) {
   return bits.join(" ");
 }
 
-function SplitTable({ caption, groups, name, showOpen }) {
-  if (!groups.length) return <div className="empty">Nothing graded in this split yet.</div>;
-  const max = Math.max(...groups.map((g) => Math.abs(g.summary.units || 0)), 0);
-  return (
-    <div className="tablewrap">
-      <table className="stack">
-        <caption>{caption}</caption>
-        <thead>
-          <tr>
-            <th scope="col">{name}</th>
-            <th scope="col" className="r">Graded</th>
-            <th scope="col" className="r">Record</th>
-            {showOpen && <th scope="col" className="r">Open</th>}
-            <th scope="col" className="r">Staked</th>
-            <th scope="col" className="r">Units</th>
-            <th scope="col" className="r">ROI</th>
-          </tr>
-        </thead>
-        <tbody>
-          {groups.map((g) => {
-            const width = g.summary.bets && max ? Math.max(2, (Math.abs(g.summary.units) / max) * 100) : 0;
-            const tone = toneOf(g.summary.unitMilli);
-            return (
-              <tr key={g.key}>
-                <th scope="row" data-label={name}>
-                  <span className="split-name">{g.key}</span>
-                  {g.few && <span className="flag">Short sample</span>}
-                </th>
-                <td className="r num" data-label="Graded">{g.summary.bets}</td>
-                <td className="r num" data-label="Record">{record(g.summary)}</td>
-                {showOpen && <td className="r num" data-label="Open">{g.summary.pending}</td>}
-                <td className="r num" data-label="Staked">{stakeText(g.summary)}</td>
-                <td className={"r num " + tone} data-label="Units">
-                  <span className="unitcell">
-                    {g.summary.bets > 0 && (
-                      <span className="track" aria-hidden="true"><i className={tone || "flat"} style={{ width: `${width}%` }} /></span>
-                    )}
-                    <span>{g.summary.bets ? unitText(g.summary.unitMilli) : "–"}</span>
-                  </span>
-                </td>
-                <td className={"r num " + (g.summary.roi > 0 ? "pos" : g.summary.roi < 0 ? "neg" : "")} data-label="ROI">{g.summary.bets ? roiText(g.summary.roi) : "–"}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-export default function StatsPage({ model, launch, updated, clvCopy, calibration }) {
+export default function StatsPage({ model, launch, updated, clvCopy, calibration, shopping, tests, nhlTest }) {
   const s = model.summary;
   const series = model.series;
   const last = series[series.length - 1];
@@ -190,12 +141,19 @@ export default function StatsPage({ model, launch, updated, clvCopy, calibration
 
       <nav className="jumps" aria-label="On this page">
         <a href="#units">Units and ROI</a>
+        <a href="#rolling">Rolling</a>
+        <a href="#shape">Drawdown</a>
         <a href="#sport">Sport</a>
         <a href="#market">Market</a>
         {!model.facts.duplicate && <a href="#bet-type">Bet type</a>}
         <a href="#tier">Tier</a>
+        <a href="#side">Side</a>
+        <a href="#teams">Teams</a>
+        <a href="#when">When</a>
         <a href="#price">Price</a>
+        <a href="#book">Book</a>
         <a href="#clv">Closing line</a>
+        <a href="#tests">Older tests</a>
         <a href="#calibration">Calibration</a>
       </nav>
 
@@ -297,6 +255,9 @@ export default function StatsPage({ model, launch, updated, clvCopy, calibration
         )}
       </section>
 
+      <RollingSection model={model} />
+      <ShapeSection model={model} />
+
       <section className="block" id="sport" aria-labelledby="sport-h">
         <div className="head"><div><h2 id="sport-h">By sport</h2><p className="lede">NBA and NHL, graded at the posted price. The bar length compares the size of the unit total inside this table.</p></div></div>
         <SplitTable caption="Graded picks by sport." groups={model.splits.sport} name="Sport" showOpen={showOpen} />
@@ -324,6 +285,10 @@ export default function StatsPage({ model, launch, updated, clvCopy, calibration
         <SplitTable caption="Graded picks by the published tier." groups={model.splits.tier} name="Tier" showOpen={showOpen} />
       </section>
 
+      <SideSection model={model} showOpen={showOpen} />
+      <TeamSection model={model} showOpen={showOpen} />
+      <WhenSection model={model} showOpen={showOpen} />
+
       <section className="block" id="price" aria-labelledby="price-h">
         <div className="head">
           <div>
@@ -332,7 +297,11 @@ export default function StatsPage({ model, launch, updated, clvCopy, calibration
           </div>
         </div>
         <SplitTable caption="Graded picks by the posted American price." groups={model.splits.odds} name="Price" showOpen={showOpen} />
+        <Breakeven prices={model.prices} />
       </section>
+
+      <BookSection model={model} showOpen={showOpen} />
+      <ShoppingSection shopping={shopping} />
 
       <section className="block" id="clv" aria-labelledby="clv-h">
         <div className="head">
@@ -362,6 +331,7 @@ export default function StatsPage({ model, launch, updated, clvCopy, calibration
             empty="The cents line draws once two picks have a closing-line value in cents."
           />
         </div>
+        <ClvBands block={model.clvBands} />
         {cents.length > 0 && (
           <details className="series">
             <summary>Every pick on the cents line ({cents.length})</summary>
@@ -393,6 +363,8 @@ export default function StatsPage({ model, launch, updated, clvCopy, calibration
           </details>
         )}
       </section>
+
+      <TestsSection tests={tests} nhl={nhlTest} />
 
       <section className="block" id="calibration" aria-labelledby="cal-h">
         <div className="head">

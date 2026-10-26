@@ -4,18 +4,18 @@ import { getData } from "@/lib/data";
 import { stamp } from "@/lib/format";
 import { pageMeta } from "@/lib/meta";
 import { SITE } from "@/lib/site";
-import { buildStats, readCalibration, readTierIndex, totalsMatch, withTiers } from "@/lib/stats";
+import { buildStats, readCalibration, readContextIndex, readOlderTests, readPriceShopping, readTierIndex, totalsMatch, withContext, withTiers } from "@/lib/stats";
 import "./stats.css";
 
 export const metadata = pageMeta({
   title: "Stats",
-  description: "Charts and splits of the Auspex Sports live record: units and ROI over time, by sport, market, tier and price, with closing-line value.",
+  description: "Charts and splits of the Auspex Sports live record: units, ROI, drawdown, rolling windows, price, closing line, and the older tests kept apart from the live total.",
   path: "/stats",
 });
 
 export default function Page() {
   const data = getData();
-  const model = buildStats(withTiers(data.all, readTierIndex()));
+  const model = buildStats(withContext(withTiers(data.all, readTierIndex()), readContextIndex()));
   if (!totalsMatch(model.summary, data.sum.all)) {
     throw new Error("Stats unit total does not match the site summary.");
   }
@@ -26,6 +26,9 @@ export default function Page() {
       updated={data.generatedAt ? stamp(data.generatedAt) : ""}
       clvCopy={summaryCopy(data.clv?.all, data.clv?.leagues)}
       calibration={readCalibration()}
+      shopping={readPriceShopping()}
+      tests={readOlderTests()}
+      nhlTest={data.nhlTest}
     />
   );
 }

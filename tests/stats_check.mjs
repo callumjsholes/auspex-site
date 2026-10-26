@@ -4,9 +4,12 @@ import fs from "node:fs";
 import assert from "node:assert/strict";
 import { finite } from "../web/lib/clv.js";
 import { getData } from "../web/lib/data.js";
+import { implied } from "../web/lib/format.js";
 import {
-  ODDS_ORDER, SHORT_SAMPLE, buildStats, centsSeries, oddsBand, readCalibration,
-  readCalibrationBuckets, readTierIndex, stakeSentence, totalsMatch, withTiers,
+  ODDS_ORDER, SHORT_SAMPLE, buildStats, centsSeries, clvBands, drawdownSeries, oddsBand,
+  priceCompare, readCalibration, readCalibrationBuckets, readContextIndex, readOlderTests,
+  readPriceShopping, readTierIndex, rollingSeries, stakeSentence, startBand, totalsMatch,
+  unitBins, withContext, withTiers,
 } from "../web/lib/stats.js";
 
 const fixture = JSON.parse(fs.readFileSync(new URL("./fixtures/calibration/buckets.json", import.meta.url), "utf8"));
@@ -108,10 +111,58 @@ assert.equal(cal.present, Array.isArray(research.nba_calibration));
 assert.equal(cal.buckets.length, readCalibrationBuckets(research.nba_calibration).length);
 assert.equal(JSON.stringify(cal).includes("nba_ev_buckets"), false);
 
+const liveRows = withContext(withTiers(data.all, readTierIndex()), readContextIndex());
+const shaped = buildStats(liveRows);
+assert.equal(shaped.rolling25.length, Math.max(0, shaped.summary.bets - 24));
+assert.equal(shaped.rolling50.length, Math.max(0, shaped.summary.bets - 49));
+if (shaped.rolling25.length) {
+  const end = shaped.rolling25.at(-1);
+  assert.equal(end.wins + end.losses + 0 <= 25, true);
+  assert.equal(end.window, 25);
+  assert.equal("clvCents" in end, false);
+}
+assert.equal(shaped.drawdown.points.length, shaped.series.length);
+assert.ok(shaped.drawdown.points.every((p) => p.underMilli <= 0));
+assert.equal(shaped.bins.reduce((a, b) => a + b.n, 0), shaped.summary.bets);
+assert.equal(shaped.clvBands.n, data.all.filter((r) => finite(r.clvCents) != null && ["Won", "Lost", "Push"].includes(r.result)).length);
+assert.equal(shaped.team.reduce((a, g) => a + g.summary.bets, 0), shaped.summary.bets);
+assert.equal(shaped.prices.reduce((a, g) => a + g.summary.bets, 0), shaped.summary.bets);
+const shop = readPriceShopping();
+assert.equal(Array.isArray(shop.picks), false);
+assert.equal("units_typical" in shop, false);
+assert.ok(shop.n > 0);
+const older = readOlderTests();
+const charts = JSON.parse(fs.readFileSync(new URL("../data/charts.json", import.meta.url), "utf8"));
+assert.equal(older.equity.length, charts.nba_equity.length);
+assert.equal(JSON.stringify(older).includes("ll_model"), false);
+assert.equal(JSON.stringify(older).includes("nhl_clv_move"), false);
+assert.equal(startBand("2026-10-20T23:00:00Z"), "7 PM ET");
+const priced = priceCompare([
+  { price: -150, result: "Won", stake: 1, units: 0.67, date: "2026-10-20", locked: "a" },
+  { price: -150, result: "Lost", stake: 1, units: -1, date: "2026-10-20", locked: "b" },
+]);
+assert.equal(priced[0].decided, 2);
+assert.equal(priced[0].hit, 50);
+assert.ok(Math.abs(priced[0].breakeven - implied(-150) * 100) < 1e-9);
+const rolled = rollingSeries([
+  { result: "Won", stake: 1, units: 1, date: "2026-10-20", locked: "a" },
+  { result: "Lost", stake: 1, units: -1, date: "2026-10-21", locked: "b" },
+], 2);
+assert.equal(rolled.length, 1);
+assert.equal(rolled[0].winRate, 50);
+assert.equal(unitBins([{ result: "Lost", units: -1, stake: 1 }])[0].key, "−1.49u to −0.01u");
+assert.equal(drawdownSeries([{ i: 1, unitMilli: 1000, date: "2026-10-20" }, { i: 2, unitMilli: -500, date: "2026-10-21" }]).worstMilli, -1500);
+assert.equal(clvBands([{ result: "Won", clvCents: 2, stake: 1, units: 1 }]).bands[0].key, "1¢ to 3¢");
+for (const row of data.nba) {
+  assert.equal("team" in row, false);
+  assert.equal("units_typical" in row, false);
+}
+
 const bannedReads = ["nba_ev_buckets", "nhl_buckets", "ll_model", "changelog"];
 const sources = [
   "web/lib/stats.js",
   "web/components/StatsPage.jsx",
+  "web/components/StatsMore.jsx",
   "web/components/CalChart.jsx",
   "web/components/LineChart.jsx",
   "web/app/stats/page.jsx",

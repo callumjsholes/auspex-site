@@ -7,11 +7,16 @@ import { dayShort, signed } from "@/lib/format";
 const H = 260;
 const M = { l: 54, r: 14, t: 16, b: 36 };
 
-function domain(values) {
-  let lo = Math.min(0, ...values);
-  let hi = Math.max(0, ...values);
-  if (!Number.isFinite(lo) || !Number.isFinite(hi)) return [-1, 1];
-  const pad = Math.max(Math.abs(hi - lo) * 0.12, 0.5);
+function domain(values, includeZero) {
+  const finiteValues = values.filter((v) => Number.isFinite(v));
+  if (!finiteValues.length) return [-1, 1];
+  let lo = Math.min(...finiteValues);
+  let hi = Math.max(...finiteValues);
+  if (includeZero) {
+    lo = Math.min(0, lo);
+    hi = Math.max(0, hi);
+  }
+  const pad = Math.max(Math.abs(hi - lo) * 0.12, includeZero ? 0.5 : Math.max(Math.abs(hi - lo) * 0.02, 0.4));
   lo -= pad;
   hi += pad;
   if (!(hi > lo)) {
@@ -38,6 +43,7 @@ function axisTicks(lo, hi) {
 function tickText(t, kind, step) {
   const d = step < 1 ? 1 : 0;
   if (kind === "roi") return `${signed(t, d)}%`;
+  if (kind === "pct") return `${Number(t).toFixed(d)}%`;
   if (kind === "cents") return formatCents(t) || signed(t, d);
   return signed(t, d);
 }
@@ -54,7 +60,7 @@ function dateMarks(points) {
   return spans;
 }
 
-export default function LineChart({ points, yLabel, xLabel, kind = "units", tone = "ink", aria, summary, empty }) {
+export default function LineChart({ points, yLabel, xLabel, kind = "units", tone = "ink", aria, summary, empty, includeZero = true }) {
   const plotRef = useRef(null);
   const [width, setWidth] = useState(640);
   const [i, setI] = useState(null);
@@ -73,7 +79,8 @@ export default function LineChart({ points, yLabel, xLabel, kind = "units", tone
   if (!points || points.length < 2) {
     return <div className="empty">{empty || "The line draws once two picks are in this chart."}</div>;
   }
-  const [lo, hi] = domain(points.map((p) => p.y));
+  const [lo, hi] = domain(points.map((p) => p.y), includeZero);
+  const zeroIn = 0 >= lo && 0 <= hi;
   const { ticks, step } = axisTicks(lo, hi);
   const X = (k) => M.l + (k / (points.length - 1)) * (width - M.l - M.r);
   const Y = (v) => M.t + (1 - (v - lo) / (hi - lo)) * (H - M.t - M.b);
@@ -130,8 +137,8 @@ export default function LineChart({ points, yLabel, xLabel, kind = "units", tone
                 <text x={M.l - 8} y={Y(t) + 4} textAnchor="end">{tickText(t, kind, step)}</text>
               </g>
             ))}
-            <line x1={M.l} x2={width - M.r} y1={Y(0)} y2={Y(0)} stroke="var(--ink)" strokeOpacity="0.28" />
-            <path d={area} fill={stroke} opacity="0.08" />
+            {zeroIn && <line x1={M.l} x2={width - M.r} y1={Y(0)} y2={Y(0)} stroke="var(--ink)" strokeOpacity="0.28" />}
+            {zeroIn && <path d={area} fill={stroke} opacity="0.08" />}
             <path d={d} fill="none" stroke={stroke} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
             <circle cx={X(points.length - 1)} cy={Y(last)} r="3.5" fill={stroke} />
             {cur && (

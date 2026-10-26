@@ -1,12 +1,13 @@
 // Aggregates for /stats. Unit totals go through summary.js so they match the rest of the site.
-// Tier is read here, and only tier, because data.js does not put it on a pick row.
-// Calibration reads nba_calibration and nothing else in research.json. It never
-// derives a probability from the price or from any other field.
+// Tier, team, and opponent are read here, because data.js does not put them on a pick row.
+// Model-derived numbers on this page are buckets, counts, and averages. No per-pick
+// probability or edge is attached to a row, and nothing here is a weight or a formula.
 import fs from "node:fs";
 import path from "node:path";
 import { finite } from "./clv.js";
-import { unitsFromMilli } from "./format.js";
+import { implied, unitsFromMilli } from "./format.js";
 import { byTime, fromMilli, isGraded, summarize, toMilli } from "./summary.js";
+import { team } from "./teams.js";
 
 export const SHORT_SAMPLE = 30;
 
@@ -50,6 +51,28 @@ export function withTiers(rows, tierById) {
     const tier = map.get(r.id);
     if (!tier) return r;
     return { ...r, tier: String(tier) };
+  });
+}
+
+export function readContextIndex() {
+  const map = new Map();
+  const nba = readJson("nba_live.json");
+  for (const p of nba?.picks || []) {
+    if (!p || p.id == null) continue;
+    const club = p.team ? String(p.team) : "";
+    const opp = p.opp ? String(p.opp) : "";
+    if (!club && !opp) continue;
+    map.set("nba-" + p.id, { team: club, opp });
+  }
+  return map;
+}
+
+export function withContext(rows, index) {
+  const map = index || new Map();
+  return rows.map((r) => {
+    const extra = map.get(r.id);
+    if (!extra) return r;
+    return { ...r, team: r.team || extra.team || "", opp: r.opp || extra.opp || "" };
   });
 }
 
@@ -292,6 +315,272 @@ export function readCalibration() {
   return { present: list != null, buckets: readCalibrationBuckets(list || []) };
 }
 
+export function oppOf(row) {
+  if (row.opp) return String(row.opp);
+  if (row.team && row.home && row.away) {
+    if (row.team === row.home) return String(row.away);
+    if (row.team === row.away) return String(row.home);
+  }
+  return "";
+}
+
+export function venueOf(row) {
+  if (!row.team) return "";
+  if (row.home && row.team === row.home) return "Home";
+  if (row.away && row.team === row.away) return "Away";
+  const parts = String(row.game || "").split(" at ");
+  if (parts.length === 2 && parts[1] === row.team) return "Home";
+  if (parts.length === 2 && parts[0] === row.team) return "Away";
+  return "";
+}
+
+export function clubName(league, abbr) {
+  if (!abbr) return "";
+  const known = team(league || "NBA", abbr);
+  return known.nick && known.nick !== abbr ? known.nick : abbr;
+}
+
+export function dowName(date) {
+  if (!date) return "";
+  return new Date(date + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long" });
+}
+
+const DOW_ORDER = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+export function startBand(iso) {
+  if (!iso) return "";
+  const hour = Number(new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York", hour: "numeric", hourCycle: "h23",
+  }).format(new Date(iso)));
+  if (!Number.isFinite(hour)) return "";
+  if (hour < 18) return "Before 6 PM ET";
+  if (hour < 19) return "6 PM ET";
+  if (hour < 20) return "7 PM ET";
+  if (hour < 21) return "8 PM ET";
+  if (hour < 22) return "9 PM ET";
+  return "10 PM ET or later";
+}
+
+const START_ORDER = ["Before 6 PM ET", "6 PM ET", "7 PM ET", "8 PM ET", "9 PM ET", "10 PM ET or later"];
+
+function decidedRate(summary) {
+  const n = summary.wins + summary.losses;
+  return n ? (100 * summary.wins) / n : null;
+}
+
+export function rollingSeries(rows, window) {
+  const done = rows.filter((r) => isGraded(r.result)).sort(byTime);
+  const out = [];
+  if (!(window >= 2)) return out;
+  for (let i = window - 1; i < done.length; i++) {
+    const summary = summarize(done.slice(i - window + 1, i + 1));
+    const end = done[i];
+    out.push({
+      i: i + 1,
+      date: end.date || "",
+      winRate: decidedRate(summary),
+      roi: summary.roi,
+      wins: summary.wins,
+      losses: summary.losses,
+      unitMilli: summary.unitMilli,
+      label: end.short || end.pick || "Pick",
+      window,
+    });
+  }
+  return out;
+}
+
+export function drawdownSeries(series) {
+  let peak = 0;
+  let worst = 0;
+  let worstAt = null;
+  const points = (series || []).map((p) => {
+    if (p.unitMilli > peak) peak = p.unitMilli;
+    const under = p.unitMilli - peak;
+    if (under < worst) {
+      worst = under;
+      worstAt = p.i;
+    }
+    return {
+      i: p.i,
+      date: p.date,
+      y: fromMilli(under),
+      underMilli: under,
+      peakMilli: peak,
+      unitMilli: p.unitMilli,
+      label: p.label,
+      result: p.result,
+    };
+  });
+  const last = points[points.length - 1];
+  return {
+    points,
+    worstMilli: worst,
+    worstAt,
+    currentMilli: last ? last.underMilli : 0,
+    peakMilli: last ? last.peakMilli : 0,
+  };
+}
+
+const UNIT_BINS = [
+  { key: "−1.50u or worse", test: (m) => m <= -1500 },
+  { key: "−1.49u to −0.01u", test: (m) => m > -1500 && m < 0 },
+  { key: "Push", test: (m) => m === 0 },
+  { key: "+0.01u to +1.00u", test: (m) => m > 0 && m <= 1000 },
+  { key: "+1.01u or more", test: (m) => m > 1000 },
+];
+
+export function unitBins(rows) {
+  const done = rows.filter((r) => isGraded(r.result));
+  return UNIT_BINS.map((bin) => {
+    const list = done.filter((r) => bin.test(toMilli(r.units)));
+    return { key: bin.key, n: list.length, summary: summarize(list) };
+  }).filter((b) => b.n > 0);
+}
+
+export function streakFacts(rows) {
+  const done = rows.filter((r) => isGraded(r.result)).sort(byTime);
+  let run = 0;
+  let bestW = 0;
+  let bestL = 0;
+  for (const r of done) {
+    if (r.result === "Push") {
+      run = 0;
+      continue;
+    }
+    if (r.result === "Won") run = run > 0 ? run + 1 : 1;
+    else run = run < 0 ? run - 1 : -1;
+    if (run > bestW) bestW = run;
+    if (run < bestL) bestL = run;
+  }
+  return {
+    bestW,
+    bestL: Math.abs(bestL),
+    current: run,
+    recent: done.slice(-36).map((r) => ({ result: r.result, label: r.short || r.pick || "Pick", date: r.date || "" })),
+  };
+}
+
+export function priceCompare(rows) {
+  const map = new Map();
+  for (const r of rows) {
+    const key = oddsBand(r.price);
+    if (!map.has(key)) map.set(key, []);
+    map.get(key).push(r);
+  }
+  return ODDS_ORDER.filter((key) => map.has(key)).map((key) => {
+    const list = map.get(key);
+    const summary = summarize(list);
+    const decided = list.filter((r) => r.result === "Won" || r.result === "Lost");
+    const probs = decided.map((r) => implied(Number(r.price))).filter((v) => v != null && !Number.isNaN(v));
+    const hit = decided.length ? (100 * decided.filter((r) => r.result === "Won").length) / decided.length : null;
+    const breakeven = probs.length ? (100 * probs.reduce((a, b) => a + b, 0)) / probs.length : null;
+    return {
+      key,
+      summary,
+      few: decided.length > 0 && decided.length < SHORT_SAMPLE,
+      decided: decided.length,
+      hit,
+      breakeven,
+      gap: hit != null && breakeven != null ? hit - breakeven : null,
+    };
+  }).filter((g) => g.summary.bets > 0 || g.summary.pending > 0);
+}
+
+const CLV_BANDS = [
+  { key: "Negative", test: (c) => c < 0 },
+  { key: "0¢ to 1¢", test: (c) => c >= 0 && c < 1 },
+  { key: "1¢ to 3¢", test: (c) => c >= 1 && c < 3 },
+  { key: "3¢ or more", test: (c) => c >= 3 },
+];
+
+export function clvBands(rows) {
+  const graded = rows.filter((r) => isGraded(r.result) && finite(r.clvCents) != null);
+  const mean = (result) => {
+    const list = graded.filter((r) => r.result === result);
+    if (!list.length) return null;
+    return list.reduce((sum, r) => sum + finite(r.clvCents), 0) / list.length;
+  };
+  return {
+    n: graded.length,
+    winCents: mean("Won"),
+    lossCents: mean("Lost"),
+    bands: CLV_BANDS.map((band) => {
+      const list = graded.filter((r) => band.test(finite(r.clvCents)));
+      const decided = list.filter((r) => r.result === "Won" || r.result === "Lost");
+      return {
+        key: band.key,
+        n: list.length,
+        decided: decided.length,
+        hit: decided.length ? (100 * decided.filter((r) => r.result === "Won").length) / decided.length : null,
+        few: list.length > 0 && list.length < SHORT_SAMPLE,
+        summary: summarize(list),
+      };
+    }).filter((b) => b.n > 0),
+  };
+}
+
+function ranked(rows, keyFn, order = []) {
+  const kept = rows.filter((r) => keyFn(r));
+  const groups = orderedGroups(kept, keyFn, order);
+  if (order.length) return groups;
+  return groups.sort((a, b) => b.summary.unitMilli - a.summary.unitMilli || String(a.key).localeCompare(String(b.key)));
+}
+
+export function readPriceShopping() {
+  const nba = readJson("nba_live.json");
+  let n = 0;
+  let missing = 0;
+  let posted = 0;
+  let typical = 0;
+  for (const p of nba?.picks || []) {
+    if (!isGraded(p?.result)) continue;
+    if (finite(p.units) == null || finite(p.units_typical) == null) {
+      missing += 1;
+      continue;
+    }
+    n += 1;
+    posted += toMilli(p.units);
+    typical += toMilli(p.units_typical);
+  }
+  return { n, missing, postedMilli: posted, typicalMilli: typical };
+}
+
+function numOrNull(v) {
+  return finite(v);
+}
+
+export function readOlderTests() {
+  const charts = readJson("charts.json");
+  const empty = { label: "", equity: [], monthly: [], byStat: [], resample: null };
+  if (!charts || typeof charts !== "object") return empty;
+  const test = charts.nba_test && typeof charts.nba_test === "object" ? charts.nba_test : {};
+  const equity = (Array.isArray(charts.nba_equity) ? charts.nba_equity : [])
+    .filter((p) => p && p.date && numOrNull(p.units) != null)
+    .map((p) => ({ date: String(p.date), units: numOrNull(p.units) }));
+  const monthly = (Array.isArray(charts.nba_monthly) ? charts.nba_monthly : [])
+    .filter((p) => p && p.month)
+    .map((p) => ({ month: String(p.month), bets: p.bets, units: numOrNull(p.units), roi: numOrNull(p.roi) }));
+  const byStat = (Array.isArray(charts.nba_by_stat) ? charts.nba_by_stat : [])
+    .filter((p) => p && p.stat)
+    .map((p) => ({ stat: String(p.stat), bets: p.bets, units: numOrNull(p.units), roi: numOrNull(p.roi) }));
+  const rs = charts.nba_resample && typeof charts.nba_resample === "object" ? charts.nba_resample : null;
+  const resample = rs && numOrNull(rs.median_end) != null ? {
+    paths: rs.paths,
+    up: rs.p_profit,
+    medianEnd: numOrNull(rs.median_end),
+    lowEnd: numOrNull(rs.p5_end),
+    medianDrawdown: numOrNull(rs.median_drawdown),
+  } : null;
+  return {
+    label: typeof test.label === "string" ? test.label : "",
+    equity,
+    monthly,
+    byStat,
+    resample,
+  };
+}
+
 export function buildStats(rows) {
   const summary = summarize(rows);
   const otherMap = new Map();
@@ -299,9 +588,10 @@ export function buildStats(rows) {
     if (!r.result || isGraded(r.result) || r.result === "Pending") continue;
     otherMap.set(r.result, (otherMap.get(r.result) || 0) + 1);
   }
+  const series = unitsRoiSeries(rows);
   return {
     summary,
-    series: unitsRoiSeries(rows),
+    series,
     daily: dailyRollup(rows),
     cents: centsSeries(rows),
     centsOpen: rows.filter((r) => r.result === "Pending" && finite(r.clvCents) != null).length,
@@ -318,5 +608,20 @@ export function buildStats(rows) {
     facts: sportMarketFacts(rows),
     stakeSentence: stakeSentence(rows),
     shortSample: SHORT_SAMPLE,
+    rolling25: rollingSeries(rows, 25),
+    rolling50: rollingSeries(rows, 50),
+    drawdown: drawdownSeries(series),
+    bins: unitBins(rows),
+    streaks: streakFacts(rows),
+    dow: ranked(rows, (r) => dowName(r.date), DOW_ORDER),
+    start: ranked(rows, (r) => startBand(r.start), START_ORDER),
+    startMissing: rows.filter((r) => isGraded(r.result) && !startBand(r.start)).length,
+    venue: ranked(rows, venueOf, ["Home", "Away"]),
+    side: ranked(rows, (r) => (r.side === "Over" || r.side === "Under" ? r.side : ""), ["Over", "Under"]),
+    team: ranked(rows, (r) => clubName(r.league, r.team)),
+    opp: ranked(rows, (r) => clubName(r.league, oppOf(r))),
+    book: ranked(rows, (r) => r.book || "No book"),
+    prices: priceCompare(rows),
+    clvBands: clvBands(rows),
   };
 }
