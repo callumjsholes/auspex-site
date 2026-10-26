@@ -43,7 +43,8 @@
 }
 .stats-page details.series .tablewrap { margin-top: 8px; }
 
-.stats-page .calblock { margin-top: 8px; }
+.stats-page .calblock { margin-top: 22px; }
+.stats-page .calblock .side-h { margin: 0 0 8px; }
 .stats-page .cal-frame {
   display: grid;
   grid-template-columns: auto minmax(0, 480px);
@@ -87,6 +88,20 @@
   background: var(--ink);
 }
 .stats-page .caldot.book { background: var(--ice); width: 10px; height: 10px; margin-left: -5px; margin-bottom: -5px; }
+.stats-page .cal-n {
+  position: absolute;
+  left: 16px;
+  top: -6px;
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: var(--surface);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.2;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.stats-page .cal-n.left { left: auto; right: 16px; }
 .stats-page .caldot.few { background: transparent; border: 2px dashed var(--ink); }
 .stats-page .caldot.book.few { border-color: var(--ice); }
 .stats-page .cal-empty {
