@@ -7,7 +7,7 @@ import { getData } from "../web/lib/data.js";
 import { implied } from "../web/lib/format.js";
 import {
   ODDS_ORDER, SHORT_SAMPLE, buildStats, centsSeries, clvBands, drawdownSeries, oddsBand,
-  priceCompare, readCalibration, readCalibrationBuckets, readContextIndex, readOlderTests,
+  calibrationSports, priceCompare, readCalibration, readCalibrationBuckets, readContextIndex, readOlderTests,
   readPriceShopping, readTierIndex, rollingSeries, stakeSentence, startBand, totalsMatch,
   unitBins, withContext, withTiers,
 } from "../web/lib/stats.js";
@@ -18,17 +18,32 @@ assert.equal(buckets.length, 2);
 assert.equal(buckets[0].bin, "10–20%");
 assert.equal(buckets[0].n, 1);
 assert.equal(buckets[0].few, true);
-assert.equal(buckets[0].book, null);
+assert.equal(buckets[0].market, null);
 assert.equal(buckets[0].obs, 0);
 assert.equal(buckets[1].bin, "50–60%");
 assert.equal(buckets[1].few, false);
-assert.equal(buckets[1].book.n, 10);
-assert.equal(buckets[1].book.few, true);
-assert.deepEqual(Object.keys(buckets[1]).sort(), ["bin", "book", "few", "n", "obs", "pred"]);
+assert.equal(buckets[1].market, 0.52);
+assert.equal(buckets[1].obs, 0.5);
+assert.equal("book" in buckets[1], false);
+assert.deepEqual(Object.keys(buckets[1]).sort(), ["bin", "few", "market", "n", "obs", "pred"]);
 assert.equal("chance" in buckets[1], false);
 assert.equal(readCalibrationBuckets([]).length, 0);
 assert.equal(readCalibrationBuckets(null).length, 0);
 assert.equal(readCalibrationBuckets([{ model_pred: 0.4, model_obs: 0.4 }]).length, 0);
+const sports = calibrationSports({
+  nba_calibration: fixture,
+  nhl_calibration: [{ bin: "50–60%", model_pred: 0.55, model_obs: 0.5, model_n: 4, book_pred: 0.5, book_obs: 0.5, book_n: 4 }],
+});
+assert.equal(sports[0].league, "NBA");
+assert.equal(sports[0].buckets.length, 1);
+assert.equal(sports[0].buckets[0].n, 40);
+assert.equal(sports[0].buckets[0].obs, 0.5);
+assert.equal(sports[1].league, "NHL");
+assert.equal(sports[1].present, true);
+assert.equal(sports[1].buckets.length, 0);
+assert.equal(calibrationSports({})[0].present, false);
+assert.equal(calibrationSports({ nba_calibration: [] })[0].buckets.length, 0);
+assert.equal(calibrationSports({ nba_calibration: [] })[0].present, true);
 
 for (let p = -400; p <= 400; p += 1) {
   if (p > -100 && p < 100 && p !== 0) continue;
@@ -107,9 +122,20 @@ for (const row of data.all) {
 }
 const research = JSON.parse(fs.readFileSync(new URL("../data/research.json", import.meta.url), "utf8"));
 const cal = readCalibration();
-assert.equal(cal.present, Array.isArray(research.nba_calibration));
-assert.equal(cal.buckets.length, readCalibrationBuckets(research.nba_calibration).length);
+const nbaCal = cal.sports.find((s) => s.league === "NBA");
+const nhlCal = cal.sports.find((s) => s.league === "NHL");
+assert.equal(nbaCal.present, Array.isArray(research.nba_calibration));
+assert.equal(nhlCal.present, Array.isArray(research.nhl_calibration));
+assert.equal(nbaCal.buckets.length, readCalibrationBuckets(research.nba_calibration).filter((b) => b.n >= SHORT_SAMPLE).length);
+assert.ok(nbaCal.buckets.length > 0);
+assert.ok(nbaCal.buckets.every((b) => b.n >= SHORT_SAMPLE && b.few === false));
+assert.equal(nhlCal.buckets.length, 0);
 assert.equal(JSON.stringify(cal).includes("nba_ev_buckets"), false);
+assert.equal(JSON.stringify(cal).includes("book_obs"), false);
+const chartCopy = ["web/components/CalChart.jsx", "web/components/StatsPage.jsx"]
+  .map((file) => fs.readFileSync(new URL("../" + file, import.meta.url), "utf8")).join("\n");
+assert.equal(chartCopy.toLowerCase().includes("market calibration"), false);
+assert.equal(chartCopy.includes("Book hit rate"), false);
 
 const liveRows = withContext(withTiers(data.all, readTierIndex()), readContextIndex());
 const shaped = buildStats(liveRows);

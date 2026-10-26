@@ -372,15 +372,21 @@ export default function StatsPage({ model, launch, updated, clvCopy, calibration
         <div className="head">
           <div>
             <h2 id="cal-h">Calibration</h2>
-            <p className="lede">Model probability buckets against how often those picks won. Each dot is a bucket, not one pick. A bucket under {model.shortSample} picks is a short sample. The hit rate there moves a lot on one or two results. This table is separate from the live record above.</p>
+            <p className="lede">Model probability buckets against how often those picks won. Each dot is a bucket, not one pick. I plot a bucket only when it has at least {model.shortSample} picks, and the number on the dot is that count. A smaller bucket is left off, because one or two results move it. The pale dot is where the market priced these same picks, against the same hit rate. This chart is separate from the live record above.</p>
           </div>
         </div>
-        {!calibration.buckets.length && (
-          <p className="note">{calibration.present
-            ? "The calibration list in this publish is empty, so nothing is plotted. I don't estimate the buckets from the posted prices."
-            : "This publish has no calibration buckets, so nothing is plotted. I don't estimate them from the posted prices."}</p>
-        )}
-        <CalChart buckets={calibration.buckets} shortSample={model.shortSample} present={calibration.present} />
+        {calibration.sports.some((s) => s.buckets.length > 0)
+          ? calibration.sports.filter((s) => s.buckets.length > 0).map((s) => (
+            <CalChart key={s.league} league={s.league} buckets={s.buckets} shortSample={model.shortSample} />
+          ))
+          : (
+            <p className="note">{calibration.sports.some((s) => s.present)
+              ? `No calibration bucket in this publish has ${model.shortSample} picks, so nothing is plotted. I don't estimate the buckets from the posted prices.`
+              : "This publish has no calibration buckets, so nothing is plotted. I don't estimate them from the posted prices."}</p>
+          )}
+        {calibration.sports.some((s) => s.buckets.length > 0) && calibration.sports.filter((s) => s.present && s.buckets.length === 0).map((s) => (
+          <p className="note" key={s.league}>{s.league} is not plotted. No bucket there has {model.shortSample} picks.</p>
+        ))}
       </section>
 
       <RigorSection rigor={rigor} />

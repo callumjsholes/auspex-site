@@ -277,15 +277,14 @@ export function centsSeries(rows) {
   });
 }
 
-function bookSide(row) {
-  const pred = finite(row.book_pred);
-  const obs = finite(row.book_obs);
-  const n = finite(row.book_n);
-  if (pred == null || obs == null || n == null || n <= 0) return null;
-  return { pred, obs, n, few: n < SHORT_SAMPLE };
-}
+const CAL_SPORTS = [
+  ["NBA", "nba_calibration"],
+  ["NHL", "nhl_calibration"],
+];
 
 // Only rows that already carry a model probability, a hit rate, and a count.
+// book_pred is where the market priced these same picks. book_obs and book_n are
+// that same result and that same count, so they are not a second curve.
 export function readCalibrationBuckets(list) {
   if (!Array.isArray(list)) return [];
   const out = [];
@@ -296,23 +295,32 @@ export function readCalibrationBuckets(list) {
     const n = finite(row.model_n);
     if (pred == null || obs == null || n == null || n <= 0) continue;
     const bin = typeof row.bin === "string" && row.bin.trim() ? row.bin.trim() : "Unlabeled";
+    const market = finite(row.book_pred);
     out.push({
       bin,
       pred,
       obs,
       n,
       few: n < SHORT_SAMPLE,
-      book: bookSide(row),
+      market,
     });
   }
   out.sort((a, b) => a.pred - b.pred || a.bin.localeCompare(b.bin));
   return out;
 }
 
+// One threshold for every sport. A bin under it is left off, and a sport with
+// none left is not drawn.
+export function calibrationSports(research) {
+  return CAL_SPORTS.map(([league, key]) => {
+    const list = research && Array.isArray(research[key]) ? research[key] : null;
+    const buckets = readCalibrationBuckets(list || []).filter((b) => b.n >= SHORT_SAMPLE);
+    return { league, present: list != null, buckets };
+  });
+}
+
 export function readCalibration() {
-  const research = readJson("research.json");
-  const list = research && Array.isArray(research.nba_calibration) ? research.nba_calibration : null;
-  return { present: list != null, buckets: readCalibrationBuckets(list || []) };
+  return { sports: calibrationSports(readJson("research.json")) };
 }
 
 export function oppOf(row) {

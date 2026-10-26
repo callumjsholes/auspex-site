@@ -2,6 +2,14 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-26 — Site — Calibration bins with real volume
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- `/stats` reads `nba_calibration` and `nhl_calibration` from `data/research.json`. Each bucket keeps `bin`, `model_pred`, `model_obs`, `model_n`, `book_pred`, `book_obs`, `book_n`.
+- A bucket is plotted only when `model_n` is at least 30. That cutoff is `SHORT_SAMPLE` in `web/lib/stats.js`, and it is the only cutoff. A sport with no bucket that large is not drawn. This publish's NHL list is all under 30, so the page does not draw an NHL chart. The pick count and the short-sample mark stay on a bucket the chart does draw.
+- `book_pred` is where the market priced these same picks. `book_obs` and `book_n` are the same results and the same count as the model side. The chart uses one hit rate.
+
 ## 2026-10-26 — Site — Game page write-ups
 
 The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
