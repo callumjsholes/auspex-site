@@ -2,6 +2,38 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-26 — Site — Stats tests on the live record
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- `/stats` adds a section headed "For the stats nerds." It is computed at build time in `web/lib/rigor.js` from the same graded rows as the rest of the page. The resamples use seed `20261025` and 2,000 draws, so a rebuild of the same record draws the same intervals.
+- The tests use the posted American price and the graded result. Wilson intervals on the hit rate, bootstrap intervals on units and ROI, a z-test of wins against the price-implied total, a beta posterior, a reshuffle of the live unit results, a t interval and correlation for closing-line cents, a runs test, a sample-size sketch, and a funnel of split ROI. None of these is a model probability.
+- Left off, still: research changelog, log loss, edge-threshold buckets, closing expected value, the NHL closing-movement edge counts, and any per-pick probability or edge. Pick cards and pick rows still do not show a chance, an edge, a projection, or minutes.
+
+## 2026-10-26 — Site — More stats charts
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- Callum signed off on aggregated model-data charts on `/stats` on 2026-10-25. Charts stay in buckets, counts, and averages. Nothing on the page is precise enough to rebuild the model. This change is still not merged.
+- New live-record charts: rolling hit rate and ROI (25 and 50), drawdown, unit bins, streaks, day of week, start time, over/under, home/away, team, opponent, book, hit rate against the break-even implied by the posted price, cents bands against the result, and posted units against typical-price units.
+- Older tests are charted under their own heading and are not added to the live total. They use `charts.json` equity, months, stat, and reshuffle summary, plus the season units `data.js` already keeps from `backtest.json`.
+- Left off, because they would show model internals or a procedure: research changelog, log loss, edge-threshold buckets, closing expected value, and the NHL closing-movement edge counts.
+- Pick cards and pick rows still do not show a chance, an edge, a projection, or minutes. Tier, team, and opponent are joined in `web/lib/stats.js` and are not added to the pick row in `web/lib/data.js`.
+
+## 2026-10-26 — Site — Stats page
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- Callum signed off on the aggregated calibration chart on 2026-10-25, on the condition that he reviews it before it goes live. This change is not merged until that review.
+- `/stats` is a public page. It is in the header, the footer, the record page, and the sitemap.
+- Headline units, record, and ROI come from `web/lib/summary.js` on `getData().all`. Open picks are counted and left out of the units.
+- Splits: sport, market (the stat on the card), tier, and American-odds band. Fewer than 30 graded picks is marked short sample.
+- Tier is not added to the pick row in `web/lib/data.js`. The closing-line check still rejects that key on a row. `web/lib/stats.js` reads only `tier` from `nba_live.json` picks and live `picks.json` rows and joins it on `nba-` + id and `nhl-` + game_id. A row that already has `tier` wins.
+- Closing-line value on this page reuses `summaryCopy` and `formatCents` from `web/lib/clv.js`. The three totals are the published cents figures. The line is the running average of `clvCents` on each pick. It does not derive cents from `clv_pts` or from the American price.
+- Calibration reads `data/research.json` `nba_calibration` only. This publish's list is empty, so the page plots nothing and says so. It does not rebuild buckets from prices. `nba_ev_buckets`, `nhl_buckets`, `nhl_seasons`, and `changelog` are not read.
+- Pick cards and pick rows still do not show a chance or a probability. Edges, projections, and minutes stay off every page.
+- `CLAUDE.md` now allows only that aggregated chart.
+
 ## 2026-10-25 — Site — Visual system
 
 The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`. No route, label, or record number changed.

@@ -33,7 +33,7 @@ The site does not serve `/data/*.json`. Keep the `data/` directory and the field
 
 ## What the website uses
 
-`web/lib/data.js` keeps the pick, the price, the book, the result, and closing-line value. It drops chances, projections, edges, and minutes. Do not show those on the site.
+`web/lib/data.js` keeps the pick, the price, the book, the result, and closing-line value. It drops chances, projections, edges, and minutes so they never reach a pick card or a pick row.
 
 | File | Fields the site uses |
 |---|---|
@@ -43,8 +43,20 @@ The site does not serve `/data/*.json`. Keep the `data/` directory and the field
 | `data/nba.json` | `stats[].k` and `stats[].v` when the label matches ROI, won, or Unseen. `books.caption`, `books.rows`. |
 | `data/backtest.json` | `total`. Each row: `season`, `units`, `roi`. |
 | `data/summary.json` | `generated_at`. `live` and `live_by_tier`: `avg_clv_cents`, `beat_close_cents_pct`, `clv_cents_n`, `clv_na`. |
+| `data/research.json` | `nba_calibration` only, for the aggregated calibration chart on `/stats`. Each bucket: `bin`, `model_pred`, `model_obs`, `model_n`, and `book_pred`, `book_obs`, `book_n` when those numbers are on the same bucket. |
+| `data/charts.json` | Older NBA test only, drawn on `/stats` apart from the live record: `nba_test.label`, `nba_equity` (`date`, `units`), `nba_monthly` (`month`, `bets`, `units`, `roi`), `nba_by_stat` (`stat`, `bets`, `units`, `roi`), `nba_resample` (`paths`, `p_profit`, `median_end`, `p5_end`, `median_drawdown`). |
 
-`data/charts.json`, `data/meta.json`, `data/research.json`, and `data/wake.json` are not read by the pages. They still stay where they are.
+`data/meta.json` and `data/wake.json` are not read by the pages. They still stay where they are. `data/research.json` is read only for the calibration row above.
+
+`/stats` may show aggregated model-data charts. Callum signed off on that on 2026-10-25. A chart may use a model-derived field or a research summary that is already in `data/`, and only as buckets, counts, or averages. It does not show a per-pick probability, a per-pick edge, a feature weight, a coefficient, or a formula, and it does not explain how the model works. If a published field would still reveal those internals once grouped, leave it out.
+
+The calibration chart is one of those charts. It is buckets only: the published bin, the average probability in that bin, the hit rate, and the pick count, with a short-sample note when the count is under 30. Do not derive a model probability from the American price or from any other field. The break-even rate on the price chart is the posted price, not a model probability. If `nba_calibration` is missing or empty, draw nothing and say so.
+
+The section headed "For the stats nerds" tests the graded record against the posted price. Those tests use the American price and the graded result. They do not show a model probability, a weight, or a formula.
+
+These stay off `/stats`, even as aggregates: `nba_ev_buckets`, `nhl_buckets`, `nhl_seasons`, `changelog`, log loss (`ll_model`, `ll_market`), the backtest edge columns and `buckets`, and closing expected value (`close_ev_units`, `close_ev_roi`). `charts.json` `nhl_clv_move` stays off too.
+
+Pick cards, pick rows, and every other page still do not show a chance, an edge, a projection, or minutes.
 
 ## Live tracker, recap, calculator
 

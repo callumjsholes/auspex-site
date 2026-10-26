@@ -13,6 +13,7 @@ export default function Footer() {
           <ul>
             <li><a href="/start">Start here</a></li>
             <li><a href="/record">Every graded pick</a></li>
+            <li><a href="/stats">Stats</a></li>
             <li><a href="/nba">NBA games</a></li>
             <li><a href="/nhl">NHL games</a></li>
             <li><a href="/method">Method and tests</a></li>

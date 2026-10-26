@@ -6,6 +6,7 @@ const LINKS = [
   { href: "/start", label: "Start here", match: "/start" },
   { href: "/#today", label: "Today's picks", match: null },
   { href: "/record", label: "Record", match: "/record" },
+  { href: "/stats", label: "Stats", match: "/stats" },
   { href: "/recap", label: "Recap", match: "/recap" },
   { href: "/method", label: "Method", match: "/method" },
   { href: "/faq", label: "FAQ", match: "/faq" },
