@@ -1,5 +1,33 @@
 {
- "nba_calibration": [],
+ "nba_calibration": [
+  {
+   "bin": "40\u201350%",
+   "model_pred": 0.47,
+   "model_obs": 0.619,
+   "model_n": 21,
+   "book_pred": 0.432,
+   "book_obs": 0.619,
+   "book_n": 21
+  },
+  {
+   "bin": "50\u201360%",
+   "model_pred": 0.55,
+   "model_obs": 0.567,
+   "model_n": 134,
+   "book_pred": 0.5,
+   "book_obs": 0.567,
+   "book_n": 134
+  },
+  {
+   "bin": "60\u201370%",
+   "model_pred": 0.624,
+   "model_obs": 0.741,
+   "model_n": 27,
+   "book_pred": 0.566,
+   "book_obs": 0.741,
+   "book_n": 27
+  }
+ ],
  "nba_ev_buckets": [],
  "nhl_buckets": [],
  "nhl_seasons": [
@@ -52,6 +80,35 @@
   {
    "date": "2026-10-17",
    "text": "NHL moneyline model goes into live testing, picks locked before the first puck drop and graded at the locked price."
+  }
+ ],
+ "nhl_calibration": [
+  {
+   "bin": "40\u201350%",
+   "model_pred": 0.453,
+   "model_obs": 1.0,
+   "model_n": 2,
+   "book_pred": 0.382,
+   "book_obs": 1.0,
+   "book_n": 2
+  },
+  {
+   "bin": "50\u201360%",
+   "model_pred": 0.587,
+   "model_obs": 0.75,
+   "model_n": 4,
+   "book_pred": 0.511,
+   "book_obs": 0.75,
+   "book_n": 4
+  },
+  {
+   "bin": "60\u201370%",
+   "model_pred": 0.653,
+   "model_obs": 0.5,
+   "model_n": 2,
+   "book_pred": 0.584,
+   "book_obs": 0.5,
+   "book_n": 2
   }
  ]
 }
