@@ -1,9 +1,10 @@
 // Game pages from the public site data only. getData() has already dropped chances,
 // projections, edges, and minutes. A pick is added here only if that feed includes it.
-import { getData } from "@/lib/data";
-import { team, gameSlug } from "@/lib/teams";
-import { SITE } from "@/lib/site";
-import { odds, units, dayTitle, dayLongYear, timeEastern } from "@/lib/format";
+// The long write-up and the meta description are built in previews.js.
+import { getData } from "./data.js";
+import { team, gameSlug } from "./teams.js";
+import { SITE } from "./site.js";
+import { units, dayTitle, dayLongYear, timeEastern } from "./format.js";
 
 const GRADED = new Set(["Won", "Lost", "Push", "Void"]);
 
@@ -187,7 +188,11 @@ export function finalText(game) {
 }
 
 export function gameTitle(game) {
-  return `${game.awayNick} vs ${game.homeNick} prediction & odds - ${dayTitle(game.date)}`;
+  const when = dayTitle(game.date);
+  const match = `${game.awayNick} vs ${game.homeNick}`;
+  const state = previewState(game);
+  if (state === "open" || state === "graded") return `${match} pick and odds - ${when}`;
+  return `${match} - ${when}`;
 }
 
 export function gameIntro(game, lockMinutes) {
@@ -214,40 +219,7 @@ export function gameIntro(game, lockMinutes) {
   return `${game.awayFull} at ${game.homeFull}. ${when} ${status}`;
 }
 
-function pickLabel(game, p) {
-  if (game.league !== "NHL" || !p.team) return p.pick;
-  const nick = team("NHL", p.team).nick;
-  return nick && nick !== p.team ? `${nick} to win` : p.pick;
-}
-
-export function gameDescription(game, lockMinutes) {
-  const when = dayTitle(game.date);
-  const clock = game.start ? timeEastern(game.start) : null;
-  const state = previewState(game);
-  const where = (p) => (game.league === "NHL" ? "median price" : p.book);
-  if ((state === "open" || state === "graded") && game.picks.length === 1) {
-    const p = game.picks[0];
-    const label = pickLabel(game, p);
-    if (state === "open") return `${label} at ${odds(p.price)}, ${where(p)}. Posted before the game on ${when}. I'll grade it at that price.`;
-    const score = finalText(game);
-    return `${label} at ${odds(p.price)} (${where(p)}) ${String(p.result).toLowerCase()} on ${when}. ${score ? `${score}. ` : ""}${units(p.units)} at the posted price.`;
-  }
-  if (state === "open") return `${game.awayNick} at ${game.homeNick} on ${when}. ${game.picks.length} picks posted before the game. I'll grade them at the posted price.`;
-  if (state === "graded") {
-    const s = resultPhrase(game.picks);
-    const score = finalText(game);
-    return `${game.awayNick} at ${game.homeNick} on ${when}: ${s.parts.join(", ")}, ${units(s.units)}, graded at the posted price.${score ? ` ${score}.` : ""}`;
-  }
-  const timeBit = clock ? `${clock}, ` : "";
-  if (state === "wait" && game.league === "NBA") {
-    return `${game.awayFull} at ${game.homeFull}, ${timeBit}${when}. The prop posts about ${lockMinutes} minutes before tip, with the price and the book, or I pass.`;
-  }
-  if (state === "wait") {
-    return `${game.awayFull} at ${game.homeFull}, ${timeBit}${when}. The moneyline posts before the first puck drop, with the price, or I pass.`;
-  }
-  return `${game.awayFull} at ${game.homeFull} on ${when}. No pick on this game.`;
-}
-
+// description should name the matchup only. Prices and picks stay out of the JSON-LD.
 export function sportsEvent(game, description) {
   const sport = game.league === "NHL" ? "Ice Hockey" : "Basketball";
   const done = game.completed || previewState(game) === "graded";

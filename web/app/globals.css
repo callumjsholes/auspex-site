@@ -474,6 +474,30 @@ td .sub a:hover { color: var(--bronze-text); text-decoration-color: var(--bronze
 .subhead a { color: var(--ink); text-decoration: none; }
 .subhead a:hover { color: var(--bronze-text); }
 .final { font: 680 32px/1.1 var(--text); font-variation-settings: "wdth" 90; margin: 24px 0 0; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.preview {
+  margin: 28px 0 0;
+  max-width: 68ch;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--bronze);
+  border-radius: var(--r-md);
+  padding: 18px 20px 6px;
+  box-shadow: var(--shadow);
+}
+.preview h2 { font: 400 28px/1.15 var(--display); letter-spacing: -0.02em; margin: 0 0 12px; }
+.preview p { margin: 0 0 12px; color: var(--ink-2); font-size: 16.5px; line-height: 1.55; overflow-wrap: break-word; }
+.preview .rg {
+  margin: 4px 0 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+@media (max-width: 600px) {
+  .preview { padding: 16px 14px 4px; }
+  .preview h2 { font-size: 24px; }
+}
 .datelist, .gamelist { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 8px; }
 .datelist a, .gamelist a {
   display: flex; justify-content: space-between; align-items: baseline; gap: 8px 18px; flex-wrap: wrap;
