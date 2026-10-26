@@ -12,5 +12,5 @@ export const metadata = pageMeta({
 
 export default function RecordPage() {
   const D = getData();
-  return <RecordBoard rows={D.all} launch={SITE.launch} updated={D.generatedAt ? stamp(D.generatedAt) : ""} />;
+  return <RecordBoard rows={D.all} launch={SITE.launch} updated={D.generatedAt ? stamp(D.generatedAt) : ""} clv={D.clv} />;
 }

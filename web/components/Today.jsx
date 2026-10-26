@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { odds, dayLong, resultLabel, resultTone, units as u } from "@/lib/format";
 import { PriceShop } from "@/components/PriceShop";
+import { CloseLine } from "@/components/CloseLine";
 import { LiveLine, useLive, liveView } from "@/components/Live";
 import Term from "@/components/Term";
 import LocalTime from "@/components/LocalTime";
@@ -36,6 +37,7 @@ function Ticket({ p, nhl, live, href }) {
           : <>{p.stake} <Term k="unit">{p.stake === 1 ? "unit" : "units"}</Term></>}</span>
       </div>
       <PriceShop p={p} nhl={nhl} />
+      <CloseLine p={p} />
       {!done && <LiveLine p={p} nhl={nhl} live={live} />}
     </article>
   );

@@ -5,6 +5,7 @@ import RecordCharts from "@/components/RecordCharts";
 import RecordTable from "@/components/RecordTable";
 import BankrollCalc from "@/components/BankrollCalc";
 import { pct, record, signed, unitsFromMilli } from "@/lib/format";
+import { clvFromRows, summaryCopy } from "@/lib/clv";
 import { summarize } from "@/lib/summary";
 import { recordSentence } from "@/lib/recordText";
 
@@ -31,12 +32,21 @@ function Kpis({ s }) {
       <div><b className="num">{record(s)}</b><span>Won–lost{s.pending ? `, ${s.pending} open` : ""}</span></div>
       <div><b className={"num " + (s.units > 0 ? "pos" : s.units < 0 ? "neg" : "")}>{s.bets ? unitsFromMilli(s.unitMilli) : "–"}</b><span>Units, 1% of a bankroll</span></div>
       <div><b className="num">{s.roi != null ? `${signed(s.roi, 1)}%` : "–"}</b><span>ROI at the posted price</span></div>
-      <div><b className="num">{s.clvN ? pct(s.beatClose) : "–"}</b><span>Beat the closing line{s.clvN ? `, ${s.clvN} picks` : ""}</span></div>
+      <div><b className="num">{s.clvN ? pct(s.beatClose) : "–"}</b><span>Beat the close, in points{s.clvN ? `, ${s.clvN} picks` : ""}</span></div>
     </div>
   );
 }
 
-export default function RecordBoard({ rows, launch, updated }) {
+// All time uses the published totals for that league. A date window uses the cents on the picks in view.
+function viewClv(clv, league, range, shown) {
+  const label = league === "NBA" || league === "NHL" ? league : null;
+  if (range !== "all" || !clv) return { block: clvFromRows(shown), leagues: label };
+  if (league === "NBA") return { block: clv.nba || null, leagues: clv.nba ? "NBA" : null };
+  if (league === "NHL") return { block: clv.nhl || null, leagues: clv.nhl ? "NHL" : null };
+  return { block: clv.all || null, leagues: clv.leagues || null };
+}
+
+export default function RecordBoard({ rows, launch, updated, clv }) {
   const [league, setLeague] = useState("All");
   const [range, setRange] = useState("all");
   const cutoff = range === "all" ? null : sinceYmd(Number(range));
@@ -50,6 +60,8 @@ export default function RecordBoard({ rows, launch, updated }) {
   );
   const s = summarize(shown);
   const leagueSum = summarize(leagueRows);
+  const view = viewClv(clv, league, range, shown);
+  const copy = summaryCopy(view.block, view.leagues);
   const coversAll = range !== "all" && s.bets === leagueSum.bets && s.unitMilli === leagueSum.unitMilli && s.bets > 0;
   const coverNote = league === "All"
     ? `The live record only goes back to ${launch}, so this window is the whole set.`
@@ -60,9 +72,10 @@ export default function RecordBoard({ rows, launch, updated }) {
         <h1>The record</h1>
         <p className="takeaway">{recordSentence(s, { launch, league, range })}</p>
         {coversAll && <p className="note filter-note">{coverNote}</p>}
-        <p className="lede">Every pick stays up, graded at the price and book I posted. Closing-line value (CLV) is how many percentage points the market moved toward the pick after I posted it. {updated ? `Updated ${updated}.` : ""}</p>
+        <p className="lede">Every pick stays up, graded at the price and book I posted. Closing-line value (CLV) is how many cents the locked price beat the closing median by. {updated ? `Updated ${updated}.` : ""}</p>
         <p className="note">Each game has its own page: <a href="/nba">NBA games</a>, <a href="/nhl">NHL games</a>.</p>
         <nav className="jumps" aria-label="On this page">
+          <a href="#clv">Closing line</a>
           <a href="#charts">Charts</a>
           <a href="#calculator">Calculator</a>
           <a href="#every-pick">Every pick</a>
@@ -81,6 +94,15 @@ export default function RecordBoard({ rows, launch, updated }) {
         </div>
       </div>
       <Kpis s={s} />
+      <section className="clvsum" id="clv" aria-labelledby="clv-h">
+        <h2 id="clv-h">Closing-line value</h2>
+        <p className="lede">{copy.sentence}</p>
+        <div className="kpis three">
+          <div><b className={"num " + copy.avgTone}>{copy.avg}</b><span>Average CLV, cents</span></div>
+          <div><b className={"num " + copy.beatTone}>{copy.beat}</b><span>Beat the close</span></div>
+          <div><b className={"num " + copy.nTone}>{copy.n}</b><span>{copy.sample}</span></div>
+        </div>
+      </section>
       <RecordCharts rows={shown} league={league} />
       <BankrollCalc rows={shown} />
       <section className="block" id="every-pick" aria-labelledby="all-h">

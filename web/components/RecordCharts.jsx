@@ -140,7 +140,7 @@ function Breakdown({ rows, by, label }) {
   if (!groups.length) return null;
   return (
     <div className="tablewrap"><table>
-      <thead><tr><th>{label}</th><th className="r">Record</th><th className="r">Units</th><th className="r">ROI</th><th className="r">Avg CLV</th></tr></thead>
+      <thead><tr><th>{label}</th><th className="r">Record</th><th className="r">Units</th><th className="r">ROI</th><th className="r">Avg CLV, pts</th></tr></thead>
       <tbody>{groups.map(({ k, s }) => (
         <tr key={k}><td>{k}</td><td className="r num">{record(s)}</td><td className={"r num " + (s.units > 0 ? "pos" : s.units < 0 ? "neg" : "")}>{s.bets ? unitsFromMilli(s.unitMilli) : "–"}</td>
           <td className="r num">{s.roi != null ? `${signed(s.roi, 1)}%` : "–"}</td><td className="r num">{s.avgClv != null ? signed(s.avgClv, 2) : "–"}</td></tr>))}</tbody>
@@ -184,7 +184,7 @@ export default function RecordCharts({ rows, league = "All" }) {
               <div className="stat"><b className="num">{record(s)}</b><span>Record</span></div>
               <div className="stat"><b className={"num " + (s.units > 0 ? "pos" : s.units < 0 ? "neg" : "")}>{s.bets ? unitsFromMilli(s.unitMilli) : "–"}</b><span>Units</span></div>
               <div className="stat"><b className="num">{s.roi != null ? `${signed(s.roi, 1)}%` : "–"}</b><span>ROI at the posted price</span></div>
-              <div className="stat"><b className="num">{s.beatClose != null ? `${s.beatClose.toFixed(0)}%` : "–"}</b><span>Beat the closing line{s.clvN ? `, ${s.clvN} picks` : ""}</span></div>
+              <div className="stat"><b className="num">{s.beatClose != null ? `${s.beatClose.toFixed(0)}%` : "–"}</b><span>Beat the close, in points{s.clvN ? `, ${s.clvN} picks` : ""}</span></div>
             </div>
           </div>
         )}

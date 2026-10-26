@@ -288,6 +288,8 @@ tbody tr:last-child td { border-bottom: 0; }
 th.r, td.r { text-align: right; }
 td.num, th.num { font-variant-numeric: tabular-nums; }
 td .sub { display: block; font-size: 13px; color: var(--muted); margin-top: 2px; }
+td .sub.pos { color: var(--win); }
+td .sub.neg { color: var(--loss); }
 td .sub a { color: inherit; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: color-mix(in srgb, currentColor 50%, transparent); }
 td .sub a:hover { color: var(--bronze-text); text-decoration-color: var(--bronze-text); }
 .filters { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 0 0 16px; }
@@ -305,12 +307,19 @@ td .sub a:hover { color: var(--bronze-text); text-decoration-color: var(--bronze
 .kpis div + div { border-left: 1px solid var(--line); padding-left: 18px; }
 .kpis b { display: block; font: 680 clamp(28px, 3vw, 36px)/1 var(--text); font-variation-settings: "wdth" 90; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
 .kpis span { display: block; margin-top: 6px; font-size: 13px; color: var(--muted); max-width: 22ch; }
+.kpis.three { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 700px) {
   .kpis { grid-template-columns: 1fr 1fr; }
   .kpis div + div { border-left: 0; padding-left: 0; }
   .kpis div:nth-child(even) { border-left: 1px solid var(--line); padding-left: 16px; }
   .kpis div:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .kpis.three { grid-template-columns: 1fr; }
+  .kpis.three div + div { border-left: 0; padding-left: 0; }
+  .kpis.three div:nth-child(even) { border-left: 0; padding-left: 0; }
+  .kpis.three div:nth-child(n + 2) { border-top: 1px solid var(--line); }
 }
+.clvsum { margin-top: 36px; }
+.clvsum h2 { font: 400 28px/1.15 var(--display); margin: 0; }
 .prose { max-width: 68ch; }
 .prose h2 { font: 400 30px/1.15 var(--display); letter-spacing: -0.02em; margin: 44px 0 10px; }
 .prose h3 { font-size: 18px; margin: 28px 0 6px; }
@@ -360,6 +369,10 @@ td .sub a:hover { color: var(--bronze-text); text-decoration-color: var(--bronze
 .ticket .shop b { color: var(--bronze-text); font-weight: 650; }
 .ticket.nhl .shop b { color: var(--ice); }
 
+.ticket .clv { margin: 8px 0 0; font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 3px 12px; }
+.ticket .clv .pos, .ticket .clv .beat { color: var(--win); font-weight: 650; }
+.ticket .clv .neg { color: var(--loss); font-weight: 650; }
+
 .live { margin-top: 12px; padding: 8px 10px; border-radius: var(--r-sm); background: var(--soft); font-size: 14px; display: grid; grid-template-columns: auto 1fr; column-gap: 8px; align-items: baseline; }
 .live .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--bronze); align-self: center; animation: livepulse 1.6s ease-in-out infinite; }
 .live b { font-weight: 700; font-variant-numeric: tabular-nums; }
@@ -393,7 +406,7 @@ td .sub a:hover { color: var(--bronze-text); text-decoration-color: var(--bronze
 @media (max-width: 860px) { .recap { grid-template-columns: 1fr; } }
 .ticket.is-live { box-shadow: var(--shadow), 0 0 0 1px color-mix(in srgb, var(--bronze) 55%, transparent); }
 
-#charts, #calculator, #every-pick, #today, #join, #games { scroll-margin-top: 18px; }
+#clv, #charts, #calculator, #every-pick, #today, #join, #games { scroll-margin-top: 18px; }
 .takeaway { font-size: 18.5px; line-height: 1.45; margin: 14px 0 0; max-width: 62ch; color: var(--ink); }
 .jumps { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; }
 .jumps a { text-decoration: none; font-weight: 650; font-size: 14px; padding: 8px 14px; min-height: 44px; display: inline-flex; align-items: center; border-radius: 999px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); }

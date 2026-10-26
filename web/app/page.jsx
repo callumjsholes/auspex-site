@@ -1,6 +1,7 @@
 import { getData } from "@/lib/data";
 import { SITE } from "@/lib/site";
 import { pct, record, signed, stamp, units, unitsFromMilli, dayShort, resultTone, odds } from "@/lib/format";
+import { formatCents, formatPct, headlineCents } from "@/lib/clv";
 import Today from "@/components/Today";
 import UnitsChart from "@/components/UnitsChart";
 import Join from "@/components/Join";
@@ -10,6 +11,7 @@ import { matchupPath } from "@/lib/teams";
 export default function Home() {
   const D = getData();
   const S = D.sum;
+  const cents = headlineCents(D.clv, { nba: D.nba.length, nhl: D.nhl.length });
   const tape = D.all.filter((r) => r.result === "Won" || r.result === "Lost" || r.result === "Push").slice(0, 24);
   const nbaTest = D.nbaHeadline?.[0];
   const nhlT = D.nhlTest?.total;
@@ -39,7 +41,7 @@ export default function Home() {
             <ul>
               <li><span><span className="tag nba">NBA</span>Player props</span><em>{S.nba.bets ? `${record(S.nba)}, ${pct(S.nba.roi, 1)} ROI` : "First picks lock tonight"}{S.nba.pending ? `, ${S.nba.pending} open` : ""}</em><strong className={"num " + (S.nba.units > 0 ? "pos" : S.nba.units < 0 ? "neg" : "")}>{S.nba.bets ? unitsFromMilli(S.nba.unitMilli) : "–"}</strong></li>
               <li><span><span className="tag nhl">NHL</span>Moneylines</span><em>{S.nhl.bets ? `${record(S.nhl)}, ${pct(S.nhl.roi, 1)} ROI` : "First picks lock on the next slate"}{S.nhl.pending ? `, ${S.nhl.pending} open` : ""}</em><strong className={"num " + (S.nhl.units > 0 ? "pos" : S.nhl.units < 0 ? "neg" : "")}>{S.nhl.bets ? unitsFromMilli(S.nhl.unitMilli) : "–"}</strong></li>
-              <li><span>Beat the closing line</span><em>Share of picks where the market moved our way after posting</em><strong className="num">{S.all.clvN ? pct(S.all.beatClose) : "–"}</strong></li>
+              <li><span>Beat the closing line</span><em>{cents && cents.beat != null ? `${cents.n} picks where the locked price was longer than the close` : "Share of picks where the market moved our way after posting"}</em><strong className="num">{cents && cents.beat != null ? formatPct(cents.beat) : (S.all.clvN ? pct(S.all.beatClose) : "–")}</strong></li>
             </ul>
             <div className="foot"><span>{D.generatedAt ? `Updated ${stamp(D.generatedAt)}` : ""}</span><a href="/record">Every pick</a></div>
           </aside>
@@ -79,7 +81,7 @@ export default function Home() {
               <div className="stat"><b className="num">{record(S.all)}</b><span>Record</span></div>
               <div className="stat"><b className={"num " + (S.all.roi > 0 ? "pos" : S.all.roi < 0 ? "neg" : "")}>{S.all.roi != null ? `${signed(S.all.roi, 1)}%` : "–"}</b><span>ROI at the posted price</span></div>
               <div className="stat"><b className="num">{S.all.staked ? S.all.staked.toFixed(0) : "0"}u</b><span>Staked</span></div>
-              <div className="stat"><b className="num">{S.all.avgClv != null ? signed(S.all.avgClv, 2) : "–"}</b><span>Average closing-line value, points</span></div>
+              <div className="stat"><b className="num">{cents && cents.avg != null ? formatCents(cents.avg) : (S.all.avgClv != null ? signed(S.all.avgClv, 2) : "–")}</b><span>{cents && cents.avg != null ? "Average closing-line value, cents" : "Average closing-line value, points"}</span></div>
             </div>
             <p className="note">A small sample swings a lot. Closing-line value, whether the market moved toward the pick after it posted, is the steadier sign of an edge.</p>
           </div>

@@ -29,6 +29,6 @@ export const TERMS = {
     tip: "The middle price among the books I track. NHL picks are graded at that price.",
   },
   closing: {
-    tip: "The last price before the game. Closing-line value is how far that price moved toward the pick after I posted it.",
+    tip: "The last price before the game. CLV in cents is how much the locked price beat that close. One cent is one percentage point of implied probability.",
   },
 };

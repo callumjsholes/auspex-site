@@ -44,6 +44,15 @@ The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was 
 - NHL rows in `picks.json` have no `start_utc`, so a graded NHL page from an earlier day has the date and not the puck-drop time.
 - `sitemap.js` lists the new URLs. `robots.txt` was already in place. `CLAUDE.md`, `AGENTS.md`, and this file stay off `.auspex-published.json`.
 
+## 2026-10-24 — Closing prices and CLV in cents
+
+- Pick cards show the locked price against `close_median`, the CLV in cents, and a tick when `clv_cents` is positive. If `close_line_exact` is false, the close is labeled the nearest line, with `close_quote_line` when that is a number. `close_best` and `close_best_book` show when the best close differs from the median.
+- The record page adds a closing-line value summary: average CLV in cents, the share of picks that beat the close, and the sample size. One cent is one percentage point of implied probability. Positive means the locked price was longer than the closing median.
+- Totals come from `nba_live.json` `summary` (else `by_tier`) and `summary.json` `live` (else `live_by_tier`): `avg_clv_cents`, `beat_close_cents_pct`, `clv_cents_n`, `clv_na`. Per-pick `clv_cents` is the fallback only when that league has no totals.
+- A missing field renders as nothing or n/a. The site does not invent cents from the American price or from `clv_pts`. The points CLV already on the record stays labeled "in points".
+- The cents summary is on the record board. All time uses the published totals for the league filter (both leagues together on All). Last 7 days and last 30 days use the cents on the picks in that window, so a short window does not show the full-sample average.
+- Keep these keys. `tests/fixtures/clv/` covers a publish with the fields and one without.
+
 ## 2026-10-21 — Claude — Recap share tools moved behind a password
 
 - The Download image / Post on X / Copy text panel is gone from public `/recap/<date>`. It lives at `/admin/recap/<date>` (`/admin/recap` opens the latest day).

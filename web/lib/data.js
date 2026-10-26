@@ -1,9 +1,12 @@
 // Reads the JSON published to ../data at build time and keeps only what the public site shows:
 // the pick, the price, the book, the result and closing-line value. Model outputs (chances,
 // projections, minutes, edges) are dropped here so they never reach a page or the browser.
+// Closing prices and CLV in cents pass through when a publish includes them. A missing field
+// stays null. Nothing here invents a cents figure from the price or from clv_pts.
 // Every publish commit that changes data/ triggers a Vercel rebuild, so pages stay current.
 import fs from "node:fs";
 import path from "node:path";
+import { assembleClv, readPickClv } from "./clv.js";
 import { summarize, series } from "./summary.js";
 
 const DIRS = [path.join(process.cwd(), "..", "data"), path.join(process.cwd(), "data")];
@@ -24,27 +27,39 @@ export const BOOK = {
 };
 export const STAT = { pts: "points", reb: "rebounds", ast: "assists" };
 
-function nbaRow(p) {
+function clvFields(p) {
+  const c = readPickClv(p);
+  return {
+    closeMedian: c.closeMedian,
+    closeBest: c.closeBest,
+    closeBestBook: c.closeBestBook ? BOOK[c.closeBestBook] || c.closeBestBook : null,
+    clvCents: c.clvCents,
+    closeQuoteLine: c.closeQuoteLine,
+    closeLineExact: c.closeLineExact,
+  };
+}
+
+export function nbaRow(p) {
   const verb = p.side === "Over" ? "over" : "under";
   const stat = STAT[p.stat] || p.stat;
   return {
     id: "nba-" + p.id, league: "NBA", date: p.date, start: p.start_utc, locked: p.locked_at, game: p.game.replace("@", " at "),
     pick: `${p.player} ${verb} ${p.line} ${stat}`, short: `${p.player} ${verb} ${p.line} ${p.stat}`,
     price: p.price, book: BOOK[p.book] || p.book, stake: p.stake, result: p.result, units: p.units ?? null, clv: p.clv_pts ?? null,
-    actual: p.actual ?? null, stat: p.stat, player: p.player,
+    actual: p.actual ?? null, stat: p.stat, player: p.player, ...clvFields(p),
     // Price shopping: the median price across tracked books at the same line (filled from the lock archive).
     typical: p.typical_price ?? null, typicalN: p.typical_n ?? null,
     // Public ESPN ids, for the live tracker's box-score lookup.
     espnGame: p.game_id ?? null, espnPlayer: p.player_id ?? null, side: p.side, line: p.line,
   };
 }
-function nhlRow(p) {
+export function nhlRow(p) {
   const [away, home] = p.game.split("@");
   return {
     id: "nhl-" + p.game_id, league: "NHL", date: p.date, start: null, locked: p.locked_at, game: `${away} at ${home}`,
     pick: `${p.team} to win`, short: `${p.team} moneyline`, price: p.price, book: "Median price", stake: p.stake,
     result: p.result, units: p.units ?? null, clv: p.clv_pts ?? null, actual: p.home_score != null ? `${p.away_score}–${p.home_score}` : null,
-    stat: "ml",
+    stat: "ml", ...clvFields(p),
     // Price shopping: graded at the median price; the best single-book price at lock is shown beside it.
     best: p.best_price ?? null, bestBook: p.best_book ? BOOK[p.best_book] || p.best_book : null,
     nhlGame: p.game_id ?? null, team: p.team, away, home,
@@ -93,5 +108,9 @@ export function getData() {
     curve: series(all),
     nbaHeadline, nbaBooks,
     nhlTest: nhlTest.total ? { total: nhlTest.total, rows: (nhlTest.rows || []).map((r) => ({ season: r.season, units: r.units, roi: r.roi })) } : null,
+    clv: assembleClv({
+      nbaSummary: nbaLive.summary, nbaTiers: nbaLive.by_tier, nbaRows: nba,
+      nhlSummary: summary.live, nhlTiers: summary.live_by_tier, nhlRows: nhl,
+    }),
   };
 }
