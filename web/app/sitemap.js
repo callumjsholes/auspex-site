@@ -3,9 +3,9 @@ import { SITE } from "@/lib/site";
 
 export default function sitemap() {
   const base = SITE.url;
-  const pages = ["", "/start", "/record", "/recap", "/method", "/faq", "/terms", "/privacy", "/nba", "/nhl"].map((p) => ({
+  const pages = ["", "/start", "/record", "/stats", "/recap", "/method", "/faq", "/terms", "/privacy", "/nba", "/nhl"].map((p) => ({
     url: base + p,
-    changeFrequency: p === "" || p === "/record" || p === "/recap" || p === "/nba" || p === "/nhl" ? "daily" : "monthly",
+    changeFrequency: p === "" || p === "/record" || p === "/stats" || p === "/recap" || p === "/nba" || p === "/nhl" ? "daily" : "monthly",
   }));
   const { games, generatedAt } = getCatalog();
   const dates = new Set();

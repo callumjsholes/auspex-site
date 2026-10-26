@@ -2,6 +2,20 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-26 — Site — Stats page
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- Callum signed off on the aggregated calibration chart on 2026-10-25, on the condition that he reviews it before it goes live. This change is not merged until that review.
+- `/stats` is a public page. It is in the header, the footer, the record page, and the sitemap.
+- Headline units, record, and ROI come from `web/lib/summary.js` on `getData().all`. Open picks are counted and left out of the units.
+- Splits: sport, market (the stat on the card), tier, and American-odds band. Fewer than 30 graded picks is marked short sample.
+- Tier is not added to the pick row in `web/lib/data.js`. The closing-line check still rejects that key on a row. `web/lib/stats.js` reads only `tier` from `nba_live.json` picks and live `picks.json` rows and joins it on `nba-` + id and `nhl-` + game_id. A row that already has `tier` wins.
+- Closing-line value on this page reuses `summaryCopy` and `formatCents` from `web/lib/clv.js`. The three totals are the published cents figures. The line is the running average of `clvCents` on each pick. It does not derive cents from `clv_pts` or from the American price.
+- Calibration reads `data/research.json` `nba_calibration` only. This publish's list is empty, so the page plots nothing and says so. It does not rebuild buckets from prices. `nba_ev_buckets`, `nhl_buckets`, `nhl_seasons`, and `changelog` are not read.
+- Pick cards and pick rows still do not show a chance or a probability. Edges, projections, and minutes stay off every page.
+- `CLAUDE.md` now allows only that aggregated chart.
+
 ## 2026-10-25 — Site — Visual system
 
 The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`. No route, label, or record number changed.

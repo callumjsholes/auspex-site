@@ -1,0 +1,27 @@
+[
+  {
+    "bin": "50–60%",
+    "model_pred": 0.55,
+    "model_obs": 0.5,
+    "model_n": 40,
+    "book_pred": 0.52,
+    "book_obs": 0.48,
+    "book_n": 10
+  },
+  {
+    "bin": "80–90%",
+    "model_pred": null,
+    "model_obs": null,
+    "model_n": 0,
+    "book_pred": null,
+    "book_obs": null,
+    "book_n": 0
+  },
+  {
+    "bin": "10–20%",
+    "model_pred": 0.18,
+    "model_obs": 0,
+    "model_n": 1
+  },
+  { "price": -110, "chance": 0.6 }
+]

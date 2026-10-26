@@ -33,7 +33,7 @@ The site does not serve `/data/*.json`. Keep the `data/` directory and the field
 
 ## What the website uses
 
-`web/lib/data.js` keeps the pick, the price, the book, the result, and closing-line value. It drops chances, projections, edges, and minutes. Do not show those on the site.
+`web/lib/data.js` keeps the pick, the price, the book, the result, and closing-line value. It drops chances, projections, edges, and minutes so they never reach a pick card or a pick row.
 
 | File | Fields the site uses |
 |---|---|
@@ -43,8 +43,13 @@ The site does not serve `/data/*.json`. Keep the `data/` directory and the field
 | `data/nba.json` | `stats[].k` and `stats[].v` when the label matches ROI, won, or Unseen. `books.caption`, `books.rows`. |
 | `data/backtest.json` | `total`. Each row: `season`, `units`, `roi`. |
 | `data/summary.json` | `generated_at`. `live` and `live_by_tier`: `avg_clv_cents`, `beat_close_cents_pct`, `clv_cents_n`, `clv_na`. |
+| `data/research.json` | `nba_calibration` only, for the aggregated calibration chart on `/stats`. Each bucket: `bin`, `model_pred`, `model_obs`, `model_n`, and `book_pred`, `book_obs`, `book_n` when those numbers are on the same bucket. |
 
-`data/charts.json`, `data/meta.json`, `data/research.json`, and `data/wake.json` are not read by the pages. They still stay where they are.
+`data/charts.json`, `data/meta.json`, and `data/wake.json` are not read by the pages. They still stay where they are. `data/research.json` is read only for the row above.
+
+The one place a model probability may appear is the calibration chart on `/stats`. It is buckets only: the published bin, the average probability in that bin, the hit rate, and the pick count, with a short-sample note when the count is under 30. Do not derive a probability from the American price or from any other field. If `nba_calibration` is missing or empty, draw nothing and say so. Do not show `nba_ev_buckets`, `nhl_buckets`, `nhl_seasons`, or `changelog`.
+
+Pick cards, pick rows, and every other page still do not show a chance or a probability. Edges, projections, and minutes stay off every page.
 
 ## Live tracker, recap, calculator
 

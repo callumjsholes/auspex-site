@@ -74,7 +74,9 @@ export default function RecordBoard({ rows, launch, updated, clv }) {
         {coversAll && <p className="note filter-note">{coverNote}</p>}
         <p className="lede">Every pick stays up, graded at the price and book I posted. Closing-line value (CLV) is how many cents the locked price beat the closing median by. {updated ? `Updated ${updated}.` : ""}</p>
         <p className="note">Each game has its own page: <a href="/nba">NBA games</a>, <a href="/nhl">NHL games</a>.</p>
+        <p className="note">Charts and splits of this record are on the <a href="/stats">stats page</a>.</p>
         <nav className="jumps" aria-label="On this page">
+          <a href="/stats">Stats page</a>
           <a href="#clv">Closing line</a>
           <a href="#charts">Charts</a>
           <a href="#calculator">Calculator</a>

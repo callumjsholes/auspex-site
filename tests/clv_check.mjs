@@ -12,6 +12,8 @@ import {
 const withFields = JSON.parse(fs.readFileSync(new URL("./fixtures/clv/with.json", import.meta.url), "utf8"));
 const without = JSON.parse(fs.readFileSync(new URL("./fixtures/clv/without.json", import.meta.url), "utf8"));
 const texts = (p) => describeClose(p, odds).map((it) => it.text);
+// Pick rows still must not carry a probability. The /stats calibration chart reads
+// research.json nba_calibration on its own and does not add these keys here.
 const BANNED = ["chance", "projection", "proj", "edge", "minutes", "probability", "tier", "units_typical", "close_ev", "close_ev_units", "close_price", "close_line"];
 
 const nba = nbaRow(withFields.nba);

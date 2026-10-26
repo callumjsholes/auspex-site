@@ -1,6 +1,7 @@
 // Reads the JSON published to ../data at build time and keeps only what the public site shows:
 // the pick, the price, the book, the result and closing-line value. Model outputs (chances,
-// projections, minutes, edges) are dropped here so they never reach a page or the browser.
+// projections, minutes, edges) are dropped here so they never reach a pick card or a pick row.
+// The aggregated calibration chart does not read those fields from this function.
 // Closing prices and CLV in cents pass through when a publish includes them. A missing field
 // stays null. Nothing here invents a cents figure from the price or from clv_pts.
 // Every publish commit that changes data/ triggers a Vercel rebuild, so pages stay current.
