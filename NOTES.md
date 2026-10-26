@@ -10,6 +10,16 @@ The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was 
 - A bucket is plotted only when `model_n` is at least 30. That cutoff is `SHORT_SAMPLE` in `web/lib/stats.js`, and it is the only cutoff. A sport with no bucket that large is not drawn. This publish's NHL list is all under 30, so the page does not draw an NHL chart. The pick count and the short-sample mark stay on a bucket the chart does draw.
 - `book_pred` is where the market priced these same picks. `book_obs` and `book_n` are the same results and the same count as the model side. The chart uses one hit rate.
 
+## 2026-10-26 — Site — Game page write-ups
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- Each NBA and NHL game page has a short write-up, built at build time in `web/lib/previews.js`. Wording varies by a stable hash of the game path. There is no model call and no new service.
+- The write-up uses the matchup, the posted pick, the price, the book, and the stake. When `typical_price` is present it gives that median (and `typical_n` when present). An NHL page says the posted price is the median, and names the best book at lock when that price differs. After grading it adds the result, the units, the actual line or final score, and closing-line value in cents when those fields are present. A missing field is left out.
+- It does not show a chance, an edge, a projection, or minutes, and it does not describe the model. A game with no posted pick says so. A slate with more than four picks summarizes the median comparison instead of repeating every line.
+- The page `<title>` and meta description still come from `generateMetadata`. The JSON-LD `SportsEvent` names the teams, the sport, and the start time. Its description is the matchup only, with no price and no pick.
+- The footer responsible-gambling lines are unchanged. The write-up adds a short note of its own.
+
 ## 2026-10-26 — Site — Stats tests on the live record
 
 The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { findGame, datesFor, getCatalog, previewState, gameIntro, gameDescription, gameTitle, sportsEvent, finalText, gameStatus } from "@/lib/games";
+import { findGame, datesFor, getCatalog, previewState, gameIntro, gameTitle, sportsEvent, finalText, gameStatus } from "@/lib/games";
+import { eventBlurb, gamePreview, previewDescription } from "@/lib/previews";
 import { dayMonthYear, timeET } from "@/lib/format";
 import { SITE } from "@/lib/site";
 import { pageMeta } from "@/lib/meta";
@@ -12,8 +13,8 @@ export default async function GameScreen({ league, params }) {
   if (!game) notFound();
   const { lockMinutes } = getCatalog();
   const state = previewState(game);
-  const description = gameDescription(game, lockMinutes);
-  const ld = JSON.stringify(sportsEvent(game, description)).replace(/</g, "\\u003c");
+  const preview = gamePreview(game);
+  const ld = JSON.stringify(sportsEvent(game, eventBlurb(game))).replace(/</g, "\\u003c");
   const score = finalText(game);
   const others = (datesFor(league).find((d) => d.date === date)?.games || []).filter((g) => g.path !== game.path);
   const leaguePath = `/${league.toLowerCase()}`;
@@ -35,6 +36,11 @@ export default async function GameScreen({ league, params }) {
           )}
         </div>
         {score && <p className="final">{score}</p>}
+        <section className="preview" aria-labelledby="preview-h">
+          <h2 id="preview-h">About this game</h2>
+          {preview.paragraphs.map((text, i) => <p key={i}>{text}</p>)}
+          <p className="rg">{preview.note}</p>
+        </section>
         {game.picks.length > 0 ? (
           <section className="block tight" aria-labelledby="pick-h">
             <h2 id="pick-h">{game.picks.length > 1 ? "Picks" : "Pick"}</h2>
@@ -78,8 +84,7 @@ export async function gameMetadata(league, params) {
   const { date, slug } = await params;
   const game = findGame(league, date, slug);
   if (!game) return {};
-  const { lockMinutes } = getCatalog();
   const title = gameTitle(game);
-  const description = gameDescription(game, lockMinutes);
+  const description = previewDescription(game);
   return pageMeta({ title, description, path: game.path });
 }
