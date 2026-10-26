@@ -2,6 +2,14 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-26 — Site — Stats tests on the live record
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- `/stats` adds a section headed "For the stats nerds." It is computed at build time in `web/lib/rigor.js` from the same graded rows as the rest of the page. The resamples use seed `20261025` and 2,000 draws, so a rebuild of the same record draws the same intervals.
+- The tests use the posted American price and the graded result. Wilson intervals on the hit rate, bootstrap intervals on units and ROI, a z-test of wins against the price-implied total, a beta posterior, a reshuffle of the live unit results, a t interval and correlation for closing-line cents, a runs test, a sample-size sketch, and a funnel of split ROI. None of these is a model probability.
+- Left off, still: research changelog, log loss, edge-threshold buckets, closing expected value, the NHL closing-movement edge counts, and any per-pick probability or edge. Pick cards and pick rows still do not show a chance, an edge, a projection, or minutes.
+
 ## 2026-10-26 — Site — More stats charts
 
 The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.

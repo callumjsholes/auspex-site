@@ -1,5 +1,6 @@
 import CalChart from "@/components/CalChart";
 import LineChart from "@/components/LineChart";
+import RigorSection from "@/components/RigorSection";
 import { BookSection, Breakeven, ClvBands, RollingSection, ShapeSection, ShoppingSection, SideSection, SplitTable, TeamSection, TestsSection, WhenSection } from "@/components/StatsMore";
 import { formatCents } from "@/lib/clv";
 import { dayShort, dayTitle, pct, record, resultLabel, signed, unitsFromMilli } from "@/lib/format";
@@ -89,7 +90,7 @@ function marketIntro(facts) {
   return bits.join(" ");
 }
 
-export default function StatsPage({ model, launch, updated, clvCopy, calibration, shopping, tests, nhlTest }) {
+export default function StatsPage({ model, launch, updated, clvCopy, calibration, shopping, tests, nhlTest, rigor }) {
   const s = model.summary;
   const series = model.series;
   const last = series[series.length - 1];
@@ -155,6 +156,7 @@ export default function StatsPage({ model, launch, updated, clvCopy, calibration
         <a href="#clv">Closing line</a>
         <a href="#tests">Older tests</a>
         <a href="#calibration">Calibration</a>
+        <a href="#nerds">For the stats nerds</a>
       </nav>
 
       <section className="block" id="units" aria-labelledby="units-h">
@@ -380,6 +382,8 @@ export default function StatsPage({ model, launch, updated, clvCopy, calibration
         )}
         <CalChart buckets={calibration.buckets} shortSample={model.shortSample} present={calibration.present} />
       </section>
+
+      <RigorSection rigor={rigor} />
 
       <section className="block" id="care" aria-labelledby="care-h">
         <h2 id="care-h">Play responsibly</h2>

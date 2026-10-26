@@ -52,6 +52,8 @@ The site does not serve `/data/*.json`. Keep the `data/` directory and the field
 
 The calibration chart is one of those charts. It is buckets only: the published bin, the average probability in that bin, the hit rate, and the pick count, with a short-sample note when the count is under 30. Do not derive a model probability from the American price or from any other field. The break-even rate on the price chart is the posted price, not a model probability. If `nba_calibration` is missing or empty, draw nothing and say so.
 
+The section headed "For the stats nerds" tests the graded record against the posted price. Those tests use the American price and the graded result. They do not show a model probability, a weight, or a formula.
+
 These stay off `/stats`, even as aggregates: `nba_ev_buckets`, `nhl_buckets`, `nhl_seasons`, `changelog`, log loss (`ll_model`, `ll_market`), the backtest edge columns and `buckets`, and closing expected value (`close_ev_units`, `close_ev_roi`). `charts.json` `nhl_clv_move` stays off too.
 
 Pick cards, pick rows, and every other page still do not show a chance, an edge, a projection, or minutes.

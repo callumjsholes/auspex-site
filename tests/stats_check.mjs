@@ -161,8 +161,11 @@ for (const row of data.nba) {
 const bannedReads = ["nba_ev_buckets", "nhl_buckets", "ll_model", "changelog"];
 const sources = [
   "web/lib/stats.js",
+  "web/lib/rigor.js",
   "web/components/StatsPage.jsx",
   "web/components/StatsMore.jsx",
+  "web/components/RigorSection.jsx",
+  "web/components/RigorDraw.jsx",
   "web/components/CalChart.jsx",
   "web/components/LineChart.jsx",
   "web/app/stats/page.jsx",
