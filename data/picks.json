@@ -11,11 +11,20 @@
   "best_price": -136,
   "best_book": "lowvig",
   "locked_at": "2026-10-24T15:00:13+00:00",
-  "close_price": -139,
-  "result": "Pending",
-  "units": null,
+  "close_price": -125,
+  "result": "Won",
+  "units": 0.719,
   "source": "live",
-  "close_at": "2026-10-24T15:00:13+00:00"
+  "close_at": "2026-10-24T22:45:13+00:00",
+  "close_median": -125,
+  "close_best": -119,
+  "close_best_book": "lowvig",
+  "closed": true,
+  "clv_pts": -2.6,
+  "clv_cents": -2.6,
+  "home_score": 3,
+  "away_score": 2,
+  "last_period": "OT"
  },
  {
   "game_id": 2026020173,
@@ -29,11 +38,20 @@
   "best_price": -118,
   "best_book": "lowvig",
   "locked_at": "2026-10-24T15:00:13+00:00",
-  "close_price": -122,
-  "result": "Pending",
-  "units": null,
+  "close_price": -120,
+  "result": "Won",
+  "units": 0.82,
   "source": "live",
-  "close_at": "2026-10-24T15:00:13+00:00"
+  "close_at": "2026-10-24T22:45:13+00:00",
+  "close_median": -120,
+  "close_best": -115,
+  "close_best_book": "betus",
+  "closed": true,
+  "clv_pts": -0.2,
+  "clv_cents": -0.41,
+  "home_score": 4,
+  "away_score": 3,
+  "last_period": "OT"
  },
  {
   "game_id": 2026020155,
@@ -57,7 +75,10 @@
   "clv_pts": 0.0,
   "home_score": 5,
   "away_score": 4,
-  "last_period": "REG"
+  "last_period": "REG",
+  "close_best": -108,
+  "close_best_book": "betonlineag",
+  "clv_cents": 0.0
  },
  {
   "game_id": 2026020158,
@@ -81,7 +102,10 @@
   "clv_pts": -0.2,
   "home_score": 4,
   "away_score": 0,
-  "last_period": "REG"
+  "last_period": "REG",
+  "close_best": -103,
+  "close_best_book": "betonlineag",
+  "clv_cents": 0.23
  },
  {
   "game_id": 2026020162,
@@ -105,7 +129,10 @@
   "clv_pts": -0.9,
   "home_score": 2,
   "away_score": 1,
-  "last_period": "REG"
+  "last_period": "REG",
+  "close_best": 191,
+  "close_best_book": "betonlineag",
+  "clv_cents": -0.13
  },
  {
   "game_id": 2026020164,
@@ -129,7 +156,10 @@
   "clv_pts": 1.0,
   "home_score": 5,
   "away_score": 3,
-  "last_period": "REG"
+  "last_period": "REG",
+  "close_best": -175,
+  "close_best_book": "betrivers",
+  "clv_cents": 1.04
  },
  {
   "game_id": 2026020142,
@@ -153,7 +183,10 @@
   "clv_pts": -0.7,
   "home_score": 4,
   "away_score": 3,
-  "last_period": "REG"
+  "last_period": "REG",
+  "close_best": -108,
+  "close_best_book": "betonlineag",
+  "clv_cents": -0.43
  },
  {
   "game_id": 2026020144,
@@ -177,6 +210,9 @@
   "clv_pts": -0.2,
   "home_score": 2,
   "away_score": 5,
-  "last_period": "REG"
+  "last_period": "REG",
+  "close_best": 140,
+  "close_best_book": "bovada",
+  "clv_cents": 0.0
  }
 ]

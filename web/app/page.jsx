@@ -1,10 +1,12 @@
 import { getData } from "@/lib/data";
 import { SITE } from "@/lib/site";
-import { pct, record, signed, stamp, units, dayShort, resultTone, odds } from "@/lib/format";
+import { pct, record, signed, stamp, units, unitsFromMilli, dayShort, resultTone, odds } from "@/lib/format";
 import { formatCents, formatPct, headlineCents } from "@/lib/clv";
 import Today from "@/components/Today";
 import UnitsChart from "@/components/UnitsChart";
 import Join from "@/components/Join";
+import { GameDirectory } from "@/components/GameLists";
+import { matchupPath } from "@/lib/teams";
 
 export default function Home() {
   const D = getData();
@@ -24,7 +26,8 @@ export default function Home() {
             <p className="deck">Auspex posts NBA player props and NHL moneylines from its own pricing models. Each pick goes up before tip-off or puck drop with the price and the book, and is graded at that price, win or lose.</p>
             <div className="ctas">
               <a className="btn bronze" href="#today">See today's picks</a>
-              <a className="btn ghost" href="/record">Full record</a>
+              <a className="btn ghost" href="/start">Start here</a>
+              <a className="btn quiet" href="/record">Full record</a>
             </div>
           </div>
           <aside className="ledger" aria-label="Live record">
@@ -32,25 +35,26 @@ export default function Home() {
             <p className="sub">All graded picks since {SITE.launch}, at the posted price.</p>
             <div className="big">
               <div><b className="num">{record(S.all)}</b><span>Won–lost</span></div>
-              <div><b className={"num " + (S.all.units > 0 ? "pos" : S.all.units < 0 ? "neg" : "")}>{S.all.bets ? units(S.all.units) : "–"}</b><span>Units, 1u = 1% of bankroll</span></div>
+              <div><b className={"num " + (S.all.units > 0 ? "pos" : S.all.units < 0 ? "neg" : "")}>{S.all.bets ? unitsFromMilli(S.all.unitMilli) : "–"}</b><span>Units</span></div>
             </div>
+            <p className="unit-note">1 unit = 1% of your bankroll.</p>
             <ul>
-              <li><span><span className="tag nba">NBA</span>Player props</span><em>{S.nba.bets ? `${record(S.nba)}, ${pct(S.nba.roi, 1)} ROI` : "First picks lock tonight"}{S.nba.pending ? `, ${S.nba.pending} open` : ""}</em><strong className={"num " + (S.nba.units > 0 ? "pos" : S.nba.units < 0 ? "neg" : "")}>{S.nba.bets ? units(S.nba.units) : "–"}</strong></li>
-              <li><span><span className="tag nhl">NHL</span>Moneylines</span><em>{S.nhl.bets ? `${record(S.nhl)}, ${pct(S.nhl.roi, 1)} ROI` : "First picks lock on the next slate"}{S.nhl.pending ? `, ${S.nhl.pending} open` : ""}</em><strong className={"num " + (S.nhl.units > 0 ? "pos" : S.nhl.units < 0 ? "neg" : "")}>{S.nhl.bets ? units(S.nhl.units) : "–"}</strong></li>
+              <li><span><span className="tag nba">NBA</span>Player props</span><em>{S.nba.bets ? `${record(S.nba)}, ${pct(S.nba.roi, 1)} ROI` : "First picks lock tonight"}{S.nba.pending ? `, ${S.nba.pending} open` : ""}</em><strong className={"num " + (S.nba.units > 0 ? "pos" : S.nba.units < 0 ? "neg" : "")}>{S.nba.bets ? unitsFromMilli(S.nba.unitMilli) : "–"}</strong></li>
+              <li><span><span className="tag nhl">NHL</span>Moneylines</span><em>{S.nhl.bets ? `${record(S.nhl)}, ${pct(S.nhl.roi, 1)} ROI` : "First picks lock on the next slate"}{S.nhl.pending ? `, ${S.nhl.pending} open` : ""}</em><strong className={"num " + (S.nhl.units > 0 ? "pos" : S.nhl.units < 0 ? "neg" : "")}>{S.nhl.bets ? unitsFromMilli(S.nhl.unitMilli) : "–"}</strong></li>
               <li><span>Beat the closing line</span><em>{cents && cents.beat != null ? `${cents.n} picks where the locked price was longer than the close` : "Share of picks where the market moved our way after posting"}</em><strong className="num">{cents && cents.beat != null ? formatPct(cents.beat) : (S.all.clvN ? pct(S.all.beatClose) : "–")}</strong></li>
             </ul>
             <div className="foot"><span>{D.generatedAt ? `Updated ${stamp(D.generatedAt)}` : ""}</span><a href="/record">Every pick</a></div>
           </aside>
         </div>
         {tape.length > 0 && (
-          <div className="tape" aria-label="Most recent graded picks">
-            <div className="wrap tape-in">
+          <div className="tape">
+            <div className="wrap tape-in" tabIndex={0} role="region" aria-label="Latest results. Scroll sideways for more.">
               <span className="tape-label">Latest results</span>
               {tape.map((r) => (
-                <span className="tick" key={r.id}>
-                  <span>{dayShort(r.date)}</span><b>{r.short}</b><span>{odds(r.price)}</span>
+                <a className="tick" key={r.id} href={matchupPath(r.league, r.date, r.game) || "/record"}>
+                  <span>{dayShort(r.date)}</span><b title={r.short}>{r.short}</b><span>{odds(r.price)}</span>
                   <span className={"r " + resultTone(r.result)}>{r.result === "Push" ? "Push" : units(r.units)}</span>
-                </span>
+                </a>
               ))}
             </div>
           </div>
@@ -59,6 +63,8 @@ export default function Home() {
 
       <Today nbaDate={D.nbaDate} nhlDate={D.nhlDate} nbaGames={D.nbaGames} nbaPicks={D.nbaToday} nbaNext={D.nbaNext}
              nhlGames={D.nhlToday} lockMinutes={D.lockMinutes} />
+
+      <GameDirectory />
 
       <section className="block wrap" aria-labelledby="rec-h">
         <div className="head">

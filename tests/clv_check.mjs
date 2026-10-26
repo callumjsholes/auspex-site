@@ -140,9 +140,11 @@ assert.equal(headlineCents(published, { nba: 10, nhl: 6 }).n, 150);
 assert.equal(headlineCents({ all: published.nba, leagues: "NBA" }, { nba: 10, nhl: 0 }).avg, 1.2);
 
 const recordPage = fs.readFileSync(new URL("../web/app/record/page.jsx", import.meta.url), "utf8");
+const board = fs.readFileSync(new URL("../web/components/RecordBoard.jsx", import.meta.url), "utf8");
 const today = fs.readFileSync(new URL("../web/components/Today.jsx", import.meta.url), "utf8");
-assert.match(recordPage, /summaryCopy\(clv\.all, clv\.leagues\)/);
-assert.match(recordPage, /copy\.sentence/);
+assert.match(recordPage, /clv=\{D\.clv\}/);
+assert.match(board, /summaryCopy\(view\.block, view\.leagues\)/);
+assert.match(board, /copy\.sentence/);
 assert.match(today, /<CloseLine /);
 assert.equal(CLV_SENTENCE, "Beating the closing line is the best sign I have of a real edge, even on losing nights.");
 

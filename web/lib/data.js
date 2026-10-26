@@ -7,6 +7,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { assembleClv, readPickClv } from "./clv.js";
+import { summarize, series } from "./summary.js";
 
 const DIRS = [path.join(process.cwd(), "..", "data"), path.join(process.cwd(), "data")];
 const DATA = DIRS.find((d) => fs.existsSync(d)) || DIRS[0];
@@ -25,7 +26,6 @@ export const BOOK = {
   ballybet: "Bally Bet", hardrockbet: "Hard Rock", betparx: "betPARX", fliff: "Fliff",
 };
 export const STAT = { pts: "points", reb: "rebounds", ast: "assists" };
-const graded = (r) => r === "Won" || r === "Lost" || r === "Push";
 
 function clvFields(p) {
   const c = readPickClv(p);
@@ -39,24 +39,6 @@ function clvFields(p) {
   };
 }
 
-function summarize(rows) {
-  const done = rows.filter((r) => graded(r.result));
-  const staked = done.reduce((a, r) => a + r.stake, 0);
-  const units = done.reduce((a, r) => a + (r.units || 0), 0);
-  const clv = rows.filter((r) => r.clv != null);
-  return {
-    bets: done.length,
-    wins: done.filter((r) => r.result === "Won").length,
-    losses: done.filter((r) => r.result === "Lost").length,
-    pushes: done.filter((r) => r.result === "Push").length,
-    staked, units, roi: staked ? (100 * units) / staked : null,
-    pending: rows.filter((r) => r.result === "Pending").length,
-    clvN: clv.length,
-    beatClose: clv.length ? (100 * clv.filter((r) => r.clv > 0).length) / clv.length : null,
-    avgClv: clv.length ? clv.reduce((a, r) => a + r.clv, 0) / clv.length : null,
-  };
-}
-
 export function nbaRow(p) {
   const verb = p.side === "Over" ? "over" : "under";
   const stat = STAT[p.stat] || p.stat;
@@ -64,7 +46,7 @@ export function nbaRow(p) {
     id: "nba-" + p.id, league: "NBA", date: p.date, start: p.start_utc, locked: p.locked_at, game: p.game.replace("@", " at "),
     pick: `${p.player} ${verb} ${p.line} ${stat}`, short: `${p.player} ${verb} ${p.line} ${p.stat}`,
     price: p.price, book: BOOK[p.book] || p.book, stake: p.stake, result: p.result, units: p.units ?? null, clv: p.clv_pts ?? null,
-    actual: p.actual ?? null, stat: p.stat, ...clvFields(p),
+    actual: p.actual ?? null, stat: p.stat, player: p.player, ...clvFields(p),
     // Price shopping: the median price across tracked books at the same line (filled from the lock archive).
     typical: p.typical_price ?? null, typicalN: p.typical_n ?? null,
     // Public ESPN ids, for the live tracker's box-score lookup.
@@ -84,12 +66,6 @@ export function nhlRow(p) {
   };
 }
 
-function series(rows) {
-  const done = rows.filter((r) => graded(r.result)).sort((a, b) => (a.date + (a.locked || "")).localeCompare(b.date + (b.locked || "")));
-  let c = 0;
-  return done.map((r, i) => ({ i: i + 1, date: r.date, units: (c += r.units || 0) }));
-}
-
 export function getData() {
   const nbaLive = read("nba_live.json", { picks: [], games: [] });
   const nhlPicks = read("picks.json", []).filter((p) => p.source === "live");
@@ -103,11 +79,14 @@ export function getData() {
   const all = [...nba, ...nhl].sort((a, b) => (b.date + (b.locked || "")).localeCompare(a.date + (a.locked || "")));
   const nhlLocked = new Map(nhl.filter((r) => r.date === today.date).map((r) => [r.game, r]));
 
-  // Today's NHL slate: matchups and start times; a pick only once it has locked.
+  // Today's NHL slate: matchups, start times, and whether the game has locked.
+  // A pick is attached only from the public picks feed. Prices and edges on the
+  // schedule file stay here and never go out to a page.
   const nhlToday = (today.games || []).map((g) => {
-    const locked = nhlLocked.get(`${g.away} at ${g.home}`);
+    const pick = nhlLocked.get(`${g.away} at ${g.home}`);
     return { id: g.game_id, start: g.start_utc, away: g.away, home: g.home,
-      score: g.home_score != null ? `${g.away_score}–${g.home_score}` : null, pick: locked || null };
+      score: g.home_score != null ? `${g.away_score}–${g.home_score}` : null,
+      locked: !!g.locked, pick: pick || null };
   });
 
   // Only the headline test numbers, nothing about how the model works.
@@ -117,7 +96,10 @@ export function getData() {
   return {
     generatedAt: [nbaLive.generated_at, summary.generated_at].filter(Boolean).sort().pop() || null,
     nbaDate: nbaLive.today, nhlDate: today.date,
-    nbaGames: (nbaLive.games || []).map((g) => ({ id: g.game_id, away: g.away, home: g.home, start: g.start_utc, completed: g.completed, locked: g.locked, picks: g.picks })),
+    nbaGames: (nbaLive.games || []).map((g) => ({
+      id: g.game_id, away: g.away, home: g.home, start: g.start_utc, completed: g.completed, locked: g.locked, picks: g.picks,
+      score: g.completed && g.as_ != null && g.hs != null ? `${g.as_}–${g.hs}` : null,
+    })),
     nbaNext: nbaLive.next_date || null, lockMinutes: nbaLive.rules?.lock_minutes || 50,
     nbaToday: nba.filter((r) => r.date === nbaLive.today),
     nhlToday,

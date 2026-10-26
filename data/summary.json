@@ -1,34 +1,42 @@
 {
- "generated_at": "2026-10-24T15:00:13+00:00",
- "today": "2026-10-24",
+ "generated_at": "2026-10-25T17:00:17+00:00",
+ "today": "2026-10-25",
  "live": {
-  "bets": 6,
-  "wins": 4,
+  "bets": 8,
+  "wins": 6,
   "losses": 2,
-  "staked": 10,
-  "units": 5.92,
-  "roi": 59.2,
-  "avg_clv_pts": -0.17,
-  "beat_close_pct": 16.7,
-  "pending": 2,
-  "close_ev_units": -0.43,
-  "close_ev_roi": -4.3,
-  "close_picks": 6
+  "staked": 12,
+  "units": 7.46,
+  "roi": 62.2,
+  "avg_clv_pts": -0.48,
+  "beat_close_pct": 12.5,
+  "pending": 0,
+  "close_ev_units": -0.56,
+  "close_ev_roi": -4.7,
+  "close_picks": 8,
+  "avg_clv_cents": -0.29,
+  "beat_close_cents_pct": 25.0,
+  "clv_cents_n": 8,
+  "clv_na": 0
  },
  "live_by_tier": {
   "Bet": {
-   "bets": 2,
-   "wins": 1,
+   "bets": 4,
+   "wins": 3,
    "losses": 1,
-   "staked": 2,
-   "units": -0.15,
-   "roi": -7.3,
-   "avg_clv_pts": 0.15,
-   "beat_close_pct": 50.0,
-   "pending": 2,
-   "close_ev_units": -0.08,
-   "close_ev_roi": -3.8,
-   "close_picks": 2
+   "staked": 4,
+   "units": 1.39,
+   "roi": 34.8,
+   "avg_clv_pts": -0.62,
+   "beat_close_pct": 25.0,
+   "pending": 0,
+   "close_ev_units": -0.21,
+   "close_ev_roi": -5.2,
+   "close_picks": 4,
+   "avg_clv_cents": -0.6,
+   "beat_close_cents_pct": 25.0,
+   "clv_cents_n": 4,
+   "clv_na": 0
   },
   "Best bet": {
    "bets": 4,
@@ -42,7 +50,11 @@
    "pending": 0,
    "close_ev_units": -0.35,
    "close_ev_roi": -4.4,
-   "close_picks": 4
+   "close_picks": 4,
+   "avg_clv_cents": 0.03,
+   "beat_close_cents_pct": 25.0,
+   "clv_cents_n": 4,
+   "clv_na": 0
   }
  },
  "live_series": [
@@ -53,6 +65,10 @@
   {
    "date": "2026-10-22",
    "units": 5.92
+  },
+  {
+   "date": "2026-10-24",
+   "units": 7.46
   }
  ],
  "backtest_this_season": {
@@ -67,7 +83,11 @@
   "pending": 0,
   "close_ev_units": null,
   "close_ev_roi": null,
-  "close_picks": 0
+  "close_picks": 0,
+  "avg_clv_cents": null,
+  "beat_close_cents_pct": null,
+  "clv_cents_n": 0,
+  "clv_na": 0
  },
  "backtest_series": [],
  "config": {

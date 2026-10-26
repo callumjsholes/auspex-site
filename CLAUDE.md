@@ -37,9 +37,9 @@ The site does not serve `/data/*.json`. Keep the `data/` directory and the field
 
 | File | Fields the site uses |
 |---|---|
-| `data/nba_live.json` | `generated_at`, `today`, `next_date`, `rules.lock_minutes`. Each game: `game_id`, `away`, `home`, `start_utc`, `completed`, `locked`, `picks`. Each pick: `id`, `player`, `stat`, `side`, `line`, `date`, `start_utc`, `locked_at`, `game`, `price`, `book`, `stake`, `result`, `units`, `clv_pts`, `clv_cents`, `close_median`, `close_best`, `close_best_book`, `close_quote_line`, `close_line_exact`, `actual`, `typical_price`, `typical_n` (price shopping), `game_id`, `player_id` (public ESPN ids for the live tracker). `summary` and `by_tier`: `avg_clv_cents`, `beat_close_cents_pct`, `clv_cents_n`, `clv_na`. |
+| `data/nba_live.json` | `generated_at`, `today`, `next_date`, `rules.lock_minutes`. Each game: `game_id`, `away`, `home`, `start_utc`, `completed`, `locked`, `picks`, and `hs` / `as_` for the final score on a game page. Each pick: `id`, `player`, `stat`, `side`, `line`, `date`, `start_utc`, `locked_at`, `game`, `price`, `book`, `stake`, `result`, `units`, `clv_pts`, `clv_cents`, `close_median`, `close_best`, `close_best_book`, `close_quote_line`, `close_line_exact`, `actual`, `typical_price`, `typical_n` (price shopping), `game_id`, `player_id` (public ESPN ids for the live tracker). `summary` and `by_tier`: `avg_clv_cents`, `beat_close_cents_pct`, `clv_cents_n`, `clv_na`. |
 | `data/picks.json` | Rows with `source` `live` only. `game_id`, `game`, `team`, `date`, `locked_at`, `price`, `best_price`, `best_book`, `stake`, `result`, `units`, `clv_pts`, `clv_cents`, `close_median`, `close_best`, `close_best_book`, `home_score`, `away_score`. |
-| `data/today.json` | `date`. Each game: `game_id`, `start_utc`, `away`, `home`, `home_score`, `away_score`. |
+| `data/today.json` | `date`. Each game: `game_id`, `start_utc`, `away`, `home`, `home_score`, `away_score`, `locked` (the game page uses this to tell a game that has not locked from a pass). |
 | `data/nba.json` | `stats[].k` and `stats[].v` when the label matches ROI, won, or Unseen. `books.caption`, `books.rows`. |
 | `data/backtest.json` | `total`. Each row: `season`, `units`, `roi`. |
 | `data/summary.json` | `generated_at`. `live` and `live_by_tier`: `avg_clv_cents`, `beat_close_cents_pct`, `clv_cents_n`, `clv_na`. |

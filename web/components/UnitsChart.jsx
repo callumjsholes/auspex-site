@@ -1,4 +1,4 @@
-import { signed } from "@/lib/format";
+import { signed, unitsFromMilli } from "@/lib/format";
 
 // Cumulative units after each graded pick. Server-rendered SVG, no chart library.
 export default function UnitsChart({ points, label = "Cumulative units after each graded pick" }) {
@@ -17,20 +17,27 @@ export default function UnitsChart({ points, label = "Cumulative units after eac
   const raw = (hi - lo) / 4, mag = 10 ** Math.floor(Math.log10(raw)), step = [1, 2, 2.5, 5, 10].map((f) => f * mag).find((v) => v >= raw);
   const ticks = []; for (let t = Math.ceil(lo / step) * step; t <= hi; t += step) ticks.push(Math.round(t * 100) / 100);
   const up = last.units >= 0;
+  const end = last.unitMilli != null ? unitsFromMilli(last.unitMilli) : `${signed(last.units, 2)} units`;
   return (
-    <svg className="chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${label}. Latest: ${signed(last.units, 2)} units after ${points.length} picks.`}>
+    <div className="chart-frame">
+      <span className="chart-y">Units won</span>
+      <div className="chart-plot">
+    <svg className="chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${label}. The vertical axis is units won and the horizontal axis is picks. Latest: ${end} after ${points.length} picks.`}>
       {ticks.map((t, k) => (
         <g key={k}>
           <line x1={m.l} x2={W - m.r} y1={Y(t)} y2={Y(t)} stroke="var(--line)" />
           <text x={m.l - 8} y={Y(t) + 4} textAnchor="end">{signed(t, 1)}</text>
         </g>
       ))}
-      <line x1={m.l} x2={W - m.r} y1={Y(0)} y2={Y(0)} stroke="var(--muted)" strokeDasharray="3 4" />
-      <path d={area} fill={up ? "var(--win)" : "var(--loss)"} opacity="0.1" />
-      <path d={d} fill="none" stroke={up ? "var(--win)" : "var(--loss)"} strokeWidth="2.5" strokeLinejoin="round" />
-      <circle cx={X(points.length - 1)} cy={Y(last.units)} r="4.5" fill={up ? "var(--win)" : "var(--loss)"} />
+      <line x1={m.l} x2={W - m.r} y1={Y(0)} y2={Y(0)} stroke="var(--ink)" strokeOpacity="0.28" />
+      <path d={area} fill={up ? "var(--win)" : "var(--loss)"} opacity="0.08" />
+      <path d={d} fill="none" stroke={up ? "var(--win)" : "var(--loss)"} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+      <circle cx={X(points.length - 1)} cy={Y(last.units)} r="3.5" fill={up ? "var(--win)" : "var(--loss)"} />
       <text x={m.l} y={H - 8}>Pick 1</text>
       <text x={W - m.r} y={H - 8} textAnchor="end">Pick {points.length}</text>
     </svg>
+      </div>
+      <span className="chart-x">Picks</span>
+    </div>
   );
 }

@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { ImageResponse } from "next/og";
 import { recapDays, recordText } from "@/lib/recap";
-import { odds, dayLong } from "@/lib/format";
+import { odds, dayLong, unitsFromMilli } from "@/lib/format";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -63,7 +63,7 @@ export async function GET(_req, { params }) {
             <div style={{ fontSize: 22, color: C.muted }}>Won–lost</div>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ fontSize: 76, color: tone }}>{u(d.units)}</div>
+            <div style={{ fontSize: 76, color: tone }}>{unitsFromMilli(d.unitMilli)}</div>
             <div style={{ fontSize: 22, color: C.muted }}>{d.roi != null ? `Units · ${d.roi >= 0 ? "+" : "-"}${Math.abs(d.roi).toFixed(1)}% ROI` : "Units"}</div>
           </div>
         </div>

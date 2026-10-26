@@ -2,12 +2,55 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-25 — Site — Visual system
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`. No route, label, or record number changed.
+
+- The look of the public pages is set in `web/app/globals.css`: navy `#13233a` and bronze buttons `#8f5418`, with a tighter neutral scale, an 8px spacing step, and three radii (8, 12, 16). Marcellus is still the display face and Archivo is still the text face. Dark mode still follows `prefers-color-scheme`.
+- Green and red are only for results. The pages still do not show chances, projections, edges, or minutes, and they still do not describe the model.
+- Preview cards use the same bronze bar as the header. The visit counter, `/admin`, and the responsible-gambling lines are unchanged.
+
+## 2026-10-24 — Site — Start page, previews, signup, filters
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- `/start` is a short page for a new visitor: what the site is, the same "How to read a pick" explainer as the home page, how the live record is counted, and the same responsible-gambling lines as the footer. It is in the header, the home page, the footer, and the sitemap. The live sentence is built from `web/lib/summary.js`. Tests stay on the method page and are not added into that sentence.
+- Public pages set their own Open Graph and Twitter title and description. The preview image is generated at build time (`opengraph-image` / `twitter-image`) from the published record. The home image shows the live record. A recap image shows that day's record. Both are 1200×630. They do not add a field the pages do not already show.
+- The email form still uses the existing Beehiiv form (`Auspex site waitlist`, id in `web/lib/site.js`). It does not use an API key. Beehiiv has one published note and no live automation, so the form does not name a send schedule.
+- `/record` has one league control (All / NBA / NHL) and one date control (All time / Last 7 days / Last 30 days). The summary, the chart, the calculator, and the table all use that slice, summed in `web/lib/summary.js`. The chart still has its market filter. The table still has its result filter. Last 7 days and last 30 days use the visitor's calendar. The live record currently starts October 20, 2026, so both windows are the whole record until more days are graded.
+- `/recap` renders the latest day directly. It no longer redirects.
+
+## 2026-10-24 — Site — Clearer pages, one unit total
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+- Every unit total on the site now comes from `web/lib/summary.js`. It sums graded units as integer thousandths, so order cannot change the result. The home ledger, the record page, the record charts (including a filtered chart's last point), each daily recap, and the recap card all use it. Display rounds that sum half away from zero to the cent (`+20.015u` prints as `+20.02u`). Adding already-rounded league or market rows can still be a cent off the headline. That is display rounding, not a second sum.
+- Pick cards and the record table use short definitions from `web/lib/terms.js` (American odds, unit, over, under, moneyline, median price, closing line). The FAQ has three new answers from that same file: what −110 means, what a moneyline is, and what over/under means. Nothing in those answers describes the model.
+- Today's slate shows each NBA game's lock time (tip minus `rules.lock_minutes`) and a countdown once the page is running in the browser. Times render in Eastern Time on the server, then switch to the visitor's time zone after mount. The empty state links to the existing `#join` email form.
+- Below 600px the Every pick table stacks one row per pick, and `/recap/<date>` shows the picks as HTML instead of the shrunk card. `/recap/<date>/card` is still the PNG.
+
+## 2026-10-24 — Terms of use and privacy policy
+
+- `/terms` and `/privacy` are the public terms and the privacy policy. The footer links to both. The privacy page still documents the visit counter: local storage keys `auspex_vid` and `auspex_nocount`, the auspex-visits Worker, and `?nocount=1` / `?count=1`.
+- Contact on both pages is `hello@auspexsports.com` from `web/lib/site.js`. The site has no accounts, no payments, no analytics script, and no X embed. Paid subscriptions are described as not active.
+- The privacy page says the signup form sends the address to Beehiiv from this site. The site does not store it.
+- `CLAUDE.md`, `AGENTS.md`, and this file stay off `.auspex-published.json`.
+
+## 2026-10-24 — Game pages
+
+- Static pages for every NHL and NBA game in the public feed: `/nhl/<date>/<away>-at-<home>` and `/nba/...`. League indexes are `/nba` and `/nhl`. Date indexes are `/nba/<date>` and `/nhl/<date>`.
+- Built only from `web/lib/data.js`. A pick is shown only after it is in the public picks. Today's full slate, including games that have not locked, comes from `nba_live.json` `games` and `today.json` `games` (matchup and start time). Older pages are games that have a locked or graded pick. The publish files do not keep a full slate once the day rolls, and they do not list future games (NBA `next_date` is a date with no matchups).
+- `nhlToday` now includes `locked` from `today.json`. NBA game pages read `hs` and `as_` when `completed` is true, for the final score. No prices, edges, or other model fields were added to what the pages receive.
+- NHL rows in `picks.json` have no `start_utc`, so a graded NHL page from an earlier day has the date and not the puck-drop time.
+- `sitemap.js` lists the new URLs. `robots.txt` was already in place. `CLAUDE.md`, `AGENTS.md`, and this file stay off `.auspex-published.json`.
+
 ## 2026-10-24 — Closing prices and CLV in cents
 
 - Pick cards show the locked price against `close_median`, the CLV in cents, and a tick when `clv_cents` is positive. If `close_line_exact` is false, the close is labeled the nearest line, with `close_quote_line` when that is a number. `close_best` and `close_best_book` show when the best close differs from the median.
 - The record page adds a closing-line value summary: average CLV in cents, the share of picks that beat the close, and the sample size. One cent is one percentage point of implied probability. Positive means the locked price was longer than the closing median.
 - Totals come from `nba_live.json` `summary` (else `by_tier`) and `summary.json` `live` (else `live_by_tier`): `avg_clv_cents`, `beat_close_cents_pct`, `clv_cents_n`, `clv_na`. Per-pick `clv_cents` is the fallback only when that league has no totals.
 - A missing field renders as nothing or n/a. The site does not invent cents from the American price or from `clv_pts`. The points CLV already on the record stays labeled "in points".
+- The cents summary is on the record board. All time uses the published totals for the league filter (both leagues together on All). Last 7 days and last 30 days use the cents on the picks in that window, so a short window does not show the full-sample average.
 - Keep these keys. `tests/fixtures/clv/` covers a publish with the fields and one without.
 
 ## 2026-10-21 — Claude — Recap share tools moved behind a password
