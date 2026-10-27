@@ -71,7 +71,7 @@ function UnitsCurve({ rows }) {
       <svg ref={svg} className="chart" viewBox={`0 0 ${W} ${H}`} tabIndex={0} onKeyDown={onKey} onMouseMove={move} onMouseLeave={() => setI(null)}
            onTouchStart={(e) => move(e.touches[0] ? { currentTarget: e.currentTarget, clientX: e.touches[0].clientX } : e)}
            role="img" aria-label={`Units won after each pick. ${pts.length} graded picks, ending at ${end}. The horizontal axis is picks. Use the arrow keys to step through picks.`}>
-        {ticks.map((t) => (<g key={t}><line x1={m.l} x2={W - m.r} y1={Y(t)} y2={Y(t)} stroke="var(--line)" /><text x={m.l - 8} y={Y(t) + 4} textAnchor="end">{signed(t, step < 1 ? 1 : 0)}</text></g>))}
+        {ticks.map((t) => (<g key={t}><line x1={m.l} x2={W - m.r} y1={Y(t)} y2={Y(t)} stroke="var(--grid)" /><text x={m.l - 8} y={Y(t) + 4} textAnchor="end">{signed(t, step < 1 ? 1 : 0)}</text></g>))}
         <line x1={m.l} x2={W - m.r} y1={Y(0)} y2={Y(0)} stroke="var(--ink)" strokeOpacity="0.28" />
         <path d={`${d}L${X(pts.length - 1)},${Y(0)}L${X(0)},${Y(0)}Z`} fill={col} opacity="0.08" />
         <path d={d} fill="none" stroke={col} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />

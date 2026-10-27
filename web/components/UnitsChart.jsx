@@ -25,7 +25,7 @@ export default function UnitsChart({ points, label = "Cumulative units after eac
     <svg className="chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${label}. The vertical axis is units won and the horizontal axis is picks. Latest: ${end} after ${points.length} picks.`}>
       {ticks.map((t, k) => (
         <g key={k}>
-          <line x1={m.l} x2={W - m.r} y1={Y(t)} y2={Y(t)} stroke="var(--line)" />
+          <line x1={m.l} x2={W - m.r} y1={Y(t)} y2={Y(t)} stroke="var(--grid)" />
           <text x={m.l - 8} y={Y(t) + 4} textAnchor="end">{signed(t, 1)}</text>
         </g>
       ))}

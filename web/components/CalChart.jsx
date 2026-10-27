@@ -38,7 +38,7 @@ export default function CalChart({ buckets, shortSample, league }) {
             </div>
             <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
               {ys.map((n) => (
-                <line key={n} x1="0" x2="100" y1={100 - n} y2={100 - n} stroke="var(--line)" strokeWidth="0.4" vectorEffect="non-scaling-stroke" />
+                <line key={n} x1="0" x2="100" y1={100 - n} y2={100 - n} stroke="var(--grid)" strokeWidth="0.4" vectorEffect="non-scaling-stroke" />
               ))}
               <line x1="0" y1="100" x2="100" y2="0" stroke="var(--bronze)" strokeWidth="1.75" vectorEffect="non-scaling-stroke" />
             </svg>

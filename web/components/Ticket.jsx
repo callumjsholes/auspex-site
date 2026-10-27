@@ -25,7 +25,7 @@ export function Ticket({ p, nhl, live, href }) {
     <article className={"ticket is-pick" + (nhl ? " nhl" : "") + (lv && lv.label === "Live" ? " is-live" : "")}>
       <div className="meta">
         <span>{game}{p.start ? <>, <LocalTime iso={p.start} /></> : ""}</span>
-        <span className={"state " + (lv ? lv.tone : resultTone(p.result))}>{status}{done && p.units != null ? ` ${u(p.units)}` : ""}</span>
+        <span className={"state" + (done ? " mark" : "") + " " + (lv ? lv.tone : resultTone(p.result))}>{status}{done && p.units != null ? ` ${u(p.units)}` : ""}</span>
       </div>
       <h3 className="call"><Call p={p} nhl={nhl} /></h3>
       <div className="price">
