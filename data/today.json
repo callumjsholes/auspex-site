@@ -1,6 +1,6 @@
 {
  "date": "2026-10-27",
- "generated_at": "2026-10-27T13:15:17+00:00",
+ "generated_at": "2026-10-27T21:00:13+00:00",
  "games": [
   {
    "game_id": 2026020188,
@@ -13,9 +13,9 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Dan Vladar",
-   "away_goalie": "Jet Greaves",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "away_goalie": "Cam Talbot",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -30,8 +30,8 @@
    "away_score": null,
    "home_goalie": "Pyotr Kochetkov",
    "away_goalie": "Jeremy Swayman",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -46,8 +46,8 @@
    "away_score": null,
    "home_goalie": "Spencer Knight",
    "away_goalie": "Anton Forsberg",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Likely",
    "locked": false
   },
   {
@@ -60,10 +60,10 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Joel Hofer",
+   "home_goalie": "Jordan Binnington",
    "away_goalie": "Jacob Fowler",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -78,8 +78,8 @@
    "away_score": null,
    "home_goalie": "Juuse Saros",
    "away_goalie": "Semyon Varlamov",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -92,10 +92,10 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Jake Oettinger",
-   "away_goalie": "Jake Allen",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie": "Casey DeSmith",
+   "away_goalie": "Connor Hellebuyck",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -108,10 +108,10 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Stuart Skinner",
+   "home_goalie": "Clay Stevenson",
    "away_goalie": "Akira Schmid",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -126,9 +126,16 @@
    "away_score": null,
    "home_goalie": "Karel Vejmelka",
    "away_goalie": "Jesper Wallstedt",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
+   "n_books": 11,
+   "home_price": -120,
+   "away_price": 102,
+   "edge_side": "home",
+   "edge_team": "UTA",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020196,
@@ -141,9 +148,9 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Adin Hill",
-   "away_goalie": "Samuel Ersson",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "away_goalie": "Jonas Johansson",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -158,9 +165,16 @@
    "away_score": null,
    "home_goalie": "Lukas Dostal",
    "away_goalie": "Leevi Merilainen",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "n_books": 11,
+   "home_price": -210,
+   "away_price": 180,
+   "edge_side": "home",
+   "edge_team": "ANA",
+   "stake": 2,
+   "tier": "Best bet",
+   "locked": true
   },
   {
    "game_id": 2026020198,
@@ -174,9 +188,16 @@
    "away_score": null,
    "home_goalie": "Yaroslav Askarov",
    "away_goalie": "Colten Ellis",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Likely",
+   "n_books": 11,
+   "home_price": 122,
+   "away_price": -145,
+   "edge_side": "home",
+   "edge_team": "SJS",
+   "stake": 2,
+   "tier": "Best bet",
+   "locked": true
   }
  ]
 }
