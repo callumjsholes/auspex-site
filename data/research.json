@@ -85,12 +85,12 @@
  "nhl_calibration": [
   {
    "bin": "40\u201350%",
-   "model_pred": 0.453,
+   "model_pred": 0.446,
    "model_obs": 1.0,
-   "model_n": 2,
-   "book_pred": 0.382,
+   "model_n": 3,
+   "book_pred": 0.384,
    "book_obs": 1.0,
-   "book_n": 2
+   "book_n": 3
   },
   {
    "bin": "50\u201360%",
