@@ -149,13 +149,13 @@ img { max-width: 100%; display: block; }
 .hero h1 { font: 400 var(--fs-display)/1.05 var(--display); letter-spacing: -0.025em; margin: 0 0 14px; text-wrap: balance; max-width: 16ch; }
 .hero .deck { font-size: var(--fs-lede); line-height: 1.45; color: var(--on-navy-muted); max-width: 36ch; margin: 0 0 24px; }
 .strip { background: var(--surface); border-bottom: 1px solid var(--line); }
-.strip-in { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) auto; align-items: end; gap: 0; padding: 18px 0 16px; }
+.strip-in { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) auto; align-items: end; gap: 0; padding-top: 18px; padding-bottom: 16px; }
 .strip-in > div { min-width: 0; padding-right: 20px; }
 .strip-in > div + div { border-left: 1px solid var(--line); padding-left: 20px; }
 .strip-in b { display: block; font: 600 var(--fs-h2)/1 var(--text); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .strip-in span { display: block; margin-top: 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .strip-in .more { align-self: center; margin-left: 8px; min-height: 44px; display: inline-flex; align-items: center; }
-.strip-note { margin: 0; padding: 0 0 16px; font-size: 14px; color: var(--muted); }
+.strip-note { margin: 0; padding-top: 0; padding-bottom: 16px; font-size: 14px; color: var(--muted); }
 @media (max-width: 700px) {
   .hero { padding: 36px 0 32px; }
   .hero h1 { max-width: none; }
@@ -309,8 +309,8 @@ td.result:not(.pos):not(.neg):not(.push) .cell::before { display: none; }
 .tests p { margin: 0; color: var(--muted); font-size: 14px; }
 
 .join { margin: 64px 0 0; background: var(--navy); color: var(--on-navy); border-top: 1px solid var(--bronze); }
-.join-in { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 48px 0; }
-@media (max-width: 860px) { .join-in { grid-template-columns: 1fr; gap: 24px; padding: 36px 0; } }
+.join-in { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding-top: 48px; padding-bottom: 48px; }
+@media (max-width: 860px) { .join-in { grid-template-columns: 1fr; gap: 24px; padding-top: 36px; padding-bottom: 36px; } }
 .join h2 { font: 400 var(--fs-h1)/1.08 var(--display); letter-spacing: -0.02em; margin: 0 0 12px; }
 .join p { color: var(--on-navy-muted); margin: 0; max-width: 46ch; }
 .signup { display: flex; gap: 10px; flex-wrap: wrap; }
