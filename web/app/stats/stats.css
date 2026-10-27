@@ -1,4 +1,4 @@
-.stats-page section[id] { scroll-margin-top: 18px; }
+.stats-page section[id] { scroll-margin-top: 0; }
 .stats-page .chart-stack { display: grid; gap: 16px; }
 .stats-page .clv-panel { margin-top: 22px; }
 .stats-page .scrub {
@@ -274,7 +274,7 @@
   margin: 0 0 8px;
   color: var(--ink);
 }
-.stats-page .nerd[id] { scroll-margin-top: 18px; }
+.stats-page .nerd[id] { scroll-margin-top: 0; }
 .stats-page .intervals { display: grid; gap: 8px; margin-top: 14px; }
 .stats-page .interval-caption { margin: 0; font-size: 14px; color: var(--muted); }
 .stats-page .interval-row {

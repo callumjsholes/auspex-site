@@ -7,6 +7,7 @@ export default function RecapView({ d, days }) {
   return (
     <div className="page wrap">
       <div className="intro">
+        <p className="kicker">Daily recap</p>
         <h1>{dayLong(d.date)}</h1>
         <p className="lede">A recap is one day's graded picks: the record, the units, and each result.</p>
         <p className="lede">{recordText(d)}, {signedMilli(d.unitMilli)} units at the posted prices{d.open ? `. ${d.open} pick${d.open === 1 ? "" : "s"} from this slate still open` : ""}.</p>

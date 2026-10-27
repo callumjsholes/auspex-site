@@ -1,47 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import { odds, dayLong, resultLabel, resultTone, units as u } from "@/lib/format";
-import { PriceShop } from "@/components/PriceShop";
-import { CloseLine } from "@/components/CloseLine";
-import { LiveLine, useLive, liveView } from "@/components/Live";
-import Term from "@/components/Term";
+import { dayLong } from "@/lib/format";
+import { Ticket } from "@/components/Ticket";
+import { useLive } from "@/components/Live";
 import LocalTime from "@/components/LocalTime";
 import HowToRead from "@/components/HowToRead";
 import { gamePath, matchupPath } from "@/lib/teams";
-
-const STAT_NAME = { pts: "points", reb: "rebounds", ast: "assists" };
-
-function Call({ p, nhl }) {
-  if (nhl) return <>{p.team} <Term k="moneyline">to win</Term></>;
-  const verb = p.side === "Over" ? "over" : p.side === "Under" ? "under" : null;
-  if (!verb || !p.player) return p.pick;
-  return <>{p.player} <Term k={verb}>{verb}</Term> {p.line} {STAT_NAME[p.stat] || p.stat}</>;
-}
-
-function Ticket({ p, nhl, live, href }) {
-  const done = p.result !== "Pending";
-  const lv = done ? null : liveView(p, nhl, live);
-  const status = lv ? (lv.label === "Final" ? "Final, grading" : "Live") : resultLabel(p.result);
-  const game = href ? <a href={href}>{p.game}</a> : p.game;
-  return (
-    <article className={"ticket is-pick" + (nhl ? " nhl" : "") + (lv && lv.label === "Live" ? " is-live" : "")}>
-      <div className="meta">
-        <span>{game}{p.start ? <>, <LocalTime iso={p.start} /></> : ""}</span>
-        <span className={"state " + (lv ? lv.tone : resultTone(p.result))}>{status}{done && p.units != null ? ` ${u(p.units)}` : ""}</span>
-      </div>
-      <h3 className="call"><Call p={p} nhl={nhl} /></h3>
-      <div className="price">
-        <b><Term k="odds">{odds(p.price)}</Term> <span>{nhl ? <Term k="median">median price</Term> : `at ${p.book}`}</span></b>
-        <span>{p.actual != null
-          ? (nhl ? `Final ${p.actual}` : `Finished with ${p.actual}`)
-          : <>{p.stake} <Term k="unit">{p.stake === 1 ? "unit" : "units"}</Term></>}</span>
-      </div>
-      <PriceShop p={p} nhl={nhl} />
-      <CloseLine p={p} />
-      {!done && <LiveLine p={p} nhl={nhl} live={live} />}
-    </article>
-  );
-}
 
 const byTip = (ps) => [...ps].sort((a, b) => (a.start || "").localeCompare(b.start || "") || a.game.localeCompare(b.game));
 const byStart = (gs) => [...gs].sort((a, b) => (a.start || "").localeCompare(b.start || ""));
@@ -105,8 +69,13 @@ function NextLock({ games, lockMinutes, now }) {
   return <p className="lockline">Next {verb} {left}at {when}: {who}.</p>;
 }
 
-function GameBoard({ games, lockMinutes, date }) {
-  const ordered = byStart(games);
+function named(game) {
+  return `${game.away} at ${game.home}`;
+}
+
+function GameBoard({ games, lockMinutes, date, picks }) {
+  const covered = new Set(picks.map((p) => p.game));
+  const ordered = byStart(games).filter((g) => !covered.has(named(g)));
   const pending = ordered.filter((g) => !g.locked && !g.completed);
   const posted = ordered.filter((g) => g.locked || g.completed);
   if (!ordered.length) return null;
@@ -129,7 +98,7 @@ function GameBoard({ games, lockMinutes, date }) {
       )}
       {posted.length > 0 && (
         <div>
-          <h3 className="board-h">Already posted</h3>
+          <h3 className="board-h">{posted.every((g) => !g.picks) ? "No pick" : "Locked"}</h3>
           <ul className="board-list">
             {posted.map((g) => (
               <li key={g.id} className="posted">
@@ -189,7 +158,7 @@ export default function Today({ nbaDate, nhlDate, nbaGames, nbaPicks, nbaNext, n
   const live = useLive(nbaPicks, nhlWithPicks.map((g) => ({ ...g.pick, start: g.start })));
   const nbaPending = nbaGames.some((g) => !g.locked && !g.completed);
   return (
-    <section className="block wrap" id="today" aria-labelledby="today-h">
+    <section className="block tight wrap" id="today" aria-labelledby="today-h">
       <div className="head">
         <div>
           <h2 id="today-h">Today's picks</h2>
@@ -205,12 +174,9 @@ export default function Today({ nbaDate, nhlDate, nbaGames, nbaPicks, nbaNext, n
         </div>
       </div>
 
-      <HowToRead />
-
       {tab === "nba" ? (
         <div role="tabpanel">
           <NextLock games={nbaGames} lockMinutes={lockMinutes} now={now} />
-          <GameBoard games={nbaGames} lockMinutes={lockMinutes} date={nbaDate} />
           {nbaPicks.length ? (
             <div className="cards">{byTip(nbaPicks).map((p) => <Ticket key={p.id} p={p} live={live} href={matchupPath("NBA", p.date, p.game)} />)}</div>
           ) : (
@@ -223,6 +189,7 @@ export default function Today({ nbaDate, nhlDate, nbaGames, nbaPicks, nbaNext, n
               <MailLink />
             </div>
           )}
+          <GameBoard games={nbaGames} lockMinutes={lockMinutes} date={nbaDate} picks={nbaPicks} />
           {nbaPicks.length > 0 && nbaPending && <MailLink />}
         </div>
       ) : (
@@ -239,6 +206,7 @@ export default function Today({ nbaDate, nhlDate, nbaGames, nbaPicks, nbaNext, n
           )}
         </div>
       )}
+      <HowToRead collapsed />
     </section>
   );
 }

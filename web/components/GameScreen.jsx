@@ -36,14 +36,9 @@ export default async function GameScreen({ league, params }) {
           )}
         </div>
         {score && <p className="final">{score}</p>}
-        <section className="preview" aria-labelledby="preview-h">
-          <h2 id="preview-h">About this game</h2>
-          {preview.paragraphs.map((text, i) => <p key={i}>{text}</p>)}
-          <p className="rg">{preview.note}</p>
-        </section>
         {game.picks.length > 0 ? (
           <section className="block tight" aria-labelledby="pick-h">
-            <h2 id="pick-h">{game.picks.length > 1 ? "Picks" : "Pick"}</h2>
+            <div className="head"><h2 id="pick-h">{game.picks.length > 1 ? "Picks" : "Pick"}</h2></div>
             <GamePicks picks={game.picks} nhl={league === "NHL"} />
           </section>
         ) : (
@@ -51,9 +46,14 @@ export default async function GameScreen({ league, params }) {
             {state === "wait" ? "Nothing posted for this game yet." : "No pick on this game."}
           </div>
         )}
+        <section className="preview" aria-labelledby="preview-h">
+          <h2 id="preview-h">About this game</h2>
+          {preview.paragraphs.map((text, i) => <p key={i}>{text}</p>)}
+          <p className="rg">{preview.note}</p>
+        </section>
         {others.length > 0 && (
           <section className="block" aria-labelledby="others-h">
-            <h2 id="others-h">Other games this day</h2>
+            <div className="head"><h2 id="others-h">Other games this day</h2></div>
             <ul className="gamelist">
               {others.map((g) => {
                 const status = gameStatus(g);
