@@ -94,7 +94,7 @@ export function FanChart({ fan, aria }) {
           <svg className="chart linechart" viewBox={`0 0 ${width} ${H}`} role="img" aria-label={aria}>
             {yTicks.map((t) => (
               <g key={t}>
-                <line x1={M.l} x2={width - M.r} y1={Y(t)} y2={Y(t)} stroke="var(--line)" />
+                <line x1={M.l} x2={width - M.r} y1={Y(t)} y2={Y(t)} stroke="var(--grid)" />
                 <text x={M.l - 8} y={Y(t) + 4} textAnchor="end">{Math.round(t)}</text>
               </g>
             ))}
@@ -142,7 +142,7 @@ export function FunnelChart({ funnel, aria }) {
           <svg className="chart linechart" viewBox={`0 0 ${width} ${H}`} role="img" aria-label={aria}>
             {yTicks.map((t) => (
               <g key={t}>
-                <line x1={M.l} x2={width - M.r} y1={Y(t)} y2={Y(t)} stroke="var(--line)" />
+                <line x1={M.l} x2={width - M.r} y1={Y(t)} y2={Y(t)} stroke="var(--grid)" />
                 <text x={M.l - 8} y={Y(t) + 4} textAnchor="end">{`${Math.round(t)}%`}</text>
               </g>
             ))}

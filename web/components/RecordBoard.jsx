@@ -72,9 +72,7 @@ export default function RecordBoard({ rows, launch, updated, clv }) {
         <h1>The record</h1>
         <p className="takeaway">{recordSentence(s, { launch, league, range })}</p>
         {coversAll && <p className="note filter-note">{coverNote}</p>}
-        <p className="lede">Every pick stays up, graded at the price and book I posted. Closing-line value (CLV) is how many cents the locked price beat the closing median by. {updated ? `Updated ${updated}.` : ""}</p>
-        <p className="note">Each game has its own page: <a href="/nba">NBA games</a>, <a href="/nhl">NHL games</a>.</p>
-        <p className="note">Charts and splits of this record are on the <a href="/stats">stats page</a>.</p>
+        <p className="lede">Every pick stays up, graded at the price and book I posted. Closing-line value (CLV) is how many cents the locked price beat the closing median by. {updated ? `Updated ${updated}. ` : ""}Games have their own pages: <a href="/nba">NBA</a> and <a href="/nhl">NHL</a>. Charts and splits are on <a href="/stats">stats</a>.</p>
         <nav className="jumps" aria-label="On this page">
           <a href="/stats">Stats page</a>
           <a href="#clv">Closing line</a>

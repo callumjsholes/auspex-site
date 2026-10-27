@@ -1,10 +1,10 @@
-.stats-page section[id] { scroll-margin-top: 18px; }
+.stats-page section[id] { scroll-margin-top: 0; }
 .stats-page .chart-stack { display: grid; gap: 16px; }
 .stats-page .clv-panel { margin-top: 22px; }
 .stats-page .scrub {
   margin: 10px 0 0;
   min-height: 3.2em;
-  font-size: 14.5px;
+  font-size: 14px;
   line-height: 1.45;
   color: var(--ink-2);
 }
@@ -13,15 +13,15 @@
   display: inline-flex;
   align-items: center;
   margin-left: 8px;
-  font-size: 11px;
-  font-weight: 650;
+  font-size: 12px;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--ink);
-  background: var(--bronze-soft);
-  border: 1px solid var(--bronze);
-  border-radius: 999px;
-  padding: 2px 8px;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
   vertical-align: 1px;
   white-space: nowrap;
 }
@@ -115,7 +115,7 @@
   padding: 16px;
   text-align: center;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 14px;
 }
 .stats-page .cal-xlabels {
   display: flex;
@@ -126,8 +126,8 @@
   margin-top: 4px;
 }
 .stats-page .cal-axis-name {
-  font-size: 11.5px;
-  font-weight: 650;
+  font-size: 12px;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -258,7 +258,7 @@
     content: attr(data-label);
     flex: 0 0 108px;
     color: var(--muted);
-    font-size: 11.5px;
+    font-size: 12px;
     font-weight: 650;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -274,7 +274,7 @@
   margin: 0 0 8px;
   color: var(--ink);
 }
-.stats-page .nerd[id] { scroll-margin-top: 18px; }
+.stats-page .nerd[id] { scroll-margin-top: 0; }
 .stats-page .intervals { display: grid; gap: 8px; margin-top: 14px; }
 .stats-page .interval-caption { margin: 0; font-size: 14px; color: var(--muted); }
 .stats-page .interval-row {
@@ -287,8 +287,8 @@
 .stats-page .interval-plot {
   position: relative;
   height: 22px;
-  background: var(--soft);
-  border-radius: 6px;
+  background: var(--grid);
+  border-radius: var(--r-sm);
   overflow: hidden;
 }
 .stats-page .interval-bar {
@@ -314,7 +314,7 @@
   top: 0;
   bottom: 0;
   width: 0;
-  border-left: 2px dashed var(--bronze);
+  border-left: 1px dashed var(--ink);
 }
 .stats-page .interval-zero { border-left-color: var(--ink); opacity: 0.45; }
 .stats-page .interval-val {
@@ -327,8 +327,8 @@
 .stats-page .luck-plot {
   position: relative;
   height: 36px;
-  background: var(--soft);
-  border-radius: 8px;
+  background: var(--grid);
+  border-radius: var(--r-sm);
   overflow: hidden;
 }
 .stats-page .luck-band {
@@ -336,7 +336,7 @@
   top: 8px;
   height: 20px;
   border-radius: 4px;
-  background: var(--bronze);
+  background: var(--ink);
 }
 .stats-page .luck-band.outer { opacity: 0.22; }
 .stats-page .luck-band.inner { opacity: 0.45; top: 11px; height: 14px; }
@@ -360,12 +360,12 @@
 .stats-page .power-track i {
   display: block;
   height: 100%;
-  background: var(--bronze);
+  background: var(--ink);
   border-radius: 99px;
 }
 
 @media (max-width: 600px) {
   .stats-page .interval-row { grid-template-columns: 1fr auto; }
   .stats-page .interval-plot { grid-column: 1 / -1; }
-  .stats-page .nerd h3 { font-size: 24px; }
+  .stats-page .nerd h3 { font-size: var(--fs-h2); }
 }

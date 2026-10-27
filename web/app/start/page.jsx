@@ -20,7 +20,11 @@ export default function Start() {
       <h2>What this is</h2>
       <p>Auspex Sports posts NBA player props and NHL moneylines before the game. Each card has the bet, the price, and the book. I grade the pick at that posted price, and I leave it up.</p>
       <p>The live record is only those graded picks. {recordSentence(s, { launch: SITE.launch })}</p>
-      <p><a href="/#today">Today's picks</a> · <a href="/record">The full record</a></p>
+      <div className="ctas">
+        <a className="btn bronze" href="/#today">Today's picks</a>
+        <a className="btn line" href="/record">The record</a>
+        <a className="btn line" href="/stats">Stats</a>
+      </div>
 
       <HowToRead level="h2" />
 

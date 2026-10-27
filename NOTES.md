@@ -2,6 +2,28 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-10-27 — Site — Sharper visual system
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`. No route, URL, or anchor changed. `#today`, `#join`, and `#games` are still on the home page.
+
+- The look is flatter. Cards, pills, and shadows are gone. Lists, tables, and the record use hairline rules. Radius is 4px. Bronze `#8f5418` is the header rule, the one home button, and the Get picks button. Body links are the ink colour and turn bronze on hover.
+- Type is 12, 14, 16, 18, 26, 40, and 48. Figures use tabular numerals.
+- A graded result is a word plus a shape: a filled square for a win, an open square for a loss, a dash for a push. The same mark is on a pick card and in the record table. A live card does not use that mark.
+- Chart gridlines use `--grid`, lighter than the rules between rows. The calibration cutoff is unchanged: a bin is drawn only when `model_n` is at least 30.
+- The home page is one line, one button, then the live record as a strip. The footer responsible-gambling lines are unchanged. Pick cards still do not show a chance, an edge, a projection, or minutes.
+
+## 2026-10-27 — Site — Redesign and a shorter path through the pages
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`. No route was removed, so nothing was redirected.
+
+- The header is Today, Record, Stats, Recap, NBA, NHL, and Get picks. Start here, Method, and FAQ stay in the footer and on their own URLs. `#today`, `#join`, and `#games` are still on the home page.
+- The home page leads with the live record and today's picks. The units chart stays. The duplicate stat grid, the three-step "how a pick gets made", the launch-test panels, and the game-chip list are gone from the home page. Those tests and rules still live on `/method`. The game lists still live on `/nba` and `/nhl`. A short link row points at them.
+- "How to read a pick" is collapsed under today's picks and still open on `/start`.
+- A game page shows the pick first, then the same write-up. The write-up text is unchanged. Pick cards on a game page now match the home card, including the closing line when the publish has it. They still do not show a chance, an edge, a projection, or minutes.
+- `/nba` and `/nhl` open on that league's latest slate, with earlier dates listed under it.
+- `/stats` keeps every chart and the "For the stats nerds" section. The jump list is grouped. The calibration rule is unchanged: a bin is drawn only when `model_n` is at least 30.
+- The footer responsible-gambling lines are unchanged.
+
 ## 2026-10-26 — Site — Calibration bins with real volume
 
 The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.

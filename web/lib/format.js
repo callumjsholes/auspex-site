@@ -49,7 +49,7 @@ export const dayShort = (d) =>
 export const stamp = (iso) =>
   iso ? new Date(iso).toLocaleString("en-US", { timeZone: ET, month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + " ET" : "";
 export const tone = (v) => (v > 0 ? "pos" : v < 0 ? "neg" : "");
-export const resultTone = (r) => (r === "Won" ? "pos" : r === "Lost" ? "neg" : "");
+export const resultTone = (r) => (r === "Won" ? "pos" : r === "Lost" ? "neg" : r === "Push" ? "push" : "");
 export const resultLabel = (r) => (r === "Pending" ? "Open" : r);
 
 // Implied probability of an American price, and how much better one price is than another in

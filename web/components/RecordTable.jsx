@@ -66,7 +66,7 @@ export default function RecordTable({ rows }) {
                 <td className="muted" data-label="Book"><span className="cell">{r.book}</span></td>
                 <td className="r num" data-label="Stake"><span className="cell">{r.stake}u</span></td>
                 <td className={"r num " + (r.clv > 0 ? "pos" : r.clv < 0 ? "neg" : "muted")} data-label="CLV"><span className="cell">{r.clv == null ? "–" : `${signed(r.clv, 1)}`}{closeSubs(r)}</span></td>
-                <td className={"r " + resultTone(r.result)} data-label="Result"><span className="cell">{resultLabel(r.result)}</span></td>
+                <td className={"r result " + resultTone(r.result)} data-label="Result"><span className="cell">{resultLabel(r.result)}</span></td>
                 <td className={"r num " + resultTone(r.result)} data-label="Units"><span className="cell">{r.units == null ? "–" : units(r.units)}</span></td>
               </tr>
               );

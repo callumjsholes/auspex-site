@@ -16,10 +16,16 @@ export default function Method() {
     <div className="page wrap">
       <div className="intro">
         <h1>Method</h1>
-        <p className="lede">The models are private. What's public is how picks are posted and graded, and how each model did on games it never saw before launch.</p>
+        <p className="lede">The models are private. What's public is how picks are posted and graded, and how each model did on games it never saw before launch. These tests are not the live record.</p>
+        <nav className="jumps" aria-label="On this page">
+          <a href="#rules">The rules</a>
+          <a href="#nba-test">NBA test</a>
+          {h && <a href="#nhl-test">NHL test</a>}
+          <a href="/record">Live record</a>
+        </nav>
       </div>
 
-      <section className="block" aria-labelledby="rules-h">
+      <section className="block" id="rules" aria-labelledby="rules-h">
         <div className="head"><h2 id="rules-h">The rules</h2></div>
         <div className="cols3">
           <div><h3>Posted before the game</h3><p>Every pick locks before tip-off or puck drop, with a timestamp, the price and the book. Nothing is added after the fact.</p></div>
@@ -28,7 +34,7 @@ export default function Method() {
         </div>
       </section>
 
-      <section className="block" aria-labelledby="nba-h">
+      <section className="block" id="nba-test" aria-labelledby="nba-h">
         <div className="head"><div><h2 id="nba-h">NBA player props: the test</h2><p className="lede">Points, rebounds and assists, 1 unit per pick. Tested on 2025-26 games the model never saw, against real sportsbook prices.</p></div></div>
         {D.nbaHeadline.length > 0 && (
           <div className="kpis">{D.nbaHeadline.map((s) => <div key={s.k}><b className="num">{s.v}</b><span>{s.k}</span></div>)}</div>
@@ -43,7 +49,7 @@ export default function Method() {
       </section>
 
       {h && (
-        <section className="block" aria-labelledby="nhl-h">
+        <section className="block" id="nhl-test" aria-labelledby="nhl-h">
           <div className="head"><div><h2 id="nhl-h">NHL moneylines: the test</h2><p className="lede">Four seasons, each priced only from games before it.</p></div></div>
           <div className="kpis">
             <div><b className="num">{h.total.bets.toLocaleString()}</b><span>Bets over {h.total.games.toLocaleString()} games</span></div>

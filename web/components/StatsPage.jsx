@@ -123,13 +123,13 @@ export default function StatsPage({ model, launch, updated, clvCopy, calibration
     <div className="page wrap stats-page">
       <div className="intro">
         <h1>Stats</h1>
-        <p className="lede">
-          Charts and splits of the live record. Same picks and the same unit total as the <a href="/record">record page</a>, graded at the posted price.
-          {updated ? ` Updated ${updated}.` : ""}
-        </p>
         <p className="takeaway">{recordSentence(s, { launch })}</p>
-        <p className="note">These numbers are the live record only. Older tests stay on the <a href="/method">method page</a> and are not added in here.</p>
-        <p className="note">The live record starts {launch}, so this is a short run. A row marked short sample has fewer than {model.shortSample} graded picks. One or two results can flip a row that size.</p>
+        <p className="lede">
+          Same picks and the same unit total as the <a href="/record">record page</a>, graded at the posted price.
+          {updated ? ` Updated ${updated}.` : ""}
+          {" "}Older tests stay on the <a href="/method">method page</a> and are not added in here.
+          The live record starts {launch}, so this is a short run. A row marked short sample has fewer than {model.shortSample} graded picks.
+        </p>
         {note && <p className="note">{note}</p>}
       </div>
 
@@ -140,23 +140,35 @@ export default function StatsPage({ model, launch, updated, clvCopy, calibration
         <div><b className="num">{s.clvN ? pct(s.beatClose) : "–"}</b><span>Beat the close, in points{s.clvN ? `, ${s.clvN} picks` : ""}</span></div>
       </div>
 
-      <nav className="jumps" aria-label="On this page">
-        <a href="#units">Units and ROI</a>
-        <a href="#rolling">Rolling</a>
-        <a href="#shape">Drawdown</a>
-        <a href="#sport">Sport</a>
-        <a href="#market">Market</a>
-        {!model.facts.duplicate && <a href="#bet-type">Bet type</a>}
-        <a href="#tier">Tier</a>
-        <a href="#side">Side</a>
-        <a href="#teams">Teams</a>
-        <a href="#when">When</a>
-        <a href="#price">Price</a>
-        <a href="#book">Book</a>
-        <a href="#clv">Closing line</a>
-        <a href="#tests">Older tests</a>
-        <a href="#calibration">Calibration</a>
-        <a href="#nerds">For the stats nerds</a>
+      <nav className="toc" aria-label="On this page">
+        <div>
+          <span>Record</span>
+          <a href="#units">Units and ROI</a>
+          <a href="#rolling">Rolling</a>
+          <a href="#shape">Drawdown</a>
+        </div>
+        <div>
+          <span>Splits</span>
+          <a href="#sport">Sport</a>
+          <a href="#market">Market</a>
+          {!model.facts.duplicate && <a href="#bet-type">Bet type</a>}
+          <a href="#tier">Tier</a>
+          <a href="#side">Side</a>
+          <a href="#teams">Teams</a>
+          <a href="#when">When</a>
+        </div>
+        <div>
+          <span>Price</span>
+          <a href="#price">Price</a>
+          <a href="#book">Book</a>
+          <a href="#clv">Closing line</a>
+        </div>
+        <div>
+          <span>More</span>
+          <a href="#tests">Older tests</a>
+          <a href="#calibration">Calibration</a>
+          <a href="#nerds">For the stats nerds</a>
+        </div>
       </nav>
 
       <section className="block" id="units" aria-labelledby="units-h">
