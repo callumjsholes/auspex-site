@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T23:50:29+00:00",
+ "generated_at": "2026-10-28T02:10:24+00:00",
  "today": "2026-10-27",
  "games": [
   {
@@ -10,8 +10,8 @@
    "start_utc": "2026-10-27T23:30Z",
    "state": "in",
    "completed": false,
-   "hs": 8,
-   "as_": 12,
+   "hs": 117,
+   "as_": 117,
    "locked": true,
    "picks": 3
   },
@@ -21,10 +21,10 @@
    "home": "NYK",
    "away": "DET",
    "start_utc": "2026-10-28T00:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 84,
+   "as_": 63,
    "locked": true,
    "picks": 3
   },
@@ -34,10 +34,10 @@
    "home": "SAS",
    "away": "SAC",
    "start_utc": "2026-10-28T00:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 114,
+   "as_": 92,
    "locked": true,
    "picks": 2
   },
@@ -51,12 +51,36 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   }
  ],
  "next_date": "2026-10-28",
  "picks": [
+  {
+   "id": "401909880-4279888-ast",
+   "game_id": "401909880",
+   "date": "2026-10-27",
+   "start_utc": "2026-10-28T03:00Z",
+   "game": "POR@LAL",
+   "player": "Ja Morant",
+   "player_id": "4279888",
+   "team": "POR",
+   "opp": "LAL",
+   "stat": "ast",
+   "side": "Over",
+   "line": 5.5,
+   "price": -134,
+   "book": "draftkings",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -160,
+   "typical_n": 3,
+   "locked_at": "2026-10-28T02:10:24+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909879-3064440-pts",
    "game_id": "401909879",
@@ -7669,7 +7693,7 @@
   "units_typical": 24.47,
   "roi_typical": 12.4,
   "typical_picks": 198,
-  "pending": 8,
+  "pending": 9,
   "avg_clv_pts": 0.07,
   "beat_close_pct": 51.4,
   "clv_n": 212,
@@ -7690,7 +7714,7 @@
    "units_typical": 24.47,
    "roi_typical": 12.4,
    "typical_picks": 198,
-   "pending": 8,
+   "pending": 9,
    "avg_clv_pts": 0.07,
    "beat_close_pct": 51.4,
    "clv_n": 212,
