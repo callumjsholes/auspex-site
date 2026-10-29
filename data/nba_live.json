@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T23:50:28+00:00",
+ "generated_at": "2026-10-29T00:10:30+00:00",
  "today": "2026-10-28",
  "games": [
   {
@@ -10,8 +10,8 @@
    "start_utc": "2026-10-28T23:00Z",
    "state": "in",
    "completed": false,
-   "hs": 40,
-   "as_": 49,
+   "hs": 56,
+   "as_": 69,
    "locked": true,
    "picks": 3
   },
@@ -23,8 +23,8 @@
    "start_utc": "2026-10-28T23:00Z",
    "state": "in",
    "completed": false,
-   "hs": 43,
-   "as_": 50,
+   "hs": 59,
+   "as_": 69,
    "locked": true,
    "picks": 1
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-10-28T23:00Z",
    "state": "in",
    "completed": false,
-   "hs": 22,
-   "as_": 28,
+   "hs": 37,
+   "as_": 42,
    "locked": true,
    "picks": 7
   },
@@ -49,8 +49,8 @@
    "start_utc": "2026-10-28T23:00Z",
    "state": "in",
    "completed": false,
-   "hs": 25,
-   "as_": 25,
+   "hs": 40,
+   "as_": 50,
    "locked": true,
    "picks": 1
   },
@@ -62,8 +62,8 @@
    "start_utc": "2026-10-28T23:30Z",
    "state": "in",
    "completed": false,
-   "hs": 7,
-   "as_": 10,
+   "hs": 29,
+   "as_": 25,
    "locked": true,
    "picks": 9
   },
@@ -112,7 +112,7 @@
    "home": "NOP",
    "away": "DEN",
    "start_utc": "2026-10-29T00:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
    "hs": 0,
    "as_": 0,
@@ -129,8 +129,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909891",
@@ -161,6 +161,30 @@
  ],
  "next_date": "2026-10-29",
  "picks": [
+  {
+   "id": "401909890-4397077-reb",
+   "game_id": "401909890",
+   "date": "2026-10-28",
+   "start_utc": "2026-10-29T01:00Z",
+   "game": "SAS@UTA",
+   "player": "Jaxson Hayes",
+   "player_id": "4397077",
+   "team": "UTA",
+   "opp": "SAS",
+   "stat": "reb",
+   "side": "Under",
+   "line": 5.5,
+   "price": 108,
+   "book": "fanduel",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -115,
+   "typical_n": 4,
+   "locked_at": "2026-10-29T00:10:30+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909888-4397002-ast",
    "game_id": "401909888",
@@ -8899,7 +8923,7 @@
   "units_typical": 22.68,
   "roi_typical": 11.0,
   "typical_picks": 207,
-  "pending": 31,
+  "pending": 32,
   "avg_clv_pts": 0.08,
   "beat_close_pct": 52.5,
   "clv_n": 244,
@@ -8920,7 +8944,7 @@
    "units_typical": 22.68,
    "roi_typical": 11.0,
    "typical_picks": 207,
-   "pending": 31,
+   "pending": 32,
    "avg_clv_pts": 0.08,
    "beat_close_pct": 52.5,
    "clv_n": 244,
