@@ -35,11 +35,17 @@
   "best_price": -175,
   "best_book": "betus",
   "locked_at": "2026-10-28T21:30:14+00:00",
-  "close_price": -180,
+  "close_price": -185,
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-10-28T21:30:14+00:00"
+  "close_at": "2026-10-29T00:15:15+00:00",
+  "close_median": -185,
+  "close_best": -178,
+  "close_best_book": "mybookieag",
+  "closed": true,
+  "clv_pts": 0.6,
+  "clv_cents": 0.63
  },
  {
   "game_id": 2026020202,
