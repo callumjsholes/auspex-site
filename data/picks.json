@@ -12,8 +12,8 @@
   "best_book": "betus",
   "locked_at": "2026-10-28T21:30:14+00:00",
   "close_price": -242,
-  "result": "Pending",
-  "units": null,
+  "result": "Won",
+  "units": 0.417,
   "source": "live",
   "close_at": "2026-10-28T23:15:17+00:00",
   "close_median": -242,
@@ -21,7 +21,10 @@
   "close_best_book": "betmgm",
   "closed": true,
   "clv_pts": 0.4,
-  "clv_cents": 0.17
+  "clv_cents": 0.17,
+  "home_score": 5,
+  "away_score": 2,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020200,
@@ -36,8 +39,8 @@
   "best_book": "betus",
   "locked_at": "2026-10-28T21:30:14+00:00",
   "close_price": -185,
-  "result": "Pending",
-  "units": null,
+  "result": "Won",
+  "units": 0.556,
   "source": "live",
   "close_at": "2026-10-29T00:15:15+00:00",
   "close_median": -185,
@@ -45,7 +48,10 @@
   "close_best_book": "mybookieag",
   "closed": true,
   "clv_pts": 0.6,
-  "clv_cents": 0.63
+  "clv_cents": 0.63,
+  "home_score": 4,
+  "away_score": 0,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020202,
@@ -60,8 +66,8 @@
   "best_book": "betrivers",
   "locked_at": "2026-10-28T21:30:14+00:00",
   "close_price": 110,
-  "result": "Pending",
-  "units": null,
+  "result": "Won",
+  "units": 2.3,
   "source": "live",
   "close_at": "2026-10-29T01:45:13+00:00",
   "close_median": 110,
@@ -69,7 +75,10 @@
   "close_best_book": "betmgm",
   "closed": true,
   "clv_pts": 0.7,
-  "clv_cents": 1.11
+  "clv_cents": 1.11,
+  "home_score": 5,
+  "away_score": 4,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020195,
