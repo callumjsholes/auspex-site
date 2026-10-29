@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T00:40:33+00:00",
+ "generated_at": "2026-10-29T00:50:25+00:00",
  "today": "2026-10-28",
  "games": [
   {
@@ -10,8 +10,8 @@
    "start_utc": "2026-10-28T23:00Z",
    "state": "in",
    "completed": false,
-   "hs": 75,
-   "as_": 87,
+   "hs": 85,
+   "as_": 97,
    "locked": true,
    "picks": 3
   },
@@ -23,8 +23,8 @@
    "start_utc": "2026-10-28T23:00Z",
    "state": "in",
    "completed": false,
-   "hs": 80,
-   "as_": 87,
+   "hs": 90,
+   "as_": 92,
    "locked": true,
    "picks": 1
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-10-28T23:00Z",
    "state": "in",
    "completed": false,
-   "hs": 51,
-   "as_": 56,
+   "hs": 67,
+   "as_": 61,
    "locked": true,
    "picks": 7
   },
@@ -49,7 +49,7 @@
    "start_utc": "2026-10-28T23:00Z",
    "state": "in",
    "completed": false,
-   "hs": 54,
+   "hs": 67,
    "as_": 62,
    "locked": true,
    "picks": 1
@@ -62,8 +62,8 @@
    "start_utc": "2026-10-28T23:30Z",
    "state": "in",
    "completed": false,
-   "hs": 55,
-   "as_": 48,
+   "hs": 69,
+   "as_": 53,
    "locked": true,
    "picks": 9
   },
@@ -75,8 +75,8 @@
    "start_utc": "2026-10-29T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 30,
-   "as_": 34,
+   "hs": 44,
+   "as_": 41,
    "locked": true,
    "picks": 1
   },
@@ -88,8 +88,8 @@
    "start_utc": "2026-10-29T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 21,
-   "as_": 23,
+   "hs": 24,
+   "as_": 34,
    "locked": true,
    "picks": 2
   },
@@ -101,8 +101,8 @@
    "start_utc": "2026-10-29T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 23,
-   "as_": 29,
+   "hs": 31,
+   "as_": 33,
    "locked": true,
    "picks": 3
   },
@@ -114,8 +114,8 @@
    "start_utc": "2026-10-29T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 22,
-   "as_": 39,
+   "hs": 30,
+   "as_": 46,
    "locked": true,
    "picks": 4
   },
@@ -207,7 +207,18 @@
    "locked_at": "2026-10-29T00:10:30+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-29T00:50:25+00:00",
+   "close_median": -118,
+   "close_best": -113,
+   "close_best_book": "williamhill_us",
+   "close_quote_line": 5.5,
+   "close_line_exact": true,
+   "clv_pts": 1.5,
+   "close_price": -120,
+   "close_line": 5.5,
+   "clv_cents": 6.05
   },
   {
    "id": "401909888-4397002-ast",
@@ -8948,12 +8959,12 @@
   "roi_typical": 11.0,
   "typical_picks": 207,
   "pending": 33,
-  "avg_clv_pts": 0.08,
-  "beat_close_pct": 52.5,
-  "clv_n": 244,
-  "avg_clv_cents": 1.95,
+  "avg_clv_pts": 0.09,
+  "beat_close_pct": 52.7,
+  "clv_n": 245,
+  "avg_clv_cents": 1.97,
   "beat_close_cents_pct": 89.1,
-  "clv_cents_n": 238,
+  "clv_cents_n": 239,
   "clv_na": 7
  },
  "by_tier": {
@@ -8969,12 +8980,12 @@
    "roi_typical": 11.0,
    "typical_picks": 207,
    "pending": 33,
-   "avg_clv_pts": 0.08,
-   "beat_close_pct": 52.5,
-   "clv_n": 244,
-   "avg_clv_cents": 1.95,
+   "avg_clv_pts": 0.09,
+   "beat_close_pct": 52.7,
+   "clv_n": 245,
+   "avg_clv_cents": 1.97,
    "beat_close_cents_pct": 89.1,
-   "clv_cents_n": 238,
+   "clv_cents_n": 239,
    "clv_na": 7
   }
  },
