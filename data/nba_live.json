@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T23:10:28+00:00",
+ "generated_at": "2026-10-29T23:50:28+00:00",
  "today": "2026-10-29",
  "games": [
   {
@@ -66,7 +66,18 @@
    "locked_at": "2026-10-29T23:10:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-29T23:50:28+00:00",
+   "close_median": -105,
+   "close_best": -102,
+   "close_best_book": "fanduel",
+   "close_quote_line": 6.5,
+   "close_line_exact": true,
+   "clv_pts": 0.4,
+   "close_price": -102,
+   "close_line": 6.5,
+   "clv_cents": 0.72
   },
   {
    "id": "401909893-4431680-reb",
@@ -90,7 +101,18 @@
    "locked_at": "2026-10-29T23:10:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-29T23:50:28+00:00",
+   "close_median": -114,
+   "close_best": 100,
+   "close_best_book": "betmgm",
+   "close_quote_line": 6.5,
+   "close_line_exact": true,
+   "clv_pts": -0.6,
+   "close_price": 100,
+   "close_line": 6.5,
+   "clv_cents": 3.27
   },
   {
    "id": "401909893-4397183-reb",
@@ -114,7 +136,18 @@
    "locked_at": "2026-10-29T23:10:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-29T23:50:28+00:00",
+   "close_median": -140,
+   "close_best": -122,
+   "close_best_book": "betrivers",
+   "close_quote_line": 3.5,
+   "close_line_exact": true,
+   "clv_pts": -0.3,
+   "close_price": -122,
+   "close_line": 3.5,
+   "clv_cents": 2.98
   },
   {
    "id": "401909893-4397183-pts",
@@ -138,7 +171,17 @@
    "locked_at": "2026-10-29T23:10:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-29T23:50:28+00:00",
+   "close_median": -109,
+   "close_best": -105,
+   "close_best_book": "betrivers",
+   "close_quote_line": 11.5,
+   "close_line_exact": true,
+   "clv_pts": -0.2,
+   "close_line": 11.5,
+   "clv_cents": 2.15
   },
   {
    "id": "401909892-4066457-ast",
@@ -9126,12 +9169,12 @@
   "roi_typical": 10.9,
   "typical_picks": 244,
   "pending": 4,
-  "avg_clv_pts": 0.08,
-  "beat_close_pct": 52.4,
-  "clv_n": 250,
-  "avg_clv_cents": 1.94,
-  "beat_close_cents_pct": 88.5,
-  "clv_cents_n": 244,
+  "avg_clv_pts": 0.07,
+  "beat_close_pct": 52.0,
+  "clv_n": 254,
+  "avg_clv_cents": 1.95,
+  "beat_close_cents_pct": 88.7,
+  "clv_cents_n": 248,
   "clv_na": 7
  },
  "by_tier": {
@@ -9147,12 +9190,12 @@
    "roi_typical": 10.9,
    "typical_picks": 244,
    "pending": 4,
-   "avg_clv_pts": 0.08,
-   "beat_close_pct": 52.4,
-   "clv_n": 250,
-   "avg_clv_cents": 1.94,
-   "beat_close_cents_pct": 88.5,
-   "clv_cents_n": 244,
+   "avg_clv_pts": 0.07,
+   "beat_close_pct": 52.0,
+   "clv_n": 254,
+   "avg_clv_cents": 1.95,
+   "beat_close_cents_pct": 88.7,
+   "clv_cents_n": 248,
    "clv_na": 7
   }
  },
