@@ -1,5 +1,23 @@
 [
  {
+  "game_id": 2026020214,
+  "date": "2026-10-30",
+  "game": "NJD@VGK",
+  "team": "VGK",
+  "side": "home",
+  "stake": 1,
+  "tier": "Bet",
+  "price": -111,
+  "best_price": -110,
+  "best_book": "betmgm",
+  "locked_at": "2026-10-30T20:00:17+00:00",
+  "close_price": -111,
+  "result": "Pending",
+  "units": null,
+  "source": "live",
+  "close_at": "2026-10-30T20:00:17+00:00"
+ },
+ {
   "game_id": 2026020203,
   "date": "2026-10-29",
   "game": "CHI@DET",
