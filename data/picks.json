@@ -12,8 +12,8 @@
   "best_book": "betonlineag",
   "locked_at": "2026-10-29T21:00:16+00:00",
   "close_price": -156,
-  "result": "Pending",
-  "units": null,
+  "result": "Won",
+  "units": 1.274,
   "source": "live",
   "close_at": "2026-10-29T23:15:13+00:00",
   "close_median": -156,
@@ -21,7 +21,10 @@
   "close_best_book": "betus",
   "closed": true,
   "clv_pts": -0.3,
-  "clv_cents": -0.15
+  "clv_cents": -0.15,
+  "home_score": 4,
+  "away_score": 1,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020206,
@@ -36,8 +39,8 @@
   "best_book": "betus",
   "locked_at": "2026-10-29T21:00:16+00:00",
   "close_price": -260,
-  "result": "Pending",
-  "units": null,
+  "result": "Won",
+  "units": 0.4,
   "source": "live",
   "close_at": "2026-10-29T22:45:15+00:00",
   "close_median": -260,
@@ -45,7 +48,10 @@
   "close_best_book": "betus",
   "closed": true,
   "clv_pts": 0.4,
-  "clv_cents": 0.79
+  "clv_cents": 0.79,
+  "home_score": 3,
+  "away_score": 2,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020211,
@@ -60,8 +66,8 @@
   "best_book": "betonlineag",
   "locked_at": "2026-10-29T21:00:16+00:00",
   "close_price": 125,
-  "result": "Pending",
-  "units": null,
+  "result": "Lost",
+  "units": -1,
   "source": "live",
   "close_at": "2026-10-30T01:45:11+00:00",
   "close_median": 125,
@@ -69,7 +75,10 @@
   "close_best_book": "draftkings",
   "closed": true,
   "clv_pts": -1.0,
-  "clv_cents": -1.01
+  "clv_cents": -1.01,
+  "home_score": 6,
+  "away_score": 7,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020199,

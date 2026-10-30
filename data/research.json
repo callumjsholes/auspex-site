@@ -85,12 +85,12 @@
  "nhl_calibration": [
   {
    "bin": "40\u201350%",
-   "model_pred": 0.458,
-   "model_obs": 0.75,
-   "model_n": 4,
-   "book_pred": 0.396,
-   "book_obs": 0.75,
-   "book_n": 4
+   "model_pred": 0.465,
+   "model_obs": 0.6,
+   "model_n": 5,
+   "book_pred": 0.405,
+   "book_obs": 0.6,
+   "book_n": 5
   },
   {
    "bin": "50\u201360%",
@@ -103,21 +103,21 @@
   },
   {
    "bin": "60\u201370%",
-   "model_pred": 0.661,
-   "model_obs": 0.667,
-   "model_n": 3,
-   "book_pred": 0.596,
-   "book_obs": 0.667,
-   "book_n": 3
+   "model_pred": 0.667,
+   "model_obs": 0.75,
+   "model_n": 4,
+   "book_pred": 0.594,
+   "book_obs": 0.75,
+   "book_n": 4
   },
   {
    "bin": "70\u201380%",
-   "model_pred": 0.748,
-   "model_obs": 0.5,
-   "model_n": 2,
-   "book_pred": 0.666,
-   "book_obs": 0.5,
-   "book_n": 2
+   "model_pred": 0.755,
+   "model_obs": 0.667,
+   "model_n": 3,
+   "book_pred": 0.673,
+   "book_obs": 0.667,
+   "book_n": 3
   }
  ]
 }
