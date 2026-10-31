@@ -2,30 +2,30 @@
  "nba_calibration": [
   {
    "bin": "40\u201350%",
-   "model_pred": 0.47,
-   "model_obs": 0.586,
-   "model_n": 29,
+   "model_pred": 0.471,
+   "model_obs": 0.567,
+   "model_n": 30,
    "book_pred": 0.431,
-   "book_obs": 0.586,
-   "book_n": 29
+   "book_obs": 0.567,
+   "book_n": 30
   },
   {
    "bin": "50\u201360%",
-   "model_pred": 0.549,
-   "model_obs": 0.563,
-   "model_n": 190,
+   "model_pred": 0.55,
+   "model_obs": 0.572,
+   "model_n": 194,
    "book_pred": 0.502,
-   "book_obs": 0.563,
-   "book_n": 190
+   "book_obs": 0.572,
+   "book_n": 194
   },
   {
    "bin": "60\u201370%",
    "model_pred": 0.623,
-   "model_obs": 0.676,
-   "model_n": 37,
+   "model_obs": 0.684,
+   "model_n": 38,
    "book_pred": 0.567,
-   "book_obs": 0.676,
-   "book_n": 37
+   "book_obs": 0.684,
+   "book_n": 38
   }
  ],
  "nba_ev_buckets": [],

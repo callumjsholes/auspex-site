@@ -1,19 +1,7 @@
 {
- "generated_at": "2026-10-31T01:11:12+00:00",
+ "generated_at": "2026-10-31T01:50:28+00:00",
  "keep_watching_until": "2026-10-31T19:00:00+00:00",
  "events": [
-  {
-   "at": "2026-10-31T01:50:00+00:00",
-   "key": "nba:close",
-   "mode": "skip",
-   "nba_mode": "close"
-  },
-  {
-   "at": "2026-10-31T02:30:00+00:00",
-   "key": "nba:grade",
-   "mode": "skip",
-   "nba_mode": "grade"
-  },
   {
    "at": "2026-10-31T03:00:00+00:00",
    "key": "nba:grade",
