@@ -39,7 +39,13 @@
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-10-31T15:00:15+00:00"
+  "close_at": "2026-10-31T17:45:21+00:00",
+  "close_median": -110,
+  "close_best": -107,
+  "close_best_book": "betonlineag",
+  "closed": true,
+  "clv_pts": -0.3,
+  "clv_cents": 0.0
  },
  {
   "game_id": 2026020221,
