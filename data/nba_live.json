@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-31T22:10:36+00:00",
+ "generated_at": "2026-10-31T22:50:23+00:00",
  "today": "2026-10-31",
  "games": [
   {
@@ -21,10 +21,10 @@
    "home": "CHA",
    "away": "PHI",
    "start_utc": "2026-10-31T22:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 42,
+   "as_": 38,
    "locked": true,
    "picks": 8
   },
@@ -118,7 +118,18 @@
    "locked_at": "2026-10-31T22:10:36+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-31T22:50:23+00:00",
+   "close_median": -152,
+   "close_best": -130,
+   "close_best_book": "fanduel",
+   "close_quote_line": 3.5,
+   "close_line_exact": true,
+   "clv_pts": -0.5,
+   "close_price": -130,
+   "close_line": 3.5,
+   "clv_cents": 4.18
   },
   {
    "id": "401909898-4397183-pts",
@@ -142,7 +153,18 @@
    "locked_at": "2026-10-31T22:10:36+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-31T22:50:23+00:00",
+   "close_median": -116,
+   "close_best": -113,
+   "close_best_book": "williamhill_us",
+   "close_quote_line": 12.5,
+   "close_line_exact": true,
+   "clv_pts": -0.1,
+   "close_price": -113,
+   "close_line": 12.5,
+   "clv_cents": 0.65
   },
   {
    "id": "401909897-4431678-pts",
@@ -10735,11 +10757,11 @@
   "typical_picks": 281,
   "pending": 10,
   "avg_clv_pts": 0.09,
-  "beat_close_pct": 51.5,
-  "clv_n": 295,
+  "beat_close_pct": 51.2,
+  "clv_n": 297,
   "avg_clv_cents": 1.97,
-  "beat_close_cents_pct": 89.6,
-  "clv_cents_n": 289,
+  "beat_close_cents_pct": 89.7,
+  "clv_cents_n": 291,
   "clv_na": 7
  },
  "by_tier": {
@@ -10756,11 +10778,11 @@
    "typical_picks": 281,
    "pending": 10,
    "avg_clv_pts": 0.09,
-   "beat_close_pct": 51.5,
-   "clv_n": 295,
+   "beat_close_pct": 51.2,
+   "clv_n": 297,
    "avg_clv_cents": 1.97,
-   "beat_close_cents_pct": 89.6,
-   "clv_cents_n": 289,
+   "beat_close_cents_pct": 89.7,
+   "clv_cents_n": 291,
    "clv_na": 7
   }
  },
