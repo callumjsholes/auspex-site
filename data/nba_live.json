@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-31T21:10:28+00:00",
+ "generated_at": "2026-10-31T21:50:28+00:00",
  "today": "2026-10-31",
  "games": [
   {
@@ -8,10 +8,10 @@
    "home": "UTA",
    "away": "POR",
    "start_utc": "2026-10-31T19:00Z",
-   "state": "in",
-   "completed": false,
-   "hs": 72,
-   "as_": 96,
+   "state": "post",
+   "completed": true,
+   "hs": 90,
+   "as_": 112,
    "locked": true,
    "picks": 2
   },
@@ -118,7 +118,17 @@
    "locked_at": "2026-10-31T21:10:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-31T21:50:28+00:00",
+   "close_median": -120,
+   "close_best": -115,
+   "close_best_book": "fanduel",
+   "close_quote_line": 27.5,
+   "close_line_exact": false,
+   "clv_pts": -0.1,
+   "close_line": 27.5,
+   "clv_cents": 1.06
   },
   {
    "id": "401909897-4602025-ast",
@@ -142,7 +152,18 @@
    "locked_at": "2026-10-31T21:10:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-31T21:50:28+00:00",
+   "close_median": 110,
+   "close_best": 128,
+   "close_best_book": "draftkings",
+   "close_quote_line": 2.5,
+   "close_line_exact": true,
+   "clv_pts": 0.2,
+   "close_price": 128,
+   "close_line": 2.5,
+   "clv_cents": 3.76
   },
   {
    "id": "401909897-3032979-ast",
@@ -166,7 +187,18 @@
    "locked_at": "2026-10-31T21:10:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-31T21:50:28+00:00",
+   "close_median": 104,
+   "close_best": 115,
+   "close_best_book": "betmgm",
+   "close_quote_line": 5.5,
+   "close_line_exact": true,
+   "clv_pts": -0.4,
+   "close_price": 107,
+   "close_line": 5.5,
+   "clv_cents": 0.71
   },
   {
    "id": "401909897-4433287-pts",
@@ -190,7 +222,18 @@
    "locked_at": "2026-10-31T21:10:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-31T21:50:28+00:00",
+   "close_median": -105,
+   "close_best": -104,
+   "close_best_book": "fanduel",
+   "close_quote_line": 25.5,
+   "close_line_exact": true,
+   "clv_pts": -0.3,
+   "close_price": -104,
+   "close_line": 25.5,
+   "clv_cents": 0.24
   },
   {
    "id": "401909897-5105637-reb",
@@ -214,7 +257,17 @@
    "locked_at": "2026-10-31T21:10:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-31T21:50:28+00:00",
+   "close_median": -138,
+   "close_best": -132,
+   "close_best_book": "betrivers",
+   "close_quote_line": 6.5,
+   "close_line_exact": true,
+   "clv_pts": 7.3,
+   "close_line": 6.5,
+   "clv_cents": 8.96
   },
   {
    "id": "401909897-4396971-pts",
@@ -238,7 +291,18 @@
    "locked_at": "2026-10-31T21:10:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-31T21:50:28+00:00",
+   "close_median": -120,
+   "close_best": -120,
+   "close_best_book": "draftkings",
+   "close_quote_line": 18.5,
+   "close_line_exact": true,
+   "clv_pts": 0.4,
+   "close_price": -120,
+   "close_line": 17.5,
+   "clv_cents": 0.84
   },
   {
    "id": "401909897-5105637-pts",
@@ -262,7 +326,18 @@
    "locked_at": "2026-10-31T21:10:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-31T21:50:28+00:00",
+   "close_median": -132,
+   "close_best": -127,
+   "close_best_book": "betrivers",
+   "close_quote_line": 6.5,
+   "close_line_exact": true,
+   "clv_pts": 3.9,
+   "close_price": -138,
+   "close_line": 6.5,
+   "clv_cents": 6.65
   },
   {
    "id": "401909897-3032979-pts",
@@ -286,7 +361,18 @@
    "locked_at": "2026-10-31T21:10:28+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-10-31T21:50:28+00:00",
+   "close_median": -128,
+   "close_best": -125,
+   "close_best_book": "betmgm",
+   "close_quote_line": 14.5,
+   "close_line_exact": true,
+   "clv_pts": 0.9,
+   "close_price": -125,
+   "close_line": 13.5,
+   "clv_cents": 2.65
   },
   {
    "id": "401909896-4433627-ast",
@@ -308,9 +394,9 @@
    "typical_price": -146,
    "typical_n": 3,
    "locked_at": "2026-10-31T18:10:28+00:00",
-   "result": "Pending",
-   "units": null,
-   "units_typical": null,
+   "result": "Won",
+   "units": 0.813,
+   "units_typical": 0.685,
    "closed": true,
    "close_at": "2026-10-31T18:50:33+00:00",
    "close_median": -150,
@@ -321,7 +407,8 @@
    "clv_pts": 1.2,
    "close_price": -139,
    "close_line": 6.5,
-   "clv_cents": 4.84
+   "clv_cents": 4.84,
+   "actual": 4.0
   },
   {
    "id": "401909896-6606-ast",
@@ -343,9 +430,9 @@
    "typical_price": 114,
    "typical_n": 5,
    "locked_at": "2026-10-31T18:10:28+00:00",
-   "result": "Pending",
-   "units": null,
-   "units_typical": null,
+   "result": "Lost",
+   "units": -1.0,
+   "units_typical": -1.0,
    "closed": true,
    "close_at": "2026-10-31T18:50:33+00:00",
    "close_median": 120,
@@ -356,7 +443,8 @@
    "clv_pts": -1.3,
    "close_price": 130,
    "close_line": 5.5,
-   "clv_cents": 1.59
+   "clv_cents": 1.59,
+   "actual": 4.0
   },
   {
    "id": "401909286-5203685-reb",
@@ -10587,44 +10675,44 @@
   }
  ],
  "summary": {
-  "bets": 286,
-  "wins": 166,
-  "losses": 120,
+  "bets": 288,
+  "wins": 167,
+  "losses": 121,
   "pushes": 0,
-  "staked": 286.0,
-  "units": 35.97,
-  "roi": 12.6,
-  "units_typical": 24.98,
-  "roi_typical": 9.0,
-  "typical_picks": 279,
-  "pending": 10,
-  "avg_clv_pts": 0.05,
-  "beat_close_pct": 51.2,
-  "clv_n": 287,
-  "avg_clv_cents": 1.94,
-  "beat_close_cents_pct": 89.3,
-  "clv_cents_n": 281,
+  "staked": 288.0,
+  "units": 35.78,
+  "roi": 12.4,
+  "units_typical": 24.66,
+  "roi_typical": 8.8,
+  "typical_picks": 281,
+  "pending": 8,
+  "avg_clv_pts": 0.09,
+  "beat_close_pct": 51.5,
+  "clv_n": 295,
+  "avg_clv_cents": 1.97,
+  "beat_close_cents_pct": 89.6,
+  "clv_cents_n": 289,
   "clv_na": 7
  },
  "by_tier": {
   "Pick": {
-   "bets": 286,
-   "wins": 166,
-   "losses": 120,
+   "bets": 288,
+   "wins": 167,
+   "losses": 121,
    "pushes": 0,
-   "staked": 286.0,
-   "units": 35.97,
-   "roi": 12.6,
-   "units_typical": 24.98,
-   "roi_typical": 9.0,
-   "typical_picks": 279,
-   "pending": 10,
-   "avg_clv_pts": 0.05,
-   "beat_close_pct": 51.2,
-   "clv_n": 287,
-   "avg_clv_cents": 1.94,
-   "beat_close_cents_pct": 89.3,
-   "clv_cents_n": 281,
+   "staked": 288.0,
+   "units": 35.78,
+   "roi": 12.4,
+   "units_typical": 24.66,
+   "roi_typical": 8.8,
+   "typical_picks": 281,
+   "pending": 8,
+   "avg_clv_pts": 0.09,
+   "beat_close_pct": 51.5,
+   "clv_n": 295,
+   "avg_clv_cents": 1.97,
+   "beat_close_cents_pct": 89.6,
+   "clv_cents_n": 289,
    "clv_na": 7
   }
  },
@@ -10672,6 +10760,10 @@
   {
    "date": "2026-10-30",
    "units": 35.97
+  },
+  {
+   "date": "2026-10-31",
+   "units": 35.78
   }
  ],
  "rules": {
