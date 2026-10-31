@@ -1,6 +1,6 @@
 {
  "date": "2026-10-31",
- "generated_at": "2026-10-31T13:15:15+00:00",
+ "generated_at": "2026-10-31T15:00:15+00:00",
  "games": [
   {
    "game_id": 2026020217,
@@ -32,7 +32,14 @@
    "away_goalie": "Joel Hofer",
    "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "n_books": 11,
+   "home_price": -102,
+   "away_price": -115,
+   "edge_side": "home",
+   "edge_team": "DET",
+   "stake": 2,
+   "tier": "Best bet",
+   "locked": true
   },
   {
    "game_id": 2026020219,
@@ -64,7 +71,14 @@
    "away_goalie": "Tristan Jarry",
    "home_goalie_status": "Unconfirmed",
    "away_goalie_status": "Confirmed",
-   "locked": false
+   "n_books": 11,
+   "home_price": -108,
+   "away_price": -110,
+   "edge_side": "away",
+   "edge_team": "EDM",
+   "stake": 2,
+   "tier": "Best bet",
+   "locked": true
   },
   {
    "game_id": 2026020221,
@@ -80,7 +94,14 @@
    "away_goalie": "Ukko-Pekka Luukkonen",
    "home_goalie_status": "Unconfirmed",
    "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "n_books": 11,
+   "home_price": 110,
+   "away_price": -130,
+   "edge_side": "home",
+   "edge_team": "LAK",
+   "stake": 2,
+   "tier": "Best bet",
+   "locked": true
   },
   {
    "game_id": 2026020222,
@@ -110,7 +131,7 @@
    "away_score": null,
    "home_goalie": "Jacob Fowler",
    "away_goalie": "Sergei Murashov",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed",
    "locked": false
   },
