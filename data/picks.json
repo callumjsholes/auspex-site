@@ -12,8 +12,8 @@
   "best_book": "betmgm",
   "locked_at": "2026-10-30T20:00:17+00:00",
   "close_price": -113,
-  "result": "Pending",
-  "units": null,
+  "result": "Lost",
+  "units": -1,
   "source": "live",
   "close_at": "2026-10-30T21:45:14+00:00",
   "close_median": -113,
@@ -21,7 +21,10 @@
   "close_best_book": "fanduel",
   "closed": true,
   "clv_pts": 0.2,
-  "clv_cents": 0.45
+  "clv_cents": 0.45,
+  "home_score": 2,
+  "away_score": 5,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020203,
