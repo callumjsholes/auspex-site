@@ -2,21 +2,21 @@
  "nba_calibration": [
   {
    "bin": "40\u201350%",
-   "model_pred": 0.47,
-   "model_obs": 0.515,
-   "model_n": 33,
+   "model_pred": 0.469,
+   "model_obs": 0.529,
+   "model_n": 34,
    "book_pred": 0.431,
-   "book_obs": 0.515,
-   "book_n": 33
+   "book_obs": 0.529,
+   "book_n": 34
   },
   {
    "bin": "50\u201360%",
    "model_pred": 0.549,
-   "model_obs": 0.572,
-   "model_n": 215,
+   "model_obs": 0.577,
+   "model_n": 222,
    "book_pred": 0.501,
-   "book_obs": 0.572,
-   "book_n": 215
+   "book_obs": 0.577,
+   "book_n": 222
   },
   {
    "bin": "60\u201370%",
