@@ -1,18 +1,18 @@
 {
- "generated_at": "2026-11-01T03:30:23+00:00",
- "keep_watching_until": "2026-11-01T22:00:00+00:00",
+ "generated_at": "2026-11-01T14:15:37+00:00",
+ "keep_watching_until": "2026-11-02T02:00:00+00:00",
  "events": [
-  {
-   "at": "2026-11-01T14:15:00+00:00",
-   "key": "morning",
-   "mode": "morning",
-   "nba_mode": "skip"
-  },
   {
    "at": "2026-11-01T15:15:00+00:00",
    "key": "nba:morning",
    "mode": "skip",
    "nba_mode": "morning"
+  },
+  {
+   "at": "2026-11-01T16:00:00+00:00",
+   "key": "pregame",
+   "mode": "pregame",
+   "nba_mode": "skip"
   },
   {
    "at": "2026-11-01T19:40:00+00:00",
@@ -33,7 +33,31 @@
    "nba_mode": "grade"
   },
   {
+   "at": "2026-11-02T00:40:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
+   "at": "2026-11-02T01:10:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
    "at": "2026-11-02T01:30:00+00:00",
+   "key": "nba:grade",
+   "mode": "skip",
+   "nba_mode": "grade"
+  },
+  {
+   "at": "2026-11-02T05:00:00+00:00",
+   "key": "nba:grade",
+   "mode": "skip",
+   "nba_mode": "grade"
+  },
+  {
+   "at": "2026-11-02T05:30:00+00:00",
    "key": "nba:grade",
    "mode": "skip",
    "nba_mode": "grade"
@@ -49,10 +73,15 @@
    "key": "nba:morning",
    "mode": "skip",
    "nba_mode": "morning"
+  },
+  {
+   "at": "2026-11-03T14:15:00+00:00",
+   "key": "morning",
+   "mode": "morning",
+   "nba_mode": "skip"
   }
  ],
  "nhl_morning_done": [
-  "2026-10-21",
   "2026-10-22",
   "2026-10-23",
   "2026-10-24",
@@ -62,7 +91,8 @@
   "2026-10-28",
   "2026-10-29",
   "2026-10-30",
-  "2026-10-31"
+  "2026-10-31",
+  "2026-11-01"
  ],
  "nba_morning_done": [
   "2026-10-27",
