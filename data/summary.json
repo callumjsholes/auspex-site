@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-01T14:15:15+00:00",
+ "generated_at": "2026-11-01T16:00:16+00:00",
  "today": "2026-11-01",
  "live": {
   "bets": 22,
@@ -10,7 +10,7 @@
   "roi": 14.3,
   "avg_clv_pts": -0.1,
   "beat_close_pct": 40.9,
-  "pending": 0,
+  "pending": 2,
   "close_ev_units": -1.31,
   "close_ev_roi": -4.0,
   "close_picks": 22,
@@ -29,7 +29,7 @@
    "roi": 11.3,
    "avg_clv_pts": -0.2,
    "beat_close_pct": 54.5,
-   "pending": 0,
+   "pending": 1,
    "close_ev_units": -0.47,
    "close_ev_roi": -4.3,
    "close_picks": 11,
@@ -47,7 +47,7 @@
    "roi": 15.7,
    "avg_clv_pts": 0.01,
    "beat_close_pct": 27.3,
-   "pending": 0,
+   "pending": 1,
    "close_ev_units": -0.83,
    "close_ev_roi": -3.8,
    "close_picks": 11,

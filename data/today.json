@@ -1,6 +1,6 @@
 {
  "date": "2026-11-01",
- "generated_at": "2026-11-01T14:15:15+00:00",
+ "generated_at": "2026-11-01T16:00:16+00:00",
  "games": [
   {
    "game_id": 2026020227,
@@ -48,7 +48,14 @@
    "away_goalie": "Karel Vejmelka",
    "home_goalie_status": "Unconfirmed",
    "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "n_books": 11,
+   "home_price": 140,
+   "away_price": -168,
+   "edge_side": "away",
+   "edge_team": "UTA",
+   "stake": 2,
+   "tier": "Best bet",
+   "locked": true
   },
   {
    "game_id": 2026020230,
@@ -61,8 +68,8 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Dylan Garand",
-   "away_goalie": "Tristan Jarry",
-   "home_goalie_status": "Unconfirmed",
+   "away_goalie": "Devon Levi",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Confirmed",
    "locked": false
   },
@@ -80,7 +87,14 @@
    "away_goalie": "Jonas Johansson",
    "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "n_books": 11,
+   "home_price": 100,
+   "away_price": -118,
+   "edge_side": "home",
+   "edge_team": "ANA",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   }
  ]
 }
