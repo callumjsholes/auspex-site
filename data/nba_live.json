@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-01T20:20:29+00:00",
+ "generated_at": "2026-11-01T21:10:31+00:00",
  "today": "2026-11-01",
  "games": [
   {
@@ -8,10 +8,10 @@
    "home": "ORL",
    "away": "BOS",
    "start_utc": "2026-11-01T20:30Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 23,
+   "as_": 24,
    "locked": true,
    "picks": 4
   },
@@ -25,8 +25,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909905",
@@ -57,6 +57,30 @@
  ],
  "next_date": "2026-11-02",
  "picks": [
+  {
+   "id": "401909904-5279130-ast",
+   "game_id": "401909904",
+   "date": "2026-11-01",
+   "start_utc": "2026-11-01T22:00Z",
+   "game": "BKN@IND",
+   "player": "Nolan Traore",
+   "player_id": "5279130",
+   "team": "BKN",
+   "opp": "IND",
+   "stat": "ast",
+   "side": "Under",
+   "line": 4.5,
+   "price": -105,
+   "book": "draftkings",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -108,
+   "typical_n": 5,
+   "locked_at": "2026-11-01T21:10:31+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909903-4566434-pts",
    "game_id": "401909903",
@@ -11081,7 +11105,7 @@
   "units_typical": 31.38,
   "roi_typical": 10.6,
   "typical_picks": 297,
-  "pending": 4,
+  "pending": 5,
   "avg_clv_pts": 0.11,
   "beat_close_pct": 51.5,
   "clv_n": 307,
@@ -11102,7 +11126,7 @@
    "units_typical": 31.38,
    "roi_typical": 10.6,
    "typical_picks": 297,
-   "pending": 4,
+   "pending": 5,
    "avg_clv_pts": 0.11,
    "beat_close_pct": 51.5,
    "clv_n": 307,
