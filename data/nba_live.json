@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-01T21:50:28+00:00",
+ "generated_at": "2026-11-02T00:00:14+00:00",
  "today": "2026-11-01",
  "games": [
   {
@@ -8,10 +8,10 @@
    "home": "ORL",
    "away": "BOS",
    "start_utc": "2026-11-01T20:30Z",
-   "state": "in",
-   "completed": false,
-   "hs": 50,
-   "as_": 55,
+   "state": "post",
+   "completed": true,
+   "hs": 97,
+   "as_": 108,
    "locked": true,
    "picks": 4
   },
@@ -21,10 +21,10 @@
    "home": "IND",
    "away": "BKN",
    "start_utc": "2026-11-01T22:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 60,
+   "as_": 68,
    "locked": true,
    "picks": 1
   },
@@ -112,9 +112,9 @@
    "typical_price": -125,
    "typical_n": 3,
    "locked_at": "2026-11-01T19:40:29+00:00",
-   "result": "Pending",
-   "units": null,
-   "units_typical": null,
+   "result": "Won",
+   "units": 0.847,
+   "units_typical": 0.8,
    "closed": true,
    "close_at": "2026-11-01T20:20:29+00:00",
    "close_median": -129,
@@ -124,7 +124,8 @@
    "close_line_exact": true,
    "clv_pts": 1.0,
    "close_line": 21.5,
-   "clv_cents": 2.2
+   "clv_cents": 2.2,
+   "actual": 14.0
   },
   {
    "id": "401909903-5239561-ast",
@@ -146,9 +147,9 @@
    "typical_price": 142,
    "typical_n": 2,
    "locked_at": "2026-11-01T19:40:29+00:00",
-   "result": "Pending",
-   "units": null,
-   "units_typical": null,
+   "result": "Lost",
+   "units": -1.0,
+   "units_typical": -1.0,
    "closed": true,
    "close_at": "2026-11-01T20:20:29+00:00",
    "close_median": 144,
@@ -159,7 +160,8 @@
    "clv_pts": -0.3,
    "close_price": 145,
    "close_line": 1.5,
-   "clv_cents": 0.17
+   "clv_cents": 0.17,
+   "actual": 3.0
   },
   {
    "id": "401909903-4566434-ast",
@@ -181,9 +183,9 @@
    "typical_price": -147,
    "typical_n": 5,
    "locked_at": "2026-11-01T19:40:29+00:00",
-   "result": "Pending",
-   "units": null,
-   "units_typical": null,
+   "result": "Lost",
+   "units": -1.0,
+   "units_typical": -1.0,
    "closed": true,
    "close_at": "2026-11-01T20:20:29+00:00",
    "close_median": -147,
@@ -194,7 +196,8 @@
    "clv_pts": -0.1,
    "close_price": -130,
    "close_line": 6.5,
-   "clv_cents": 2.99
+   "clv_cents": 2.99,
+   "actual": 12.0
   },
   {
    "id": "401909903-5239561-pts",
@@ -216,9 +219,9 @@
    "typical_price": -125,
    "typical_n": 5,
    "locked_at": "2026-11-01T19:40:29+00:00",
-   "result": "Pending",
-   "units": null,
-   "units_typical": null,
+   "result": "Won",
+   "units": 0.833,
+   "units_typical": 0.8,
    "closed": true,
    "close_at": "2026-11-01T20:20:29+00:00",
    "close_median": -125,
@@ -229,7 +232,8 @@
    "clv_pts": 0.4,
    "close_price": -124,
    "close_line": 8.5,
-   "clv_cents": 1.01
+   "clv_cents": 1.01,
+   "actual": 4.0
   },
   {
    "id": "401909902-4900671-pts",
@@ -11106,17 +11110,17 @@
   }
  ],
  "summary": {
-  "bets": 304,
-  "wins": 179,
-  "losses": 125,
+  "bets": 308,
+  "wins": 181,
+  "losses": 127,
   "pushes": 0,
-  "staked": 304.0,
-  "units": 43.59,
-  "roi": 14.3,
-  "units_typical": 31.38,
-  "roi_typical": 10.6,
-  "typical_picks": 297,
-  "pending": 5,
+  "staked": 308.0,
+  "units": 43.27,
+  "roi": 14.0,
+  "units_typical": 30.98,
+  "roi_typical": 10.3,
+  "typical_picks": 301,
+  "pending": 1,
   "avg_clv_pts": 0.11,
   "beat_close_pct": 51.3,
   "clv_n": 308,
@@ -11127,17 +11131,17 @@
  },
  "by_tier": {
   "Pick": {
-   "bets": 304,
-   "wins": 179,
-   "losses": 125,
+   "bets": 308,
+   "wins": 181,
+   "losses": 127,
    "pushes": 0,
-   "staked": 304.0,
-   "units": 43.59,
-   "roi": 14.3,
-   "units_typical": 31.38,
-   "roi_typical": 10.6,
-   "typical_picks": 297,
-   "pending": 5,
+   "staked": 308.0,
+   "units": 43.27,
+   "roi": 14.0,
+   "units_typical": 30.98,
+   "roi_typical": 10.3,
+   "typical_picks": 301,
+   "pending": 1,
    "avg_clv_pts": 0.11,
    "beat_close_pct": 51.3,
    "clv_n": 308,
@@ -11195,6 +11199,10 @@
   {
    "date": "2026-10-31",
    "units": 43.59
+  },
+  {
+   "date": "2026-11-01",
+   "units": 43.27
   }
  ],
  "rules": {
