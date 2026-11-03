@@ -1,13 +1,7 @@
 {
- "generated_at": "2026-11-03T14:16:01+00:00",
+ "generated_at": "2026-11-03T15:15:42+00:00",
  "keep_watching_until": "2026-11-04T02:00:00+00:00",
  "events": [
-  {
-   "at": "2026-11-03T15:15:00+00:00",
-   "key": "nba:morning",
-   "mode": "skip",
-   "nba_mode": "morning"
-  },
   {
    "at": "2026-11-03T22:00:00+00:00",
    "key": "pregame",
@@ -31,6 +25,12 @@
    "key": "morning",
    "mode": "morning",
    "nba_mode": "skip"
+  },
+  {
+   "at": "2026-11-05T15:15:00+00:00",
+   "key": "nba:morning",
+   "mode": "skip",
+   "nba_mode": "morning"
   }
  ],
  "nhl_morning_done": [
@@ -51,7 +51,8 @@
   "2026-10-30",
   "2026-10-31",
   "2026-11-01",
-  "2026-11-02"
+  "2026-11-02",
+  "2026-11-03"
  ],
  "auspex_timer": "public"
 }
