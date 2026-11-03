@@ -12,8 +12,8 @@
   "best_book": "lowvig",
   "locked_at": "2026-11-02T22:00:15+00:00",
   "close_price": -115,
-  "result": "Pending",
-  "units": null,
+  "result": "Lost",
+  "units": -2,
   "source": "live",
   "close_at": "2026-11-02T23:45:13+00:00",
   "close_median": -115,
@@ -21,7 +21,10 @@
   "close_best_book": "lowvig",
   "closed": true,
   "clv_pts": -0.2,
-  "clv_cents": 0.0
+  "clv_cents": 0.0,
+  "home_score": 3,
+  "away_score": 2,
+  "last_period": "SO"
  },
  {
   "game_id": 2026020233,
@@ -36,8 +39,8 @@
   "best_book": "williamhill_us",
   "locked_at": "2026-11-02T22:00:15+00:00",
   "close_price": 155,
-  "result": "Pending",
-  "units": null,
+  "result": "Won",
+  "units": 1.55,
   "source": "live",
   "close_at": "2026-11-02T23:45:13+00:00",
   "close_median": 155,
@@ -45,7 +48,10 @@
   "close_best_book": "betrivers",
   "closed": true,
   "clv_pts": -0.3,
-  "clv_cents": 0.0
+  "clv_cents": 0.0,
+  "home_score": 3,
+  "away_score": 5,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020229,

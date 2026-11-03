@@ -85,21 +85,21 @@
  "nhl_calibration": [
   {
    "bin": "40\u201350%",
-   "model_pred": 0.465,
-   "model_obs": 0.6,
-   "model_n": 5,
-   "book_pred": 0.405,
-   "book_obs": 0.6,
-   "book_n": 5
+   "model_pred": 0.458,
+   "model_obs": 0.667,
+   "model_n": 6,
+   "book_pred": 0.4,
+   "book_obs": 0.667,
+   "book_n": 6
   },
   {
    "bin": "50\u201360%",
-   "model_pred": 0.569,
-   "model_obs": 0.545,
-   "model_n": 11,
-   "book_pred": 0.495,
-   "book_obs": 0.545,
-   "book_n": 11
+   "model_pred": 0.571,
+   "model_obs": 0.5,
+   "model_n": 12,
+   "book_pred": 0.497,
+   "book_obs": 0.5,
+   "book_n": 12
   },
   {
    "bin": "60\u201370%",
