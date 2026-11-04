@@ -1,5 +1,23 @@
 [
  {
+  "game_id": 2026020249,
+  "date": "2026-11-04",
+  "game": "SJS@LAK",
+  "team": "LAK",
+  "side": "home",
+  "stake": 1,
+  "tier": "Bet",
+  "price": -163,
+  "best_price": -157,
+  "best_book": "betrivers",
+  "locked_at": "2026-11-04T22:30:16+00:00",
+  "close_price": -163,
+  "result": "Pending",
+  "units": null,
+  "source": "live",
+  "close_at": "2026-11-04T22:30:16+00:00"
+ },
+ {
   "game_id": 2026020237,
   "date": "2026-11-03",
   "game": "WPG@MTL",
