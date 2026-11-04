@@ -59,11 +59,17 @@
   "best_price": 165,
   "best_book": "bovada",
   "locked_at": "2026-11-03T22:00:34+00:00",
-  "close_price": 159,
+  "close_price": 160,
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-11-03T22:00:34+00:00"
+  "close_at": "2026-11-04T01:45:15+00:00",
+  "close_median": 160,
+  "close_best": 165,
+  "close_best_book": "williamhill_us",
+  "closed": true,
+  "clv_pts": -0.2,
+  "clv_cents": -0.15
  },
  {
   "game_id": 2026020232,
