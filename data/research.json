@@ -84,13 +84,22 @@
  ],
  "nhl_calibration": [
   {
+   "bin": "30\u201340%",
+   "model_pred": 0.324,
+   "model_obs": 0.0,
+   "model_n": 1,
+   "book_pred": 0.29,
+   "book_obs": 0.0,
+   "book_n": 1
+  },
+  {
    "bin": "40\u201350%",
-   "model_pred": 0.458,
-   "model_obs": 0.667,
-   "model_n": 6,
-   "book_pred": 0.4,
-   "book_obs": 0.667,
-   "book_n": 6
+   "model_pred": 0.457,
+   "model_obs": 0.571,
+   "model_n": 7,
+   "book_pred": 0.396,
+   "book_obs": 0.571,
+   "book_n": 7
   },
   {
    "bin": "50\u201360%",
@@ -104,11 +113,11 @@
   {
    "bin": "60\u201370%",
    "model_pred": 0.67,
-   "model_obs": 0.6,
-   "model_n": 5,
-   "book_pred": 0.596,
-   "book_obs": 0.6,
-   "book_n": 5
+   "model_obs": 0.5,
+   "model_n": 6,
+   "book_pred": 0.597,
+   "book_obs": 0.5,
+   "book_n": 6
   },
   {
    "bin": "70\u201380%",
