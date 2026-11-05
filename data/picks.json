@@ -11,11 +11,17 @@
   "best_price": -157,
   "best_book": "betrivers",
   "locked_at": "2026-11-04T22:30:16+00:00",
-  "close_price": -163,
+  "close_price": -168,
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-11-04T22:30:16+00:00"
+  "close_at": "2026-11-05T02:45:11+00:00",
+  "close_median": -168,
+  "close_best": -164,
+  "close_best_book": "betonlineag",
+  "closed": true,
+  "clv_pts": 1.0,
+  "clv_cents": 0.71
  },
  {
   "game_id": 2026020237,
