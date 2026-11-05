@@ -15,7 +15,13 @@
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-11-05T22:00:14+00:00"
+  "close_at": "2026-11-05T23:45:16+00:00",
+  "close_median": -125,
+  "close_best": -118,
+  "close_best_book": "williamhill_us",
+  "closed": true,
+  "clv_pts": 0.0,
+  "clv_cents": 0.0
  },
  {
   "game_id": 2026020256,
@@ -29,11 +35,17 @@
   "best_price": -140,
   "best_book": "williamhill_us",
   "locked_at": "2026-11-05T22:00:14+00:00",
-  "close_price": -145,
+  "close_price": -147,
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-11-05T22:00:14+00:00"
+  "close_at": "2026-11-05T23:45:16+00:00",
+  "close_median": -147,
+  "close_best": -140,
+  "close_best_book": "williamhill_us",
+  "closed": true,
+  "clv_pts": 0.4,
+  "clv_cents": 0.33
  },
  {
   "game_id": 2026020249,
