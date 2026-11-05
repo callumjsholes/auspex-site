@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T01:50:22+00:00",
+ "generated_at": "2026-11-05T02:10:29+00:00",
  "today": "2026-11-04",
  "games": [
   {
@@ -10,8 +10,8 @@
    "start_utc": "2026-11-05T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 54,
-   "as_": 64,
+   "hs": 75,
+   "as_": 89,
    "locked": true,
    "picks": 1
   },
@@ -23,8 +23,8 @@
    "start_utc": "2026-11-05T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 81,
-   "as_": 91,
+   "hs": 94,
+   "as_": 108,
    "locked": true,
    "picks": 2
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-11-05T00:30Z",
    "state": "in",
    "completed": false,
-   "hs": 62,
-   "as_": 42,
+   "hs": 80,
+   "as_": 75,
    "locked": true,
    "picks": 6
   },
@@ -49,8 +49,8 @@
    "start_utc": "2026-11-05T00:30Z",
    "state": "in",
    "completed": false,
-   "hs": 50,
-   "as_": 57,
+   "hs": 57,
+   "as_": 59,
    "locked": true,
    "picks": 2
   },
@@ -62,8 +62,8 @@
    "start_utc": "2026-11-05T00:30Z",
    "state": "in",
    "completed": false,
-   "hs": 84,
-   "as_": 52,
+   "hs": 98,
+   "as_": 60,
    "locked": true,
    "picks": 0
   },
@@ -75,8 +75,8 @@
    "start_utc": "2026-11-05T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 37,
-   "as_": 37,
+   "hs": 52,
+   "as_": 54,
    "locked": true,
    "picks": 0
   },
@@ -88,8 +88,8 @@
    "start_utc": "2026-11-05T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 34,
-   "as_": 27,
+   "hs": 42,
+   "as_": 37,
    "locked": true,
    "picks": 3
   },
@@ -101,8 +101,8 @@
    "start_utc": "2026-11-05T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 46,
-   "as_": 23,
+   "hs": 60,
+   "as_": 44,
    "locked": true,
    "picks": 5
   },
@@ -114,8 +114,8 @@
    "start_utc": "2026-11-05T01:30Z",
    "state": "in",
    "completed": false,
-   "hs": 15,
-   "as_": 13,
+   "hs": 30,
+   "as_": 36,
    "locked": true,
    "picks": 0
   },
@@ -168,7 +168,7 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
+   "locked": true,
    "picks": 0
   },
   {
