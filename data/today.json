@@ -1,6 +1,6 @@
 {
  "date": "2026-11-05",
- "generated_at": "2026-11-05T14:15:15+00:00",
+ "generated_at": "2026-11-05T22:00:14+00:00",
  "games": [
   {
    "game_id": 2026020251,
@@ -12,11 +12,18 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Jacob Fowler",
+   "home_goalie": "Jakub Dobes",
    "away_goalie": "Sebastian Cossa",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Likely",
+   "n_books": 11,
+   "home_price": 104,
+   "away_price": -125,
+   "edge_side": "away",
+   "edge_team": "UTA",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020252,
@@ -30,7 +37,7 @@
    "away_score": null,
    "home_goalie": "Daniil Tarasov",
    "away_goalie": "Carter Hart",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
    "away_goalie_status": "Unconfirmed",
    "locked": false
   },
@@ -46,8 +53,8 @@
    "away_score": null,
    "home_goalie": "Andrei Vasilevskiy",
    "away_goalie": "Arvid Soderblom",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
+   "away_goalie_status": "Likely",
    "locked": false
   },
   {
@@ -60,10 +67,10 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Jake Allen",
-   "away_goalie": "Joel Hofer",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie": "Connor Hellebuyck",
+   "away_goalie": "Jordan Binnington",
+   "home_goalie_status": "Likely",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -76,9 +83,9 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Ilya Sorokin",
+   "home_goalie": "Semyon Varlamov",
    "away_goalie": "Brandon Bussi",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed",
    "locked": false
   },
@@ -94,9 +101,16 @@
    "away_score": null,
    "home_goalie": "Dylan Garand",
    "away_goalie": "Joseph Woll",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
+   "n_books": 11,
+   "home_price": -145,
+   "away_price": 122,
+   "edge_side": "home",
+   "edge_team": "NYR",
+   "stake": 2,
+   "tier": "Best bet",
+   "locked": true
   },
   {
    "game_id": 2026020257,
@@ -110,7 +124,7 @@
    "away_score": null,
    "home_goalie": "Arturs Silovs",
    "away_goalie": "Jeremy Swayman",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed",
    "locked": false
   },
@@ -125,9 +139,9 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Cam Talbot",
-   "away_goalie": "Jake Oettinger",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "away_goalie": "Casey DeSmith",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -142,8 +156,8 @@
    "away_score": null,
    "home_goalie": "Stuart Skinner",
    "away_goalie": "Leevi Merilinen",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Likely",
    "locked": false
   },
   {
@@ -156,10 +170,10 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Tristan Jarry",
-   "away_goalie": "Lukas Dostal",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie": "Matt Tomkins",
+   "away_goalie": "Laurent Brossoit",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Likely",
    "locked": false
   },
   {
@@ -174,7 +188,7 @@
    "away_score": null,
    "home_goalie": "Mackenzie Blackwood",
    "away_goalie": "Juuse Saros",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed",
    "locked": false
   }
