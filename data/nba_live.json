@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T01:50:26+00:00",
+ "generated_at": "2026-11-06T02:10:29+00:00",
  "today": "2026-11-05",
  "games": [
   {
@@ -25,12 +25,36 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   }
  ],
  "next_date": "2026-11-06",
  "picks": [
+  {
+   "id": "401909937-6475-ast",
+   "game_id": "401909937",
+   "date": "2026-11-05",
+   "start_utc": "2026-11-06T03:00Z",
+   "game": "MIA@GSW",
+   "player": "Klay Thompson",
+   "player_id": "6475",
+   "team": "MIA",
+   "opp": "GSW",
+   "stat": "ast",
+   "side": "Under",
+   "line": 1.5,
+   "price": 120,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": 120,
+   "typical_n": 1,
+   "locked_at": "2026-11-06T02:10:29+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909936-4712849-pts",
    "game_id": "401909936",
@@ -14197,7 +14221,7 @@
   "units_typical": 17.32,
   "roi_typical": 4.6,
   "typical_picks": 379,
-  "pending": 8,
+  "pending": 9,
   "avg_clv_pts": 0.05,
   "beat_close_pct": 50.8,
   "clv_n": 394,
@@ -14218,7 +14242,7 @@
    "units_typical": 17.32,
    "roi_typical": 4.6,
    "typical_picks": 379,
-   "pending": 8,
+   "pending": 9,
    "avg_clv_pts": 0.05,
    "beat_close_pct": 50.8,
    "clv_n": 394,
