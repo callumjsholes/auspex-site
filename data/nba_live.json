@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T15:15:30+00:00",
+ "generated_at": "2026-11-06T23:10:26+00:00",
  "today": "2026-11-06",
  "games": [
   {
@@ -12,8 +12,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909288",
@@ -25,7 +25,7 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
+   "locked": true,
    "picks": 0
   },
   {
@@ -122,6 +122,30 @@
  ],
  "next_date": "2026-11-07",
  "picks": [
+  {
+   "id": "401909287-5149077-ast",
+   "game_id": "401909287",
+   "date": "2026-11-06",
+   "start_utc": "2026-11-07T00:00Z",
+   "game": "WAS@ATL",
+   "player": "Kingston Flemings",
+   "player_id": "5149077",
+   "team": "ATL",
+   "opp": "WAS",
+   "stat": "ast",
+   "side": "Over",
+   "line": 5.5,
+   "price": 124,
+   "book": "fanduel",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": 115,
+   "typical_n": 5,
+   "locked_at": "2026-11-06T23:10:26+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909937-6475-ast",
    "game_id": "401909937",
@@ -14332,7 +14356,7 @@
   "units_typical": 13.6,
   "roi_typical": 3.5,
   "typical_picks": 388,
-  "pending": 0,
+  "pending": 1,
   "avg_clv_pts": 0.05,
   "beat_close_pct": 50.9,
   "clv_n": 395,
@@ -14353,7 +14377,7 @@
    "units_typical": 13.6,
    "roi_typical": 3.5,
    "typical_picks": 388,
-   "pending": 0,
+   "pending": 1,
    "avg_clv_pts": 0.05,
    "beat_close_pct": 50.9,
    "clv_n": 395,
