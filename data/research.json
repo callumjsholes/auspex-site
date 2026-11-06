@@ -2,12 +2,12 @@
  "nba_calibration": [
   {
    "bin": "40\u201350%",
-   "model_pred": 0.47,
-   "model_obs": 0.545,
-   "model_n": 44,
-   "book_pred": 0.432,
-   "book_obs": 0.545,
-   "book_n": 44
+   "model_pred": 0.471,
+   "model_obs": 0.533,
+   "model_n": 45,
+   "book_pred": 0.433,
+   "book_obs": 0.533,
+   "book_n": 45
   },
   {
    "bin": "50\u201360%",
