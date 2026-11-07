@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-07T21:10:26+00:00",
+ "generated_at": "2026-11-07T23:40:24+00:00",
  "today": "2026-11-07",
  "games": [
   {
@@ -8,10 +8,10 @@
    "home": "IND",
    "away": "DEN",
    "start_utc": "2026-11-07T22:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 55,
+   "as_": 74,
    "locked": true,
    "picks": 0
   },
@@ -25,8 +25,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909940",
@@ -96,6 +96,30 @@
  ],
  "next_date": "2026-11-08",
  "picks": [
+  {
+   "id": "401909939-3150844-pts",
+   "game_id": "401909939",
+   "date": "2026-11-07",
+   "start_utc": "2026-11-08T00:30Z",
+   "game": "BKN@ATL",
+   "player": "Moritz Wagner",
+   "player_id": "3150844",
+   "team": "BKN",
+   "opp": "ATL",
+   "stat": "pts",
+   "side": "Under",
+   "line": 9.5,
+   "price": 104,
+   "book": "fanduel",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -106,
+   "typical_n": 3,
+   "locked_at": "2026-11-07T23:40:24+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909295-4066262-reb",
    "game_id": "401909295",
@@ -15024,7 +15048,7 @@
   "units_typical": 10.42,
   "roi_typical": 2.6,
   "typical_picks": 408,
-  "pending": 0,
+  "pending": 1,
   "avg_clv_pts": 0.06,
   "beat_close_pct": 51.1,
   "clv_n": 415,
@@ -15045,7 +15069,7 @@
    "units_typical": 10.42,
    "roi_typical": 2.6,
    "typical_picks": 408,
-   "pending": 0,
+   "pending": 1,
    "avg_clv_pts": 0.06,
    "beat_close_pct": 51.1,
    "clv_n": 415,
