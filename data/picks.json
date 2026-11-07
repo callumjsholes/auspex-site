@@ -1,5 +1,23 @@
 [
  {
+  "game_id": 2026020274,
+  "date": "2026-11-07",
+  "game": "DET@COL",
+  "team": "DET",
+  "side": "away",
+  "stake": 1,
+  "tier": "Bet",
+  "price": 185,
+  "best_price": 195,
+  "best_book": "betrivers",
+  "locked_at": "2026-11-07T15:30:12+00:00",
+  "close_price": 185,
+  "result": "Pending",
+  "units": null,
+  "source": "live",
+  "close_at": "2026-11-07T15:30:12+00:00"
+ },
+ {
   "game_id": 2026020264,
   "date": "2026-11-06",
   "game": "ANA@CGY",

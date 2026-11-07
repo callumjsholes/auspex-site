@@ -1,6 +1,6 @@
 {
  "date": "2026-11-07",
- "generated_at": "2026-11-07T14:15:19+00:00",
+ "generated_at": "2026-11-07T15:30:12+00:00",
  "games": [
   {
    "game_id": 2026020265,
@@ -13,9 +13,9 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Logan Thompson",
-   "away_goalie": "Jacob Markstrom",
-   "home_goalie_status": "Projected",
-   "away_goalie_status": "Projected",
+   "away_goalie": "Akira Schmid",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -30,8 +30,8 @@
    "away_score": null,
    "home_goalie": "Juuse Saros",
    "away_goalie": "Joel Hofer",
-   "home_goalie_status": "Projected",
-   "away_goalie_status": "Projected",
+   "home_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Unconfirmed",
    "locked": false
   },
   {
@@ -44,10 +44,10 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Philipp Grubauer",
+   "home_goalie": "Joey Daccord",
    "away_goalie": "Dylan Garand",
-   "home_goalie_status": "Projected",
-   "away_goalie_status": "Projected",
+   "home_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Unconfirmed",
    "locked": false
   },
   {
@@ -62,8 +62,8 @@
    "away_score": null,
    "home_goalie": "Sergei Bobrovsky",
    "away_goalie": "Jacob Fowler",
-   "home_goalie_status": "Projected",
-   "away_goalie_status": "Projected",
+   "home_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Unconfirmed",
    "locked": false
   },
   {
@@ -76,10 +76,10 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Linus Ullmark",
+   "home_goalie": "Samuel Ersson",
    "away_goalie": "Karel Vejmelka",
-   "home_goalie_status": "Projected",
-   "away_goalie_status": "Projected",
+   "home_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Unconfirmed",
    "locked": false
   },
   {
@@ -94,8 +94,8 @@
    "away_score": null,
    "home_goalie": "Ilya Sorokin",
    "away_goalie": "Jake Allen",
-   "home_goalie_status": "Projected",
-   "away_goalie_status": "Projected",
+   "home_goalie_status": "Likely",
+   "away_goalie_status": "Unconfirmed",
    "locked": false
   },
   {
@@ -110,8 +110,8 @@
    "away_score": null,
    "home_goalie": "Pyotr Kochetkov",
    "away_goalie": "Spencer Knight",
-   "home_goalie_status": "Projected",
-   "away_goalie_status": "Projected",
+   "home_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Unconfirmed",
    "locked": false
   },
   {
@@ -125,9 +125,9 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Jake Oettinger",
-   "away_goalie": "Yaroslav Askarov",
-   "home_goalie_status": "Projected",
-   "away_goalie_status": "Projected",
+   "away_goalie": "Alex Nedeljkovic",
+   "home_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Unconfirmed",
    "locked": false
   },
   {
@@ -140,10 +140,10 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Jesper Wallstedt",
+   "home_goalie": "Calvin Pickard",
    "away_goalie": "Andrei Vasilevskiy",
-   "home_goalie_status": "Projected",
-   "away_goalie_status": "Projected",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Unconfirmed",
    "locked": false
   },
   {
@@ -157,10 +157,17 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Mackenzie Blackwood",
-   "away_goalie": "John Gibson",
-   "home_goalie_status": "Projected",
-   "away_goalie_status": "Projected",
-   "locked": false
+   "away_goalie": "Daniil Tarasov",
+   "home_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Unconfirmed",
+   "n_books": 11,
+   "home_price": -225,
+   "away_price": 185,
+   "edge_side": "away",
+   "edge_team": "DET",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020275,
@@ -173,9 +180,9 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Darcy Kuemper",
-   "away_goalie": "Arturs Silovs",
-   "home_goalie_status": "Projected",
-   "away_goalie_status": "Projected",
+   "away_goalie": "Sergei Murashov",
+   "home_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Unconfirmed",
    "locked": false
   },
   {
@@ -189,9 +196,9 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Tristan Jarry",
-   "away_goalie": "Leevi Merilinen",
-   "home_goalie_status": "Projected",
-   "away_goalie_status": "Projected",
+   "away_goalie": "Kevin Lankinen",
+   "home_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Unconfirmed",
    "locked": false
   }
  ]
