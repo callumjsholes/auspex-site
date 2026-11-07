@@ -12,8 +12,8 @@
   "best_book": "bovada",
   "locked_at": "2026-11-06T22:00:16+00:00",
   "close_price": 124,
-  "result": "Pending",
-  "units": null,
+  "result": "Won",
+  "units": 1.23,
   "source": "live",
   "close_at": "2026-11-07T00:45:13+00:00",
   "close_median": 124,
@@ -21,7 +21,10 @@
   "close_best_book": "bovada",
   "closed": true,
   "clv_pts": 0.0,
-  "clv_cents": -0.2
+  "clv_cents": -0.2,
+  "home_score": 3,
+  "away_score": 5,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020251,
