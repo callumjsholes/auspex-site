@@ -15,7 +15,13 @@
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-11-07T15:30:12+00:00"
+  "close_at": "2026-11-08T01:45:13+00:00",
+  "close_median": 185,
+  "close_best": 200,
+  "close_best_book": "bovada",
+  "closed": true,
+  "clv_pts": -0.1,
+  "clv_cents": 0.0
  },
  {
   "game_id": 2026020264,
