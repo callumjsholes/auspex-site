@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T01:10:30+00:00",
+ "generated_at": "2026-11-08T01:20:22+00:00",
  "today": "2026-11-07",
  "games": [
   {
@@ -23,8 +23,8 @@
    "start_utc": "2026-11-08T00:30Z",
    "state": "in",
    "completed": false,
-   "hs": 27,
-   "as_": 37,
+   "hs": 34,
+   "as_": 44,
    "locked": true,
    "picks": 1
   },
@@ -34,10 +34,10 @@
    "home": "CLE",
    "away": "NYK",
    "start_utc": "2026-11-08T01:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 8,
+   "as_": 8,
    "locked": true,
    "picks": 2
   },
@@ -47,10 +47,10 @@
    "home": "OKC",
    "away": "WAS",
    "start_utc": "2026-11-08T01:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 6,
+   "as_": 2,
    "locked": true,
    "picks": 3
   },
@@ -166,7 +166,18 @@
    "locked_at": "2026-11-08T00:40:27+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-08T01:20:22+00:00",
+   "close_median": 110,
+   "close_best": 120,
+   "close_best_book": "fanduel",
+   "close_quote_line": 3.5,
+   "close_line_exact": true,
+   "clv_pts": 0.6,
+   "close_price": 120,
+   "close_line": 3.5,
+   "clv_cents": 1.75
   },
   {
    "id": "401909942-5239561-ast",
@@ -190,7 +201,18 @@
    "locked_at": "2026-11-08T00:40:27+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-08T01:20:22+00:00",
+   "close_median": -159,
+   "close_best": -154,
+   "close_best_book": "williamhill_us",
+   "close_quote_line": 3.5,
+   "close_line_exact": true,
+   "clv_pts": 0.6,
+   "close_price": -160,
+   "close_line": 3.5,
+   "clv_cents": 2.71
   },
   {
    "id": "401909942-5239561-pts",
@@ -214,7 +236,18 @@
    "locked_at": "2026-11-08T00:40:27+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-08T01:20:22+00:00",
+   "close_median": -106,
+   "close_best": 105,
+   "close_best_book": "betmgm",
+   "close_quote_line": 9.5,
+   "close_line_exact": true,
+   "clv_pts": 0.5,
+   "close_price": 105,
+   "close_line": 9.5,
+   "clv_cents": 2.68
   },
   {
    "id": "401909942-4566434-pts",
@@ -238,7 +271,18 @@
    "locked_at": "2026-11-08T00:40:27+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-08T01:20:22+00:00",
+   "close_median": -112,
+   "close_best": -104,
+   "close_best_book": "draftkings",
+   "close_quote_line": 24.5,
+   "close_line_exact": true,
+   "clv_pts": -0.7,
+   "close_price": -104,
+   "close_line": 24.5,
+   "clv_cents": 0.22
   },
   {
    "id": "401909942-4712849-pts",
@@ -262,7 +306,18 @@
    "locked_at": "2026-11-08T00:40:27+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-08T01:20:22+00:00",
+   "close_median": -120,
+   "close_best": -120,
+   "close_best_book": "betmgm",
+   "close_quote_line": 16.5,
+   "close_line_exact": true,
+   "clv_pts": 3.1,
+   "close_price": -120,
+   "close_line": 17.5,
+   "clv_cents": 9.09
   },
   {
    "id": "401909941-4222252-ast",
@@ -15403,12 +15458,12 @@
   "roi_typical": 2.6,
   "typical_picks": 408,
   "pending": 13,
-  "avg_clv_pts": 0.07,
-  "beat_close_pct": 51.1,
-  "clv_n": 421,
-  "avg_clv_cents": 1.97,
-  "beat_close_cents_pct": 89.4,
-  "clv_cents_n": 415,
+  "avg_clv_pts": 0.08,
+  "beat_close_pct": 51.4,
+  "clv_n": 426,
+  "avg_clv_cents": 1.98,
+  "beat_close_cents_pct": 89.5,
+  "clv_cents_n": 420,
   "clv_na": 8
  },
  "by_tier": {
@@ -15424,12 +15479,12 @@
    "roi_typical": 2.6,
    "typical_picks": 408,
    "pending": 13,
-   "avg_clv_pts": 0.07,
-   "beat_close_pct": 51.1,
-   "clv_n": 421,
-   "avg_clv_cents": 1.97,
-   "beat_close_cents_pct": 89.4,
-   "clv_cents_n": 415,
+   "avg_clv_pts": 0.08,
+   "beat_close_pct": 51.4,
+   "clv_n": 426,
+   "avg_clv_cents": 1.98,
+   "beat_close_cents_pct": 89.5,
+   "clv_cents_n": 420,
    "clv_na": 8
   }
  },
