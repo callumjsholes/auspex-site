@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T23:10:26+00:00",
+ "generated_at": "2026-11-08T23:40:26+00:00",
  "today": "2026-11-08",
  "games": [
   {
@@ -21,10 +21,10 @@
    "home": "DET",
    "away": "LAL",
    "start_utc": "2026-11-08T23:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 23,
+   "as_": 42,
    "locked": true,
    "picks": 4
   },
@@ -51,8 +51,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909949",
@@ -96,6 +96,30 @@
  ],
  "next_date": "2026-11-09",
  "picks": [
+  {
+   "id": "401909948-3150844-pts",
+   "game_id": "401909948",
+   "date": "2026-11-08",
+   "start_utc": "2026-11-09T00:30Z",
+   "game": "BKN@DAL",
+   "player": "Moritz Wagner",
+   "player_id": "3150844",
+   "team": "BKN",
+   "opp": "DAL",
+   "stat": "pts",
+   "side": "Under",
+   "line": 9.5,
+   "price": -126,
+   "book": "draftkings",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -127,
+   "typical_n": 3,
+   "locked_at": "2026-11-08T23:40:26+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909947-4431671-pts",
    "game_id": "401909947",
@@ -15752,7 +15776,7 @@
   "units_typical": 9.13,
   "roi_typical": 2.2,
   "typical_picks": 423,
-  "pending": 6,
+  "pending": 7,
   "avg_clv_pts": 0.08,
   "beat_close_pct": 51.2,
   "clv_n": 434,
@@ -15773,7 +15797,7 @@
    "units_typical": 9.13,
    "roi_typical": 2.2,
    "typical_picks": 423,
-   "pending": 6,
+   "pending": 7,
    "avg_clv_pts": 0.08,
    "beat_close_pct": 51.2,
    "clv_n": 434,
