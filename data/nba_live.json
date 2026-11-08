@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T23:40:26+00:00",
+ "generated_at": "2026-11-08T23:50:20+00:00",
  "today": "2026-11-08",
  "games": [
   {
@@ -23,8 +23,8 @@
    "start_utc": "2026-11-08T23:00Z",
    "state": "in",
    "completed": false,
-   "hs": 23,
-   "as_": 42,
+   "hs": 28,
+   "as_": 45,
    "locked": true,
    "picks": 4
   },
@@ -142,7 +142,17 @@
    "locked_at": "2026-11-08T23:10:26+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-08T23:50:20+00:00",
+   "close_median": -125,
+   "close_best": -121,
+   "close_best_book": "betrivers",
+   "close_quote_line": 17.5,
+   "close_line_exact": true,
+   "clv_pts": 1.0,
+   "close_line": 17.5,
+   "clv_cents": 3.63
   },
   {
    "id": "401909947-4432847-pts",
@@ -166,7 +176,18 @@
    "locked_at": "2026-11-08T23:10:26+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-08T23:50:20+00:00",
+   "close_median": -107,
+   "close_best": -104,
+   "close_best_book": "betrivers",
+   "close_quote_line": 11.5,
+   "close_line_exact": true,
+   "clv_pts": -1.1,
+   "close_price": -104,
+   "close_line": 11.5,
+   "clv_cents": -0.23
   },
   {
    "id": "401909946-4066457-ast",
@@ -15778,11 +15799,11 @@
   "typical_picks": 423,
   "pending": 7,
   "avg_clv_pts": 0.08,
-  "beat_close_pct": 51.2,
-  "clv_n": 434,
+  "beat_close_pct": 51.1,
+  "clv_n": 436,
   "avg_clv_cents": 1.98,
-  "beat_close_cents_pct": 89.5,
-  "clv_cents_n": 428,
+  "beat_close_cents_pct": 89.3,
+  "clv_cents_n": 430,
   "clv_na": 8
  },
  "by_tier": {
@@ -15799,11 +15820,11 @@
    "typical_picks": 423,
    "pending": 7,
    "avg_clv_pts": 0.08,
-   "beat_close_pct": 51.2,
-   "clv_n": 434,
+   "beat_close_pct": 51.1,
+   "clv_n": 436,
    "avg_clv_cents": 1.98,
-   "beat_close_cents_pct": 89.5,
-   "clv_cents_n": 428,
+   "beat_close_cents_pct": 89.3,
+   "clv_cents_n": 430,
    "clv_na": 8
   }
  },
