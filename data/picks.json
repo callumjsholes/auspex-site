@@ -12,8 +12,8 @@
   "best_book": "lowvig",
   "locked_at": "2026-11-08T16:00:14+00:00",
   "close_price": -114,
-  "result": "Pending",
-  "units": null,
+  "result": "Won",
+  "units": 0.917,
   "source": "live",
   "close_at": "2026-11-08T20:15:14+00:00",
   "close_median": -114,
@@ -21,7 +21,10 @@
   "close_best_book": "betrivers",
   "closed": true,
   "clv_pts": 0.9,
-  "clv_cents": 1.12
+  "clv_cents": 1.12,
+  "home_score": 1,
+  "away_score": 4,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020279,
@@ -36,8 +39,8 @@
   "best_book": "betmgm",
   "locked_at": "2026-11-08T16:00:14+00:00",
   "close_price": -160,
-  "result": "Pending",
-  "units": null,
+  "result": "Won",
+  "units": 1.299,
   "source": "live",
   "close_at": "2026-11-08T23:45:12+00:00",
   "close_median": -160,
@@ -45,7 +48,10 @@
   "close_best_book": "betrivers",
   "closed": true,
   "clv_pts": 0.9,
-  "clv_cents": 0.91
+  "clv_cents": 0.91,
+  "home_score": 0,
+  "away_score": 4,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020274,
