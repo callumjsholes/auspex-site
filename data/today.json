@@ -1,6 +1,6 @@
 {
  "date": "2026-11-09",
- "generated_at": "2026-11-09T14:15:16+00:00",
+ "generated_at": "2026-11-09T23:00:15+00:00",
  "games": [
   {
    "game_id": 2026020283,
@@ -14,9 +14,16 @@
    "away_score": null,
    "home_goalie": "Devon Levi",
    "away_goalie": "Dylan Garand",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
+   "n_books": 11,
+   "home_price": -164,
+   "away_price": 138,
+   "edge_side": "away",
+   "edge_team": "NYR",
+   "stake": 2,
+   "tier": "Best bet",
+   "locked": true
   },
   {
    "game_id": 2026020284,
@@ -28,11 +35,18 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Kevin Lankinen",
-   "away_goalie": "Dan Vladar",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "home_goalie": "Leevi Merilinen",
+   "away_goalie": "Joseph Woll",
+   "home_goalie_status": "Likely",
+   "away_goalie_status": "Likely",
+   "n_books": 11,
+   "home_price": 115,
+   "away_price": -135,
+   "edge_side": "home",
+   "edge_team": "VAN",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020285,
@@ -46,8 +60,8 @@
    "away_score": null,
    "home_goalie": "Yaroslav Askarov",
    "away_goalie": "Ilya Sorokin",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Likely",
    "locked": false
   }
  ]
