@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T01:50:30+00:00",
+ "generated_at": "2026-11-10T02:10:24+00:00",
  "today": "2026-11-09",
  "games": [
   {
@@ -10,8 +10,8 @@
    "start_utc": "2026-11-10T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 90,
-   "as_": 95,
+   "hs": 104,
+   "as_": 108,
    "locked": true,
    "picks": 1
   },
@@ -23,8 +23,8 @@
    "start_utc": "2026-11-10T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 107,
-   "as_": 83,
+   "hs": 118,
+   "as_": 107,
    "locked": true,
    "picks": 5
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-11-10T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 80,
-   "as_": 64,
+   "hs": 103,
+   "as_": 87,
    "locked": true,
    "picks": 1
   },
@@ -49,8 +49,8 @@
    "start_utc": "2026-11-10T00:30Z",
    "state": "in",
    "completed": false,
-   "hs": 53,
-   "as_": 59,
+   "hs": 66,
+   "as_": 75,
    "locked": true,
    "picks": 2
   },
@@ -62,8 +62,8 @@
    "start_utc": "2026-11-10T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 41,
-   "as_": 39,
+   "hs": 56,
+   "as_": 66,
    "locked": true,
    "picks": 1
   },
@@ -75,8 +75,8 @@
    "start_utc": "2026-11-10T01:30Z",
    "state": "in",
    "completed": false,
-   "hs": 14,
-   "as_": 13,
+   "hs": 39,
+   "as_": 24,
    "locked": true,
    "picks": 2
   },
@@ -103,7 +103,7 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
+   "locked": true,
    "picks": 0
   }
  ],
