@@ -2,6 +2,18 @@
 
 Shared change log for this repo. Newest first. Add an entry when a change is something other agents, the site, or the publish bot rely on.
 
+## 2026-11-10 — Site — Cents CLV is median against median
+
+The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`.
+
+The published `avg_clv_cents` and `beat_close_cents_pct` compare the posted price with `close_median`. On NBA that posted price is often the best book, so those totals run high. The pages no longer display them.
+
+- The public average and the beat-the-close rate are computed in `web/lib/clv.js` from the median price at lock against `close_median`. NBA uses `typical_price`. NHL uses the posted `price`, which is already the median. `best_price` is not the lock side. One cent is one percentage point of implied probability: closing implied minus lock implied, times 100. Positive means the median at lock was longer than the closing median.
+- A gap of zero is a tie. A tie is not a beat. Beat is a strictly positive gap.
+- A pick is in the sample when both prices are numbers, including an open pick that already has a close. A missing price is left out and counted in the "left out" figure. The gap is not filled from `clv_pts` or from the best price. The same rows feed `/record` (including a date window), the home strip, `/stats` (the three figures, the line, the bands), and the closing-line test under "For the stats nerds".
+- A pick card still shows published `clv_cents`, the posted price against the close. A game-page write-up does too. Those two numbers are not the record average. The FAQ says so. The record CSV keeps that published `clv_cents` column and adds `median_clv_cents` for the figure on the page.
+- Recap cards and the Open Graph image do not show a cents rate. They did not need a new number.
+
 ## 2026-10-27 — Site — Sharper visual system
 
 The public JSON in `data/` is unchanged. Field names are unchanged. Nothing was added to `.auspex-published.json`. No route, URL, or anchor changed. `#today`, `#join`, and `#games` are still on the home page.

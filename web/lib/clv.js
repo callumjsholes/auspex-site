@@ -1,7 +1,13 @@
 // Closing-line value in cents. One cent is one percentage point of implied probability.
-// Positive means the locked price was longer than the closing median.
-// Missing or non-numeric fields stay null. This file never derives a cents figure
-// from the American price or from clv_pts.
+// The public average and the beat-the-close rate compare the median price at lock
+// with the closing median. Positive means that median was longer than the close.
+// A gap of zero is a tie, and a tie is not a beat.
+// NBA's median at lock is typical_price. NHL's posted price is already that median.
+// best_price is not used. Per-pick clv_cents still passes through for a pick card,
+// which shows the posted price against the close. A missing price stays null.
+// This file does not turn clv_pts into cents, and it does not fill a missing median
+// from the best price.
+import { implied } from "./format.js";
 
 export function finite(v) {
   return typeof v === "number" && Number.isFinite(v) ? v : null;
@@ -34,6 +40,18 @@ export function formatPct(v) {
   if (n == null) return null;
   const s = n.toFixed(1);
   return `${s.endsWith(".0") ? n.toFixed(0) : s}%`;
+}
+
+// Implied-probability gap, in percentage points. Not the American-odds cents shorthand.
+// Positive when the lock price is longer than the close. Equal prices return 0.
+export function medianClvCents(lockPrice, closePrice) {
+  const lock = finite(lockPrice);
+  const close = finite(closePrice);
+  if (lock == null || close == null) return null;
+  const lockP = implied(lock);
+  const closeP = implied(close);
+  if (lockP == null || closeP == null || Number.isNaN(lockP) || Number.isNaN(closeP)) return null;
+  return (closeP - lockP) * 100;
 }
 
 export function readPickClv(p) {
@@ -81,25 +99,33 @@ export function combineClv(parts) {
   return { n, avg: weigh("avg"), beat: weigh("beat"), na };
 }
 
+// Median at lock against the closing median. A zero gap is not a beat.
+// Rows without medianCents are left out and counted in na. Published clvCents is not used.
 export function clvFromRows(rows) {
   const known = [];
+  let na = 0;
   for (const r of rows || []) {
-    const v = r && finite(r.clvCents);
-    if (v != null) known.push(v);
+    const v = r && finite(r.medianCents);
+    if (v == null) {
+      na += 1;
+      continue;
+    }
+    known.push(v);
   }
   if (!known.length) return null;
   return {
     n: known.length,
     avg: known.reduce((a, v) => a + v, 0) / known.length,
     beat: (100 * known.filter((v) => v > 0).length) / known.length,
-    na: null,
+    na,
   };
 }
 
-// Published totals win. Pick rows fill in only when that league's totals are absent.
-export function assembleClv({ nbaSummary, nbaTiers, nbaRows, nhlSummary, nhlTiers, nhlRows }) {
-  const nba = readClvBlock(nbaSummary) || readTierMap(nbaTiers) || clvFromRows(nbaRows);
-  const nhl = readClvBlock(nhlSummary) || readTierMap(nhlTiers) || clvFromRows(nhlRows);
+// Public totals come from the rows. Published summary blocks compare the posted
+// price with the close, so they are not an input.
+export function assembleClv({ nbaRows, nhlRows }) {
+  const nba = clvFromRows(nbaRows);
+  const nhl = clvFromRows(nhlRows);
   if (nba && nhl) {
     const all = combineClv([nba, nhl]);
     return { all, nba, nhl, leagues: all ? "both" : null };
@@ -151,7 +177,7 @@ export function describeClose(p, oddsText) {
   return items;
 }
 
-export const CLV_SENTENCE = "Beating the closing line is the best sign I have of a real edge, even on losing nights.";
+export const CLV_SENTENCE = "One cent is one percentage point of implied probability. Positive means the median price at lock was longer than the closing median. An equal price is not a beat. This compares the typical price when I posted with the typical close, which is a stricter check than my best price.";
 
 export function summaryCopy(block, leagues) {
   const has = block && typeof block === "object";
@@ -161,7 +187,7 @@ export function summaryCopy(block, leagues) {
   const naN = has ? finite(block.na) : null;
   const who = leagues === "NBA" || leagues === "NHL" ? `${leagues} picks` : "Picks";
   const na = naN != null && naN > 0 ? naN : null;
-  const sample = nN == null ? "Sample size" : na == null ? `${who} with a closing price` : `${who} with a closing price, ${na} left out`;
+  const sample = nN == null ? "Sample size" : na == null ? `${who} with a median at lock and a closing median` : `${who} with a median at lock and a closing median, ${na} left out`;
   return {
     avg: avgN == null ? "n/a" : formatCents(avgN),
     beat: beatN == null ? "n/a" : formatPct(beatN),

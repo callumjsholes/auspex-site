@@ -19,7 +19,7 @@ export default function Faq() {
     [TERMS.over.q, TERMS.over.a],
     ["How are results graded?", "At the price and book the pick was posted at, juice included. Results stay up, win or lose. If a player doesn't play, the prop is void: not a win or a loss."],
     ["Why do you list a specific sportsbook?", "Prices differ between books, and the best one changes game to game. The pick is graded at the price posted, so the book tells you where that price was available."],
-    ["What's closing-line value?", "How many cents the locked price beat the closing median by. One cent is one percentage point of implied probability. Over a few hundred picks it is a steadier sign than wins and losses, which swing a lot in a small sample."],
+    ["What's closing-line value?", "On the record, how many cents the typical price when I posted beat the typical closing price by. One cent is one percentage point of implied probability. Positive means the median at lock was longer than the close. An equal price is not a beat. It is a stricter check than the best price on the card. A card still shows the posted price against the close, which is a different comparison. Over a few hundred picks it moves less than wins and losses."],
     ["Do the models update?", "Yes, every morning, with the previous night's games."],
     ["Is it free?", "Yes, while the live record builds. The email list will hear first if member alerts open."],
     ["Is this financial advice?", "No. Picks are information. Bet only what you can afford to lose, and only where it's legal for you."],

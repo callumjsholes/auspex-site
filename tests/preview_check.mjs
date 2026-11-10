@@ -313,7 +313,9 @@ for (const game of catalog.games) {
     if (p.result && p.result !== "Pending" && p.units != null && game.picks.length === 1) {
       assert.ok(all.includes(units(p.units)), `${game.path} units`);
     }
-    if (p.clvCents != null && game.picks.length === 1) assert.ok(all.includes(formatCents(p.clvCents)), `${game.path} clv`);
+    // The write-up adds cents after the pick is graded. An open pick can already carry clv_cents.
+    const graded = p.result === "Won" || p.result === "Lost" || p.result === "Push" || p.result === "Void";
+    if (p.clvCents != null && game.picks.length === 1 && graded) assert.ok(all.includes(formatCents(p.clvCents)), `${game.path} clv`);
   }
   if (!game.picks.length) assert.equal(hasOdds(all), false, game.path);
 }
@@ -322,8 +324,12 @@ assert.ok(seen.NBA.graded > 0, "nba graded");
 assert.ok(seen.NBA.wait > 0, "nba wait");
 assert.ok(seen.NHL.graded > 0, "nhl graded");
 assert.ok(seen.NHL.wait > 0, "nhl wait");
-assert.equal(seen.NBA.open || 0, 0);
-assert.equal(seen.NHL.open || 0, 0);
+// An open game is a posted pick that is not graded yet. The current slate may have some.
+for (const league of ["NBA", "NHL"]) {
+  for (const state of Object.keys(seen[league])) {
+    assert.ok(["graded", "wait", "pass", "open"].includes(state), `${league} ${state}`);
+  }
+}
 
 console.log("preview checks ok");
 console.log(JSON.stringify(seen));

@@ -306,15 +306,15 @@ export function pearson(xs, ys) {
 }
 
 export function clvTest(rows) {
-  const graded = rows.filter((r) => isGraded(r.result) && finite(r.clvCents) != null);
+  const graded = rows.filter((r) => isGraded(r.result) && finite(r.medianCents) != null);
   const n = graded.length;
   if (n < 2) return { n, mean: null, lo: null, hi: null, t: null, p: null, rWin: null, rWinP: null, rUnits: null, rUnitsP: null, decided: 0 };
   let sum = 0;
-  for (const r of graded) sum += finite(r.clvCents);
+  for (const r of graded) sum += finite(r.medianCents);
   const mean = sum / n;
   let ss = 0;
   for (const r of graded) {
-    const d = finite(r.clvCents) - mean;
+    const d = finite(r.medianCents) - mean;
     ss += d * d;
   }
   const sd = Math.sqrt(ss / (n - 1));
@@ -322,8 +322,8 @@ export function clvTest(rows) {
   const t = se > 0 ? mean / se : null;
   const crit = studentQuantile(0.975, n - 1);
   const decided = graded.filter((r) => r.result === "Won" || r.result === "Lost");
-  const winCorr = pearson(decided.map((r) => finite(r.clvCents)), decided.map((r) => (r.result === "Won" ? 1 : 0)));
-  const unitCorr = pearson(graded.map((r) => finite(r.clvCents)), graded.map((r) => Number(r.units) || 0));
+  const winCorr = pearson(decided.map((r) => finite(r.medianCents)), decided.map((r) => (r.result === "Won" ? 1 : 0)));
+  const unitCorr = pearson(graded.map((r) => finite(r.medianCents)), graded.map((r) => Number(r.units) || 0));
   return {
     n,
     mean,

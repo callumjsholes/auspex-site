@@ -173,7 +173,7 @@ function clvReading(c) {
       corr = `The correlation between cents and winning is ${r}, with a p-value ${c.rWinP < 0.001 ? "under 0.001" : `of ${pLabel(c.rWinP)}`}. Higher cents line up with fewer wins here. That is still one record.`;
     }
   }
-  return `The mean closing-line value is ${formatCents(c.mean)} across ${count(c.n)} graded picks with a cents figure. A 95% t interval runs from ${formatCents(c.lo)} to ${formatCents(c.hi)}. A two-sided test of a zero mean has a p-value ${pBit}. ${where} ${corr} A positive close is not, by itself, a prediction of which pick won.`;
+  return `The mean gap between the median price at lock and the closing median is ${formatCents(c.mean)} across ${count(c.n)} graded picks. A 95% t interval runs from ${formatCents(c.lo)} to ${formatCents(c.hi)}. A two-sided test of a zero mean has a p-value ${pBit}. ${where} ${corr} A positive close is not, by itself, a prediction of which pick won.`;
 }
 
 function powerReading(power) {
@@ -509,7 +509,7 @@ export default function RigorSection({ rigor }) {
       <div className="nerd" id="nerd-clv">
         <h3>Closing line, mean and correlation</h3>
         <p className="lede">{clvReading(rigor.clv)}</p>
-        <p className="note">The interval is a t interval for the mean of the cents figures on graded picks. It does not fill a missing cents figure from the points value or from the price. Correlation is Pearson, on decided picks for the win comparison.</p>
+        <p className="note">The interval is a t interval for the mean of those cents on graded picks. Each cent is the median price at lock against the closing median. A pick missing either price is left out. The gap is not filled from the points value or from the best posted price. An equal price is not a beat. Correlation is Pearson, on decided picks for the win comparison.</p>
         {rigor.clv?.mean != null && (
           <IntervalChart
             rows={[{ key: "Mean", label: "Mean cents", few: false, est: rigor.clv.mean, lo: rigor.clv.lo, hi: rigor.clv.hi }]}

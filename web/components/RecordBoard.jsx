@@ -37,16 +37,13 @@ function Kpis({ s }) {
   );
 }
 
-// All time uses the published totals for that league. A date window uses the cents on the picks in view.
-function viewClv(clv, league, range, shown) {
-  const label = league === "NBA" || league === "NHL" ? league : null;
-  if (range !== "all" || !clv) return { block: clvFromRows(shown), leagues: label };
-  if (league === "NBA") return { block: clv.nba || null, leagues: clv.nba ? "NBA" : null };
-  if (league === "NHL") return { block: clv.nhl || null, leagues: clv.nhl ? "NHL" : null };
-  return { block: clv.all || null, leagues: clv.leagues || null };
+// Same comparison on every window: median price at lock against the closing median.
+function viewClv(league, shown) {
+  const leagues = league === "NBA" || league === "NHL" ? league : "both";
+  return { block: clvFromRows(shown), leagues };
 }
 
-export default function RecordBoard({ rows, launch, updated, clv }) {
+export default function RecordBoard({ rows, launch, updated }) {
   const [league, setLeague] = useState("All");
   const [range, setRange] = useState("all");
   const cutoff = range === "all" ? null : sinceYmd(Number(range));
@@ -60,7 +57,7 @@ export default function RecordBoard({ rows, launch, updated, clv }) {
   );
   const s = summarize(shown);
   const leagueSum = summarize(leagueRows);
-  const view = viewClv(clv, league, range, shown);
+  const view = viewClv(league, shown);
   const copy = summaryCopy(view.block, view.leagues);
   const coversAll = range !== "all" && s.bets === leagueSum.bets && s.unitMilli === leagueSum.unitMilli && s.bets > 0;
   const coverNote = league === "All"
@@ -72,7 +69,7 @@ export default function RecordBoard({ rows, launch, updated, clv }) {
         <h1>The record</h1>
         <p className="takeaway">{recordSentence(s, { launch, league, range })}</p>
         {coversAll && <p className="note filter-note">{coverNote}</p>}
-        <p className="lede">Every pick stays up, graded at the price and book I posted. Closing-line value (CLV) is how many cents the locked price beat the closing median by. {updated ? `Updated ${updated}. ` : ""}Games have their own pages: <a href="/nba">NBA</a> and <a href="/nhl">NHL</a>. Charts and splits are on <a href="/stats">stats</a>.</p>
+        <p className="lede">Every pick stays up, graded at the price and book I posted. The closing-line cents below are the typical market price when I posted against the typical closing price, not the best price on the card. {updated ? `Updated ${updated}. ` : ""}Games have their own pages: <a href="/nba">NBA</a> and <a href="/nhl">NHL</a>. Charts and splits are on <a href="/stats">stats</a>.</p>
         <nav className="jumps" aria-label="On this page">
           <a href="/stats">Stats page</a>
           <a href="#clv">Closing line</a>

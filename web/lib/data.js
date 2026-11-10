@@ -2,12 +2,15 @@
 // the pick, the price, the book, the result and closing-line value. Model outputs (chances,
 // projections, minutes, edges) are dropped here so they never reach a pick card or a pick row.
 // The aggregated calibration chart does not read those fields from this function.
-// Closing prices and CLV in cents pass through when a publish includes them. A missing field
-// stays null. Nothing here invents a cents figure from the price or from clv_pts.
+// Closing prices pass through when a publish includes them. A missing field stays null.
+// The public cents average compares the median price at lock with the closing median:
+// NBA typical_price, NHL posted price (already the median). That is medianCents.
+// Per-pick clv_cents stays the posted price against the close, for the pick card.
+// A missing median is not filled from the best price, and clv_pts is not turned into cents.
 // Every publish commit that changes data/ triggers a Vercel rebuild, so pages stay current.
 import fs from "node:fs";
 import path from "node:path";
-import { assembleClv, readPickClv } from "./clv.js";
+import { assembleClv, medianClvCents, readPickClv } from "./clv.js";
 import { summarize, series } from "./summary.js";
 
 const DIRS = [path.join(process.cwd(), "..", "data"), path.join(process.cwd(), "data")];
@@ -50,6 +53,8 @@ export function nbaRow(p) {
     actual: p.actual ?? null, stat: p.stat, player: p.player, ...clvFields(p),
     // Price shopping: the median price across tracked books at the same line (filled from the lock archive).
     typical: p.typical_price ?? null, typicalN: p.typical_n ?? null,
+    // Public cents CLV. The posted price is often the best book, so it is not the lock side.
+    medianCents: medianClvCents(p.typical_price, p.close_median),
     // Public ESPN ids, for the live tracker's box-score lookup.
     espnGame: p.game_id ?? null, espnPlayer: p.player_id ?? null, side: p.side, line: p.line,
   };
@@ -63,6 +68,8 @@ export function nhlRow(p) {
     stat: "ml", ...clvFields(p),
     // Price shopping: graded at the median price; the best single-book price at lock is shown beside it.
     best: p.best_price ?? null, bestBook: p.best_book ? BOOK[p.best_book] || p.best_book : null,
+    // The posted price is the median. best_price is a longer number and is not the lock side.
+    medianCents: medianClvCents(p.price, p.close_median),
     nhlGame: p.game_id ?? null, team: p.team, away, home,
   };
 }
@@ -109,9 +116,6 @@ export function getData() {
     curve: series(all),
     nbaHeadline, nbaBooks,
     nhlTest: nhlTest.total ? { total: nhlTest.total, rows: (nhlTest.rows || []).map((r) => ({ season: r.season, units: r.units, roi: r.roi })) } : null,
-    clv: assembleClv({
-      nbaSummary: nbaLive.summary, nbaTiers: nbaLive.by_tier, nbaRows: nba,
-      nhlSummary: summary.live, nhlTiers: summary.live_by_tier, nhlRows: nhl,
-    }),
+    clv: assembleClv({ nbaRows: nba, nhlRows: nhl }),
   };
 }

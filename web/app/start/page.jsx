@@ -29,7 +29,7 @@ export default function Start() {
       <HowToRead level="h2" />
 
       <h2>How the record is tracked</h2>
-      <p>A win, a loss, or a push is graded at the price on the card. One unit is 1% of a bankroll. Closing-line value is how far the market moved toward the pick after I posted it.</p>
+      <p>A win, a loss, or a push is graded at the price on the card. One unit is 1% of a bankroll. Closing-line value on the record is the typical price when I posted against the typical closing price. An equal price is not a beat.</p>
       <p>The <a href="/method">method page</a> shows tests on older games. A test is not the live record. Nothing on that page is added into the record above.</p>
 
       <h2>Play responsibly</h2>
