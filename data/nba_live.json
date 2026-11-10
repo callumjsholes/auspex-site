@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T23:50:27+00:00",
+ "generated_at": "2026-11-10T00:10:31+00:00",
  "today": "2026-11-09",
  "games": [
   {
@@ -21,7 +21,7 @@
    "home": "CHA",
    "away": "CLE",
    "start_utc": "2026-11-10T00:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
    "hs": 0,
    "as_": 0,
@@ -64,8 +64,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909957",
@@ -109,6 +109,30 @@
  ],
  "next_date": "2026-11-10",
  "picks": [
+  {
+   "id": "401909956-5041939-ast",
+   "game_id": "401909956",
+   "date": "2026-11-09",
+   "start_utc": "2026-11-10T01:00Z",
+   "game": "IND@DAL",
+   "player": "Cooper Flagg",
+   "player_id": "5041939",
+   "team": "DAL",
+   "opp": "IND",
+   "stat": "ast",
+   "side": "Under",
+   "line": 6.5,
+   "price": 113,
+   "book": "draftkings",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": 111,
+   "typical_n": 4,
+   "locked_at": "2026-11-10T00:10:31+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909955-3134908-pts",
    "game_id": "401909955",
@@ -16409,7 +16433,7 @@
   "units_typical": 10.5,
   "roi_typical": 2.4,
   "typical_picks": 438,
-  "pending": 9,
+  "pending": 10,
   "avg_clv_pts": 0.06,
   "beat_close_pct": 51.3,
   "clv_n": 452,
@@ -16430,7 +16454,7 @@
    "units_typical": 10.5,
    "roi_typical": 2.4,
    "typical_picks": 438,
-   "pending": 9,
+   "pending": 10,
    "avg_clv_pts": 0.06,
    "beat_close_pct": 51.3,
    "clv_n": 452,
