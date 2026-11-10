@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T00:41:55+00:00",
+ "generated_at": "2026-11-10T00:50:20+00:00",
  "today": "2026-11-09",
  "games": [
   {
@@ -10,8 +10,8 @@
    "start_utc": "2026-11-10T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 27,
-   "as_": 39,
+   "hs": 32,
+   "as_": 41,
    "locked": true,
    "picks": 1
   },
@@ -23,8 +23,8 @@
    "start_utc": "2026-11-10T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 42,
-   "as_": 37,
+   "hs": 57,
+   "as_": 44,
    "locked": true,
    "picks": 5
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-11-10T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 30,
-   "as_": 27,
+   "hs": 39,
+   "as_": 34,
    "locked": true,
    "picks": 1
   },
@@ -47,10 +47,10 @@
    "home": "TOR",
    "away": "MEM",
    "start_utc": "2026-11-10T00:30Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 8,
+   "as_": 5,
    "locked": true,
    "picks": 2
   },
@@ -179,7 +179,17 @@
    "locked_at": "2026-11-10T00:10:31+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-10T00:50:20+00:00",
+   "close_median": 116,
+   "close_best": 116,
+   "close_best_book": "fanduel",
+   "close_quote_line": 6.5,
+   "close_line_exact": true,
+   "clv_pts": -1.5,
+   "close_line": 6.5,
+   "clv_cents": -0.65
   },
   {
    "id": "401909955-3134908-pts",
@@ -16504,11 +16514,11 @@
   "typical_picks": 438,
   "pending": 12,
   "avg_clv_pts": 0.07,
-  "beat_close_pct": 51.5,
-  "clv_n": 454,
-  "avg_clv_cents": 1.98,
-  "beat_close_cents_pct": 89.3,
-  "clv_cents_n": 448,
+  "beat_close_pct": 51.4,
+  "clv_n": 455,
+  "avg_clv_cents": 1.97,
+  "beat_close_cents_pct": 89.1,
+  "clv_cents_n": 449,
   "clv_na": 8
  },
  "by_tier": {
@@ -16525,11 +16535,11 @@
    "typical_picks": 438,
    "pending": 12,
    "avg_clv_pts": 0.07,
-   "beat_close_pct": 51.5,
-   "clv_n": 454,
-   "avg_clv_cents": 1.98,
-   "beat_close_cents_pct": 89.3,
-   "clv_cents_n": 448,
+   "beat_close_pct": 51.4,
+   "clv_n": 455,
+   "avg_clv_cents": 1.97,
+   "beat_close_cents_pct": 89.1,
+   "clv_cents_n": 449,
    "clv_na": 8
   }
  },
