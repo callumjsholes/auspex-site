@@ -15,7 +15,13 @@
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-11-09T23:00:15+00:00"
+  "close_at": "2026-11-10T00:40:19+00:00",
+  "close_median": 138,
+  "close_best": 148,
+  "close_best_book": "betrivers",
+  "closed": true,
+  "clv_pts": 0.0,
+  "clv_cents": 0.0
  },
  {
   "game_id": 2026020284,
