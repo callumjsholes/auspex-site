@@ -11,11 +11,17 @@
   "best_price": -159,
   "best_book": "betrivers",
   "locked_at": "2026-11-10T22:00:18+00:00",
-  "close_price": -173,
+  "close_price": -175,
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-11-10T22:00:18+00:00"
+  "close_at": "2026-11-10T23:45:14+00:00",
+  "close_median": -175,
+  "close_best": -167,
+  "close_best_book": "betrivers",
+  "closed": true,
+  "clv_pts": 0.4,
+  "clv_cents": 0.27
  },
  {
   "game_id": 2026020290,
@@ -51,7 +57,13 @@
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-11-10T22:00:18+00:00"
+  "close_at": "2026-11-10T23:45:14+00:00",
+  "close_median": -145,
+  "close_best": -140,
+  "close_best_book": "betonlineag",
+  "closed": true,
+  "clv_pts": 0.0,
+  "clv_cents": 0.0
  },
  {
   "game_id": 2026020292,
