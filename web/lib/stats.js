@@ -260,10 +260,10 @@ export function dailyRollup(rows) {
 }
 
 export function centsSeries(rows) {
-  const done = rows.filter((r) => finite(r?.clvCents) != null).sort(byTime);
+  const done = rows.filter((r) => finite(r?.medianCents) != null).sort(byTime);
   let sum = 0;
   return done.map((r, idx) => {
-    const cents = finite(r.clvCents);
+    const cents = finite(r.medianCents);
     sum += cents;
     const n = idx + 1;
     return {
@@ -503,18 +503,18 @@ const CLV_BANDS = [
 ];
 
 export function clvBands(rows) {
-  const graded = rows.filter((r) => isGraded(r.result) && finite(r.clvCents) != null);
+  const graded = rows.filter((r) => isGraded(r.result) && finite(r.medianCents) != null);
   const mean = (result) => {
     const list = graded.filter((r) => r.result === result);
     if (!list.length) return null;
-    return list.reduce((sum, r) => sum + finite(r.clvCents), 0) / list.length;
+    return list.reduce((sum, r) => sum + finite(r.medianCents), 0) / list.length;
   };
   return {
     n: graded.length,
     winCents: mean("Won"),
     lossCents: mean("Lost"),
     bands: CLV_BANDS.map((band) => {
-      const list = graded.filter((r) => band.test(finite(r.clvCents)));
+      const list = graded.filter((r) => band.test(finite(r.medianCents)));
       const decided = list.filter((r) => r.result === "Won" || r.result === "Lost");
       return {
         key: band.key,
@@ -602,8 +602,8 @@ export function buildStats(rows) {
     series,
     daily: dailyRollup(rows),
     cents: centsSeries(rows),
-    centsOpen: rows.filter((r) => r.result === "Pending" && finite(r.clvCents) != null).length,
-    centsGradedMissing: rows.filter((r) => isGraded(r.result) && finite(r.clvCents) == null).length,
+    centsOpen: rows.filter((r) => r.result === "Pending" && finite(r.medianCents) != null).length,
+    centsGradedMissing: rows.filter((r) => isGraded(r.result) && finite(r.medianCents) == null).length,
     pendingDates: [...new Set(rows.filter((r) => r.result === "Pending").map((r) => r.date).filter(Boolean))].sort(),
     otherResults: [...otherMap.entries()].map(([result, n]) => ({ result, n })),
     splits: {

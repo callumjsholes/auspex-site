@@ -60,10 +60,10 @@ assert.equal(oddsBand(151), "+151 or longer");
 assert.equal(oddsBand(null), "No price");
 
 const rows = [
-  { id: "1", league: "NBA", stat: "pts", price: -150, tier: "Pick", stake: 1, units: 0.667, result: "Won", date: "2026-10-20", locked: "a", clv: 1, clvCents: 1.5, short: "A" },
-  { id: "2", league: "NHL", stat: "ml", price: 175, tier: "Best bet", stake: 2, units: -2, result: "Lost", date: "2026-10-20", locked: "b", clv: -0.5, clvCents: -1.1, short: "B" },
-  { id: "3", league: "NBA", stat: "reb", price: -110, tier: "Pick", stake: 1, units: 0, result: "Push", date: "2026-10-21", locked: "c", clv: null, clvCents: null, short: "C" },
-  { id: "4", league: "NBA", stat: "ast", price: 120, tier: "Pick", stake: 1, units: null, result: "Pending", date: "2026-10-22", locked: "d", clv: 0.4, clvCents: 0.4, short: "D" },
+  { id: "1", league: "NBA", stat: "pts", price: -150, tier: "Pick", stake: 1, units: 0.667, result: "Won", date: "2026-10-20", locked: "a", clv: 1, clvCents: 1.5, medianCents: 1.5, short: "A" },
+  { id: "2", league: "NHL", stat: "ml", price: 175, tier: "Best bet", stake: 2, units: -2, result: "Lost", date: "2026-10-20", locked: "b", clv: -0.5, clvCents: -1.1, medianCents: -1.1, short: "B" },
+  { id: "3", league: "NBA", stat: "reb", price: -110, tier: "Pick", stake: 1, units: 0, result: "Push", date: "2026-10-21", locked: "c", clv: null, clvCents: null, medianCents: null, short: "C" },
+  { id: "4", league: "NBA", stat: "ast", price: 120, tier: "Pick", stake: 1, units: null, result: "Pending", date: "2026-10-22", locked: "d", clv: 0.4, clvCents: 0.4, medianCents: 0.4, short: "D" },
 ];
 const model = buildStats(rows);
 assert.equal(model.summary.bets, 3);
@@ -105,7 +105,9 @@ assert.equal(totalsMatch(live.summary, data.sum.all), true);
 assert.equal(live.series.length, live.summary.bets);
 assert.equal(live.series.at(-1).unitMilli, live.summary.unitMilli);
 assert.equal(live.daily.at(-1).totalMilli, live.summary.unitMilli);
-assert.equal(live.cents.length, data.all.filter((r) => finite(r.clvCents) != null).length);
+assert.equal(live.cents.length, data.all.filter((r) => finite(r.medianCents) != null).length);
+const medianMean = data.all.reduce((acc, r) => (finite(r.medianCents) == null ? acc : { s: acc.s + r.medianCents, n: acc.n + 1 }), { s: 0, n: 0 });
+assert.ok(Math.abs(live.cents.at(-1).avg - medianMean.s / medianMean.n) < 1e-9);
 for (const name of ["sport", "market", "tier", "odds"]) {
   const groups = live.splits[name];
   assert.equal(groups.reduce((a, g) => a + g.summary.bets, 0), live.summary.bets, name);
@@ -150,7 +152,7 @@ if (shaped.rolling25.length) {
 assert.equal(shaped.drawdown.points.length, shaped.series.length);
 assert.ok(shaped.drawdown.points.every((p) => p.underMilli <= 0));
 assert.equal(shaped.bins.reduce((a, b) => a + b.n, 0), shaped.summary.bets);
-assert.equal(shaped.clvBands.n, data.all.filter((r) => finite(r.clvCents) != null && ["Won", "Lost", "Push"].includes(r.result)).length);
+assert.equal(shaped.clvBands.n, data.all.filter((r) => finite(r.medianCents) != null && ["Won", "Lost", "Push"].includes(r.result)).length);
 assert.equal(shaped.team.reduce((a, g) => a + g.summary.bets, 0), shaped.summary.bets);
 assert.equal(shaped.prices.reduce((a, g) => a + g.summary.bets, 0), shaped.summary.bets);
 const shop = readPriceShopping();
@@ -178,7 +180,8 @@ assert.equal(rolled.length, 1);
 assert.equal(rolled[0].winRate, 50);
 assert.equal(unitBins([{ result: "Lost", units: -1, stake: 1 }])[0].key, "−1.49u to −0.01u");
 assert.equal(drawdownSeries([{ i: 1, unitMilli: 1000, date: "2026-10-20" }, { i: 2, unitMilli: -500, date: "2026-10-21" }]).worstMilli, -1500);
-assert.equal(clvBands([{ result: "Won", clvCents: 2, stake: 1, units: 1 }]).bands[0].key, "1¢ to 3¢");
+assert.equal(clvBands([{ result: "Won", clvCents: 2, medianCents: 2, stake: 1, units: 1 }]).bands[0].key, "1¢ to 3¢");
+assert.equal(clvBands([{ result: "Won", clvCents: 2, stake: 1, units: 1 }]).n, 0);
 for (const row of data.nba) {
   assert.equal("team" in row, false);
   assert.equal("units_typical" in row, false);
@@ -198,5 +201,7 @@ const sources = [
 ].map((file) => fs.readFileSync(new URL("../" + file, import.meta.url), "utf8")).join("\n");
 for (const word of bannedReads) assert.equal(sources.includes(word), false, word);
 assert.equal(centsSeries([{ clv: 1.2, clvCents: null, result: "Won", date: "2026-10-20" }]).length, 0);
+assert.equal(centsSeries([{ clvCents: 4, medianCents: null, result: "Won", date: "2026-10-20" }]).length, 0);
+assert.equal(centsSeries([{ medianCents: 1.25, clvCents: 9, result: "Won", date: "2026-10-20" }])[0].cents, 1.25);
 
 console.log("stats checks ok");

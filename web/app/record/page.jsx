@@ -6,11 +6,11 @@ import { SITE } from "@/lib/site";
 
 export const metadata = pageMeta({
   title: "Record",
-  description: "Every Auspex Sports pick since launch, graded at the posted price, with closing-line value.",
+  description: "Every Auspex Sports pick since launch, graded at the posted price. Closing-line value compares the median price at lock with the closing median.",
   path: "/record",
 });
 
 export default function RecordPage() {
   const D = getData();
-  return <RecordBoard rows={D.all} launch={SITE.launch} updated={D.generatedAt ? stamp(D.generatedAt) : ""} clv={D.clv} />;
+  return <RecordBoard rows={D.all} launch={SITE.launch} updated={D.generatedAt ? stamp(D.generatedAt) : ""} />;
 }

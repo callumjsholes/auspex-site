@@ -31,7 +31,7 @@ export default function Home() {
           <div><b className="num">{cents && cents.beat != null ? formatPct(cents.beat) : (S.all.clvN ? pct(S.all.beatClose) : "–")}</b><span>Beat the close</span></div>
           <a className="more" href="/record">Full record</a>
         </div>
-        <p className="wrap strip-note">1 unit is 1% of a bankroll. NBA {S.nba.bets ? `${record(S.nba)}, ${unitsFromMilli(S.nba.unitMilli)}` : "not graded yet"}. NHL {S.nhl.bets ? `${record(S.nhl)}, ${unitsFromMilli(S.nhl.unitMilli)}` : "not graded yet"}.{D.generatedAt ? ` Updated ${stamp(D.generatedAt)}.` : ""}</p>
+        <p className="wrap strip-note">1 unit is 1% of a bankroll. NBA {S.nba.bets ? `${record(S.nba)}, ${unitsFromMilli(S.nba.unitMilli)}` : "not graded yet"}. NHL {S.nhl.bets ? `${record(S.nhl)}, ${unitsFromMilli(S.nhl.unitMilli)}` : "not graded yet"}. Beat the close is the median price at lock against the closing median. An equal price is not a beat.{D.generatedAt ? ` Updated ${stamp(D.generatedAt)}.` : ""}</p>
       </section>
       {tape.length > 0 && (
         <div className="tape">

@@ -66,8 +66,8 @@ function scopeNote(model) {
   }
   if (model.centsOpen > 0) {
     parts.push(model.centsOpen === 1
-      ? "Closing-line value still counts an open pick that already has a cents figure."
-      : `Closing-line value still counts ${model.centsOpen} open picks that already have a cents figure.`);
+      ? "Closing-line value still counts an open pick that already has a median and a close."
+      : `Closing-line value still counts ${model.centsOpen} open picks that already have a median and a close.`);
   }
   if (model.otherResults.length) {
     const bits = model.otherResults.map((o) => `${o.n} marked ${o.result}`);
@@ -321,7 +321,7 @@ export default function StatsPage({ model, launch, updated, clvCopy, calibration
         <div className="head">
           <div>
             <h2 id="clv-h">Closing line over time</h2>
-            <p className="lede">{clvCopy.sentence} One cent is one percentage point of implied probability. Positive means the locked price was longer than the closing median. The three figures are the published totals. The line is the average of the cents on each pick that has one, oldest first.</p>
+            <p className="lede">{clvCopy.sentence} The three figures and the line use that same comparison. The line is the average of those cents, oldest first.</p>
           </div>
         </div>
         <div className="kpis three">
@@ -330,7 +330,7 @@ export default function StatsPage({ model, launch, updated, clvCopy, calibration
           <div><b className={"num " + clvCopy.nTone}>{clvCopy.n}</b><span>{clvCopy.sample}</span></div>
         </div>
         {missing > 0 && (
-          <p className="note">{missing === 1 ? "1 graded pick has" : `${missing} graded picks have`} no cents figure, so {missing === 1 ? "it is" : "they are"} left off the line. The line does not fill a cents figure in from the points value or from the price.</p>
+          <p className="note">{missing === 1 ? "1 graded pick is" : `${missing} graded picks are`} missing a median at lock or a closing median, so {missing === 1 ? "it is" : "they are"} left off the line. The line does not fill the gap from the points value or from the best posted price.</p>
         )}
         <div className="panel clv-panel">
           <h3 className="side-h">Average cents</h3>

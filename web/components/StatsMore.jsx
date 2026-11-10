@@ -385,7 +385,7 @@ export function ClvBands({ block }) {
   return (
     <div className="spaced">
       <h3 className="side-h">Cents against the result</h3>
-      <p className="lede">Graded picks that have a cents figure, grouped. The hit rate is how often that group won. The average cents on wins and on losses are the two figures under the heading. A group under 30 picks is a short sample. These are not per-pick probabilities.</p>
+      <p className="lede">Graded picks with a median price at lock and a closing median, grouped. The cents are that gap. The hit rate is how often that group won. The average cents on wins and on losses are the two figures under the heading. A group under 30 picks is a short sample. These are not per-pick probabilities.</p>
       <div className="kpis">
         <div><b className="num">{formatCents(block.winCents)}</b><span>Average cents on wins</span></div>
         <div><b className="num">{formatCents(block.lossCents)}</b><span>Average cents on losses</span></div>

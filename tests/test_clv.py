@@ -1,7 +1,9 @@
 """Closing-line value on the public site.
 
 Fixtures cover a publish that includes the cents fields and one that does not.
-The site must not invent a cents number from the price or from clv_pts.
+The public average is the median price at lock against the closing median.
+A missing side stays null. clv_pts is not turned into cents, and a missing
+median is not filled from the best price. A pick card still shows published clv_cents.
 Run: python3 -m unittest discover -s tests   (needs node)
 """
 import subprocess
@@ -26,11 +28,13 @@ class Clv(unittest.TestCase):
     def test_pages_render_the_summary_and_the_card_line(self):
         record = (ROOT / "web" / "app" / "record" / "page.jsx").read_text()
         board = (ROOT / "web" / "components" / "RecordBoard.jsx").read_text()
-        today = (ROOT / "web" / "components" / "Today.jsx").read_text()
-        self.assertIn("clv={D.clv}", record)
+        ticket = (ROOT / "web" / "components" / "Ticket.jsx").read_text()
+        self.assertIn("RecordBoard", record)
+        self.assertNotIn("clv={D.clv}", record)
+        self.assertIn("typical market price", board)
         self.assertIn("summaryCopy", board)
         self.assertIn("copy.sentence", board)
-        self.assertIn("<CloseLine ", today)
+        self.assertIn("<CloseLine ", ticket)
         self.assertTrue((ROOT / "tests" / "fixtures" / "clv" / "with.json").is_file())
         self.assertTrue((ROOT / "tests" / "fixtures" / "clv" / "without.json").is_file())
 

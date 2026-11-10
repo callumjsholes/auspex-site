@@ -1,7 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import { odds, dayShort, resultLabel, resultTone, units, signed, centsBetter } from "@/lib/format";
-import { describeClose } from "@/lib/clv";
+import { describeClose, finite, formatCents } from "@/lib/clv";
 import Term from "@/components/Term";
 import { matchupPath } from "@/lib/teams";
 
@@ -15,14 +15,15 @@ function shopSub(r) {
 
 function closeSubs(r) {
   const items = describeClose(r, odds);
-  if (!items) return null;
-  const cents = items.find((it) => it.k === "cents" && it.text !== "CLV n/a");
-  const close = items.find((it) => it.k === "close");
-  const beat = items.some((it) => it.k === "beat");
-  if (!cents && !close) return null;
+  const close = items && items.find((it) => it.k === "close");
+  const cents = finite(r.medianCents);
+  if (cents == null && !close) return null;
+  const text = cents == null ? null : formatCents(cents);
+  const beat = cents != null && cents > 0;
+  const tone = cents == null || cents === 0 ? "" : cents > 0 ? "pos" : "neg";
   return (
     <>
-      {cents && <span className={"sub " + (cents.tone || "")}>{cents.text}{beat ? " ✓" : ""}</span>}
+      {text && <span className={"sub " + tone}>{text}{beat ? " ✓" : ""}</span>}
       {close && <span className="sub">{close.text.replace(/^Close /, "close ")}</span>}
     </>
   );
@@ -32,9 +33,9 @@ export default function RecordTable({ rows }) {
   const [result, setResult] = useState("All");
   const shown = useMemo(() => rows.filter((r) => result === "All" || r.result === result), [rows, result]);
   const csv = () => {
-    const head = ["date", "league", "game", "pick", "price", "book", "typical_price", "best_price", "stake", "result", "units", "clv_pts", "locked_at", "clv_cents", "close_median", "close_best", "close_best_book", "close_quote_line", "close_line_exact"];
+    const head = ["date", "league", "game", "pick", "price", "book", "typical_price", "best_price", "stake", "result", "units", "clv_pts", "locked_at", "clv_cents", "close_median", "close_best", "close_best_book", "close_quote_line", "close_line_exact", "median_clv_cents"];
     const flag = (v) => (v == null ? "" : v ? "true" : "false");
-    const lines = [head.join(",")].concat(shown.map((r) => [r.date, r.league, r.game, r.pick, r.price, r.book, r.typical ?? "", r.best ?? "", r.stake, r.result, r.units ?? "", r.clv ?? "", r.locked, r.clvCents ?? "", r.closeMedian ?? "", r.closeBest ?? "", r.closeBestBook ?? "", r.closeQuoteLine ?? "", flag(r.closeLineExact)].map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`).join(",")));
+    const lines = [head.join(",")].concat(shown.map((r) => [r.date, r.league, r.game, r.pick, r.price, r.book, r.typical ?? "", r.best ?? "", r.stake, r.result, r.units ?? "", r.clv ?? "", r.locked, r.clvCents ?? "", r.closeMedian ?? "", r.closeBest ?? "", r.closeBestBook ?? "", r.closeQuoteLine ?? "", flag(r.closeLineExact), r.medianCents ?? ""].map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`).join(",")));
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([lines.join("\n")], { type: "text/csv" }));
     a.download = "auspex-record.csv"; a.click();
@@ -47,7 +48,7 @@ export default function RecordTable({ rows }) {
         <span className="count">{shown.length} pick{shown.length === 1 ? "" : "s"}</span>
       </div>
       <p className="note glossary">
-        <Term k="odds">Price</Term> is American odds. <Term k="unit">Stake</Term> is in units, and 1 unit is 1% of a bankroll. <Term k="closing">CLV</Term> is how far the closing line moved after the pick was posted.
+        <Term k="odds">Price</Term> is American odds. <Term k="unit">Stake</Term> is in units, and 1 unit is 1% of a bankroll. The cents under <Term k="closing">CLV</Term> are the median price at lock against the closing median. An equal price is not a beat. The price column is still the posted price.
       </p>
       <div className="tablewrap picks-wrap">
         <table className="picks">
