@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T00:40:28+00:00",
+ "generated_at": "2026-11-10T00:41:55+00:00",
  "today": "2026-11-09",
  "games": [
   {
@@ -10,8 +10,8 @@
    "start_utc": "2026-11-10T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 24,
-   "as_": 37,
+   "hs": 27,
+   "as_": 39,
    "locked": true,
    "picks": 1
   },
@@ -23,8 +23,8 @@
    "start_utc": "2026-11-10T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 37,
-   "as_": 32,
+   "hs": 42,
+   "as_": 37,
    "locked": true,
    "picks": 5
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-11-10T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 29,
-   "as_": 25,
+   "hs": 30,
+   "as_": 27,
    "locked": true,
    "picks": 1
   },
