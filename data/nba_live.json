@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T23:40:24+00:00",
+ "generated_at": "2026-11-11T00:10:31+00:00",
  "today": "2026-11-10",
  "games": [
   {
@@ -25,8 +25,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909962",
@@ -83,6 +83,30 @@
  ],
  "next_date": "2026-11-11",
  "picks": [
+  {
+   "id": "401909961-3078576-pts",
+   "game_id": "401909961",
+   "date": "2026-11-10",
+   "start_utc": "2026-11-11T01:00Z",
+   "game": "BOS@PHI",
+   "player": "Derrick White",
+   "player_id": "3078576",
+   "team": "BOS",
+   "opp": "PHI",
+   "stat": "pts",
+   "side": "Under",
+   "line": 13.5,
+   "price": -109,
+   "book": "draftkings",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -120,
+   "typical_n": 4,
+   "locked_at": "2026-11-11T00:10:31+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909958-4592479-reb",
    "game_id": "401909958",
@@ -16592,7 +16616,7 @@
   "units_typical": 7.66,
   "roi_typical": 1.7,
   "typical_picks": 452,
-  "pending": 0,
+  "pending": 1,
   "avg_clv_pts": 0.07,
   "beat_close_pct": 51.6,
   "clv_n": 459,
@@ -16613,7 +16637,7 @@
    "units_typical": 7.66,
    "roi_typical": 1.7,
    "typical_picks": 452,
-   "pending": 0,
+   "pending": 1,
    "avg_clv_pts": 0.07,
    "beat_close_pct": 51.6,
    "clv_n": 459,
