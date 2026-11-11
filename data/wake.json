@@ -1,13 +1,7 @@
 {
- "generated_at": "2026-11-11T05:30:27+00:00",
+ "generated_at": "2026-11-11T07:30:21+00:00",
  "keep_watching_until": "2026-11-12T03:00:00+00:00",
  "events": [
-  {
-   "at": "2026-11-11T07:30:00+00:00",
-   "key": "nba:grade",
-   "mode": "skip",
-   "nba_mode": "grade"
-  },
   {
    "at": "2026-11-11T14:15:00+00:00",
    "key": "morning",
@@ -39,6 +33,24 @@
    "nba_mode": "lock"
   },
   {
+   "at": "2026-11-12T01:10:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
+   "at": "2026-11-12T01:40:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
+   "at": "2026-11-12T02:10:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
    "at": "2026-11-12T03:30:00+00:00",
    "key": "nba:grade",
    "mode": "skip",
@@ -46,6 +58,24 @@
   },
   {
    "at": "2026-11-12T04:30:00+00:00",
+   "key": "nba:grade",
+   "mode": "skip",
+   "nba_mode": "grade"
+  },
+  {
+   "at": "2026-11-12T05:30:00+00:00",
+   "key": "nba:grade",
+   "mode": "skip",
+   "nba_mode": "grade"
+  },
+  {
+   "at": "2026-11-12T06:00:00+00:00",
+   "key": "nba:grade",
+   "mode": "skip",
+   "nba_mode": "grade"
+  },
+  {
+   "at": "2026-11-12T06:30:00+00:00",
    "key": "nba:grade",
    "mode": "skip",
    "nba_mode": "grade"
