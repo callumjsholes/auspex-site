@@ -3,29 +3,29 @@
   {
    "bin": "40\u201350%",
    "model_pred": 0.472,
-   "model_obs": 0.5,
-   "model_n": 56,
-   "book_pred": 0.434,
-   "book_obs": 0.5,
-   "book_n": 56
+   "model_obs": 0.491,
+   "model_n": 57,
+   "book_pred": 0.435,
+   "book_obs": 0.491,
+   "book_n": 57
   },
   {
    "bin": "50\u201360%",
-   "model_pred": 0.551,
-   "model_obs": 0.547,
-   "model_n": 349,
+   "model_pred": 0.552,
+   "model_obs": 0.553,
+   "model_n": 356,
    "book_pred": 0.505,
-   "book_obs": 0.547,
-   "book_n": 349
+   "book_obs": 0.553,
+   "book_n": 356
   },
   {
    "bin": "60\u201370%",
    "model_pred": 0.623,
-   "model_obs": 0.564,
-   "model_n": 55,
+   "model_obs": 0.571,
+   "model_n": 56,
    "book_pred": 0.567,
-   "book_obs": 0.564,
-   "book_n": 55
+   "book_obs": 0.571,
+   "book_n": 56
   }
  ],
  "nba_ev_buckets": [],
