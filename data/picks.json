@@ -12,8 +12,8 @@
   "best_book": "betrivers",
   "locked_at": "2026-11-10T22:00:18+00:00",
   "close_price": -175,
-  "result": "Pending",
-  "units": null,
+  "result": "Won",
+  "units": 0.578,
   "source": "live",
   "close_at": "2026-11-10T23:45:14+00:00",
   "close_median": -175,
@@ -21,7 +21,10 @@
   "close_best_book": "betrivers",
   "closed": true,
   "clv_pts": 0.4,
-  "clv_cents": 0.27
+  "clv_cents": 0.27,
+  "home_score": 3,
+  "away_score": 6,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020290,
@@ -36,8 +39,8 @@
   "best_book": "betonlineag",
   "locked_at": "2026-11-10T22:00:18+00:00",
   "close_price": 120,
-  "result": "Pending",
-  "units": null,
+  "result": "Lost",
+  "units": -1,
   "source": "live",
   "close_at": "2026-11-11T00:45:15+00:00",
   "close_median": 120,
@@ -45,7 +48,10 @@
   "close_best_book": "betonlineag",
   "closed": true,
   "clv_pts": 0.1,
-  "clv_cents": 0.0
+  "clv_cents": 0.0,
+  "home_score": 3,
+  "away_score": 2,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020291,
@@ -60,8 +66,8 @@
   "best_book": "betonlineag",
   "locked_at": "2026-11-10T22:00:18+00:00",
   "close_price": -145,
-  "result": "Pending",
-  "units": null,
+  "result": "Lost",
+  "units": -1,
   "source": "live",
   "close_at": "2026-11-10T23:45:14+00:00",
   "close_median": -145,
@@ -69,7 +75,10 @@
   "close_best_book": "betonlineag",
   "closed": true,
   "clv_pts": 0.0,
-  "clv_cents": 0.0
+  "clv_cents": 0.0,
+  "home_score": 4,
+  "away_score": 2,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020292,
@@ -84,8 +93,8 @@
   "best_book": "betus",
   "locked_at": "2026-11-10T22:00:18+00:00",
   "close_price": -122,
-  "result": "Pending",
-  "units": null,
+  "result": "Lost",
+  "units": -1,
   "source": "live",
   "close_at": "2026-11-11T02:43:57+00:00",
   "close_median": -122,
@@ -93,7 +102,10 @@
   "close_best_book": "betrivers",
   "closed": true,
   "clv_pts": -1.4,
-  "clv_cents": -1.57
+  "clv_cents": -1.57,
+  "home_score": 0,
+  "away_score": 3,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020283,
