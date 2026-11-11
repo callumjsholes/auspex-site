@@ -1,6 +1,6 @@
 {
  "date": "2026-11-11",
- "generated_at": "2026-11-11T14:15:15+00:00",
+ "generated_at": "2026-11-11T22:00:18+00:00",
  "games": [
   {
    "game_id": 2026020293,
@@ -14,8 +14,8 @@
    "away_score": null,
    "home_goalie": "Ukko-Pekka Luukkonen",
    "away_goalie": "Andrei Vasilevskiy",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
+   "away_goalie_status": "Likely",
    "locked": false
   },
   {
@@ -30,8 +30,8 @@
    "away_score": null,
    "home_goalie": "Devin Cooley",
    "away_goalie": "Joonas Korpisalo",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Likely",
    "locked": false
   },
   {
@@ -46,8 +46,8 @@
    "away_score": null,
    "home_goalie": "Tristan Jarry",
    "away_goalie": "Dan Vladar",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Likely",
    "locked": false
   },
   {
@@ -62,8 +62,8 @@
    "away_score": null,
    "home_goalie": "Carter Hart",
    "away_goalie": "Sebastian Cossa",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Likely",
    "locked": false
   },
   {
@@ -78,7 +78,7 @@
    "away_score": null,
    "home_goalie": "Laurent Brossoit",
    "away_goalie": "Justus Annunen",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed",
    "locked": false
   },
@@ -94,8 +94,8 @@
    "away_score": null,
    "home_goalie": "Yaroslav Askarov",
    "away_goalie": "Sergei Murashov",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   }
  ]
