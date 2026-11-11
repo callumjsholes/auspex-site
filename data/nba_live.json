@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T00:10:31+00:00",
+ "generated_at": "2026-11-11T00:50:28+00:00",
  "today": "2026-11-10",
  "games": [
   {
@@ -8,10 +8,10 @@
    "home": "NYK",
    "away": "MIL",
    "start_utc": "2026-11-11T00:30Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 10,
+   "as_": 10,
    "locked": true,
    "picks": 0
   },
@@ -105,7 +105,18 @@
    "locked_at": "2026-11-11T00:10:31+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-11T00:50:28+00:00",
+   "close_median": -120,
+   "close_best": -109,
+   "close_best_book": "draftkings",
+   "close_quote_line": 13.5,
+   "close_line_exact": true,
+   "clv_pts": -0.1,
+   "close_price": -109,
+   "close_line": 13.5,
+   "clv_cents": 2.39
   },
   {
    "id": "401909958-4592479-reb",
@@ -16618,11 +16629,11 @@
   "typical_picks": 452,
   "pending": 1,
   "avg_clv_pts": 0.07,
-  "beat_close_pct": 51.6,
-  "clv_n": 459,
-  "avg_clv_cents": 1.98,
+  "beat_close_pct": 51.5,
+  "clv_n": 460,
+  "avg_clv_cents": 1.99,
   "beat_close_cents_pct": 89.2,
-  "clv_cents_n": 453,
+  "clv_cents_n": 454,
   "clv_na": 8
  },
  "by_tier": {
@@ -16639,11 +16650,11 @@
    "typical_picks": 452,
    "pending": 1,
    "avg_clv_pts": 0.07,
-   "beat_close_pct": 51.6,
-   "clv_n": 459,
-   "avg_clv_cents": 1.98,
+   "beat_close_pct": 51.5,
+   "clv_n": 460,
+   "avg_clv_cents": 1.99,
    "beat_close_cents_pct": 89.2,
-   "clv_cents_n": 453,
+   "clv_cents_n": 454,
    "clv_na": 8
   }
  },
