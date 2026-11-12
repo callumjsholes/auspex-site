@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T23:50:26+00:00",
+ "generated_at": "2026-11-12T00:10:26+00:00",
  "today": "2026-11-11",
  "games": [
   {
@@ -51,8 +51,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909970",
@@ -64,7 +64,7 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
+   "locked": true,
    "picks": 0
   },
   {
@@ -77,8 +77,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 2
   },
   {
    "game_id": "401909972",
@@ -90,7 +90,7 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
+   "locked": true,
    "picks": 0
   },
   {
@@ -135,6 +135,78 @@
  ],
  "next_date": "2026-11-12",
  "picks": [
+  {
+   "id": "401909969-4395723-pts",
+   "game_id": "401909969",
+   "date": "2026-11-11",
+   "start_utc": "2026-11-12T01:00Z",
+   "game": "SAS@CHI",
+   "player": "Keldon Johnson",
+   "player_id": "4395723",
+   "team": "SAS",
+   "opp": "CHI",
+   "stat": "pts",
+   "side": "Under",
+   "line": 11.5,
+   "price": -119,
+   "book": "draftkings",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -124,
+   "typical_n": 4,
+   "locked_at": "2026-11-12T00:10:26+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
+  {
+   "id": "401909971-3945274-pts",
+   "game_id": "401909971",
+   "date": "2026-11-11",
+   "start_utc": "2026-11-12T01:00Z",
+   "game": "LAL@MIL",
+   "player": "Luka Doncic",
+   "player_id": "3945274",
+   "team": "LAL",
+   "opp": "MIL",
+   "stat": "pts",
+   "side": "Under",
+   "line": 35.5,
+   "price": -117,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -117,
+   "typical_n": 1,
+   "locked_at": "2026-11-12T00:10:26+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
+  {
+   "id": "401909971-5105623-pts",
+   "game_id": "401909971",
+   "date": "2026-11-11",
+   "start_utc": "2026-11-12T01:00Z",
+   "game": "LAL@MIL",
+   "player": "Kel'el Ware",
+   "player_id": "5105623",
+   "team": "MIL",
+   "opp": "LAL",
+   "stat": "pts",
+   "side": "Under",
+   "line": 10.5,
+   "price": 100,
+   "book": "fanduel",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -106,
+   "typical_n": 4,
+   "locked_at": "2026-11-12T00:10:26+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909968-4593841-reb",
    "game_id": "401909968",
@@ -17389,7 +17461,7 @@
   "units_typical": 14.15,
   "roi_typical": 3.0,
   "typical_picks": 467,
-  "pending": 6,
+  "pending": 9,
   "avg_clv_pts": 0.03,
   "beat_close_pct": 51.9,
   "clv_n": 480,
@@ -17410,7 +17482,7 @@
    "units_typical": 14.15,
    "roi_typical": 3.0,
    "typical_picks": 467,
-   "pending": 6,
+   "pending": 9,
    "avg_clv_pts": 0.03,
    "beat_close_pct": 51.9,
    "clv_n": 480,
