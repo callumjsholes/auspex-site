@@ -1,6 +1,6 @@
 {
  "date": "2026-11-12",
- "generated_at": "2026-11-12T14:15:20+00:00",
+ "generated_at": "2026-11-12T15:00:15+00:00",
  "games": [
   {
    "game_id": 2026020299,
@@ -128,7 +128,14 @@
    "away_goalie": "Stuart Skinner",
    "home_goalie_status": "Unconfirmed",
    "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "n_books": 11,
+   "home_price": -175,
+   "away_price": 146,
+   "edge_side": "home",
+   "edge_team": "DAL",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020307,
@@ -144,7 +151,14 @@
    "away_goalie": "Joel Hofer",
    "home_goalie_status": "Unconfirmed",
    "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "n_books": 11,
+   "home_price": -120,
+   "away_price": 100,
+   "edge_side": "home",
+   "edge_team": "UTA",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020308,
@@ -160,7 +174,14 @@
    "away_goalie": "Ilya Sorokin",
    "home_goalie_status": "Unconfirmed",
    "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "n_books": 11,
+   "home_price": -125,
+   "away_price": 105,
+   "edge_side": "home",
+   "edge_team": "LAK",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020309,
