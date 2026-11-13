@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T23:50:35+00:00",
+ "generated_at": "2026-11-13T00:10:34+00:00",
  "today": "2026-11-12",
  "games": [
   {
@@ -38,8 +38,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909979",
@@ -57,6 +57,30 @@
  ],
  "next_date": "2026-11-13",
  "picks": [
+  {
+   "id": "401909978-4432847-pts",
+   "game_id": "401909978",
+   "date": "2026-11-12",
+   "start_utc": "2026-11-13T01:00Z",
+   "game": "DAL@MIN",
+   "player": "Terrence Shannon Jr.",
+   "player_id": "4432847",
+   "team": "MIN",
+   "opp": "DAL",
+   "stat": "pts",
+   "side": "Under",
+   "line": 9.5,
+   "price": -101,
+   "book": "draftkings",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -108,
+   "typical_n": 4,
+   "locked_at": "2026-11-13T00:10:34+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909977-4066372-pts",
    "game_id": "401909977",
@@ -17848,7 +17872,7 @@
   "units_typical": 14.89,
   "roi_typical": 3.1,
   "typical_picks": 483,
-  "pending": 5,
+  "pending": 6,
   "avg_clv_pts": 0.03,
   "beat_close_pct": 52.1,
   "clv_n": 495,
@@ -17869,7 +17893,7 @@
    "units_typical": 14.89,
    "roi_typical": 3.1,
    "typical_picks": 483,
-   "pending": 5,
+   "pending": 6,
    "avg_clv_pts": 0.03,
    "beat_close_pct": 52.1,
    "clv_n": 495,
