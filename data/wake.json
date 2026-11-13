@@ -1,13 +1,7 @@
 {
- "generated_at": "2026-11-13T23:11:14+00:00",
+ "generated_at": "2026-11-13T23:50:40+00:00",
  "keep_watching_until": "2026-11-14T03:30:00+00:00",
  "events": [
-  {
-   "at": "2026-11-13T23:50:00+00:00",
-   "key": "nba:close",
-   "mode": "skip",
-   "nba_mode": "close"
-  },
   {
    "at": "2026-11-14T00:00:00+00:00",
    "key": "pregame",
