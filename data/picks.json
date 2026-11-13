@@ -59,11 +59,17 @@
   "best_price": -124,
   "best_book": "lowvig",
   "locked_at": "2026-11-12T15:00:15+00:00",
-  "close_price": -125,
+  "close_price": -121,
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-11-12T15:00:15+00:00"
+  "close_at": "2026-11-13T02:45:16+00:00",
+  "close_median": -121,
+  "close_best": -120,
+  "close_best_book": "fanduel",
+  "closed": true,
+  "clv_pts": -0.6,
+  "clv_cents": -0.8
  },
  {
   "game_id": 2026020286,
