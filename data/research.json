@@ -103,21 +103,21 @@
   },
   {
    "bin": "50\u201360%",
-   "model_pred": 0.571,
-   "model_obs": 0.538,
-   "model_n": 13,
-   "book_pred": 0.497,
-   "book_obs": 0.538,
-   "book_n": 13
+   "model_pred": 0.573,
+   "model_obs": 0.467,
+   "model_n": 15,
+   "book_pred": 0.501,
+   "book_obs": 0.467,
+   "book_n": 15
   },
   {
    "bin": "60\u201370%",
-   "model_pred": 0.659,
-   "model_obs": 0.538,
-   "model_n": 13,
-   "book_pred": 0.583,
-   "book_obs": 0.538,
-   "book_n": 13
+   "model_pred": 0.66,
+   "model_obs": 0.5,
+   "model_n": 14,
+   "book_pred": 0.585,
+   "book_obs": 0.5,
+   "book_n": 14
   },
   {
    "bin": "70\u201380%",
