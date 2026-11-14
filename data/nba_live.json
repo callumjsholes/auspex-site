@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-14T15:15:23+00:00",
+ "generated_at": "2026-11-14T23:10:28+00:00",
  "today": "2026-11-14",
  "games": [
   {
@@ -12,8 +12,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909981",
@@ -70,6 +70,30 @@
  ],
  "next_date": "2026-11-15",
  "picks": [
+  {
+   "id": "401909980-3112335-pts",
+   "game_id": "401909980",
+   "date": "2026-11-14",
+   "start_utc": "2026-11-15T00:00Z",
+   "game": "DEN@NOP",
+   "player": "Nikola Jokic",
+   "player_id": "3112335",
+   "team": "DEN",
+   "opp": "NOP",
+   "stat": "pts",
+   "side": "Under",
+   "line": 27.5,
+   "price": -115,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -115,
+   "typical_n": 1,
+   "locked_at": "2026-11-14T23:10:28+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909304-2991350-pts",
    "game_id": "401909304",
@@ -18654,7 +18678,7 @@
   "units_typical": 8.03,
   "roi_typical": 1.6,
   "typical_picks": 510,
-  "pending": 0,
+  "pending": 1,
   "avg_clv_pts": 0.05,
   "beat_close_pct": 51.6,
   "clv_n": 517,
@@ -18675,7 +18699,7 @@
    "units_typical": 8.03,
    "roi_typical": 1.6,
    "typical_picks": 510,
-   "pending": 0,
+   "pending": 1,
    "avg_clv_pts": 0.05,
    "beat_close_pct": 51.6,
    "clv_n": 517,
