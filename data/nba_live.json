@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-14T00:10:33+00:00",
+ "generated_at": "2026-11-14T00:40:22+00:00",
  "today": "2026-11-13",
  "games": [
   {
@@ -8,10 +8,10 @@
    "home": "IND",
    "away": "NYK",
    "start_utc": "2026-11-14T00:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 26,
+   "as_": 27,
    "locked": true,
    "picks": 4
   },
@@ -21,10 +21,10 @@
    "home": "ORL",
    "away": "MIL",
    "start_utc": "2026-11-14T00:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 28,
+   "as_": 18,
    "locked": true,
    "picks": 3
   },
@@ -77,8 +77,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909302",
@@ -122,6 +122,30 @@
  ],
  "next_date": "2026-11-14",
  "picks": [
+  {
+   "id": "401909301-4432811-ast",
+   "game_id": "401909301",
+   "date": "2026-11-13",
+   "start_utc": "2026-11-14T01:30Z",
+   "game": "UTA@HOU",
+   "player": "Josh Green",
+   "player_id": "4432811",
+   "team": "UTA",
+   "opp": "HOU",
+   "stat": "ast",
+   "side": "Under",
+   "line": 1.5,
+   "price": -118,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -121,
+   "typical_n": 2,
+   "locked_at": "2026-11-14T00:40:22+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909298-3059319-pts",
    "game_id": "401909298",
@@ -18389,7 +18413,7 @@
   "units_typical": 12.74,
   "roi_typical": 2.6,
   "typical_picks": 491,
-  "pending": 12,
+  "pending": 13,
   "avg_clv_pts": 0.03,
   "beat_close_pct": 51.9,
   "clv_n": 505,
@@ -18410,7 +18434,7 @@
    "units_typical": 12.74,
    "roi_typical": 2.6,
    "typical_picks": 491,
-   "pending": 12,
+   "pending": 13,
    "avg_clv_pts": 0.03,
    "beat_close_pct": 51.9,
    "clv_n": 505,
