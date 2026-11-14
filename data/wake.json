@@ -1,13 +1,7 @@
 {
- "generated_at": "2026-11-14T15:15:32+00:00",
+ "generated_at": "2026-11-14T16:00:46+00:00",
  "keep_watching_until": "2026-11-15T03:00:00+00:00",
  "events": [
-  {
-   "at": "2026-11-14T16:00:00+00:00",
-   "key": "pregame",
-   "mode": "pregame",
-   "nba_mode": "skip"
-  },
   {
    "at": "2026-11-14T23:10:00+00:00",
    "key": "nba:lock",
@@ -21,10 +15,28 @@
    "nba_mode": "lock"
   },
   {
+   "at": "2026-11-14T23:45:00+00:00",
+   "key": "close",
+   "mode": "close",
+   "nba_mode": "skip"
+  },
+  {
    "at": "2026-11-15T00:10:00+00:00",
    "key": "nba:lock",
    "mode": "skip",
    "nba_mode": "lock"
+  },
+  {
+   "at": "2026-11-15T00:45:00+00:00",
+   "key": "close",
+   "mode": "close",
+   "nba_mode": "skip"
+  },
+  {
+   "at": "2026-11-15T02:45:00+00:00",
+   "key": "close",
+   "mode": "close",
+   "nba_mode": "skip"
   },
   {
    "at": "2026-11-15T03:30:00+00:00",
