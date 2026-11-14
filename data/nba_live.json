@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-14T23:10:28+00:00",
+ "generated_at": "2026-11-14T23:40:28+00:00",
  "today": "2026-11-14",
  "games": [
   {
@@ -25,8 +25,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909982",
@@ -70,6 +70,30 @@
  ],
  "next_date": "2026-11-15",
  "picks": [
+  {
+   "id": "401909981-5041951-ast",
+   "game_id": "401909981",
+   "date": "2026-11-14",
+   "start_utc": "2026-11-15T00:30Z",
+   "game": "DAL@CLE",
+   "player": "Meleek Thomas",
+   "player_id": "5041951",
+   "team": "CLE",
+   "opp": "DAL",
+   "stat": "ast",
+   "side": "Over",
+   "line": 2.5,
+   "price": 102,
+   "book": "fanduel",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -104,
+   "typical_n": 2,
+   "locked_at": "2026-11-14T23:40:28+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909980-3112335-pts",
    "game_id": "401909980",
@@ -18678,7 +18702,7 @@
   "units_typical": 8.03,
   "roi_typical": 1.6,
   "typical_picks": 510,
-  "pending": 1,
+  "pending": 2,
   "avg_clv_pts": 0.05,
   "beat_close_pct": 51.6,
   "clv_n": 517,
@@ -18699,7 +18723,7 @@
    "units_typical": 8.03,
    "roi_typical": 1.6,
    "typical_picks": 510,
-   "pending": 1,
+   "pending": 2,
    "avg_clv_pts": 0.05,
    "beat_close_pct": 51.6,
    "clv_n": 517,
