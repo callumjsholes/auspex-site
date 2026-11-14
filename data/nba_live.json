@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-14T01:20:25+00:00",
+ "generated_at": "2026-11-14T01:40:30+00:00",
  "today": "2026-11-13",
  "games": [
   {
@@ -10,8 +10,8 @@
    "start_utc": "2026-11-14T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 58,
-   "as_": 49,
+   "hs": 65,
+   "as_": 60,
    "locked": true,
    "picks": 4
   },
@@ -23,8 +23,8 @@
    "start_utc": "2026-11-14T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 54,
-   "as_": 40,
+   "hs": 67,
+   "as_": 55,
    "locked": true,
    "picks": 3
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-11-14T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 14,
-   "as_": 9,
+   "hs": 29,
+   "as_": 27,
    "locked": true,
    "picks": 2
   },
@@ -49,8 +49,8 @@
    "start_utc": "2026-11-14T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 17,
-   "as_": 9,
+   "hs": 36,
+   "as_": 26,
    "locked": true,
    "picks": 3
   },
@@ -62,8 +62,8 @@
    "start_utc": "2026-11-14T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 13,
-   "as_": 14,
+   "hs": 28,
+   "as_": 35,
    "locked": true,
    "picks": 0
   },
@@ -90,8 +90,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909303",
@@ -122,6 +122,30 @@
  ],
  "next_date": "2026-11-14",
  "picks": [
+  {
+   "id": "401909302-4845367-pts",
+   "game_id": "401909302",
+   "date": "2026-11-13",
+   "start_utc": "2026-11-14T02:30Z",
+   "game": "GSW@SAS",
+   "player": "Stephon Castle",
+   "player_id": "4845367",
+   "team": "SAS",
+   "opp": "GSW",
+   "stat": "pts",
+   "side": "Under",
+   "line": 15.5,
+   "price": -112,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -125,
+   "typical_n": 5,
+   "locked_at": "2026-11-14T01:40:30+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909301-4432811-ast",
    "game_id": "401909301",
@@ -18477,7 +18501,7 @@
   "units_typical": 12.74,
   "roi_typical": 2.6,
   "typical_picks": 491,
-  "pending": 13,
+  "pending": 14,
   "avg_clv_pts": 0.05,
   "beat_close_pct": 52.1,
   "clv_n": 511,
@@ -18498,7 +18522,7 @@
    "units_typical": 12.74,
    "roi_typical": 2.6,
    "typical_picks": 491,
-   "pending": 13,
+   "pending": 14,
    "avg_clv_pts": 0.05,
    "beat_close_pct": 52.1,
    "clv_n": 511,
