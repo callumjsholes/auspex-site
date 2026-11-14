@@ -1,5 +1,23 @@
 [
  {
+  "game_id": 2026020311,
+  "date": "2026-11-13",
+  "game": "NSH@VGK",
+  "team": "VGK",
+  "side": "home",
+  "stake": 2,
+  "tier": "Best bet",
+  "price": -162,
+  "best_price": -152,
+  "best_book": "lowvig",
+  "locked_at": "2026-11-14T00:00:21+00:00",
+  "close_price": -162,
+  "result": "Pending",
+  "units": null,
+  "source": "live",
+  "close_at": "2026-11-14T00:00:21+00:00"
+ },
+ {
   "game_id": 2026020306,
   "date": "2026-11-12",
   "game": "WPG@DAL",
