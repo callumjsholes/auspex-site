@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T22:10:27+00:00",
+ "generated_at": "2026-11-15T23:10:25+00:00",
  "today": "2026-11-15",
  "games": [
   {
@@ -23,8 +23,8 @@
    "start_utc": "2026-11-15T21:00Z",
    "state": "in",
    "completed": false,
-   "hs": 49,
-   "as_": 62,
+   "hs": 92,
+   "as_": 108,
    "locked": true,
    "picks": 2
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-11-15T21:30Z",
    "state": "in",
    "completed": false,
-   "hs": 22,
-   "as_": 21,
+   "hs": 57,
+   "as_": 69,
    "locked": true,
    "picks": 2
   },
@@ -47,10 +47,10 @@
    "home": "UTA",
    "away": "SAS",
    "start_utc": "2026-11-15T22:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 55,
+   "as_": 58,
    "locked": true,
    "picks": 1
   },
@@ -90,8 +90,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909992",
@@ -122,6 +122,30 @@
  ],
  "next_date": "2026-11-16",
  "picks": [
+  {
+   "id": "401909991-4711272-ast",
+   "game_id": "401909991",
+   "date": "2026-11-15",
+   "start_utc": "2026-11-16T00:00Z",
+   "game": "HOU@WAS",
+   "player": "Reed Sheppard",
+   "player_id": "4711272",
+   "team": "HOU",
+   "opp": "WAS",
+   "stat": "ast",
+   "side": "Under",
+   "line": 3.5,
+   "price": -101,
+   "book": "draftkings",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -108,
+   "typical_n": 4,
+   "locked_at": "2026-11-15T23:10:25+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909988-4592479-pts",
    "game_id": "401909988",
@@ -19382,7 +19406,7 @@
   "units_typical": 2.86,
   "roi_typical": 0.5,
   "typical_picks": 524,
-  "pending": 5,
+  "pending": 6,
   "avg_clv_pts": 0.05,
   "beat_close_pct": 51.3,
   "clv_n": 536,
@@ -19403,7 +19427,7 @@
    "units_typical": 2.86,
    "roi_typical": 0.5,
    "typical_picks": 524,
-   "pending": 5,
+   "pending": 6,
    "avg_clv_pts": 0.05,
    "beat_close_pct": 51.3,
    "clv_n": 536,
