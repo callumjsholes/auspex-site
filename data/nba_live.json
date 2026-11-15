@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T20:50:25+00:00",
+ "generated_at": "2026-11-15T21:10:28+00:00",
  "today": "2026-11-15",
  "games": [
   {
@@ -51,8 +51,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909989",
@@ -122,6 +122,30 @@
  ],
  "next_date": "2026-11-16",
  "picks": [
+  {
+   "id": "401909988-4592479-pts",
+   "game_id": "401909988",
+   "date": "2026-11-15",
+   "start_utc": "2026-11-15T22:00Z",
+   "game": "SAS@UTA",
+   "player": "Julian Champagnie",
+   "player_id": "4592479",
+   "team": "SAS",
+   "opp": "UTA",
+   "stat": "pts",
+   "side": "Under",
+   "line": 11.5,
+   "price": -134,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -134,
+   "typical_n": 1,
+   "locked_at": "2026-11-15T21:10:28+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909987-4433249-pts",
    "game_id": "401909987",
@@ -19326,7 +19350,7 @@
   "units_typical": 2.86,
   "roi_typical": 0.5,
   "typical_picks": 524,
-  "pending": 4,
+  "pending": 5,
   "avg_clv_pts": 0.05,
   "beat_close_pct": 51.6,
   "clv_n": 533,
@@ -19347,7 +19371,7 @@
    "units_typical": 2.86,
    "roi_typical": 0.5,
    "typical_picks": 524,
-   "pending": 4,
+   "pending": 5,
    "avg_clv_pts": 0.05,
    "beat_close_pct": 51.6,
    "clv_n": 533,
