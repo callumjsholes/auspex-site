@@ -1,6 +1,6 @@
 {
  "date": "2026-11-15",
- "generated_at": "2026-11-15T14:15:14+00:00",
+ "generated_at": "2026-11-15T22:30:15+00:00",
  "games": [
   {
    "game_id": 2026020326,
@@ -31,7 +31,7 @@
    "home_goalie": "Casey DeSmith",
    "away_goalie": "Akira Schmid",
    "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -47,7 +47,7 @@
    "home_goalie": "Ville Husso",
    "away_goalie": "Devin Cooley",
    "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -61,7 +61,7 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Carter Hart",
-   "away_goalie": "Kevin Lankinen",
+   "away_goalie": "Leevi Merilainen",
    "home_goalie_status": "Unconfirmed",
    "away_goalie_status": "Unconfirmed",
    "locked": false
@@ -79,8 +79,15 @@
    "home_goalie": "Alex Nedeljkovic",
    "away_goalie": "Juuse Saros",
    "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "away_goalie_status": "Likely",
+   "n_books": 11,
+   "home_price": 142,
+   "away_price": -170,
+   "edge_side": "home",
+   "edge_team": "SJS",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   }
  ]
 }
