@@ -1,5 +1,23 @@
 [
  {
+  "game_id": 2026020331,
+  "date": "2026-11-16",
+  "game": "MTL@NYR",
+  "team": "NYR",
+  "side": "home",
+  "stake": 2,
+  "tier": "Best bet",
+  "price": -105,
+  "best_price": 100,
+  "best_book": "lowvig",
+  "locked_at": "2026-11-16T22:30:17+00:00",
+  "close_price": -105,
+  "result": "Pending",
+  "units": null,
+  "source": "live",
+  "close_at": "2026-11-16T22:30:17+00:00"
+ },
+ {
   "game_id": 2026020330,
   "date": "2026-11-15",
   "game": "NSH@SJS",
