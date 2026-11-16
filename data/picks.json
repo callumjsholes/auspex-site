@@ -11,11 +11,17 @@
   "best_price": 150,
   "best_book": "williamhill_us",
   "locked_at": "2026-11-15T22:30:15+00:00",
-  "close_price": 142,
+  "close_price": 140,
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-11-15T22:30:15+00:00"
+  "close_at": "2026-11-16T01:45:14+00:00",
+  "close_median": 140,
+  "close_best": 149,
+  "close_best_book": "betonlineag",
+  "closed": true,
+  "clv_pts": 0.1,
+  "clv_cents": 0.34
  },
  {
   "game_id": 2026020315,
