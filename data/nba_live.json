@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T23:50:28+00:00",
+ "generated_at": "2026-11-16T00:10:28+00:00",
  "today": "2026-11-15",
  "games": [
   {
@@ -34,10 +34,10 @@
    "home": "LAC",
    "away": "CHA",
    "start_utc": "2026-11-15T21:30Z",
-   "state": "in",
-   "completed": false,
+   "state": "post",
+   "completed": true,
    "hs": 113,
-   "as_": 96,
+   "as_": 105,
    "locked": true,
    "picks": 2
   },
@@ -49,8 +49,8 @@
    "start_utc": "2026-11-15T22:00Z",
    "state": "in",
    "completed": false,
-   "hs": 86,
-   "as_": 85,
+   "hs": 98,
+   "as_": 94,
    "locked": true,
    "picks": 1
   },
@@ -62,8 +62,8 @@
    "start_utc": "2026-11-15T23:00Z",
    "state": "in",
    "completed": false,
-   "hs": 59,
-   "as_": 28,
+   "hs": 67,
+   "as_": 37,
    "locked": true,
    "picks": 0
   },
@@ -75,8 +75,8 @@
    "start_utc": "2026-11-15T23:00Z",
    "state": "in",
    "completed": false,
-   "hs": 24,
-   "as_": 34,
+   "hs": 40,
+   "as_": 42,
    "locked": true,
    "picks": 0
   },
@@ -103,8 +103,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401909993",
@@ -122,6 +122,30 @@
  ],
  "next_date": "2026-11-16",
  "picks": [
+  {
+   "id": "401909992-5082206-pts",
+   "game_id": "401909992",
+   "date": "2026-11-15",
+   "start_utc": "2026-11-16T01:00Z",
+   "game": "ATL@MIL",
+   "player": "Brayden Burries",
+   "player_id": "5082206",
+   "team": "MIL",
+   "opp": "ATL",
+   "stat": "pts",
+   "side": "Under",
+   "line": 12.5,
+   "price": -105,
+   "book": "betmgm",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -115,
+   "typical_n": 5,
+   "locked_at": "2026-11-16T00:10:28+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909991-4711272-ast",
    "game_id": "401909991",
@@ -19419,7 +19443,7 @@
   "units_typical": 0.86,
   "roi_typical": 0.2,
   "typical_picks": 526,
-  "pending": 4,
+  "pending": 5,
   "avg_clv_pts": 0.05,
   "beat_close_pct": 51.4,
   "clv_n": 537,
@@ -19440,7 +19464,7 @@
    "units_typical": 0.86,
    "roi_typical": 0.2,
    "typical_picks": 526,
-   "pending": 4,
+   "pending": 5,
    "avg_clv_pts": 0.05,
    "beat_close_pct": 51.4,
    "clv_n": 537,
