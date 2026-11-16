@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T01:50:23+00:00",
+ "generated_at": "2026-11-16T02:30:15+00:00",
  "today": "2026-11-15",
  "games": [
   {
@@ -73,10 +73,10 @@
    "home": "TOR",
    "away": "NYK",
    "start_utc": "2026-11-15T23:00Z",
-   "state": "in",
-   "completed": false,
-   "hs": 106,
-   "as_": 106,
+   "state": "post",
+   "completed": true,
+   "hs": 108,
+   "as_": 112,
    "locked": true,
    "picks": 0
   },
@@ -88,8 +88,8 @@
    "start_utc": "2026-11-16T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 79,
-   "as_": 108,
+   "hs": 113,
+   "as_": 145,
    "locked": true,
    "picks": 1
   },
@@ -101,8 +101,8 @@
    "start_utc": "2026-11-16T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 47,
-   "as_": 35,
+   "hs": 58,
+   "as_": 68,
    "locked": true,
    "picks": 1
   },
@@ -112,10 +112,10 @@
    "home": "SAC",
    "away": "OKC",
    "start_utc": "2026-11-16T02:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 18,
+   "as_": 27,
    "locked": true,
    "picks": 4
   }
