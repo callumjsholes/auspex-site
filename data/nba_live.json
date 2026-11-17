@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T23:50:28+00:00",
+ "generated_at": "2026-11-17T00:10:28+00:00",
  "today": "2026-11-16",
  "games": [
   {
@@ -77,8 +77,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401910000",
@@ -90,7 +90,7 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
+   "locked": true,
    "picks": 0
   },
   {
@@ -109,6 +109,30 @@
  ],
  "next_date": "2026-11-17",
  "picks": [
+  {
+   "id": "401909999-4066211-pts",
+   "game_id": "401909999",
+   "date": "2026-11-16",
+   "start_utc": "2026-11-17T01:00Z",
+   "game": "POR@MIN",
+   "player": "Robert Williams III",
+   "player_id": "4066211",
+   "team": "POR",
+   "opp": "MIN",
+   "stat": "pts",
+   "side": "Under",
+   "line": 7.5,
+   "price": -135,
+   "book": "betmgm",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -135,
+   "typical_n": 1,
+   "locked_at": "2026-11-17T00:10:28+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909997-3912848-reb",
    "game_id": "401909997",
@@ -19768,7 +19792,7 @@
   "units_typical": 1.8,
   "roi_typical": 0.3,
   "typical_picks": 534,
-  "pending": 6,
+  "pending": 7,
   "avg_clv_pts": 0.02,
   "beat_close_pct": 50.8,
   "clv_n": 545,
@@ -19789,7 +19813,7 @@
    "units_typical": 1.8,
    "roi_typical": 0.3,
    "typical_picks": 534,
-   "pending": 6,
+   "pending": 7,
    "avg_clv_pts": 0.02,
    "beat_close_pct": 50.8,
    "clv_n": 545,
