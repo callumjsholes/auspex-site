@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T02:40:31+00:00",
+ "generated_at": "2026-11-18T03:10:21+00:00",
  "today": "2026-11-17",
  "games": [
   {
@@ -8,10 +8,10 @@
    "home": "TOR",
    "away": "NYK",
    "start_utc": "2026-11-18T00:30Z",
-   "state": "in",
-   "completed": false,
-   "hs": 93,
-   "as_": 93,
+   "state": "post",
+   "completed": true,
+   "hs": 102,
+   "as_": 111,
    "locked": true,
    "picks": 0
   },
@@ -23,8 +23,8 @@
    "start_utc": "2026-11-18T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 52,
-   "as_": 60,
+   "hs": 84,
+   "as_": 85,
    "locked": true,
    "picks": 4
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-11-18T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 64,
-   "as_": 61,
+   "hs": 75,
+   "as_": 86,
    "locked": true,
    "picks": 1
   },
@@ -64,12 +64,36 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   }
  ],
  "next_date": "2026-11-18",
  "picks": [
+  {
+   "id": "401910005-4277811-pts",
+   "game_id": "401910005",
+   "date": "2026-11-17",
+   "start_utc": "2026-11-18T04:00Z",
+   "game": "CHA@LAL",
+   "player": "Collin Sexton",
+   "player_id": "4277811",
+   "team": "LAL",
+   "opp": "CHA",
+   "stat": "pts",
+   "side": "Under",
+   "line": 15.5,
+   "price": -125,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -125,
+   "typical_n": 1,
+   "locked_at": "2026-11-18T03:10:21+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401910006-4433627-ast",
    "game_id": "401910006",
@@ -20267,7 +20291,7 @@
   "units_typical": 3.23,
   "roi_typical": 0.6,
   "typical_picks": 544,
-  "pending": 13,
+  "pending": 14,
   "avg_clv_pts": 0.04,
   "beat_close_pct": 51.1,
   "clv_n": 556,
@@ -20288,7 +20312,7 @@
    "units_typical": 3.23,
    "roi_typical": 0.6,
    "typical_picks": 544,
-   "pending": 13,
+   "pending": 14,
    "avg_clv_pts": 0.04,
    "beat_close_pct": 51.1,
    "clv_n": 556,
