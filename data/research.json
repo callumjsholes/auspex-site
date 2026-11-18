@@ -12,11 +12,11 @@
   {
    "bin": "50\u201360%",
    "model_pred": 0.551,
-   "model_obs": 0.53,
-   "model_n": 436,
+   "model_obs": 0.531,
+   "model_n": 437,
    "book_pred": 0.506,
-   "book_obs": 0.53,
-   "book_n": 436
+   "book_obs": 0.531,
+   "book_n": 437
   },
   {
    "bin": "60\u201370%",
