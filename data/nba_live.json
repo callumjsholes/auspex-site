@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T15:15:28+00:00",
+ "generated_at": "2026-11-18T23:10:27+00:00",
  "today": "2026-11-18",
  "games": [
   {
@@ -12,8 +12,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 3
   },
   {
    "game_id": "401910008",
@@ -25,7 +25,7 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
+   "locked": true,
    "picks": 0
   },
   {
@@ -38,7 +38,7 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
+   "locked": true,
    "picks": 0
   },
   {
@@ -51,7 +51,7 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
+   "locked": true,
    "picks": 0
   },
   {
@@ -161,6 +161,78 @@
  ],
  "next_date": "2026-11-19",
  "picks": [
+  {
+   "id": "401910007-4903027-ast",
+   "game_id": "401910007",
+   "date": "2026-11-18",
+   "start_utc": "2026-11-19T00:00Z",
+   "game": "MEM@CLE",
+   "player": "Cedric Coward",
+   "player_id": "4903027",
+   "team": "MEM",
+   "opp": "CLE",
+   "stat": "ast",
+   "side": "Under",
+   "line": 3.5,
+   "price": 120,
+   "book": "betmgm",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": 112,
+   "typical_n": 5,
+   "locked_at": "2026-11-18T23:10:27+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
+  {
+   "id": "401910007-4433083-ast",
+   "game_id": "401910007",
+   "date": "2026-11-18",
+   "start_utc": "2026-11-19T00:00Z",
+   "game": "MEM@CLE",
+   "player": "Cam Spencer",
+   "player_id": "4433083",
+   "team": "MEM",
+   "opp": "CLE",
+   "stat": "ast",
+   "side": "Under",
+   "line": 7.5,
+   "price": 107,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": 105,
+   "typical_n": 3,
+   "locked_at": "2026-11-18T23:10:27+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
+  {
+   "id": "401910007-4433083-pts",
+   "game_id": "401910007",
+   "date": "2026-11-18",
+   "start_utc": "2026-11-19T00:00Z",
+   "game": "MEM@CLE",
+   "player": "Cam Spencer",
+   "player_id": "4433083",
+   "team": "MEM",
+   "opp": "CLE",
+   "stat": "pts",
+   "side": "Under",
+   "line": 13.5,
+   "price": -112,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -112,
+   "typical_n": 1,
+   "locked_at": "2026-11-18T23:10:27+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401910005-4277811-pts",
    "game_id": "401910005",
@@ -20495,7 +20567,7 @@
   "units_typical": -1.67,
   "roi_typical": -0.3,
   "typical_picks": 558,
-  "pending": 0,
+  "pending": 3,
   "avg_clv_pts": 0.04,
   "beat_close_pct": 50.6,
   "clv_n": 565,
@@ -20516,7 +20588,7 @@
    "units_typical": -1.67,
    "roi_typical": -0.3,
    "typical_picks": 558,
-   "pending": 0,
+   "pending": 3,
    "avg_clv_pts": 0.04,
    "beat_close_pct": 50.6,
    "clv_n": 565,
