@@ -1,5 +1,23 @@
 [
  {
+  "game_id": 2026020344,
+  "date": "2026-11-18",
+  "game": "BOS@DET",
+  "team": "DET",
+  "side": "home",
+  "stake": 1,
+  "tier": "Bet",
+  "price": -109,
+  "best_price": -104,
+  "best_book": "lowvig",
+  "locked_at": "2026-11-18T22:30:13+00:00",
+  "close_price": -109,
+  "result": "Pending",
+  "units": null,
+  "source": "live",
+  "close_at": "2026-11-18T22:30:13+00:00"
+ },
+ {
   "game_id": 2026020333,
   "date": "2026-11-17",
   "game": "LAK@BOS",
