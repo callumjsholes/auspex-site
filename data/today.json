@@ -1,6 +1,6 @@
 {
  "date": "2026-11-19",
- "generated_at": "2026-11-19T14:15:14+00:00",
+ "generated_at": "2026-11-19T22:00:15+00:00",
  "games": [
   {
    "game_id": 2026020347,
@@ -14,9 +14,16 @@
    "away_score": null,
    "home_goalie": "Anthony Stolarz",
    "away_goalie": "Darcy Kuemper",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
+   "n_books": 12,
+   "home_price": -120,
+   "away_price": 100,
+   "edge_side": "away",
+   "edge_team": "LAK",
+   "stake": 2,
+   "tier": "Best bet",
+   "locked": true
   },
   {
    "game_id": 2026020348,
@@ -28,10 +35,10 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Linus Ullmark",
-   "away_goalie": "Dan Vladar",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie": "Samuel Ersson",
+   "away_goalie": "Joseph Woll",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -47,7 +54,7 @@
    "home_goalie": "Andrei Vasilevskiy",
    "away_goalie": "Devon Levi",
    "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -62,9 +69,16 @@
    "away_score": null,
    "home_goalie": "Arturs Silovs",
    "away_goalie": "Joel Hofer",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
+   "n_books": 12,
+   "home_price": -109,
+   "away_price": -110,
+   "edge_side": "home",
+   "edge_team": "PIT",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020351,
@@ -78,8 +92,8 @@
    "away_score": null,
    "home_goalie": "Logan Thompson",
    "away_goalie": "Ukko-Pekka Luukkonen",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -111,7 +125,7 @@
    "home_goalie": "Spencer Knight",
    "away_goalie": "Cam Talbot",
    "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -124,10 +138,10 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Stuart Skinner",
-   "away_goalie": "Ilya Sorokin",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie": "Nico Daws",
+   "away_goalie": "Semyon Varlamov",
+   "home_goalie_status": "Likely",
+   "away_goalie_status": "Likely",
    "locked": false
   },
   {
@@ -142,8 +156,8 @@
    "away_score": null,
    "home_goalie": "Dustin Wolf",
    "away_goalie": "Jesper Wallstedt",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -156,11 +170,18 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Mackenzie Blackwood",
+   "home_goalie": "Scott Wedgewood",
    "away_goalie": "Lukas Dostal",
    "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "away_goalie_status": "Confirmed",
+   "n_books": 12,
+   "home_price": -129,
+   "away_price": 108,
+   "edge_side": "home",
+   "edge_team": "COL",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020357,
@@ -174,8 +195,8 @@
    "away_score": null,
    "home_goalie": "Philipp Grubauer",
    "away_goalie": "Leevi Merilinen",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
+   "away_goalie_status": "Likely",
    "locked": false
   },
   {
@@ -188,10 +209,10 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Carter Hart",
+   "home_goalie": "Adin Hill",
    "away_goalie": "Jake Oettinger",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   }
  ]
