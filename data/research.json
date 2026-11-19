@@ -103,12 +103,12 @@
   },
   {
    "bin": "50\u201360%",
-   "model_pred": 0.569,
-   "model_obs": 0.444,
-   "model_n": 18,
+   "model_pred": 0.568,
+   "model_obs": 0.421,
+   "model_n": 19,
    "book_pred": 0.498,
-   "book_obs": 0.444,
-   "book_n": 18
+   "book_obs": 0.421,
+   "book_n": 19
   },
   {
    "bin": "60\u201370%",

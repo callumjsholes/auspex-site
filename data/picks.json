@@ -12,8 +12,8 @@
   "best_book": "lowvig",
   "locked_at": "2026-11-18T22:30:13+00:00",
   "close_price": -109,
-  "result": "Pending",
-  "units": null,
+  "result": "Lost",
+  "units": -1,
   "source": "live",
   "close_at": "2026-11-19T00:15:25+00:00",
   "close_median": -109,
@@ -21,7 +21,10 @@
   "close_best_book": "lowvig",
   "closed": true,
   "clv_pts": 0.2,
-  "clv_cents": 0.0
+  "clv_cents": 0.0,
+  "home_score": 1,
+  "away_score": 4,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020333,

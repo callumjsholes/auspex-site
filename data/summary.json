@@ -1,41 +1,41 @@
 {
- "generated_at": "2026-11-19T00:15:25+00:00",
- "today": "2026-11-18",
+ "generated_at": "2026-11-19T14:15:14+00:00",
+ "today": "2026-11-19",
  "live": {
-  "bets": 54,
+  "bets": 55,
   "wins": 26,
-  "losses": 28,
-  "staked": 77,
-  "units": -4.16,
-  "roi": -5.4,
-  "avg_clv_pts": -0.31,
-  "beat_close_pct": 35.2,
-  "pending": 1,
+  "losses": 29,
+  "staked": 78,
+  "units": -5.16,
+  "roi": -6.6,
+  "avg_clv_pts": -0.3,
+  "beat_close_pct": 36.4,
+  "pending": 0,
   "close_ev_units": -3.42,
   "close_ev_roi": -4.4,
   "close_picks": 55,
-  "avg_clv_cents": -0.28,
-  "beat_close_cents_pct": 37.0,
-  "clv_cents_n": 54,
+  "avg_clv_cents": -0.27,
+  "beat_close_cents_pct": 36.4,
+  "clv_cents_n": 55,
   "clv_na": 0
  },
  "live_by_tier": {
   "Bet": {
-   "bets": 31,
+   "bets": 32,
    "wins": 15,
-   "losses": 16,
-   "staked": 31,
-   "units": -2.44,
-   "roi": -7.9,
-   "avg_clv_pts": -0.53,
-   "beat_close_pct": 38.7,
-   "pending": 1,
+   "losses": 17,
+   "staked": 32,
+   "units": -3.44,
+   "roi": -10.7,
+   "avg_clv_pts": -0.51,
+   "beat_close_pct": 40.6,
+   "pending": 0,
    "close_ev_units": -1.6,
    "close_ev_roi": -5.0,
    "close_picks": 32,
-   "avg_clv_cents": -0.57,
-   "beat_close_cents_pct": 35.5,
-   "clv_cents_n": 31,
+   "avg_clv_cents": -0.56,
+   "beat_close_cents_pct": 34.4,
+   "clv_cents_n": 32,
    "clv_na": 0
   },
   "Best bet": {
@@ -157,6 +157,10 @@
   {
    "date": "2026-11-17",
    "units": -4.16
+  },
+  {
+   "date": "2026-11-18",
+   "units": -5.16
   }
  ],
  "backtest_this_season": {
