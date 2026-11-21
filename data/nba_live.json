@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T15:15:25+00:00",
+ "generated_at": "2026-11-21T17:10:21+00:00",
  "today": "2026-11-21",
  "games": [
   {
@@ -12,8 +12,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401910024",
@@ -83,6 +83,30 @@
  ],
  "next_date": "2026-11-22",
  "picks": [
+  {
+   "id": "401910023-4395725-pts",
+   "game_id": "401910023",
+   "date": "2026-11-21",
+   "start_utc": "2026-11-21T18:00Z",
+   "game": "MIL@PHI",
+   "player": "Tyler Herro",
+   "player_id": "4395725",
+   "team": "MIL",
+   "opp": "PHI",
+   "stat": "pts",
+   "side": "Under",
+   "line": 20.5,
+   "price": -110,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": -120,
+   "typical_n": 5,
+   "locked_at": "2026-11-21T17:10:21+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401909312-3112335-pts",
    "game_id": "401909312",
@@ -22139,7 +22163,7 @@
   "units_typical": -11.23,
   "roi_typical": -1.9,
   "typical_picks": 606,
-  "pending": 0,
+  "pending": 1,
   "avg_clv_pts": -0.01,
   "beat_close_pct": 49.8,
   "clv_n": 613,
@@ -22160,7 +22184,7 @@
    "units_typical": -11.23,
    "roi_typical": -1.9,
    "typical_picks": 606,
-   "pending": 0,
+   "pending": 1,
    "avg_clv_pts": -0.01,
    "beat_close_pct": 49.8,
    "clv_n": 613,
