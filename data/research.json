@@ -12,20 +12,20 @@
   {
    "bin": "50\u201360%",
    "model_pred": 0.552,
-   "model_obs": 0.528,
-   "model_n": 468,
+   "model_obs": 0.526,
+   "model_n": 475,
    "book_pred": 0.506,
-   "book_obs": 0.528,
-   "book_n": 468
+   "book_obs": 0.526,
+   "book_n": 475
   },
   {
    "bin": "60\u201370%",
    "model_pred": 0.623,
-   "model_obs": 0.594,
-   "model_n": 69,
+   "model_obs": 0.586,
+   "model_n": 70,
    "book_pred": 0.57,
-   "book_obs": 0.594,
-   "book_n": 69
+   "book_obs": 0.586,
+   "book_n": 70
   }
  ],
  "nba_ev_buckets": [],
