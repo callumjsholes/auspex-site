@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T02:10:26+00:00",
+ "generated_at": "2026-11-22T02:50:26+00:00",
  "today": "2026-11-21",
  "games": [
   {
@@ -23,8 +23,8 @@
    "start_utc": "2026-11-22T00:30Z",
    "state": "in",
    "completed": false,
-   "hs": 75,
-   "as_": 64,
+   "hs": 94,
+   "as_": 94,
    "locked": true,
    "picks": 4
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-11-22T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 52,
-   "as_": 44,
+   "hs": 73,
+   "as_": 69,
    "locked": true,
    "picks": 0
   },
@@ -49,8 +49,8 @@
    "start_utc": "2026-11-22T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 56,
-   "as_": 46,
+   "hs": 85,
+   "as_": 62,
    "locked": true,
    "picks": 1
   },
@@ -62,8 +62,8 @@
    "start_utc": "2026-11-22T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 58,
-   "as_": 45,
+   "hs": 81,
+   "as_": 60,
    "locked": true,
    "picks": 0
   },
@@ -105,7 +105,18 @@
    "locked_at": "2026-11-22T02:10:26+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-22T02:50:26+00:00",
+   "close_median": -128,
+   "close_best": -119,
+   "close_best_book": "draftkings",
+   "close_quote_line": 12.5,
+   "close_line_exact": true,
+   "clv_pts": -0.2,
+   "close_price": -121,
+   "close_line": 12.5,
+   "clv_cents": 2.01
   },
   {
    "id": "401910026-4397002-ast",
@@ -22376,11 +22387,11 @@
   "typical_picks": 607,
   "pending": 6,
   "avg_clv_pts": -0.01,
-  "beat_close_pct": 49.6,
-  "clv_n": 619,
+  "beat_close_pct": 49.5,
+  "clv_n": 620,
   "avg_clv_cents": 1.96,
   "beat_close_cents_pct": 87.3,
-  "clv_cents_n": 613,
+  "clv_cents_n": 614,
   "clv_na": 9
  },
  "by_tier": {
@@ -22397,11 +22408,11 @@
    "typical_picks": 607,
    "pending": 6,
    "avg_clv_pts": -0.01,
-   "beat_close_pct": 49.6,
-   "clv_n": 619,
+   "beat_close_pct": 49.5,
+   "clv_n": 620,
    "avg_clv_cents": 1.96,
    "beat_close_cents_pct": 87.3,
-   "clv_cents_n": 613,
+   "clv_cents_n": 614,
    "clv_na": 9
   }
  },
