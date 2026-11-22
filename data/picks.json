@@ -59,11 +59,17 @@
   "best_price": -155,
   "best_book": "betus",
   "locked_at": "2026-11-21T16:00:22+00:00",
-  "close_price": -160,
+  "close_price": -151,
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-11-21T16:00:22+00:00"
+  "close_at": "2026-11-22T01:45:13+00:00",
+  "close_median": -151,
+  "close_best": -147,
+  "close_best_book": "circasports",
+  "closed": true,
+  "clv_pts": -0.9,
+  "clv_cents": -1.38
  },
  {
   "game_id": 2026020372,
