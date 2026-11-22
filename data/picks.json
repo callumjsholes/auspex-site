@@ -35,11 +35,17 @@
   "best_price": -204,
   "best_book": "circasports",
   "locked_at": "2026-11-22T15:30:13+00:00",
-  "close_price": -209,
+  "close_price": -203,
   "result": "Pending",
   "units": null,
   "source": "live",
-  "close_at": "2026-11-22T15:30:13+00:00"
+  "close_at": "2026-11-22T21:45:12+00:00",
+  "close_median": -203,
+  "close_best": -200,
+  "close_best_book": "fanduel",
+  "closed": true,
+  "clv_pts": -0.1,
+  "clv_cents": -0.64
  },
  {
   "game_id": 2026020366,
