@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T23:40:25+00:00",
+ "generated_at": "2026-11-22T00:10:26+00:00",
  "today": "2026-11-21",
  "games": [
   {
@@ -38,7 +38,7 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
+   "locked": true,
    "picks": 0
   },
   {
@@ -51,8 +51,8 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
-   "picks": 0
+   "locked": true,
+   "picks": 1
   },
   {
    "game_id": "401910027",
@@ -64,7 +64,7 @@
    "completed": false,
    "hs": 0,
    "as_": 0,
-   "locked": false,
+   "locked": true,
    "picks": 0
   },
   {
@@ -83,6 +83,30 @@
  ],
  "next_date": "2026-11-22",
  "picks": [
+  {
+   "id": "401910026-4397002-ast",
+   "game_id": "401910026",
+   "date": "2026-11-21",
+   "start_utc": "2026-11-22T01:00Z",
+   "game": "MEM@MIN",
+   "player": "Ayo Dosunmu",
+   "player_id": "4397002",
+   "team": "MIN",
+   "opp": "MEM",
+   "stat": "ast",
+   "side": "Under",
+   "line": 3.5,
+   "price": 120,
+   "book": "betrivers",
+   "tier": "Pick",
+   "stake": 1.0,
+   "typical_price": 108,
+   "typical_n": 5,
+   "locked_at": "2026-11-22T00:10:26+00:00",
+   "result": "Pending",
+   "units": null,
+   "units_typical": null
+  },
   {
    "id": "401910024-3934672-ast",
    "game_id": "401910024",
@@ -22271,7 +22295,7 @@
   "units_typical": -12.23,
   "roi_typical": -2.0,
   "typical_picks": 607,
-  "pending": 4,
+  "pending": 5,
   "avg_clv_pts": -0.01,
   "beat_close_pct": 49.8,
   "clv_n": 614,
@@ -22292,7 +22316,7 @@
    "units_typical": -12.23,
    "roi_typical": -2.0,
    "typical_picks": 607,
-   "pending": 4,
+   "pending": 5,
    "avg_clv_pts": -0.01,
    "beat_close_pct": 49.8,
    "clv_n": 614,
