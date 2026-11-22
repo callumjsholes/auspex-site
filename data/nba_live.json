@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T19:40:33+00:00",
+ "generated_at": "2026-11-22T20:15:53+00:00",
  "today": "2026-11-22",
  "games": [
   {
@@ -118,7 +118,17 @@
    "locked_at": "2026-11-22T19:40:33+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-22T20:15:53+00:00",
+   "close_median": -124,
+   "close_best": -124,
+   "close_best_book": "betrivers",
+   "close_quote_line": 20.5,
+   "close_line_exact": true,
+   "clv_pts": -0.3,
+   "close_line": 19.5,
+   "clv_cents": 2.75
   },
   {
    "id": "401910029-5149077-pts",
@@ -142,7 +152,18 @@
    "locked_at": "2026-11-22T19:40:33+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-22T20:15:53+00:00",
+   "close_median": -130,
+   "close_best": -130,
+   "close_best_book": "fanduel",
+   "close_quote_line": 8.5,
+   "close_line_exact": true,
+   "clv_pts": -0.2,
+   "close_price": -130,
+   "close_line": 8.5,
+   "clv_cents": 1.77
   },
   {
    "id": "401910029-4066372-pts",
@@ -166,7 +187,18 @@
    "locked_at": "2026-11-22T19:40:33+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-22T20:15:53+00:00",
+   "close_median": -114,
+   "close_best": -111,
+   "close_best_book": "fanduel",
+   "close_quote_line": 13.5,
+   "close_line_exact": true,
+   "clv_pts": 0.4,
+   "close_price": -113,
+   "close_line": 13.5,
+   "clv_cents": 1.58
   },
   {
    "id": "401910029-4278039-reb",
@@ -190,7 +222,18 @@
    "locked_at": "2026-11-22T19:40:33+00:00",
    "result": "Pending",
    "units": null,
-   "units_typical": null
+   "units_typical": null,
+   "closed": true,
+   "close_at": "2026-11-22T20:15:53+00:00",
+   "close_median": -160,
+   "close_best": -143,
+   "close_best_book": "betrivers",
+   "close_quote_line": 3.5,
+   "close_line_exact": true,
+   "clv_pts": 1.6,
+   "close_price": -143,
+   "close_line": 3.5,
+   "clv_cents": 6.58
   },
   {
    "id": "401910028-4397424-pts",
@@ -22503,10 +22546,10 @@
   "pending": 4,
   "avg_clv_pts": -0.01,
   "beat_close_pct": 49.5,
-  "clv_n": 620,
-  "avg_clv_cents": 1.96,
-  "beat_close_cents_pct": 87.3,
-  "clv_cents_n": 614,
+  "clv_n": 624,
+  "avg_clv_cents": 1.97,
+  "beat_close_cents_pct": 87.4,
+  "clv_cents_n": 618,
   "clv_na": 9
  },
  "by_tier": {
@@ -22524,10 +22567,10 @@
    "pending": 4,
    "avg_clv_pts": -0.01,
    "beat_close_pct": 49.5,
-   "clv_n": 620,
-   "avg_clv_cents": 1.96,
-   "beat_close_cents_pct": 87.3,
-   "clv_cents_n": 614,
+   "clv_n": 624,
+   "avg_clv_cents": 1.97,
+   "beat_close_cents_pct": 87.4,
+   "clv_cents_n": 618,
    "clv_na": 9
   }
  },
