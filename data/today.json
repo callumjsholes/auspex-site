@@ -1,6 +1,6 @@
 {
  "date": "2026-11-22",
- "generated_at": "2026-11-22T14:15:15+00:00",
+ "generated_at": "2026-11-22T15:30:13+00:00",
  "games": [
   {
    "game_id": 2026020373,
@@ -15,8 +15,15 @@
    "home_goalie": "Dylan Garand",
    "away_goalie": "Brandon Bussi",
    "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "away_goalie_status": "Confirmed",
+   "n_books": 12,
+   "home_price": 137,
+   "away_price": -160,
+   "edge_side": "home",
+   "edge_team": "NYR",
+   "stake": 2,
+   "tier": "Best bet",
+   "locked": true
   },
   {
    "game_id": 2026020374,
@@ -32,7 +39,14 @@
    "away_goalie": "Ukko-Pekka Luukkonen",
    "home_goalie_status": "Unconfirmed",
    "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "n_books": 12,
+   "home_price": -209,
+   "away_price": 175,
+   "edge_side": "home",
+   "edge_team": "TBL",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020375,
