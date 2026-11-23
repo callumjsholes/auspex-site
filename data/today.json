@@ -1,6 +1,6 @@
 {
  "date": "2026-11-23",
- "generated_at": "2026-11-23T14:15:14+00:00",
+ "generated_at": "2026-11-23T22:00:25+00:00",
  "games": [
   {
    "game_id": 2026020378,
@@ -14,8 +14,8 @@
    "away_score": null,
    "home_goalie": "Connor Hellebuyck",
    "away_goalie": "Cam Talbot",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -30,9 +30,16 @@
    "away_score": null,
    "home_goalie": "Jakub Dobes",
    "away_goalie": "Darcy Kuemper",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "n_books": 12,
+   "home_price": -154,
+   "away_price": 130,
+   "edge_side": "away",
+   "edge_team": "LAK",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020380,
@@ -46,8 +53,8 @@
    "away_score": null,
    "home_goalie": "Linus Ullmark",
    "away_goalie": "Devin Cooley",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -62,8 +69,8 @@
    "away_score": null,
    "home_goalie": "Ilya Sorokin",
    "away_goalie": "Anthony Stolarz",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -78,8 +85,8 @@
    "away_score": null,
    "home_goalie": "Stuart Skinner",
    "away_goalie": "Sebastian Cossa",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
+   "away_goalie_status": "Confirmed",
    "locked": false
   },
   {
@@ -92,11 +99,18 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Philipp Grubauer",
+   "home_goalie": "Joey Daccord",
    "away_goalie": "Lukas Dostal",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
    "away_goalie_status": "Unconfirmed",
-   "locked": false
+   "n_books": 12,
+   "home_price": -118,
+   "away_price": -101,
+   "edge_side": "away",
+   "edge_team": "ANA",
+   "stake": 1,
+   "tier": "Bet",
+   "locked": true
   },
   {
    "game_id": 2026020384,
@@ -109,9 +123,9 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Yaroslav Askarov",
-   "away_goalie": "Jesper Wallstedt",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed",
+   "away_goalie": "Filip Gustavsson",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Confirmed",
    "locked": false
   }
  ]
