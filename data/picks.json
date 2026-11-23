@@ -12,8 +12,8 @@
   "best_book": "bovada",
   "locked_at": "2026-11-22T15:30:13+00:00",
   "close_price": 136,
-  "result": "Pending",
-  "units": null,
+  "result": "Lost",
+  "units": -2,
   "source": "live",
   "close_at": "2026-11-22T17:15:14+00:00",
   "close_median": 136,
@@ -21,7 +21,10 @@
   "close_best_book": "betonlineag",
   "closed": true,
   "clv_pts": -0.1,
-  "clv_cents": 0.18
+  "clv_cents": 0.18,
+  "home_score": 2,
+  "away_score": 5,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020374,
@@ -36,8 +39,8 @@
   "best_book": "circasports",
   "locked_at": "2026-11-22T15:30:13+00:00",
   "close_price": -203,
-  "result": "Pending",
-  "units": null,
+  "result": "Lost",
+  "units": -1,
   "source": "live",
   "close_at": "2026-11-22T21:45:12+00:00",
   "close_median": -203,
@@ -45,7 +48,10 @@
   "close_best_book": "fanduel",
   "closed": true,
   "clv_pts": -0.1,
-  "clv_cents": -0.64
+  "clv_cents": -0.64,
+  "home_score": 2,
+  "away_score": 6,
+  "last_period": "REG"
  },
  {
   "game_id": 2026020366,
