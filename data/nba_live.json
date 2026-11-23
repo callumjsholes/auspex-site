@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T02:30:14+00:00",
+ "generated_at": "2026-11-23T03:30:13+00:00",
  "today": "2026-11-22",
  "games": [
   {
@@ -47,10 +47,10 @@
    "home": "CHI",
    "away": "DEN",
    "start_utc": "2026-11-23T00:00Z",
-   "state": "in",
-   "completed": false,
-   "hs": 136,
-   "as_": 142,
+   "state": "post",
+   "completed": true,
+   "hs": 145,
+   "as_": 151,
    "locked": true,
    "picks": 0
   },
@@ -75,8 +75,8 @@
    "start_utc": "2026-11-23T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 65,
-   "as_": 55,
+   "hs": 112,
+   "as_": 100,
    "locked": true,
    "picks": 3
   },
@@ -88,8 +88,8 @@
    "start_utc": "2026-11-23T01:30Z",
    "state": "in",
    "completed": false,
-   "hs": 38,
-   "as_": 33,
+   "hs": 83,
+   "as_": 81,
    "locked": true,
    "picks": 3
   }
