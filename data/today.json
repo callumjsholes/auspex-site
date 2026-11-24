@@ -1,6 +1,6 @@
 {
  "date": "2026-11-24",
- "generated_at": "2026-11-24T14:15:14+00:00",
+ "generated_at": "2026-11-24T23:00:14+00:00",
  "games": [
   {
    "game_id": 2026020385,
@@ -13,9 +13,9 @@
    "home_score": null,
    "away_score": null,
    "home_goalie": "Devon Levi",
-   "away_goalie": "Adin Hill",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed"
+   "away_goalie": "Carter Hart",
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Likely"
   }
  ]
 }
