@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T02:10:23+00:00",
+ "generated_at": "2026-11-24T02:29:40+00:00",
  "today": "2026-11-23",
  "games": [
   {
@@ -8,10 +8,10 @@
    "home": "CHA",
    "away": "MEM",
    "start_utc": "2026-11-24T00:00Z",
-   "state": "in",
-   "completed": false,
-   "hs": 90,
-   "as_": 100,
+   "state": "post",
+   "completed": true,
+   "hs": 111,
+   "as_": 117,
    "locked": true,
    "picks": 2
   },
@@ -21,10 +21,10 @@
    "home": "PHI",
    "away": "POR",
    "start_utc": "2026-11-24T00:00Z",
-   "state": "in",
-   "completed": false,
-   "hs": 96,
-   "as_": 116,
+   "state": "post",
+   "completed": true,
+   "hs": 111,
+   "as_": 128,
    "locked": true,
    "picks": 2
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-11-24T00:30Z",
    "state": "in",
    "completed": false,
-   "hs": 88,
-   "as_": 80,
+   "hs": 98,
+   "as_": 96,
    "locked": true,
    "picks": 0
   },
@@ -49,8 +49,8 @@
    "start_utc": "2026-11-24T00:30Z",
    "state": "in",
    "completed": false,
-   "hs": 72,
-   "as_": 69,
+   "hs": 88,
+   "as_": 87,
    "locked": true,
    "picks": 2
   },
@@ -62,8 +62,8 @@
    "start_utc": "2026-11-24T00:30Z",
    "state": "in",
    "completed": false,
-   "hs": 91,
-   "as_": 79,
+   "hs": 115,
+   "as_": 91,
    "locked": true,
    "picks": 3
   },
@@ -76,7 +76,7 @@
    "state": "in",
    "completed": false,
    "hs": 72,
-   "as_": 50,
+   "as_": 59,
    "locked": false,
    "picks": 0
   },
@@ -88,8 +88,8 @@
    "start_utc": "2026-11-24T01:00Z",
    "state": "in",
    "completed": false,
-   "hs": 54,
-   "as_": 56,
+   "hs": 58,
+   "as_": 61,
    "locked": false,
    "picks": 0
   },
@@ -101,8 +101,8 @@
    "start_utc": "2026-11-24T01:30Z",
    "state": "in",
    "completed": false,
-   "hs": 29,
-   "as_": 18,
+   "hs": 42,
+   "as_": 38,
    "locked": false,
    "picks": 0
   },
