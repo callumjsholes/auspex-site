@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T00:10:30+00:00",
+ "generated_at": "2026-11-24T00:19:32+00:00",
  "today": "2026-11-23",
  "games": [
   {
@@ -8,10 +8,10 @@
    "home": "CHA",
    "away": "MEM",
    "start_utc": "2026-11-24T00:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 10,
+   "as_": 15,
    "locked": true,
    "picks": 2
   },
@@ -21,10 +21,10 @@
    "home": "PHI",
    "away": "POR",
    "start_utc": "2026-11-24T00:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 15,
+   "as_": 10,
    "locked": true,
    "picks": 2
   },
