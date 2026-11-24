@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T03:30:11+00:00",
+ "generated_at": "2026-11-24T04:30:13+00:00",
  "today": "2026-11-23",
  "games": [
   {
@@ -86,10 +86,10 @@
    "home": "NOP",
    "away": "PHX",
    "start_utc": "2026-11-24T01:00Z",
-   "state": "in",
-   "completed": false,
-   "hs": 109,
-   "as_": 109,
+   "state": "post",
+   "completed": true,
+   "hs": 119,
+   "as_": 123,
    "locked": false,
    "picks": 0
   },
@@ -99,10 +99,10 @@
    "home": "HOU",
    "away": "LAC",
    "start_utc": "2026-11-24T01:30Z",
-   "state": "in",
-   "completed": false,
-   "hs": 93,
-   "as_": 84,
+   "state": "post",
+   "completed": true,
+   "hs": 116,
+   "as_": 104,
    "locked": false,
    "picks": 0
   },
@@ -114,8 +114,8 @@
    "start_utc": "2026-11-24T03:00Z",
    "state": "in",
    "completed": false,
-   "hs": 18,
-   "as_": 11,
+   "hs": 53,
+   "as_": 45,
    "locked": false,
    "picks": 0
   },
@@ -127,8 +127,8 @@
    "start_utc": "2026-11-24T03:00Z",
    "state": "in",
    "completed": false,
-   "hs": 18,
-   "as_": 14,
+   "hs": 59,
+   "as_": 71,
    "locked": false,
    "picks": 0
   }
