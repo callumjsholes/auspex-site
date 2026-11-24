@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T00:27:32+00:00",
+ "generated_at": "2026-11-24T00:35:37+00:00",
  "today": "2026-11-23",
  "games": [
   {
@@ -10,7 +10,7 @@
    "start_utc": "2026-11-24T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 24,
+   "hs": 32,
    "as_": 28,
    "locked": true,
    "picks": 2
@@ -23,8 +23,8 @@
    "start_utc": "2026-11-24T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 26,
-   "as_": 21,
+   "hs": 28,
+   "as_": 27,
    "locked": true,
    "picks": 2
   },
