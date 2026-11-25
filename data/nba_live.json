@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T03:30:13+00:00",
+ "generated_at": "2026-11-25T04:30:12+00:00",
  "today": "2026-11-24",
  "games": [
   {
@@ -21,10 +21,10 @@
    "home": "WAS",
    "away": "BOS",
    "start_utc": "2026-11-25T01:00Z",
-   "state": "in",
-   "completed": false,
-   "hs": 112,
-   "as_": 124,
+   "state": "post",
+   "completed": true,
+   "hs": 116,
+   "as_": 131,
    "locked": false,
    "picks": 0
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-11-25T03:00Z",
    "state": "in",
    "completed": false,
-   "hs": 8,
-   "as_": 15,
+   "hs": 49,
+   "as_": 62,
    "locked": false,
    "picks": 0
   }
