@@ -1,13 +1,7 @@
 {
- "generated_at": "2026-11-26T05:00:27+00:00",
+ "generated_at": "2026-11-26T06:30:29+00:00",
  "keep_watching_until": null,
  "events": [
-  {
-   "at": "2026-11-26T06:30:00+00:00",
-   "key": "nba:grade",
-   "mode": "skip",
-   "nba_mode": "grade"
-  },
   {
    "at": "2026-11-26T14:15:00+00:00",
    "key": "morning",
