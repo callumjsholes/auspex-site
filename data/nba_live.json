@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T00:58:53+00:00",
+ "generated_at": "2026-11-26T01:30:14+00:00",
  "today": "2026-11-25",
  "games": [
   {
@@ -23,8 +23,8 @@
    "start_utc": "2026-11-26T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 42,
-   "as_": 45,
+   "hs": 57,
+   "as_": 55,
    "locked": false,
    "picks": 0
   },
@@ -36,8 +36,8 @@
    "start_utc": "2026-11-26T00:30Z",
    "state": "in",
    "completed": false,
-   "hs": 18,
-   "as_": 20,
+   "hs": 37,
+   "as_": 45,
    "locked": false,
    "picks": 0
   },
@@ -49,8 +49,8 @@
    "start_utc": "2026-11-26T00:30Z",
    "state": "in",
    "completed": false,
-   "hs": 14,
-   "as_": 17,
+   "hs": 34,
+   "as_": 39,
    "locked": false,
    "picks": 0
   },
@@ -60,10 +60,10 @@
    "home": "MEM",
    "away": "LAC",
    "start_utc": "2026-11-26T01:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 28,
+   "as_": 10,
    "locked": false,
    "picks": 0
   },
@@ -73,10 +73,10 @@
    "home": "MIL",
    "away": "BKN",
    "start_utc": "2026-11-26T01:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 17,
+   "as_": 22,
    "locked": false,
    "picks": 0
   },
