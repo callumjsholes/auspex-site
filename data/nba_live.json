@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T00:32:40+00:00",
+ "generated_at": "2026-11-26T00:40:26+00:00",
  "today": "2026-11-25",
  "games": [
   {
@@ -8,8 +8,8 @@
    "home": "PHI",
    "away": "MIA",
    "start_utc": "2026-11-25T22:00Z",
-   "state": "in",
-   "completed": false,
+   "state": "post",
+   "completed": true,
    "hs": 111,
    "as_": 104,
    "locked": false,
@@ -23,8 +23,8 @@
    "start_utc": "2026-11-26T00:00Z",
    "state": "in",
    "completed": false,
-   "hs": 23,
-   "as_": 21,
+   "hs": 30,
+   "as_": 32,
    "locked": false,
    "picks": 0
   },
