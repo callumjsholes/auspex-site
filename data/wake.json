@@ -1,18 +1,90 @@
 {
- "generated_at": "2026-11-26T15:15:44+00:00",
- "keep_watching_until": null,
+ "generated_at": "2026-11-27T14:15:56+00:00",
+ "keep_watching_until": "2026-11-28T02:30:00+00:00",
  "events": [
-  {
-   "at": "2026-11-27T14:15:00+00:00",
-   "key": "morning",
-   "mode": "morning",
-   "nba_mode": "skip"
-  },
   {
    "at": "2026-11-27T15:15:00+00:00",
    "key": "nba:morning",
    "mode": "skip",
    "nba_mode": "morning"
+  },
+  {
+   "at": "2026-11-27T16:00:00+00:00",
+   "key": "pregame",
+   "mode": "pregame",
+   "nba_mode": "skip"
+  },
+  {
+   "at": "2026-11-27T23:10:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
+   "at": "2026-11-27T23:40:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
+   "at": "2026-11-28T00:10:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
+   "at": "2026-11-28T00:40:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
+   "at": "2026-11-28T01:10:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
+   "at": "2026-11-28T01:40:00+00:00",
+   "key": "nba:lock",
+   "mode": "skip",
+   "nba_mode": "lock"
+  },
+  {
+   "at": "2026-11-28T03:30:00+00:00",
+   "key": "nba:grade",
+   "mode": "skip",
+   "nba_mode": "grade"
+  },
+  {
+   "at": "2026-11-28T04:00:00+00:00",
+   "key": "nba:grade",
+   "mode": "skip",
+   "nba_mode": "grade"
+  },
+  {
+   "at": "2026-11-28T04:30:00+00:00",
+   "key": "nba:grade",
+   "mode": "skip",
+   "nba_mode": "grade"
+  },
+  {
+   "at": "2026-11-28T05:00:00+00:00",
+   "key": "nba:grade",
+   "mode": "skip",
+   "nba_mode": "grade"
+  },
+  {
+   "at": "2026-11-28T05:30:00+00:00",
+   "key": "nba:grade",
+   "mode": "skip",
+   "nba_mode": "grade"
+  },
+  {
+   "at": "2026-11-28T06:00:00+00:00",
+   "key": "nba:grade",
+   "mode": "skip",
+   "nba_mode": "grade"
   },
   {
    "at": "2026-11-28T14:15:00+00:00",
@@ -25,10 +97,15 @@
    "key": "nba:morning",
    "mode": "skip",
    "nba_mode": "morning"
+  },
+  {
+   "at": "2026-11-29T14:15:00+00:00",
+   "key": "morning",
+   "mode": "morning",
+   "nba_mode": "skip"
   }
  ],
  "nhl_morning_done": [
-  "2026-11-16",
   "2026-11-17",
   "2026-11-18",
   "2026-11-19",
@@ -38,7 +115,8 @@
   "2026-11-23",
   "2026-11-24",
   "2026-11-25",
-  "2026-11-26"
+  "2026-11-26",
+  "2026-11-27"
  ],
  "nba_morning_done": [
   "2026-11-21",
