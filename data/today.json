@@ -1,6 +1,6 @@
 {
  "date": "2026-11-27",
- "generated_at": "2026-11-27T14:15:15+00:00",
+ "generated_at": "2026-11-27T16:00:14+00:00",
  "games": [
   {
    "game_id": 2026020400,
@@ -29,7 +29,7 @@
    "away_score": null,
    "home_goalie": "Jake Allen",
    "away_goalie": "Dustin Wolf",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed"
   },
   {
@@ -192,9 +192,9 @@
    "state": "FUT",
    "home_score": null,
    "away_score": null,
-   "home_goalie": "Ilya Sorokin",
+   "home_goalie": "Semyon Varlamov",
    "away_goalie": "Stuart Skinner",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed"
   },
   {
@@ -209,7 +209,7 @@
    "away_score": null,
    "home_goalie": "Ukko-Pekka Luukkonen",
    "away_goalie": "Sergei Murashov",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
    "away_goalie_status": "Unconfirmed"
   },
   {
