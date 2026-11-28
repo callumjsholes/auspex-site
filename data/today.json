@@ -1,6 +1,6 @@
 {
  "date": "2026-11-28",
- "generated_at": "2026-11-28T14:15:14+00:00",
+ "generated_at": "2026-11-28T19:00:13+00:00",
  "games": [
   {
    "game_id": 2026020415,
@@ -29,7 +29,7 @@
    "away_score": null,
    "home_goalie": "Akira Schmid",
    "away_goalie": "Andrei Vasilevskiy",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
    "away_goalie_status": "Unconfirmed"
   },
   {
@@ -60,7 +60,7 @@
    "home_goalie": "Connor Hellebuyck",
    "away_goalie": "Nico Daws",
    "home_goalie_status": "Confirmed",
-   "away_goalie_status": "Unconfirmed"
+   "away_goalie_status": "Confirmed"
   },
   {
    "game_id": 2026020419,
@@ -74,7 +74,7 @@
    "away_score": null,
    "home_goalie": "Joonas Korpisalo",
    "away_goalie": "Dustin Wolf",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Likely",
    "away_goalie_status": "Unconfirmed"
   },
   {
@@ -104,7 +104,7 @@
    "away_score": null,
    "home_goalie": "Pyotr Kochetkov",
    "away_goalie": "Samuel Ersson",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed"
   },
   {
@@ -119,7 +119,7 @@
    "away_score": null,
    "home_goalie": "Jordan Binnington",
    "away_goalie": "Charlie Lindgren",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Unconfirmed"
   },
   {
@@ -134,7 +134,7 @@
    "away_score": null,
    "home_goalie": "Joseph Woll",
    "away_goalie": "Ilya Sorokin",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Confirmed"
   },
   {
@@ -149,8 +149,8 @@
    "away_score": null,
    "home_goalie": "Jake Oettinger",
    "away_goalie": "Sebastian Cossa",
-   "home_goalie_status": "Unconfirmed",
-   "away_goalie_status": "Unconfirmed"
+   "home_goalie_status": "Confirmed",
+   "away_goalie_status": "Likely"
   },
   {
    "game_id": 2026020425,
@@ -179,7 +179,7 @@
    "away_score": null,
    "home_goalie": "Anton Forsberg",
    "away_goalie": "Lukas Dostal",
-   "home_goalie_status": "Unconfirmed",
+   "home_goalie_status": "Confirmed",
    "away_goalie_status": "Confirmed"
   },
   {
