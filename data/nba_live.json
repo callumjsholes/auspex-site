@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-28T00:10:27+00:00",
+ "generated_at": "2026-11-28T00:15:40+00:00",
  "today": "2026-11-27",
  "games": [
   {
@@ -8,10 +8,10 @@
    "home": "NYK",
    "away": "MIA",
    "start_utc": "2026-11-28T00:00Z",
-   "state": "pre",
+   "state": "in",
    "completed": false,
-   "hs": 0,
-   "as_": 0,
+   "hs": 3,
+   "as_": 6,
    "locked": false,
    "picks": 0
   },
